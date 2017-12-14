@@ -9,7 +9,7 @@ using AplicacionAlmacen.Modelo;
 
 namespace AplicacionAlmacen.Controlador
 {
-    class Principal
+    class PrincipalControlador
     {
         public List<Materiales> metodo()
         {

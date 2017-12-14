@@ -7,13 +7,13 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 
 namespace AplicacionAlmacen.Vista
 {
-    public partial class Prueb : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class CatalogoGrupos : DevExpress.XtraEditors.XtraForm
     {
-        public Prueb()
+        public CatalogoGrupos()
         {
             InitializeComponent();
         }

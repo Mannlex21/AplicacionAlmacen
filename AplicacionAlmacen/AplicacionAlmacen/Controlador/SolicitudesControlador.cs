@@ -9,7 +9,7 @@ using AplicacionAlmacen.Modelo;
 
 namespace AplicacionAlmacen.Controlador
 {
-    class Solicitudes
+    class SolicitudesControlador
     {
         public List<Solicitud_Requisiciones> GetAllSolicitudes()
         {
@@ -29,14 +29,27 @@ namespace AplicacionAlmacen.Controlador
                 return list.ToList().Count();
             }
         }
-        public List<Solicitud_Requisiciones> GetSolicitudes(int page,int pageSize)
+        public List<Solicitud_Requisiciones> GetSolicitudes(string depa, int page, int pageSize)
         {
             AlmacenEntities DB = new AlmacenEntities();
             int pageIndex = Convert.ToInt32(page);
-            var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
-                && s.liberaElectrico == true && s.liberaSeguridad == true && s.requisicion=="n/a")
-                .OrderBy(s => s.preRequisicion).Skip(pageIndex * pageSize).Take(pageSize);
-            return Results.ToList();
+            if (depa == "")
+            {
+                var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
+                    && s.liberaElectrico == true && s.liberaSeguridad == true && s.requisicion == "n/a")
+                    .OrderBy(s => s.preRequisicion).Skip(pageIndex * pageSize).Take(pageSize);
+                return Results.ToList();
+            }
+            else
+            {
+                var dep = DB.Departamentos.Where(s => s.descripcion == depa).FirstOrDefault();
+                var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
+                    && s.liberaElectrico == true && s.liberaSeguridad == true && s.requisicion == "n/a" && s.departamento == dep.idDepartamento)
+                    .OrderBy(s => s.preRequisicion).Skip(pageIndex * pageSize).Take(pageSize);
+                return Results.ToList();
+            }
+            
+            
         }
     }
 }

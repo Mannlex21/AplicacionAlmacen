@@ -18,7 +18,7 @@ namespace AplicacionAlmacen.Modelo
         public AlmacenEntities()
             : base("name=AlmacenEntities")
         {
-            //this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

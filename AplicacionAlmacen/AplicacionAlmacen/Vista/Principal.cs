@@ -21,7 +21,7 @@ namespace AplicacionAlmacen
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Controlador.Principal p = new Controlador.Principal();
+            Controlador.PrincipalControlador p = new Controlador.PrincipalControlador();
             System.Diagnostics.Debug.WriteLine(p.metodo().FirstOrDefault().marca);
         }
     }

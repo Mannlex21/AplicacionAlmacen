@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>almacen2.ico</ApplicationIcon>
+    <ApplicationIcon>box5_2.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
@@ -71,9 +71,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controlador\CatalogoMateriales.cs" />
-    <Compile Include="Controlador\Principal.cs" />
-    <Compile Include="Controlador\Solicitudes.cs" />
+    <Compile Include="Controlador\DepartamentosControlador.cs" />
+    <Compile Include="Controlador\MaterialesControlador.cs" />
+    <Compile Include="Controlador\PrincipalControlador.cs" />
+    <Compile Include="Controlador\SolicitudesControlador.cs" />
     <Compile Include="Modelo\AlmacenEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -125,6 +126,12 @@
     <Compile Include="Vista\CatalogoMateriales.Designer.cs">
       <DependentUpon>CatalogoMateriales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\CatalogoGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\CatalogoGrupos.Designer.cs">
+      <DependentUpon>CatalogoGrupos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,12 +140,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vista\Prueb.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\Prueb.Designer.cs">
-      <DependentUpon>Prueb.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vista\Solicitudes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,9 +162,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Vista\Prueb.resx">
-      <DependentUpon>Prueb.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vista\Solicitudes.resx">
       <DependentUpon>Solicitudes.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,9 +187,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="almacen.ico" />
-    <Content Include="almacen2.ico" />
-    <Content Include="logo.ico" />
+    <Content Include="box5.ico" />
+    <Content Include="box5_2.ico" />
     <Content Include="Modelo\AlmacenEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AlmacenEntities.edmx</DependentUpon>

@@ -15,7 +15,8 @@ namespace AplicacionAlmacen.Vista
     {
         static int totalRecords = 1;
         static private int pageSize = 30;
-        static Controlador.Solicitudes s = new Controlador.Solicitudes();
+        static Controlador.SolicitudesControlador s = new Controlador.SolicitudesControlador();
+        static Controlador.DepartamentosControlador d = new Controlador.DepartamentosControlador();
         static List<Solicitud_Requisiciones> records = new List<Solicitud_Requisiciones>();
         public Solicitudes()
         {
@@ -23,10 +24,15 @@ namespace AplicacionAlmacen.Vista
             bindingNavigator.BindingSource= bindingSource;
             bindingSource.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
+            foreach (var t in d.GetDepartamentos())
+            {
+                depaCombo.Items.Add(t.descripcion);
+            }
+            
         }
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
-            GridControl.DataSource = s.GetSolicitudes(((int)bindingSource.Current/pageSize), pageSize);
+            GridControl.DataSource = s.GetSolicitudes(depaCombo.Text,((int)bindingSource.Current/pageSize), pageSize);
            
         }
 
@@ -45,14 +51,20 @@ namespace AplicacionAlmacen.Vista
             }
         }
 
-        private void Solicitudes_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
         {
             new CatalogoMateriales().Show();
+        }
+
+        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            new CatalogoGrupos().Show();
+        }
+
+        private void depaCombo_Click(object sender, EventArgs e)
+        {
+            GridControl.DataSource = s.GetSolicitudes(depaCombo.Text, ((int)bindingSource.Current / pageSize), pageSize);
+            Console.WriteLine(depaCombo.Text);
         }
     }
 }
