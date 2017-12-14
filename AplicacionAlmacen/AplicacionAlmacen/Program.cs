@@ -14,9 +14,12 @@ namespace AplicacionAlmacen
         [STAThread]
         static void Main()
         {
+            
+
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Vista.Solicitudes());
+            Application.Run(new Principal());
         }
     }
 }

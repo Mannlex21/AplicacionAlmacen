@@ -10,17 +10,19 @@
         <EntityTypeShape EntityType="bdAdquisicionMaterialModel.DetalleRequisicion" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="bdAdquisicionMaterialModel.DetalleRequisicion2" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="bdAdquisicionMaterialModel.DetallesUsuarios" Width="1.5" PointX="10" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdAdquisicionMaterialModel.Materiales" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="bdAdquisicionMaterialModel.MaterialesContable" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="bdAdquisicionMaterialModel.Solicitud_Requisiciones" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="bdAdquisicionMaterialModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="bdAdquisicionMaterialModel.Usuarios" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="bdAdquisicionMaterialModel.FK_SolicitudRequisiciones_Departamento" ManuallyRouted="false" />
-        <AssociationConnector Association="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Materiales" ManuallyRouted="false" />
         <AssociationConnector Association="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Solicitud2" ManuallyRouted="false" />
         <AssociationConnector Association="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Solicitud" ManuallyRouted="false" />
         <AssociationConnector Association="bdAdquisicionMaterialModel.FK_DetallesUsuarios_Usuarios" ManuallyRouted="false" />
-        <AssociationConnector Association="bdAdquisicionMaterialModel.FK_Materiales_MaContables" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="bdAdquisicionMaterialModel.GpoMateriales" Width="1.5" PointX="10.375" PointY="4.75" />
+        <EntityTypeShape EntityType="bdAdquisicionMaterialModel.Materiales" Width="1.5" PointX="3" PointY="9.875" />
+        <AssociationConnector Association="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Materiales" />
+        <AssociationConnector Association="bdAdquisicionMaterialModel.FK_Materiales_MaContables" />
+        <EntityTypeShape EntityType="bdAdquisicionMaterialModel.SubGrupos" Width="1.5" PointX="7.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

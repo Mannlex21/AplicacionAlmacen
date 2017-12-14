@@ -20,9 +20,19 @@ namespace AplicacionAlmacen.Vista
         public CatalogoMateriales()
         {
             InitializeComponent();
+            UserLookAndFeel.Default.SetSkinStyle("The Bezier");
+            WindowState = FormWindowState.Maximized;
             bindingNavigator.BindingSource = bindingSource;
             bindingSource.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
+            
+
+        }
+        void afterLoad(object sender, EventArgs e)
+        {
+            
+            
+
         }
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
@@ -42,6 +52,11 @@ namespace AplicacionAlmacen.Vista
                     pageOffsets.Add(offset);
                 return pageOffsets;
             }
+        }
+
+        private void CatalogoMateriales_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -46,7 +46,6 @@
             this.idMaterial = new DevExpress.XtraGrid.Columns.GridColumn();
             this.descripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.uMedida = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.consecutivo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.maximo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.minimo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.costoProm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -57,12 +56,9 @@
             this.cantIni = new DevExpress.XtraGrid.Columns.GridColumn();
             this.importeIni = new DevExpress.XtraGrid.Columns.GridColumn();
             this.fechaUltimoMov = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.seguridadInd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.puntoPedido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pedidoEstandar = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.herramienta = new DevExpress.XtraGrid.Columns.GridColumn();
             this.marca = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Controles = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -194,6 +190,8 @@
             // GridControl
             // 
             this.GridControl.Location = new System.Drawing.Point(12, 46);
+            this.GridControl.LookAndFeel.SkinName = "The Bezier";
+            this.GridControl.LookAndFeel.UseDefaultLookAndFeel = false;
             this.GridControl.MainView = this.Tabla;
             this.GridControl.Name = "GridControl";
             this.GridControl.Size = new System.Drawing.Size(594, 361);
@@ -208,7 +206,6 @@
             this.idMaterial,
             this.descripcion,
             this.uMedida,
-            this.consecutivo,
             this.maximo,
             this.minimo,
             this.costoProm,
@@ -219,12 +216,9 @@
             this.cantIni,
             this.importeIni,
             this.fechaUltimoMov,
-            this.seguridadInd,
             this.puntoPedido,
             this.pedidoEstandar,
-            this.herramienta,
-            this.marca,
-            this.Controles});
+            this.marca});
             this.Tabla.GridControl = this.GridControl;
             this.Tabla.Name = "Tabla";
             this.Tabla.OptionsBehavior.Editable = false;
@@ -254,15 +248,7 @@
             this.uMedida.FieldName = "uMedida";
             this.uMedida.Name = "uMedida";
             this.uMedida.Visible = true;
-            this.uMedida.VisibleIndex = 3;
-            // 
-            // consecutivo
-            // 
-            this.consecutivo.Caption = "Consecutivo";
-            this.consecutivo.FieldName = "consecutivo";
-            this.consecutivo.Name = "consecutivo";
-            this.consecutivo.Visible = true;
-            this.consecutivo.VisibleIndex = 2;
+            this.uMedida.VisibleIndex = 2;
             // 
             // maximo
             // 
@@ -270,7 +256,7 @@
             this.maximo.FieldName = "maximo";
             this.maximo.Name = "maximo";
             this.maximo.Visible = true;
-            this.maximo.VisibleIndex = 4;
+            this.maximo.VisibleIndex = 3;
             // 
             // minimo
             // 
@@ -278,7 +264,7 @@
             this.minimo.FieldName = "minimo";
             this.minimo.Name = "minimo";
             this.minimo.Visible = true;
-            this.minimo.VisibleIndex = 5;
+            this.minimo.VisibleIndex = 4;
             // 
             // costoProm
             // 
@@ -286,7 +272,7 @@
             this.costoProm.FieldName = "costoProm";
             this.costoProm.Name = "costoProm";
             this.costoProm.Visible = true;
-            this.costoProm.VisibleIndex = 6;
+            this.costoProm.VisibleIndex = 5;
             // 
             // costoPromAnt
             // 
@@ -294,7 +280,7 @@
             this.costoPromAnt.FieldName = "costoPromAnt";
             this.costoPromAnt.Name = "costoPromAnt";
             this.costoPromAnt.Visible = true;
-            this.costoPromAnt.VisibleIndex = 7;
+            this.costoPromAnt.VisibleIndex = 6;
             // 
             // importe
             // 
@@ -302,7 +288,7 @@
             this.importe.FieldName = "importe";
             this.importe.Name = "importe";
             this.importe.Visible = true;
-            this.importe.VisibleIndex = 8;
+            this.importe.VisibleIndex = 7;
             // 
             // existencia
             // 
@@ -310,7 +296,7 @@
             this.existencia.FieldName = "existencia";
             this.existencia.Name = "existencia";
             this.existencia.Visible = true;
-            this.existencia.VisibleIndex = 9;
+            this.existencia.VisibleIndex = 8;
             // 
             // localizacion
             // 
@@ -318,7 +304,7 @@
             this.localizacion.FieldName = "localizacion";
             this.localizacion.Name = "localizacion";
             this.localizacion.Visible = true;
-            this.localizacion.VisibleIndex = 10;
+            this.localizacion.VisibleIndex = 9;
             // 
             // cantIni
             // 
@@ -326,7 +312,7 @@
             this.cantIni.FieldName = "cantIni";
             this.cantIni.Name = "cantIni";
             this.cantIni.Visible = true;
-            this.cantIni.VisibleIndex = 11;
+            this.cantIni.VisibleIndex = 10;
             // 
             // importeIni
             // 
@@ -334,7 +320,7 @@
             this.importeIni.FieldName = "importeIni";
             this.importeIni.Name = "importeIni";
             this.importeIni.Visible = true;
-            this.importeIni.VisibleIndex = 12;
+            this.importeIni.VisibleIndex = 11;
             // 
             // fechaUltimoMov
             // 
@@ -342,15 +328,7 @@
             this.fechaUltimoMov.FieldName = "fechaUltimoMov";
             this.fechaUltimoMov.Name = "fechaUltimoMov";
             this.fechaUltimoMov.Visible = true;
-            this.fechaUltimoMov.VisibleIndex = 13;
-            // 
-            // seguridadInd
-            // 
-            this.seguridadInd.Caption = "seguridadInd";
-            this.seguridadInd.FieldName = "seguridadInd";
-            this.seguridadInd.Name = "seguridadInd";
-            this.seguridadInd.Visible = true;
-            this.seguridadInd.VisibleIndex = 14;
+            this.fechaUltimoMov.VisibleIndex = 12;
             // 
             // puntoPedido
             // 
@@ -358,7 +336,7 @@
             this.puntoPedido.FieldName = "puntoPedido";
             this.puntoPedido.Name = "puntoPedido";
             this.puntoPedido.Visible = true;
-            this.puntoPedido.VisibleIndex = 15;
+            this.puntoPedido.VisibleIndex = 13;
             // 
             // pedidoEstandar
             // 
@@ -366,15 +344,7 @@
             this.pedidoEstandar.FieldName = "pedidoEstandar";
             this.pedidoEstandar.Name = "pedidoEstandar";
             this.pedidoEstandar.Visible = true;
-            this.pedidoEstandar.VisibleIndex = 16;
-            // 
-            // herramienta
-            // 
-            this.herramienta.Caption = "Herramienta";
-            this.herramienta.FieldName = "herramienta";
-            this.herramienta.Name = "herramienta";
-            this.herramienta.Visible = true;
-            this.herramienta.VisibleIndex = 17;
+            this.pedidoEstandar.VisibleIndex = 14;
             // 
             // marca
             // 
@@ -382,13 +352,7 @@
             this.marca.FieldName = "marca";
             this.marca.Name = "marca";
             this.marca.Visible = true;
-            this.marca.VisibleIndex = 18;
-            // 
-            // Controles
-            // 
-            this.Controles.Name = "Controles";
-            this.Controles.Visible = true;
-            this.Controles.VisibleIndex = 19;
+            this.marca.VisibleIndex = 15;
             // 
             // gridView1
             // 
@@ -429,8 +393,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 419);
             this.Controls.Add(this.layoutControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.LookAndFeel.SkinName = "The Bezier";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "CatalogoMateriales";
             this.Text = "CatalogoMateriales";
+            this.Load += new System.EventHandler(this.CatalogoMateriales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).EndInit();
@@ -456,7 +424,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView Tabla;
         private DevExpress.XtraGrid.Columns.GridColumn descripcion;
         private DevExpress.XtraGrid.Columns.GridColumn idMaterial;
-        private DevExpress.XtraGrid.Columns.GridColumn consecutivo;
         private DevExpress.XtraGrid.Columns.GridColumn uMedida;
         private DevExpress.XtraGrid.Columns.GridColumn maximo;
         private DevExpress.XtraGrid.Columns.GridColumn minimo;
@@ -470,10 +437,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn cantIni;
         private DevExpress.XtraGrid.Columns.GridColumn importeIni;
         private DevExpress.XtraGrid.Columns.GridColumn fechaUltimoMov;
-        private DevExpress.XtraGrid.Columns.GridColumn seguridadInd;
         private DevExpress.XtraGrid.Columns.GridColumn puntoPedido;
         private DevExpress.XtraGrid.Columns.GridColumn pedidoEstandar;
-        private DevExpress.XtraGrid.Columns.GridColumn herramienta;
         private DevExpress.XtraGrid.Columns.GridColumn marca;
         private System.Windows.Forms.BindingNavigator bindingNavigator;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -487,7 +452,6 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private System.Windows.Forms.BindingSource bindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn Controles;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
     }
 }

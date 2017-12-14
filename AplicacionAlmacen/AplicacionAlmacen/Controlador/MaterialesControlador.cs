@@ -12,24 +12,24 @@ namespace AplicacionAlmacen.Controlador
         {
             using (var bd = new AlmacenEntities())
             {
-                var list = bd.Materiales;
-                return list.ToList();
+                var list = bd.Materiales.ToList();
+                return list;
             }
         }
         public int numeroMat()
         {
             using (var bd = new AlmacenEntities())
             {
-                var list = bd.Materiales;
-                return list.ToList().Count();
+                var list = bd.Materiales.ToList().Count();
+                return list;
             }
         }
         public List<Materiales> GetMateriales(int page, int pageSize)
         {
             AlmacenEntities DB = new AlmacenEntities();
             int pageIndex = Convert.ToInt32(page);
-            var Results = DB.Materiales.OrderBy(s => s.descripcion).Skip(pageIndex * pageSize).Take(pageSize);
-            return Results.ToList();
+            var Results = DB.Materiales.OrderBy(s => s.descripcion).Skip(pageIndex * pageSize).Take(pageSize).ToList();
+            return Results;
         }
     }
 }

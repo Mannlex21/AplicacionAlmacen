@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 using AplicacionAlmacen.Modelo;
+using DevExpress.LookAndFeel;
 namespace AplicacionAlmacen.Vista
 {
     public partial class Solicitudes : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -21,6 +22,8 @@ namespace AplicacionAlmacen.Vista
         public Solicitudes()
         {
             InitializeComponent();
+            UserLookAndFeel.Default.SetSkinStyle("The Bezier");
+            WindowState = FormWindowState.Maximized;
             bindingNavigator.BindingSource= bindingSource;
             bindingSource.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
@@ -65,6 +68,11 @@ namespace AplicacionAlmacen.Vista
         {
             GridControl.DataSource = s.GetSolicitudes(depaCombo.Text, ((int)bindingSource.Current / pageSize), pageSize);
             Console.WriteLine(depaCombo.Text);
+        }
+
+        private void Solicitudes_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

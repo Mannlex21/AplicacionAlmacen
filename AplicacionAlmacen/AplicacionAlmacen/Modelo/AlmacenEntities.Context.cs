@@ -18,7 +18,6 @@ namespace AplicacionAlmacen.Modelo
         public AlmacenEntities()
             : base("name=AlmacenEntities")
         {
-            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -31,10 +30,12 @@ namespace AplicacionAlmacen.Modelo
         public virtual DbSet<DetalleRequisicion> DetalleRequisicion { get; set; }
         public virtual DbSet<DetalleRequisicion2> DetalleRequisicion2 { get; set; }
         public virtual DbSet<DetallesUsuarios> DetallesUsuarios { get; set; }
-        public virtual DbSet<Materiales> Materiales { get; set; }
         public virtual DbSet<MaterialesContable> MaterialesContable { get; set; }
         public virtual DbSet<Solicitud_Requisiciones> Solicitud_Requisiciones { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<GpoMateriales> GpoMateriales { get; set; }
+        public virtual DbSet<Materiales> Materiales { get; set; }
+        public virtual DbSet<SubGrupos> SubGrupos { get; set; }
     }
 }
