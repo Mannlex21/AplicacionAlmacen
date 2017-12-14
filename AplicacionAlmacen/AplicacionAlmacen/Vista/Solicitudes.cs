@@ -26,7 +26,7 @@ namespace AplicacionAlmacen.Vista
         }
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
-            GridControl.DataSource = s.GetSolicitudes("ASC", ((int)bindingSource.Current/pageSize), pageSize);
+            GridControl.DataSource = s.GetSolicitudes(((int)bindingSource.Current/pageSize), pageSize);
            
         }
 
@@ -43,6 +43,16 @@ namespace AplicacionAlmacen.Vista
                     pageOffsets.Add(offset);
                 return pageOffsets;
             }
+        }
+
+        private void Solicitudes_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            new CatalogoMateriales().Show();
         }
     }
 }

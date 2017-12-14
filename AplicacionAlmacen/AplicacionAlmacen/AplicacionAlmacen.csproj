@@ -44,6 +44,7 @@
     <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -70,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlador\CatalogoMateriales.cs" />
     <Compile Include="Controlador\Principal.cs" />
     <Compile Include="Controlador\Solicitudes.cs" />
     <Compile Include="Modelo\AlmacenEntities.Context.cs">
@@ -117,6 +119,12 @@
     <Compile Include="Modelo\Usuarios.cs">
       <DependentUpon>AlmacenEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Vista\CatalogoMateriales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\CatalogoMateriales.Designer.cs">
+      <DependentUpon>CatalogoMateriales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +146,9 @@
       <DependentUpon>Solicitudes.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Vista\CatalogoMateriales.resx">
+      <DependentUpon>CatalogoMateriales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
