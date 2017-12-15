@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,18 +19,32 @@ namespace AplicacionAlmacen.Controlador
         }
         public int numeroMat()
         {
-            using (var bd = new AlmacenEntities())
+            var context = new AlmacenEntities();
+            var connection = context.Database.Connection;
+            int cont = 0;
+            using (SqlConnection con = new SqlConnection(connection.ConnectionString))
             {
-                var list = bd.Materiales.ToList().Count();
-                return list;
+                string query = "SELECT COUNT(*) FROM Materiales" ;
+                using (SqlCommand cmd = new SqlCommand(query))
+                {
+                    cmd.Connection = con;
+                    con.Open();
+                    cont = Convert.ToInt32(cmd.ExecuteScalar());
+                    con.Close();
+                }
             }
+            return cont;
         }
         public List<Materiales> GetMateriales(int page, int pageSize)
         {
-            AlmacenEntities DB = new AlmacenEntities();
-            int pageIndex = Convert.ToInt32(page);
-            var Results = DB.Materiales.OrderBy(s => s.descripcion).Skip(pageIndex * pageSize).Take(pageSize).ToList();
-            return Results;
+            using (var bd = new AlmacenEntities())
+            {
+                int pageIndex = Convert.ToInt32(page);
+                var Results = bd.Materiales.OrderBy(s => s.idMaterial).Skip(pageIndex * pageSize).Take(pageSize).ToList();
+                return Results;
+            }
+           
+            
         }
     }
 }

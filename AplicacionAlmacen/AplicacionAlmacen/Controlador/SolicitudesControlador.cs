@@ -22,12 +22,22 @@ namespace AplicacionAlmacen.Controlador
         }
         public int numeroSol()
         {
-            using (var bd = new AlmacenEntities())
+            var context = new AlmacenEntities();
+            var connection = context.Database.Connection;
+            int cont = 0;
+            using (SqlConnection con = new SqlConnection(connection.ConnectionString))
             {
-                var list = bd.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
-                && s.liberaElectrico == true && s.liberaSeguridad == true && s.liberaAlmacen==false && s.requisicion=="n/a");
-                return list.ToList().Count();
+                string query = "SELECT COUNT(*) FROM Solicitud_Requisiciones WHERE liberaLocal=1 AND liberaCapitalHumano=1 " +
+                    "AND liberaElectrico=1 AND liberaSeguridad=1 AND liberaAlmacen=0 AND requisicion='n/a'";
+                using (SqlCommand cmd = new SqlCommand(query))
+                {
+                    cmd.Connection = con;
+                    con.Open();
+                    cont = Convert.ToInt32(cmd.ExecuteScalar());
+                    con.Close();
+                }
             }
+            return cont;
         }
         public List<Solicitud_Requisiciones> GetSolicitudes(string depa, int page, int pageSize)
         {

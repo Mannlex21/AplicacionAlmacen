@@ -12,7 +12,7 @@ using AplicacionAlmacen.Modelo;
 using DevExpress.LookAndFeel;
 namespace AplicacionAlmacen.Vista
 {
-    public partial class CatalogoMateriales : DevExpress.XtraEditors.XtraForm
+    public partial class CatalogoMateriales : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         static Controlador.MaterialesControlador s= new Controlador.MaterialesControlador();
         static int totalRecords = 1;
@@ -37,7 +37,15 @@ namespace AplicacionAlmacen.Vista
         }
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
-            GridControl.DataSource = s.GetMateriales(((int)bindingSource.Current / pageSize), pageSize);
+            if (bindingSource.Current is null)
+            {
+                GridControl.DataSource = null;
+            }
+            else
+            {
+                GridControl.DataSource = s.GetMateriales(((int)bindingSource.Current / pageSize), pageSize);
+            }
+            
 
         }
 
@@ -54,10 +62,18 @@ namespace AplicacionAlmacen.Vista
                 return pageOffsets;
             }
         }
-
-        private void CatalogoMateriales_Load(object sender, EventArgs e)
+        
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+            Cursor.Current = Cursors.WaitCursor;
+            Recargar();
+        }
+        private void Recargar()
+        {
+            bindingNavigator.BindingSource = bindingSource;
+            bindingSource.CurrentChanged += new EventHandler(bindingSource1_CurrentChanged);
+            bindingSource.DataSource = new PageOffsetList();
+
         }
     }
 }

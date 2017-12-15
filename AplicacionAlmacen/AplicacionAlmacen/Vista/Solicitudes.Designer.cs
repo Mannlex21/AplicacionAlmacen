@@ -209,7 +209,7 @@
             // 
             // barButtonItem10
             // 
-            this.barButtonItem10.Caption = "Actualizar";
+            this.barButtonItem10.Caption = "Editar";
             this.barButtonItem10.Id = 10;
             this.barButtonItem10.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.update;
             this.barButtonItem10.Name = "barButtonItem10";
@@ -218,7 +218,7 @@
             // 
             // barButtonItem11
             // 
-            this.barButtonItem11.Caption = "Borrar";
+            this.barButtonItem11.Caption = "Eliminar";
             this.barButtonItem11.Id = 11;
             this.barButtonItem11.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.cancelar;
             this.barButtonItem11.Name = "barButtonItem11";
@@ -409,6 +409,7 @@
             // 
             // GridControl
             // 
+            this.GridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridControl.Location = new System.Drawing.Point(2, 36);
             this.GridControl.MainView = this.Tabla;
             this.GridControl.MenuManager = this.ribbon;

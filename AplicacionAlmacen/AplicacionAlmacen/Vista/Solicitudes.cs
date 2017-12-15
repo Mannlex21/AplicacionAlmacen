@@ -84,11 +84,11 @@ namespace AplicacionAlmacen.Vista
         private void depaCombo_Click(object sender, EventArgs e)
         {
             GridControl.DataSource = s.GetSolicitudes(depaCombo.Text, ((int)bindingSource.Current / pageSize), pageSize);
-            Console.WriteLine(depaCombo.Text);
         }
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             Recargar();
         }
 
