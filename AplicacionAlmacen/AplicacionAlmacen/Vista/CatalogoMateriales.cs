@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using AplicacionAlmacen.Modelo;
+using DevExpress.LookAndFeel;
 namespace AplicacionAlmacen.Vista
 {
     public partial class CatalogoMateriales : DevExpress.XtraEditors.XtraForm

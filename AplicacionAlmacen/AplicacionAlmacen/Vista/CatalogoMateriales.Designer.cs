@@ -233,6 +233,7 @@
             this.idMaterial.Name = "idMaterial";
             this.idMaterial.Visible = true;
             this.idMaterial.VisibleIndex = 1;
+            this.idMaterial.Width = 84;
             // 
             // descripcion
             // 
@@ -241,6 +242,7 @@
             this.descripcion.Name = "descripcion";
             this.descripcion.Visible = true;
             this.descripcion.VisibleIndex = 0;
+            this.descripcion.Width = 90;
             // 
             // uMedida
             // 
@@ -249,6 +251,7 @@
             this.uMedida.Name = "uMedida";
             this.uMedida.Visible = true;
             this.uMedida.VisibleIndex = 2;
+            this.uMedida.Width = 121;
             // 
             // maximo
             // 
@@ -257,6 +260,7 @@
             this.maximo.Name = "maximo";
             this.maximo.Visible = true;
             this.maximo.VisibleIndex = 3;
+            this.maximo.Width = 72;
             // 
             // minimo
             // 
@@ -265,6 +269,7 @@
             this.minimo.Name = "minimo";
             this.minimo.Visible = true;
             this.minimo.VisibleIndex = 4;
+            this.minimo.Width = 68;
             // 
             // costoProm
             // 
@@ -273,6 +278,7 @@
             this.costoProm.Name = "costoProm";
             this.costoProm.Visible = true;
             this.costoProm.VisibleIndex = 5;
+            this.costoProm.Width = 111;
             // 
             // costoPromAnt
             // 
@@ -281,6 +287,7 @@
             this.costoPromAnt.Name = "costoPromAnt";
             this.costoPromAnt.Visible = true;
             this.costoPromAnt.VisibleIndex = 6;
+            this.costoPromAnt.Width = 103;
             // 
             // importe
             // 
@@ -289,6 +296,7 @@
             this.importe.Name = "importe";
             this.importe.Visible = true;
             this.importe.VisibleIndex = 7;
+            this.importe.Width = 74;
             // 
             // existencia
             // 
@@ -297,6 +305,7 @@
             this.existencia.Name = "existencia";
             this.existencia.Visible = true;
             this.existencia.VisibleIndex = 8;
+            this.existencia.Width = 84;
             // 
             // localizacion
             // 
@@ -305,6 +314,7 @@
             this.localizacion.Name = "localizacion";
             this.localizacion.Visible = true;
             this.localizacion.VisibleIndex = 9;
+            this.localizacion.Width = 92;
             // 
             // cantIni
             // 
@@ -313,6 +323,7 @@
             this.cantIni.Name = "cantIni";
             this.cantIni.Visible = true;
             this.cantIni.VisibleIndex = 10;
+            this.cantIni.Width = 109;
             // 
             // importeIni
             // 
@@ -321,6 +332,7 @@
             this.importeIni.Name = "importeIni";
             this.importeIni.Visible = true;
             this.importeIni.VisibleIndex = 11;
+            this.importeIni.Width = 102;
             // 
             // fechaUltimoMov
             // 
@@ -329,6 +341,7 @@
             this.fechaUltimoMov.Name = "fechaUltimoMov";
             this.fechaUltimoMov.Visible = true;
             this.fechaUltimoMov.VisibleIndex = 12;
+            this.fechaUltimoMov.Width = 153;
             // 
             // puntoPedido
             // 
@@ -337,6 +350,7 @@
             this.puntoPedido.Name = "puntoPedido";
             this.puntoPedido.Visible = true;
             this.puntoPedido.VisibleIndex = 13;
+            this.puntoPedido.Width = 99;
             // 
             // pedidoEstandar
             // 
@@ -345,6 +359,7 @@
             this.pedidoEstandar.Name = "pedidoEstandar";
             this.pedidoEstandar.Visible = true;
             this.pedidoEstandar.VisibleIndex = 14;
+            this.pedidoEstandar.Width = 114;
             // 
             // marca
             // 
@@ -353,6 +368,7 @@
             this.marca.Name = "marca";
             this.marca.Visible = true;
             this.marca.VisibleIndex = 15;
+            this.marca.Width = 65;
             // 
             // gridView1
             // 
@@ -397,7 +413,7 @@
             this.LookAndFeel.SkinName = "The Bezier";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "CatalogoMateriales";
-            this.Text = "CatalogoMateriales";
+            this.Text = "Materiales";
             this.Load += new System.EventHandler(this.CatalogoMateriales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

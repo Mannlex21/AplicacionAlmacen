@@ -61,7 +61,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -100,9 +100,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlador\DepartamentosControlador.cs" />
+    <Compile Include="Controlador\GruposControlador.cs" />
     <Compile Include="Controlador\MaterialesControlador.cs" />
     <Compile Include="Controlador\PrincipalControlador.cs" />
     <Compile Include="Controlador\SolicitudesControlador.cs" />
+    <Compile Include="Controlador\SubGruposControlador.cs" />
     <Compile Include="Modelo\AlmacenEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -207,7 +209,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AlmacenEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="AplicacionAlmacen_TemporaryKey.pfx" />
     <None Include="Modelo\AlmacenEntities.edmx.diagram">
       <DependentUpon>AlmacenEntities.edmx</DependentUpon>
     </None>
@@ -227,12 +228,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="almacen.ico" />
-    <None Include="Files\background1.jpg" />
-    <None Include="Files\background2.jpg" />
-    <None Include="Files\background3.jpg" />
     <None Include="Files\workTool.png" />
     <None Include="Files\solicitud.png" />
     <None Include="Files\diagram.png" />
+    <None Include="Files\botones\refresh.png" />
+    <None Include="Files\botones\add.png" />
+    <None Include="Files\botones\update.png" />
+    <None Include="Files\botones\cancelar.png" />
     <Content Include="Modelo\AlmacenEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AlmacenEntities.edmx</DependentUpon>

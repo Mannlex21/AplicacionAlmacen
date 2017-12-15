@@ -38,6 +38,9 @@
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -123,9 +126,12 @@
             this.barButtonItem4,
             this.barButtonItem5,
             this.barButtonItem6,
-            this.barButtonItem8});
+            this.barButtonItem8,
+            this.barButtonItem9,
+            this.barButtonItem10,
+            this.barButtonItem11});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 9;
+            this.ribbon.MaxItemId = 12;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -140,12 +146,13 @@
             // 
             // barButtonItem2
             // 
-            this.barButtonItem2.Caption = "Mas";
+            this.barButtonItem2.Caption = "Actualizar";
             this.barButtonItem2.Id = 3;
-            this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.barButtonItem2.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.refresh;
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // barButtonItem3
             // 
@@ -191,6 +198,33 @@
             this.barButtonItem8.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
+            // barButtonItem9
+            // 
+            this.barButtonItem9.Caption = "Agregar";
+            this.barButtonItem9.Id = 9;
+            this.barButtonItem9.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.add;
+            this.barButtonItem9.Name = "barButtonItem9";
+            this.barButtonItem9.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            // 
+            // barButtonItem10
+            // 
+            this.barButtonItem10.Caption = "Actualizar";
+            this.barButtonItem10.Id = 10;
+            this.barButtonItem10.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.update;
+            this.barButtonItem10.Name = "barButtonItem10";
+            this.barButtonItem10.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            // 
+            // barButtonItem11
+            // 
+            this.barButtonItem11.Caption = "Borrar";
+            this.barButtonItem11.Id = 11;
+            this.barButtonItem11.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.cancelar;
+            this.barButtonItem11.Name = "barButtonItem11";
+            this.barButtonItem11.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -200,8 +234,13 @@
             // 
             // ribbonPageGroup1
             // 
+            this.ribbonPageGroup1.AllowTextClipping = false;
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem9);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem10);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem11);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Herramientas";
             // 
             // ribbonStatusBar
@@ -407,6 +446,7 @@
             this.preRequisicion.Name = "preRequisicion";
             this.preRequisicion.Visible = true;
             this.preRequisicion.VisibleIndex = 0;
+            this.preRequisicion.Width = 85;
             // 
             // requisicion
             // 
@@ -415,6 +455,7 @@
             this.requisicion.Name = "requisicion";
             this.requisicion.Visible = true;
             this.requisicion.VisibleIndex = 1;
+            this.requisicion.Width = 70;
             // 
             // fechaRequisicion
             // 
@@ -423,6 +464,7 @@
             this.fechaRequisicion.Name = "fechaRequisicion";
             this.fechaRequisicion.Visible = true;
             this.fechaRequisicion.VisibleIndex = 2;
+            this.fechaRequisicion.Width = 112;
             // 
             // uso
             // 
@@ -431,6 +473,7 @@
             this.uso.Name = "uso";
             this.uso.Visible = true;
             this.uso.VisibleIndex = 3;
+            this.uso.Width = 36;
             // 
             // fechaNecesitar
             // 
@@ -439,6 +482,7 @@
             this.fechaNecesitar.Name = "fechaNecesitar";
             this.fechaNecesitar.Visible = true;
             this.fechaNecesitar.VisibleIndex = 4;
+            this.fechaNecesitar.Width = 105;
             // 
             // departamento
             // 
@@ -447,6 +491,7 @@
             this.departamento.Name = "departamento";
             this.departamento.Visible = true;
             this.departamento.VisibleIndex = 5;
+            this.departamento.Width = 85;
             // 
             // ciclo
             // 
@@ -455,6 +500,7 @@
             this.ciclo.Name = "ciclo";
             this.ciclo.Visible = true;
             this.ciclo.VisibleIndex = 6;
+            this.ciclo.Width = 40;
             // 
             // area
             // 
@@ -463,6 +509,7 @@
             this.area.Name = "area";
             this.area.Visible = true;
             this.area.VisibleIndex = 7;
+            this.area.Width = 41;
             // 
             // fechaRecepcion
             // 
@@ -471,6 +518,7 @@
             this.fechaRecepcion.Name = "fechaRecepcion";
             this.fechaRecepcion.Visible = true;
             this.fechaRecepcion.VisibleIndex = 8;
+            this.fechaRecepcion.Width = 108;
             // 
             // ejercicio
             // 
@@ -479,6 +527,7 @@
             this.ejercicio.Name = "ejercicio";
             this.ejercicio.Visible = true;
             this.ejercicio.VisibleIndex = 9;
+            this.ejercicio.Width = 57;
             // 
             // solicitante
             // 
@@ -487,6 +536,7 @@
             this.solicitante.Name = "solicitante";
             this.solicitante.Visible = true;
             this.solicitante.VisibleIndex = 10;
+            this.solicitante.Width = 70;
             // 
             // gridView1
             // 
@@ -630,7 +680,6 @@
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Solicitudes";
-            this.Load += new System.EventHandler(this.Solicitudes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -719,5 +768,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripComboBox depaCombo;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
     }
 }

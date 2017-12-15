@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using AplicacionAlmacen.Modelo;
 using DevExpress.LookAndFeel;
+using DevExpress.XtraGrid.Views.Grid;
+
 namespace AplicacionAlmacen.Vista
 {
     public partial class Solicitudes : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -22,21 +24,36 @@ namespace AplicacionAlmacen.Vista
         public Solicitudes()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             WindowState = FormWindowState.Maximized;
+
             bindingNavigator.BindingSource= bindingSource;
-            bindingSource.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
+            bindingSource.CurrentChanged += new EventHandler(bindingSource1_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
             foreach (var t in d.GetDepartamentos())
             {
                 depaCombo.Items.Add(t.descripcion);
             }
-            
+
+        }
+        private void Recargar()
+        {
+            bindingNavigator.BindingSource = bindingSource;
+            bindingSource.CurrentChanged += new EventHandler(bindingSource1_CurrentChanged);
+            bindingSource.DataSource = new PageOffsetList();
+
         }
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
-            GridControl.DataSource = s.GetSolicitudes(depaCombo.Text,((int)bindingSource.Current/pageSize), pageSize);
-           
+            if(bindingSource.Current is null) {
+                GridControl.DataSource = null;
+            }
+            else {
+                GridControl.DataSource = s.GetSolicitudes(depaCombo.Text, ((int)bindingSource.Current / pageSize), pageSize);
+            }
+            
+            
         }
 
         class PageOffsetList : System.ComponentModel.IListSource
@@ -70,10 +87,12 @@ namespace AplicacionAlmacen.Vista
             Console.WriteLine(depaCombo.Text);
         }
 
-        private void Solicitudes_Load(object sender, EventArgs e)
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            Recargar();
         }
+
+        
     }
 }
 

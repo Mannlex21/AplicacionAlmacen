@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using AplicacionAlmacen.Controlador;
-
+using DevExpress.LookAndFeel;
 namespace AplicacionAlmacen
 {
     public partial class Principal : DevExpress.XtraEditors.XtraForm
@@ -17,6 +17,7 @@ namespace AplicacionAlmacen
         public Principal()
         {
             InitializeComponent();
+            UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             panel.BackColor = Color.FromArgb(50, Color.Black);
         }
 
@@ -42,6 +43,11 @@ namespace AplicacionAlmacen
         {
             Cursor.Current = Cursors.WaitCursor;
             new Vista.CatalogoGrupos().Show();
+        }
+
+        private void Principal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

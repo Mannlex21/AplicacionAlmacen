@@ -16,7 +16,7 @@ namespace AplicacionAlmacen.Controlador
             using (var bd = new AlmacenEntities())
             {
                 var list = bd.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano==true
-                && s.liberaElectrico == true && s.liberaSeguridad == true /*&& s.requisicion=="n/a"*/);
+                && s.liberaElectrico == true && s.liberaSeguridad == true && s.requisicion=="n/a" && s.liberaAlmacen == false);
                 return  list.ToList();
             }
         }
@@ -25,7 +25,7 @@ namespace AplicacionAlmacen.Controlador
             using (var bd = new AlmacenEntities())
             {
                 var list = bd.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
-                && s.liberaElectrico == true && s.liberaSeguridad == true /*&& s.requisicion=="n/a"*/);
+                && s.liberaElectrico == true && s.liberaSeguridad == true && s.liberaAlmacen==false && s.requisicion=="n/a");
                 return list.ToList().Count();
             }
         }
@@ -36,7 +36,7 @@ namespace AplicacionAlmacen.Controlador
             if (depa == "")
             {
                 var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
-                    && s.liberaElectrico == true && s.liberaSeguridad == true && s.requisicion == "n/a")
+                    && s.liberaElectrico == true && s.liberaSeguridad == true && s.liberaAlmacen == false && s.requisicion == "n/a")
                     .OrderBy(s => s.preRequisicion).Skip(pageIndex * pageSize).Take(pageSize);
                 return Results.ToList();
             }
@@ -44,7 +44,7 @@ namespace AplicacionAlmacen.Controlador
             {
                 var dep = DB.Departamentos.Where(s => s.descripcion == depa).FirstOrDefault();
                 var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
-                    && s.liberaElectrico == true && s.liberaSeguridad == true && s.requisicion == "n/a" && s.departamento == dep.idDepartamento)
+                    && s.liberaElectrico == true && s.liberaSeguridad == true && s.liberaAlmacen == false && s.requisicion == "n/a" && s.departamento == dep.idDepartamento)
                     .OrderBy(s => s.preRequisicion).Skip(pageIndex * pageSize).Take(pageSize);
                 return Results.ToList();
             }

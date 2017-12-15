@@ -13,21 +13,17 @@ namespace AplicacionAlmacen.Vista
 {
     public partial class CatalogoGrupos : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        static Controlador.GruposControlador g =new Controlador.GruposControlador();
+        static Controlador.SubGruposControlador sg = new Controlador.SubGruposControlador();
         public CatalogoGrupos()
         {
             InitializeComponent();
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             WindowState = FormWindowState.Maximized;
-        }
-
-        private void ribbonControl1_Click(object sender, EventArgs e)
-        {
+            GridControl.DataSource = g.GetAllGrupos();
+            GridControlSub.DataSource = sg.GetAllSubGrupos();
 
         }
-
-        private void CatalogoGrupos_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
