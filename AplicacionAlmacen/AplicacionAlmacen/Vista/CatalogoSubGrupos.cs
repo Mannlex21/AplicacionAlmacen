@@ -12,33 +12,31 @@ using DevExpress.LookAndFeel;
 using AplicacionAlmacen.Modelo;
 namespace AplicacionAlmacen.Vista
 {
-    public partial class CatalogoGrupos : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class CatalogoSubGrupos : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        static Controlador.GruposControlador g =new Controlador.GruposControlador();
         static Controlador.SubGruposControlador sg = new Controlador.SubGruposControlador();
 
         static int totalRecords = 1;
         static private int pageSize = 30;
-        static List<GpoMateriales> records = new List<GpoMateriales>();
-        public CatalogoGrupos()
+        static List<SubGrupos> records = new List<SubGrupos>();
+        public CatalogoSubGrupos()
         {
             InitializeComponent();
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             WindowState = FormWindowState.Maximized;
             bindingNavigator.BindingSource = bindingSource;
-            bindingSource.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
+            bindingSource.CurrentChanged += new System.EventHandler(bindingSource_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
-
         }
-        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        private void bindingSource_CurrentChanged(object sender, EventArgs e)
         {
             if (bindingSource.Current is null)
             {
-                GridControl.DataSource = null;
+                GridControlSub.DataSource = null;
             }
             else
             {
-                GridControl.DataSource = g.GetGrupos(((int)bindingSource.Current / pageSize), pageSize);
+                GridControlSub.DataSource = sg.GetSubGrupos(((int)bindingSource.Current / pageSize), pageSize);
             }
 
 
@@ -49,24 +47,26 @@ namespace AplicacionAlmacen.Vista
 
             public System.Collections.IList GetList()
             {
-                totalRecords = g.numeroGrupo();
+                totalRecords = sg.numeroSubG();
                 var pageOffsets = new List<int>();
                 for (int offset = 0; offset < totalRecords; offset += pageSize)
                     pageOffsets.Add(offset);
                 return pageOffsets;
             }
         }
-        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            Recargar();
-        }
         private void Recargar()
         {
             bindingNavigator.BindingSource = bindingSource;
-            bindingSource.CurrentChanged += new EventHandler(bindingSource1_CurrentChanged);
+            bindingSource.CurrentChanged += new EventHandler(bindingSource_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
 
+        }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Recargar();
+            Recargar();
         }
     }
 }

@@ -49,5 +49,11 @@ namespace AplicacionAlmacen
         {
 
         }
+
+        private void tileItem3_ItemClick(object sender, TileItemEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            new Vista.CatalogoSubGrupos().Show();
+        }
     }
 }

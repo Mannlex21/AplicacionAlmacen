@@ -64,8 +64,10 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="DevExpress.Data.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v17.2.Core, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -81,12 +83,16 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Data.SqlClient, Version=4.2.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.4.2\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -173,6 +179,12 @@
     <Compile Include="Vista\CatalogoGrupos.Designer.cs">
       <DependentUpon>CatalogoGrupos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\CatalogoSubGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\CatalogoSubGrupos.Designer.cs">
+      <DependentUpon>CatalogoSubGrupos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\CatalogoMateriales.resx">
       <DependentUpon>CatalogoMateriales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\CatalogoSubGrupos.resx">
+      <DependentUpon>CatalogoSubGrupos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -235,6 +250,7 @@
     <None Include="Files\botones\add.png" />
     <None Include="Files\botones\update.png" />
     <None Include="Files\botones\cancelar.png" />
+    <None Include="Files\diagramSub.png" />
     <Content Include="Modelo\AlmacenEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AlmacenEntities.edmx</DependentUpon>
