@@ -409,7 +409,6 @@
             // 
             // GridControl
             // 
-            this.GridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridControl.Location = new System.Drawing.Point(2, 36);
             this.GridControl.MainView = this.Tabla;
             this.GridControl.MenuManager = this.ribbon;
