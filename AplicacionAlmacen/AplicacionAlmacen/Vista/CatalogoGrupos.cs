@@ -68,5 +68,62 @@ namespace AplicacionAlmacen.Vista
             bindingSource.DataSource = new PageOffsetList();
 
         }
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.tabControl1.SelectTab(1);
+            EnableControls(tabPage3);
+        }
+
+        private void CatalogoGrupos_Load(object sender, EventArgs e)
+        {
+            DisableControls(tabPage3);
+        }
+        private void DisableControls(Control con)
+        {
+            foreach (Control c in con.Controls)
+            {
+                DisableControls(c);
+            }
+            con.Enabled = false;
+        }
+
+        private void EnableControls(Control con)
+        {
+            
+            if (con != null)
+            {
+                foreach (Control c in con.Controls)
+                {
+                    EnableControls(c);
+                }
+                con.Enabled = true;
+            }
+            
+        }
+        private void ResetControls(Control con)
+        {
+
+            if (con != null)
+            {
+                foreach (Control c in con.Controls)
+                {
+                    ResetControls(c);
+
+                }
+                if (con is TextEdit)
+                {
+                    TextEdit textBox = (TextEdit)con;
+                    textBox.Text = null;
+                }
+
+            }
+
+        }
+
+        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ResetControls(tabPage3);
+            DisableControls(tabPage3);
+        }
     }
 }

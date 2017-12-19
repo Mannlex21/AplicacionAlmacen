@@ -251,6 +251,8 @@
     <None Include="Files\botones\update.png" />
     <None Include="Files\botones\cancelar.png" />
     <None Include="Files\diagramSub.png" />
+    <None Include="Files\botones\save.png" />
+    <None Include="Files\botones\delete.png" />
     <Content Include="Modelo\AlmacenEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AlmacenEntities.edmx</DependentUpon>
