@@ -590,7 +590,7 @@
             this.Name = "CatalogoSubGrupos";
             this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.ribbonStatusBar1;
-            this.Text = "CatalogoSubGrupos";
+            this.Text = "SubGrupos";
             this.Load += new System.EventHandler(this.CatalogoSubGrupos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

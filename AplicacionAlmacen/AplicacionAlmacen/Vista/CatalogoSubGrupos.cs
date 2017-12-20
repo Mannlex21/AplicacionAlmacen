@@ -66,7 +66,6 @@ namespace AplicacionAlmacen.Vista
         {
             Cursor.Current = Cursors.WaitCursor;
             Recargar();
-            Recargar();
         }
 
         private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -87,7 +86,6 @@ namespace AplicacionAlmacen.Vista
             }
             con.Enabled = false;
         }
-
         private void EnableControls(Control con)
         {
 
