@@ -65,9 +65,9 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.editDescripcion = new DevExpress.XtraEditors.MemoEdit();
+            this.editGrupo = new DevExpress.XtraEditors.TextEdit();
+            this.editSubGrupo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -95,9 +95,9 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editDescripcion.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editGrupo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editSubGrupo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
@@ -156,6 +156,7 @@
             this.barButtonItem4.Name = "barButtonItem4";
             this.barButtonItem4.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
             // barButtonItem5
             // 
@@ -175,6 +176,7 @@
             this.barButtonItem6.Name = "barButtonItem6";
             this.barButtonItem6.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
             // barButtonItem7
             // 
@@ -184,6 +186,7 @@
             this.barButtonItem7.Name = "barButtonItem7";
             this.barButtonItem7.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -448,9 +451,9 @@
             // 
             // layoutControl2
             // 
-            this.layoutControl2.Controls.Add(this.memoEdit1);
-            this.layoutControl2.Controls.Add(this.textEdit1);
-            this.layoutControl2.Controls.Add(this.textEdit2);
+            this.layoutControl2.Controls.Add(this.editDescripcion);
+            this.layoutControl2.Controls.Add(this.editGrupo);
+            this.layoutControl2.Controls.Add(this.editSubGrupo);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(3, 3);
             this.layoutControl2.Name = "layoutControl2";
@@ -459,38 +462,43 @@
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
-            // memoEdit1
+            // editDescripcion
             // 
-            this.memoEdit1.Location = new System.Drawing.Point(81, 76);
-            this.memoEdit1.MaximumSize = new System.Drawing.Size(0, 80);
-            this.memoEdit1.MenuManager = this.ribbonControl1;
-            this.memoEdit1.MinimumSize = new System.Drawing.Size(0, 80);
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(594, 80);
-            this.memoEdit1.StyleController = this.layoutControl2;
-            this.memoEdit1.TabIndex = 3;
+            this.editDescripcion.Location = new System.Drawing.Point(81, 76);
+            this.editDescripcion.MaximumSize = new System.Drawing.Size(0, 80);
+            this.editDescripcion.MenuManager = this.ribbonControl1;
+            this.editDescripcion.MinimumSize = new System.Drawing.Size(0, 80);
+            this.editDescripcion.Name = "editDescripcion";
+            this.editDescripcion.Properties.MaxLength = 60;
+            this.editDescripcion.Size = new System.Drawing.Size(594, 80);
+            this.editDescripcion.StyleController = this.layoutControl2;
+            this.editDescripcion.TabIndex = 3;
             // 
-            // textEdit1
+            // editGrupo
             // 
-            this.textEdit1.Location = new System.Drawing.Point(81, 42);
-            this.textEdit1.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit1.MenuManager = this.ribbonControl1;
-            this.textEdit1.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(266, 30);
-            this.textEdit1.StyleController = this.layoutControl2;
-            this.textEdit1.TabIndex = 0;
+            this.editGrupo.Location = new System.Drawing.Point(81, 42);
+            this.editGrupo.MaximumSize = new System.Drawing.Size(0, 30);
+            this.editGrupo.MenuManager = this.ribbonControl1;
+            this.editGrupo.MinimumSize = new System.Drawing.Size(0, 30);
+            this.editGrupo.Name = "editGrupo";
+            this.editGrupo.Properties.Mask.EditMask = "\\d+";
+            this.editGrupo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.editGrupo.Size = new System.Drawing.Size(266, 30);
+            this.editGrupo.StyleController = this.layoutControl2;
+            this.editGrupo.TabIndex = 0;
             // 
-            // textEdit2
+            // editSubGrupo
             // 
-            this.textEdit2.Location = new System.Drawing.Point(408, 42);
-            this.textEdit2.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit2.MenuManager = this.ribbonControl1;
-            this.textEdit2.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(267, 30);
-            this.textEdit2.StyleController = this.layoutControl2;
-            this.textEdit2.TabIndex = 2;
+            this.editSubGrupo.Location = new System.Drawing.Point(408, 42);
+            this.editSubGrupo.MaximumSize = new System.Drawing.Size(0, 30);
+            this.editSubGrupo.MenuManager = this.ribbonControl1;
+            this.editSubGrupo.MinimumSize = new System.Drawing.Size(0, 30);
+            this.editSubGrupo.Name = "editSubGrupo";
+            this.editSubGrupo.Properties.Mask.EditMask = "\\d+";
+            this.editSubGrupo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.editSubGrupo.Size = new System.Drawing.Size(267, 30);
+            this.editSubGrupo.StyleController = this.layoutControl2;
+            this.editSubGrupo.TabIndex = 2;
             // 
             // layoutControlGroup2
             // 
@@ -526,7 +534,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.textEdit1;
+            this.layoutControlItem2.Control = this.editGrupo;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(327, 34);
@@ -535,7 +543,7 @@
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.textEdit2;
+            this.layoutControlItem4.Control = this.editSubGrupo;
             this.layoutControlItem4.Location = new System.Drawing.Point(327, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(328, 34);
@@ -544,7 +552,7 @@
             // 
             // layoutControlItem6
             // 
-            this.layoutControlItem6.Control = this.memoEdit1;
+            this.layoutControlItem6.Control = this.editDescripcion;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(655, 84);
@@ -610,9 +618,9 @@
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editDescripcion.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editGrupo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editSubGrupo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
@@ -669,9 +677,9 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.MemoEdit editDescripcion;
+        private DevExpress.XtraEditors.TextEdit editGrupo;
+        private DevExpress.XtraEditors.TextEdit editSubGrupo;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;

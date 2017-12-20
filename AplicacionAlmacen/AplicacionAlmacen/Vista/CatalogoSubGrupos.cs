@@ -19,6 +19,10 @@ namespace AplicacionAlmacen.Vista
         static int totalRecords = 1;
         static private int pageSize = 30;
         static List<SubGrupos> records = new List<SubGrupos>();
+        int contT=0;
+        //E=editar,N=nuevo,s=sin seleccionar
+        Char tipo = 's';
+        int grupoA=0, subGrupoA=0;
         public CatalogoSubGrupos()
         {
             InitializeComponent();
@@ -61,15 +65,14 @@ namespace AplicacionAlmacen.Vista
             bindingSource.DataSource = new PageOffsetList();
 
         }
-
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             Recargar();
         }
-
         private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            tipo = 'N'; 
             this.tabControl1.SelectTab(1);
             EnableControls(tabPage2);
         }
@@ -118,11 +121,148 @@ namespace AplicacionAlmacen.Vista
             }
 
         }
+        private void CheckControls(Control con)
+        {
+
+            if (con != null)
+            {
+                foreach (Control c in con.Controls)
+                {
+                    CheckControls(c);
+
+                }
+                if (con is TextEdit)
+                {
+                    TextEdit textBox = (TextEdit)con;
+                    if (textBox.Text == "")
+                    {
+                        contT++;
+                    }
+                }
+
+            }
+
+        }
         private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ResetControls(tabPage2);
             DisableControls(tabPage2);
 
+        }
+
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (tipo.Equals('N'))
+            {
+                CheckControls(tabPage2);
+                if (contT == 0)
+                {
+                    SubGrupos s = new SubGrupos();
+                    s.descripcion = editDescripcion.Text;
+                    s.grupo = Int16.Parse(editGrupo.Text);
+                    s.subGrupo = Int16.Parse(editSubGrupo.Text);
+
+                    Object item = sg.guardarSubGrupo(s);
+
+                    System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                    System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+                    String message = (String)(m.GetValue(item, null));
+                    int code = (int)(c.GetValue(item, null));
+
+                    if (code == 1)
+                    {
+                        ResetControls(tabPage2);
+                        DisableControls(tabPage2);
+                        tipo = 's';
+                        Recargar();
+                        MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    }
+                    else if (code == 2)
+                    {
+                        MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                contT = 0;
+                
+            }
+            else if(tipo.Equals('E')){
+                CheckControls(tabPage2);
+                if (contT == 0)
+                {
+                    SubGrupos s = new SubGrupos();
+                    s.descripcion = editDescripcion.Text;
+                    s.grupo = Int16.Parse(editGrupo.Text);
+                    s.subGrupo = Int16.Parse(editSubGrupo.Text);
+
+                    Object item = sg.editarSubGrupo(s,grupoA,subGrupoA);
+
+                    System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                    System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+                    String message = (String)(m.GetValue(item, null));
+                    int code = (int)(c.GetValue(item, null));
+
+                    if (code == 1)
+                    {
+                        ResetControls(tabPage2);
+                        DisableControls(tabPage2);
+                        tipo = 's';
+                        Recargar();
+                        MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    }
+                    else if (code == 2)
+                    {
+                        MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                contT = 0;
+            }
+            else if (tipo.Equals('s'))
+            {
+
+            }
+            
+            
+        }
+
+        private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int r=TablaSub.GetSelectedRows()[0];
+            SubGrupos s = new SubGrupos();
+            s.descripcion = TablaSub.GetRowCellValue(r, "descripcion").ToString();
+            s.grupo = Int16.Parse(TablaSub.GetRowCellValue(r, "grupo").ToString());
+            s.subGrupo = Int16.Parse(TablaSub.GetRowCellValue(r, "subGrupo").ToString());
+            
+            Object item = sg.borrarSubGrupo(s);
+
+            System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+            System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+            String message = (String)(m.GetValue(item, null));
+            int code = (int)(c.GetValue(item, null));
+
+            if (code == 1)
+            {
+                Recargar();
+                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                
+            }
+            else if (code == 2)
+            {
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            tipo = 'E';
+            int r = TablaSub.GetSelectedRows()[0];
+            editDescripcion.Text = TablaSub.GetRowCellValue(r, "descripcion").ToString();
+            editGrupo.Text = TablaSub.GetRowCellValue(r, "grupo").ToString();
+            editSubGrupo.Text = TablaSub.GetRowCellValue(r, "subGrupo").ToString();
+            grupoA = Int16.Parse(TablaSub.GetRowCellValue(r, "grupo").ToString());
+            subGrupoA = Int16.Parse(TablaSub.GetRowCellValue(r, "subGrupo").ToString());
+
+            this.tabControl1.SelectTab(1);
+            EnableControls(tabPage2);
         }
     }
 }
