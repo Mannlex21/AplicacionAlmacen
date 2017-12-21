@@ -65,12 +65,12 @@ namespace AplicacionAlmacen.Vista
             bindingSource.DataSource = new PageOffsetList();
 
         }
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnActualizar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             Recargar();
         }
-        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnNuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             tipo = 'N'; 
             this.tabControl1.SelectTab(1);
@@ -143,14 +143,14 @@ namespace AplicacionAlmacen.Vista
             }
 
         }
-        private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ResetControls(tabPage2);
             DisableControls(tabPage2);
 
         }
 
-        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (tipo.Equals('N'))
             {
@@ -224,7 +224,7 @@ namespace AplicacionAlmacen.Vista
             
         }
 
-        private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnBorrar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             int r=TablaSub.GetSelectedRows()[0];
             SubGrupos s = new SubGrupos();
@@ -251,7 +251,7 @@ namespace AplicacionAlmacen.Vista
             }
         }
 
-        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnEditar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             tipo = 'E';
             int r = TablaSub.GetSelectedRows()[0];

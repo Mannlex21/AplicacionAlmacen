@@ -11,8 +11,8 @@
         <EntityTypeShape EntityType="bdAdquisicionMaterialModel.DetalleRequisicion2" Width="1.5" PointX="5.25" PointY="8.25" />
         <EntityTypeShape EntityType="bdAdquisicionMaterialModel.DetallesUsuarios" Width="1.5" PointX="10" PointY="1.125" />
         <EntityTypeShape EntityType="bdAdquisicionMaterialModel.GpoMateriales" Width="1.5" PointX="7.75" PointY="8.75" />
-        <EntityTypeShape EntityType="bdAdquisicionMaterialModel.Materiales" Width="1.5" PointX="3" PointY="9.875" />
-        <EntityTypeShape EntityType="bdAdquisicionMaterialModel.MaterialesContable" Width="1.5" PointX="0.75" PointY="11.125" />
+        <EntityTypeShape EntityType="bdAdquisicionMaterialModel.Materiales" Width="1.5" PointX="3" PointY="10.875" />
+        <EntityTypeShape EntityType="bdAdquisicionMaterialModel.MaterialesContable" Width="1.5" PointX="0.75" PointY="9.625" />
         <EntityTypeShape EntityType="bdAdquisicionMaterialModel.Solicitud_Requisiciones" Width="1.5" PointX="3" PointY="2.875" />
         <EntityTypeShape EntityType="bdAdquisicionMaterialModel.SubGrupos" Width="1.5" PointX="9.75" PointY="4.75" />
         <EntityTypeShape EntityType="bdAdquisicionMaterialModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="7.75" />
