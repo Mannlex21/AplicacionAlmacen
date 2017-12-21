@@ -74,83 +74,26 @@ namespace AplicacionAlmacen.Vista
         {
             tipo = 'N'; 
             this.tabControl1.SelectTab(1);
+            ResetControls(tabPage2);
             EnableControls(tabPage2);
         }
 
-        private void CatalogoSubGrupos_Load(object sender, EventArgs e)
-        {
-            DisableControls(tabPage2);
-        }
-        private void DisableControls(Control con)
-        {
-            foreach (Control c in con.Controls)
-            {
-                DisableControls(c);
-            }
-            con.Enabled = false;
-        }
-        private void EnableControls(Control con)
-        {
+       
+        
+        
 
-            if (con != null)
-            {
-                foreach (Control c in con.Controls)
-                {
-                    EnableControls(c);
-                }
-                con.Enabled = true;
-            }
+        
+    private void btnCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
 
-        }
-        private void ResetControls(Control con)
-        {
-
-            if (con != null)
-            {
-                foreach (Control c in con.Controls)
-                {
-                    ResetControls(c);
-                    
-                }
-                if (con is TextEdit)
-                {
-                    TextEdit textBox = (TextEdit)con;
-                    textBox.Text = null;
-                }
-
-            }
-
-        }
-        private void CheckControls(Control con)
-        {
-
-            if (con != null)
-            {
-                foreach (Control c in con.Controls)
-                {
-                    CheckControls(c);
-
-                }
-                if (con is TextEdit)
-                {
-                    TextEdit textBox = (TextEdit)con;
-                    if (textBox.Text == "")
-                    {
-                        contT++;
-                    }
-                }
-
-            }
-
-        }
-        private void btnCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ResetControls(tabPage2);
             DisableControls(tabPage2);
 
         }
 
+
         private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+
         {
             if (tipo.Equals('N'))
             {
@@ -224,7 +167,9 @@ namespace AplicacionAlmacen.Vista
             
         }
 
+
         private void btnBorrar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+
         {
             int r=TablaSub.GetSelectedRows()[0];
             SubGrupos s = new SubGrupos();
@@ -252,7 +197,11 @@ namespace AplicacionAlmacen.Vista
         }
 
         private void btnEditar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+
         {
+            grupoA = 0;
+            subGrupoA = 0;
+            ResetControls(tabPage2);
             tipo = 'E';
             int r = TablaSub.GetSelectedRows()[0];
             editDescripcion.Text = TablaSub.GetRowCellValue(r, "descripcion").ToString();
@@ -263,6 +212,72 @@ namespace AplicacionAlmacen.Vista
 
             this.tabControl1.SelectTab(1);
             EnableControls(tabPage2);
+        }
+        private void CatalogoSubGrupos_Load(object sender, EventArgs e)
+        {
+            DisableControls(tabPage2);
+        }
+        private void DisableControls(Control con)
+        {
+            foreach (Control c in con.Controls)
+            {
+                DisableControls(c);
+            }
+            con.Enabled = false;
+        }
+        private void EnableControls(Control con)
+        {
+
+            if (con != null)
+            {
+                foreach (Control c in con.Controls)
+                {
+                    EnableControls(c);
+                }
+                con.Enabled = true;
+            }
+
+        }
+        private void ResetControls(Control con)
+        {
+
+            if (con != null)
+            {
+                foreach (Control c in con.Controls)
+                {
+                    ResetControls(c);
+
+                }
+                if (con is TextEdit)
+                {
+                    TextEdit textBox = (TextEdit)con;
+                    textBox.Text = null;
+                }
+
+            }
+
+        }
+        private void CheckControls(Control con)
+        {
+
+            if (con != null)
+            {
+                foreach (Control c in con.Controls)
+                {
+                    CheckControls(c);
+
+                }
+                if (con is TextEdit)
+                {
+                    TextEdit textBox = (TextEdit)con;
+                    if (textBox.Text == "")
+                    {
+                        contT++;
+                    }
+                }
+
+            }
+
         }
     }
 }
