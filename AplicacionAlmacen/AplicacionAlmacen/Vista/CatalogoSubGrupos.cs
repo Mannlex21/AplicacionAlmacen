@@ -65,25 +65,35 @@ namespace AplicacionAlmacen.Vista
             bindingSource.DataSource = new PageOffsetList();
 
         }
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnActualizar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             Recargar();
         }
-        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnNuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             tipo = 'N'; 
             this.tabControl1.SelectTab(1);
             ResetControls(tabPage2);
             EnableControls(tabPage2);
-        }  
-        private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        }
+
+       
+        
+        
+
+        
+    private void btnCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+
         {
             ResetControls(tabPage2);
             DisableControls(tabPage2);
 
         }
-        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+
+
+        private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+
         {
             if (tipo.Equals('N'))
             {
@@ -156,7 +166,10 @@ namespace AplicacionAlmacen.Vista
             
             
         }
-        private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+
+
+        private void btnBorrar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+
         {
             int r=TablaSub.GetSelectedRows()[0];
             SubGrupos s = new SubGrupos();
@@ -182,7 +195,9 @@ namespace AplicacionAlmacen.Vista
                 MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+
+        private void btnEditar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+
         {
             grupoA = 0;
             subGrupoA = 0;
@@ -212,7 +227,6 @@ namespace AplicacionAlmacen.Vista
         }
         private void EnableControls(Control con)
         {
-
             if (con != null)
             {
                 foreach (Control c in con.Controls)
@@ -221,11 +235,9 @@ namespace AplicacionAlmacen.Vista
                 }
                 con.Enabled = true;
             }
-
         }
         private void ResetControls(Control con)
         {
-
             if (con != null)
             {
                 foreach (Control c in con.Controls)
@@ -238,13 +250,10 @@ namespace AplicacionAlmacen.Vista
                     TextEdit textBox = (TextEdit)con;
                     textBox.Text = null;
                 }
-
             }
-
         }
         private void CheckControls(Control con)
         {
-
             if (con != null)
             {
                 foreach (Control c in con.Controls)
@@ -260,9 +269,7 @@ namespace AplicacionAlmacen.Vista
                         contT++;
                     }
                 }
-
             }
-
         }
     }
 }

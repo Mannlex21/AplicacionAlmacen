@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CatalogoSubGrupos));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnActualizar = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNuevo = new DevExpress.XtraBars.BarButtonItem();
+            this.btnEditar = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCancelar = new DevExpress.XtraBars.BarButtonItem();
+            this.btnGuardar = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBorrar = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -114,12 +114,12 @@
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
-            this.barButtonItem2,
-            this.barButtonItem3,
-            this.barButtonItem4,
-            this.barButtonItem5,
-            this.barButtonItem6,
-            this.barButtonItem7});
+            this.btnActualizar,
+            this.btnNuevo,
+            this.btnEditar,
+            this.btnCancelar,
+            this.btnGuardar,
+            this.btnBorrar});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 7;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -128,65 +128,65 @@
             this.ribbonControl1.Size = new System.Drawing.Size(737, 143);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
-            // barButtonItem2
+            // btnActualizar
             // 
-            this.barButtonItem2.Caption = "Actualizar";
-            this.barButtonItem2.Id = 1;
-            this.barButtonItem2.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.refresh;
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnActualizar.Caption = "Actualizar";
+            this.btnActualizar.Id = 1;
+            this.btnActualizar.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.refresh;
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
+            this.btnActualizar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnActualizar_ItemClick);
             // 
-            // barButtonItem3
+            // btnNuevo
             // 
-            this.barButtonItem3.Caption = "Nuevo";
-            this.barButtonItem3.Id = 2;
-            this.barButtonItem3.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.add;
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnNuevo.Caption = "Nuevo";
+            this.btnNuevo.Id = 2;
+            this.btnNuevo.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.add;
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
+            this.btnNuevo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNuevo_ItemClick);
             // 
-            // barButtonItem4
+            // btnEditar
             // 
-            this.barButtonItem4.Caption = "Editar";
-            this.barButtonItem4.Id = 3;
-            this.barButtonItem4.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.update;
-            this.barButtonItem4.Name = "barButtonItem4";
-            this.barButtonItem4.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnEditar.Caption = "Editar";
+            this.btnEditar.Id = 3;
+            this.btnEditar.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.update;
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
+            this.btnEditar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEditar_ItemClick);
             // 
-            // barButtonItem5
+            // btnCancelar
             // 
-            this.barButtonItem5.Caption = "Cancelar";
-            this.barButtonItem5.Id = 4;
-            this.barButtonItem5.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.cancelar;
-            this.barButtonItem5.Name = "barButtonItem5";
-            this.barButtonItem5.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnCancelar.Caption = "Cancelar";
+            this.btnCancelar.Id = 4;
+            this.btnCancelar.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.cancelar;
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
+            this.btnCancelar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCancelar_ItemClick);
             // 
-            // barButtonItem6
+            // btnGuardar
             // 
-            this.barButtonItem6.Caption = "Guardar";
-            this.barButtonItem6.Id = 5;
-            this.barButtonItem6.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.save;
-            this.barButtonItem6.Name = "barButtonItem6";
-            this.barButtonItem6.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnGuardar.Caption = "Guardar";
+            this.btnGuardar.Id = 5;
+            this.btnGuardar.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.save;
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
+            this.btnGuardar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGuardar_ItemClick);
             // 
-            // barButtonItem7
+            // btnBorrar
             // 
-            this.barButtonItem7.Caption = "Borrar";
-            this.barButtonItem7.Id = 6;
-            this.barButtonItem7.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.delete;
-            this.barButtonItem7.Name = "barButtonItem7";
-            this.barButtonItem7.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnBorrar.Caption = "Borrar";
+            this.btnBorrar.Id = 6;
+            this.btnBorrar.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.delete;
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick);
+            this.btnBorrar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBorrar_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -197,12 +197,12 @@
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem6);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem5);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem4);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem7);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnActualizar);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnNuevo);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnGuardar);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnCancelar);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnEditar);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnBorrar);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Herramientas";
             // 
@@ -465,12 +465,12 @@
             // editDescripcion
             // 
             this.editDescripcion.Location = new System.Drawing.Point(81, 76);
-            this.editDescripcion.MaximumSize = new System.Drawing.Size(0, 80);
+            this.editDescripcion.MaximumSize = new System.Drawing.Size(0, 60);
             this.editDescripcion.MenuManager = this.ribbonControl1;
-            this.editDescripcion.MinimumSize = new System.Drawing.Size(0, 80);
+            this.editDescripcion.MinimumSize = new System.Drawing.Size(0, 60);
             this.editDescripcion.Name = "editDescripcion";
             this.editDescripcion.Properties.MaxLength = 60;
-            this.editDescripcion.Size = new System.Drawing.Size(594, 80);
+            this.editDescripcion.Size = new System.Drawing.Size(594, 60);
             this.editDescripcion.StyleController = this.layoutControl2;
             this.editDescripcion.TabIndex = 3;
             // 
@@ -527,9 +527,9 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 118);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 98);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(655, 129);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(655, 149);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
@@ -555,7 +555,7 @@
             this.layoutControlItem6.Control = this.editDescripcion;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(655, 84);
+            this.layoutControlItem6.Size = new System.Drawing.Size(655, 64);
             this.layoutControlItem6.Text = "Descripción";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(54, 13);
             // 
@@ -668,11 +668,11 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private System.Windows.Forms.BindingSource bindingSource;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem btnActualizar;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraBars.BarButtonItem btnNuevo;
+        private DevExpress.XtraBars.BarButtonItem btnEditar;
+        private DevExpress.XtraBars.BarButtonItem btnCancelar;
         private DevExpress.XtraLayout.LayoutControl layoutControl2;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup5;
@@ -683,7 +683,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.BarButtonItem btnGuardar;
+        private DevExpress.XtraBars.BarButtonItem btnBorrar;
     }
 }

@@ -21,12 +21,38 @@ namespace AplicacionAlmacen.Modelo
         }
     
         public int idMaterialesCont { get; set; }
-        public string lugar { get; set; }
-        public string tipo { get; set; }
-        public Nullable<int> cuenta { get; set; }
-        public Nullable<bool> aplicaCentCostob { get; set; }
-        public Nullable<int> subCuenta { get; set; }
-        public Nullable<int> subSubCuenta { get; set; }
+        public Nullable<int> cuenta_F_Z { get; set; }
+        public Nullable<bool> aplicaCentCost_F_Z { get; set; }
+        public Nullable<int> subCuenta_F_Z { get; set; }
+        public Nullable<int> subSubCuenta_F_Z { get; set; }
+        public Nullable<int> cuenta_A_Z { get; set; }
+        public Nullable<bool> aplicaCentCost_A_Z { get; set; }
+        public Nullable<int> subCuenta_A_Z { get; set; }
+        public Nullable<int> subSubCuenta_A_Z { get; set; }
+        public Nullable<int> cuenta_C_Z { get; set; }
+        public Nullable<bool> aplicaCentCost_C_Z { get; set; }
+        public Nullable<int> subCuenta_C_Z { get; set; }
+        public Nullable<int> subSubCuenta_C_Z { get; set; }
+        public Nullable<int> cuenta_D_Z { get; set; }
+        public Nullable<bool> aplicaCentCost_D_Z { get; set; }
+        public Nullable<int> subCuenta_D_Z { get; set; }
+        public Nullable<int> subSubCuenta_D_Z { get; set; }
+        public Nullable<int> cuenta_F_R { get; set; }
+        public Nullable<bool> aplicaCentCost_F_R { get; set; }
+        public Nullable<int> subCuenta_F_R { get; set; }
+        public Nullable<int> subSubCuenta_F_R { get; set; }
+        public Nullable<int> cuenta_A_R { get; set; }
+        public Nullable<bool> aplicaCentCost_A_R { get; set; }
+        public Nullable<int> subCuenta_A_R { get; set; }
+        public Nullable<int> subSubCuenta_A_R { get; set; }
+        public Nullable<int> cuenta_C_R { get; set; }
+        public Nullable<bool> aplicaCentCost_C_R { get; set; }
+        public Nullable<int> subCuenta_C_R { get; set; }
+        public Nullable<int> subSubCuenta_C_R { get; set; }
+        public Nullable<int> cuenta_D_R { get; set; }
+        public Nullable<bool> aplicaCentCost_D_R { get; set; }
+        public Nullable<int> subCuenta_D_R { get; set; }
+        public Nullable<int> subSubCuenta_D_R { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Materiales> Materiales { get; set; }
