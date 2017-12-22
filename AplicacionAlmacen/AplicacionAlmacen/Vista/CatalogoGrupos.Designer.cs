@@ -147,7 +147,6 @@
             this.layoutControlItem91 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem93 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem95 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem101 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem72 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem76 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -158,21 +157,22 @@
             this.layoutControlItem96 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem70 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem73 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem74 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem75 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem77 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem82 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem87 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem83 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem85 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem86 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem89 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem90 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem94 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem97 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem98 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem99 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem101 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem100 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem74 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem77 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem82 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem86 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem90 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -306,7 +306,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem91)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem93)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem95)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem101)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem72)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem76)).BeginInit();
@@ -317,21 +316,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem96)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem70)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem73)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem74)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem75)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem77)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem82)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem87)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem83)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem85)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem86)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem89)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem90)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem94)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem97)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem98)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem99)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem101)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem100)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem74)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem77)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem82)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem86)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem90)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
@@ -478,6 +478,7 @@
             this.barButtonItem6.Name = "barButtonItem6";
             this.barButtonItem6.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -1119,415 +1120,415 @@
             // 
             // editNumeroG
             // 
-            this.editNumeroG.Location = new System.Drawing.Point(123, -126);
+            this.editNumeroG.Location = new System.Drawing.Point(123, 86);
             this.editNumeroG.MaximumSize = new System.Drawing.Size(0, 30);
             this.editNumeroG.MenuManager = this.ribbonControl1;
             this.editNumeroG.MinimumSize = new System.Drawing.Size(0, 30);
             this.editNumeroG.Name = "editNumeroG";
-            this.editNumeroG.Size = new System.Drawing.Size(87, 30);
+            this.editNumeroG.Size = new System.Drawing.Size(92, 30);
             this.editNumeroG.StyleController = this.layoutControl4;
             this.editNumeroG.TabIndex = 2;
             // 
             // editImporte
             // 
-            this.editImporte.Location = new System.Drawing.Point(495, -126);
+            this.editImporte.Location = new System.Drawing.Point(505, 86);
             this.editImporte.MaximumSize = new System.Drawing.Size(0, 30);
             this.editImporte.MenuManager = this.ribbonControl1;
             this.editImporte.MinimumSize = new System.Drawing.Size(0, 30);
             this.editImporte.Name = "editImporte";
-            this.editImporte.Size = new System.Drawing.Size(116, 30);
+            this.editImporte.Size = new System.Drawing.Size(123, 30);
             this.editImporte.StyleController = this.layoutControl4;
             this.editImporte.TabIndex = 4;
             // 
             // editCantidad
             // 
-            this.editCantidad.Location = new System.Drawing.Point(313, -126);
+            this.editCantidad.Location = new System.Drawing.Point(318, 86);
             this.editCantidad.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCantidad.MenuManager = this.ribbonControl1;
             this.editCantidad.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCantidad.Name = "editCantidad";
-            this.editCantidad.Size = new System.Drawing.Size(79, 30);
+            this.editCantidad.Size = new System.Drawing.Size(84, 30);
             this.editCantidad.StyleController = this.layoutControl4;
             this.editCantidad.TabIndex = 3;
             // 
             // editSubSCuDR
             // 
-            this.editSubSCuDR.Location = new System.Drawing.Point(495, 146);
+            this.editSubSCuDR.Location = new System.Drawing.Point(505, 358);
             this.editSubSCuDR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuDR.MenuManager = this.ribbonControl1;
             this.editSubSCuDR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuDR.Name = "editSubSCuDR";
-            this.editSubSCuDR.Size = new System.Drawing.Size(116, 30);
+            this.editSubSCuDR.Size = new System.Drawing.Size(123, 30);
             this.editSubSCuDR.StyleController = this.layoutControl4;
             this.editSubSCuDR.TabIndex = 28;
             // 
             // editSubCuDR
             // 
-            this.editSubCuDR.Location = new System.Drawing.Point(313, 146);
+            this.editSubCuDR.Location = new System.Drawing.Point(318, 358);
             this.editSubCuDR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubCuDR.MenuManager = this.ribbonControl1;
             this.editSubCuDR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuDR.Name = "editSubCuDR";
-            this.editSubCuDR.Size = new System.Drawing.Size(79, 30);
+            this.editSubCuDR.Size = new System.Drawing.Size(84, 30);
             this.editSubCuDR.StyleController = this.layoutControl4;
             this.editSubCuDR.TabIndex = 27;
             // 
             // editCuDR
             // 
-            this.editCuDR.Location = new System.Drawing.Point(123, 146);
+            this.editCuDR.Location = new System.Drawing.Point(123, 358);
             this.editCuDR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCuDR.MenuManager = this.ribbonControl1;
             this.editCuDR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuDR.Name = "editCuDR";
-            this.editCuDR.Size = new System.Drawing.Size(87, 30);
+            this.editCuDR.Size = new System.Drawing.Size(92, 30);
             this.editCuDR.StyleController = this.layoutControl4;
             this.editCuDR.TabIndex = 26;
             // 
             // editSubSCuCR
             // 
-            this.editSubSCuCR.Location = new System.Drawing.Point(495, 112);
+            this.editSubSCuCR.Location = new System.Drawing.Point(505, 324);
             this.editSubSCuCR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuCR.MenuManager = this.ribbonControl1;
             this.editSubSCuCR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuCR.Name = "editSubSCuCR";
-            this.editSubSCuCR.Size = new System.Drawing.Size(116, 30);
+            this.editSubSCuCR.Size = new System.Drawing.Size(123, 30);
             this.editSubSCuCR.StyleController = this.layoutControl4;
             this.editSubSCuCR.TabIndex = 25;
             // 
             // editSubCuCR
             // 
-            this.editSubCuCR.Location = new System.Drawing.Point(313, 112);
+            this.editSubCuCR.Location = new System.Drawing.Point(318, 324);
             this.editSubCuCR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubCuCR.MenuManager = this.ribbonControl1;
             this.editSubCuCR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuCR.Name = "editSubCuCR";
-            this.editSubCuCR.Size = new System.Drawing.Size(79, 30);
+            this.editSubCuCR.Size = new System.Drawing.Size(84, 30);
             this.editSubCuCR.StyleController = this.layoutControl4;
             this.editSubCuCR.TabIndex = 24;
             // 
             // editCuCR
             // 
-            this.editCuCR.Location = new System.Drawing.Point(123, 112);
+            this.editCuCR.Location = new System.Drawing.Point(123, 324);
             this.editCuCR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCuCR.MenuManager = this.ribbonControl1;
             this.editCuCR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuCR.Name = "editCuCR";
-            this.editCuCR.Size = new System.Drawing.Size(87, 30);
+            this.editCuCR.Size = new System.Drawing.Size(92, 30);
             this.editCuCR.StyleController = this.layoutControl4;
             this.editCuCR.TabIndex = 23;
             // 
             // editSubSCuAR
             // 
-            this.editSubSCuAR.Location = new System.Drawing.Point(495, 78);
+            this.editSubSCuAR.Location = new System.Drawing.Point(505, 290);
             this.editSubSCuAR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuAR.MenuManager = this.ribbonControl1;
             this.editSubSCuAR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuAR.Name = "editSubSCuAR";
-            this.editSubSCuAR.Size = new System.Drawing.Size(116, 30);
+            this.editSubSCuAR.Size = new System.Drawing.Size(123, 30);
             this.editSubSCuAR.StyleController = this.layoutControl4;
             this.editSubSCuAR.TabIndex = 22;
             // 
             // editSubCuAR
             // 
-            this.editSubCuAR.Location = new System.Drawing.Point(313, 78);
+            this.editSubCuAR.Location = new System.Drawing.Point(318, 290);
             this.editSubCuAR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubCuAR.MenuManager = this.ribbonControl1;
             this.editSubCuAR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuAR.Name = "editSubCuAR";
-            this.editSubCuAR.Size = new System.Drawing.Size(79, 30);
+            this.editSubCuAR.Size = new System.Drawing.Size(84, 30);
             this.editSubCuAR.StyleController = this.layoutControl4;
             this.editSubCuAR.TabIndex = 21;
             // 
             // editCuAR
             // 
-            this.editCuAR.Location = new System.Drawing.Point(123, 78);
+            this.editCuAR.Location = new System.Drawing.Point(123, 290);
             this.editCuAR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCuAR.MenuManager = this.ribbonControl1;
             this.editCuAR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuAR.Name = "editCuAR";
-            this.editCuAR.Size = new System.Drawing.Size(87, 30);
+            this.editCuAR.Size = new System.Drawing.Size(92, 30);
             this.editCuAR.StyleController = this.layoutControl4;
             this.editCuAR.TabIndex = 20;
             // 
             // editSubSCuFR
             // 
-            this.editSubSCuFR.Location = new System.Drawing.Point(495, 44);
+            this.editSubSCuFR.Location = new System.Drawing.Point(505, 256);
             this.editSubSCuFR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuFR.MenuManager = this.ribbonControl1;
             this.editSubSCuFR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuFR.Name = "editSubSCuFR";
-            this.editSubSCuFR.Size = new System.Drawing.Size(116, 30);
+            this.editSubSCuFR.Size = new System.Drawing.Size(123, 30);
             this.editSubSCuFR.StyleController = this.layoutControl4;
             this.editSubSCuFR.TabIndex = 19;
             // 
             // editSubCuFR
             // 
-            this.editSubCuFR.Location = new System.Drawing.Point(313, 44);
+            this.editSubCuFR.Location = new System.Drawing.Point(318, 256);
             this.editSubCuFR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubCuFR.MenuManager = this.ribbonControl1;
             this.editSubCuFR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuFR.Name = "editSubCuFR";
-            this.editSubCuFR.Size = new System.Drawing.Size(79, 30);
+            this.editSubCuFR.Size = new System.Drawing.Size(84, 30);
             this.editSubCuFR.StyleController = this.layoutControl4;
             this.editSubCuFR.TabIndex = 18;
             // 
             // editCuFR
             // 
-            this.editCuFR.Location = new System.Drawing.Point(123, 44);
+            this.editCuFR.Location = new System.Drawing.Point(123, 256);
             this.editCuFR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCuFR.MenuManager = this.ribbonControl1;
             this.editCuFR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuFR.Name = "editCuFR";
-            this.editCuFR.Size = new System.Drawing.Size(87, 30);
+            this.editCuFR.Size = new System.Drawing.Size(92, 30);
             this.editCuFR.StyleController = this.layoutControl4;
             this.editCuFR.TabIndex = 17;
             // 
             // editSubSCuDZ
             // 
-            this.editSubSCuDZ.Location = new System.Drawing.Point(495, 10);
+            this.editSubSCuDZ.Location = new System.Drawing.Point(505, 222);
             this.editSubSCuDZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuDZ.MenuManager = this.ribbonControl1;
             this.editSubSCuDZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuDZ.Name = "editSubSCuDZ";
-            this.editSubSCuDZ.Size = new System.Drawing.Size(116, 30);
+            this.editSubSCuDZ.Size = new System.Drawing.Size(123, 30);
             this.editSubSCuDZ.StyleController = this.layoutControl4;
             this.editSubSCuDZ.TabIndex = 16;
             // 
             // editSubCuDZ
             // 
-            this.editSubCuDZ.Location = new System.Drawing.Point(313, 10);
+            this.editSubCuDZ.Location = new System.Drawing.Point(318, 222);
             this.editSubCuDZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubCuDZ.MenuManager = this.ribbonControl1;
             this.editSubCuDZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuDZ.Name = "editSubCuDZ";
-            this.editSubCuDZ.Size = new System.Drawing.Size(79, 30);
+            this.editSubCuDZ.Size = new System.Drawing.Size(84, 30);
             this.editSubCuDZ.StyleController = this.layoutControl4;
             this.editSubCuDZ.TabIndex = 15;
             // 
             // editCuDZ
             // 
-            this.editCuDZ.Location = new System.Drawing.Point(123, 10);
+            this.editCuDZ.Location = new System.Drawing.Point(123, 222);
             this.editCuDZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCuDZ.MenuManager = this.ribbonControl1;
             this.editCuDZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuDZ.Name = "editCuDZ";
-            this.editCuDZ.Size = new System.Drawing.Size(87, 30);
+            this.editCuDZ.Size = new System.Drawing.Size(92, 30);
             this.editCuDZ.StyleController = this.layoutControl4;
             this.editCuDZ.TabIndex = 14;
             // 
             // editSubCuCZ
             // 
-            this.editSubCuCZ.Location = new System.Drawing.Point(313, -24);
+            this.editSubCuCZ.Location = new System.Drawing.Point(318, 188);
             this.editSubCuCZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubCuCZ.MenuManager = this.ribbonControl1;
             this.editSubCuCZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuCZ.Name = "editSubCuCZ";
-            this.editSubCuCZ.Size = new System.Drawing.Size(79, 30);
+            this.editSubCuCZ.Size = new System.Drawing.Size(84, 30);
             this.editSubCuCZ.StyleController = this.layoutControl4;
             this.editSubCuCZ.TabIndex = 12;
             // 
             // editSubSCuCZ
             // 
-            this.editSubSCuCZ.Location = new System.Drawing.Point(495, -24);
+            this.editSubSCuCZ.Location = new System.Drawing.Point(505, 188);
             this.editSubSCuCZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuCZ.MenuManager = this.ribbonControl1;
             this.editSubSCuCZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuCZ.Name = "editSubSCuCZ";
-            this.editSubSCuCZ.Size = new System.Drawing.Size(116, 30);
+            this.editSubSCuCZ.Size = new System.Drawing.Size(123, 30);
             this.editSubSCuCZ.StyleController = this.layoutControl4;
             this.editSubSCuCZ.TabIndex = 13;
             // 
             // editCuCZ
             // 
-            this.editCuCZ.Location = new System.Drawing.Point(123, -24);
+            this.editCuCZ.Location = new System.Drawing.Point(123, 188);
             this.editCuCZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCuCZ.MenuManager = this.ribbonControl1;
             this.editCuCZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuCZ.Name = "editCuCZ";
-            this.editCuCZ.Size = new System.Drawing.Size(87, 30);
+            this.editCuCZ.Size = new System.Drawing.Size(92, 30);
             this.editCuCZ.StyleController = this.layoutControl4;
             this.editCuCZ.TabIndex = 11;
             // 
             // editSubSCuAZ
             // 
-            this.editSubSCuAZ.Location = new System.Drawing.Point(495, -58);
+            this.editSubSCuAZ.Location = new System.Drawing.Point(505, 154);
             this.editSubSCuAZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuAZ.MenuManager = this.ribbonControl1;
             this.editSubSCuAZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuAZ.Name = "editSubSCuAZ";
-            this.editSubSCuAZ.Size = new System.Drawing.Size(116, 30);
+            this.editSubSCuAZ.Size = new System.Drawing.Size(123, 30);
             this.editSubSCuAZ.StyleController = this.layoutControl4;
             this.editSubSCuAZ.TabIndex = 10;
             // 
             // editSubCuAZ
             // 
-            this.editSubCuAZ.Location = new System.Drawing.Point(313, -58);
+            this.editSubCuAZ.Location = new System.Drawing.Point(318, 154);
             this.editSubCuAZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubCuAZ.MenuManager = this.ribbonControl1;
             this.editSubCuAZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuAZ.Name = "editSubCuAZ";
-            this.editSubCuAZ.Size = new System.Drawing.Size(79, 30);
+            this.editSubCuAZ.Size = new System.Drawing.Size(84, 30);
             this.editSubCuAZ.StyleController = this.layoutControl4;
             this.editSubCuAZ.TabIndex = 9;
             // 
             // editCuAZ
             // 
-            this.editCuAZ.Location = new System.Drawing.Point(123, -58);
+            this.editCuAZ.Location = new System.Drawing.Point(123, 154);
             this.editCuAZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCuAZ.MenuManager = this.ribbonControl1;
             this.editCuAZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuAZ.Name = "editCuAZ";
-            this.editCuAZ.Size = new System.Drawing.Size(87, 30);
+            this.editCuAZ.Size = new System.Drawing.Size(92, 30);
             this.editCuAZ.StyleController = this.layoutControl4;
             this.editCuAZ.TabIndex = 8;
             // 
             // editSubSCuFZ
             // 
-            this.editSubSCuFZ.Location = new System.Drawing.Point(495, -92);
+            this.editSubSCuFZ.Location = new System.Drawing.Point(505, 120);
             this.editSubSCuFZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuFZ.MenuManager = this.ribbonControl1;
             this.editSubSCuFZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuFZ.Name = "editSubSCuFZ";
-            this.editSubSCuFZ.Size = new System.Drawing.Size(116, 30);
+            this.editSubSCuFZ.Size = new System.Drawing.Size(123, 30);
             this.editSubSCuFZ.StyleController = this.layoutControl4;
             this.editSubSCuFZ.TabIndex = 7;
             // 
             // editSubCuFZ
             // 
-            this.editSubCuFZ.Location = new System.Drawing.Point(313, -92);
+            this.editSubCuFZ.Location = new System.Drawing.Point(318, 120);
             this.editSubCuFZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubCuFZ.MenuManager = this.ribbonControl1;
             this.editSubCuFZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuFZ.Name = "editSubCuFZ";
-            this.editSubCuFZ.Size = new System.Drawing.Size(79, 30);
+            this.editSubCuFZ.Size = new System.Drawing.Size(84, 30);
             this.editSubCuFZ.StyleController = this.layoutControl4;
             this.editSubCuFZ.TabIndex = 6;
             // 
             // editDescripcion
             // 
-            this.editDescripcion.Location = new System.Drawing.Point(123, -170);
+            this.editDescripcion.Location = new System.Drawing.Point(123, 42);
             this.editDescripcion.MaximumSize = new System.Drawing.Size(0, 60);
             this.editDescripcion.MenuManager = this.ribbonControl1;
             this.editDescripcion.MinimumSize = new System.Drawing.Size(0, 40);
             this.editDescripcion.Name = "editDescripcion";
             this.editDescripcion.Properties.LinesCount = 2;
-            this.editDescripcion.Size = new System.Drawing.Size(488, 40);
+            this.editDescripcion.Size = new System.Drawing.Size(505, 40);
             this.editDescripcion.StyleController = this.layoutControl4;
             this.editDescripcion.TabIndex = 0;
             // 
             // editCuFZ
             // 
-            this.editCuFZ.Location = new System.Drawing.Point(123, -92);
+            this.editCuFZ.Location = new System.Drawing.Point(123, 120);
             this.editCuFZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCuFZ.MenuManager = this.ribbonControl1;
             this.editCuFZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuFZ.Name = "editCuFZ";
-            this.editCuFZ.Size = new System.Drawing.Size(87, 30);
+            this.editCuFZ.Size = new System.Drawing.Size(92, 30);
             this.editCuFZ.StyleController = this.layoutControl4;
             this.editCuFZ.TabIndex = 5;
             // 
             // editApliCeFZ
             // 
-            this.editApliCeFZ.Location = new System.Drawing.Point(24, 180);
+            this.editApliCeFZ.Location = new System.Drawing.Point(24, 392);
             this.editApliCeFZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editApliCeFZ.MenuManager = this.ribbonControl1;
             this.editApliCeFZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editApliCeFZ.Name = "editApliCeFZ";
             this.editApliCeFZ.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.editApliCeFZ.Properties.Caption = "aplicaCentCost_F_Z";
-            this.editApliCeFZ.Size = new System.Drawing.Size(120, 30);
+            this.editApliCeFZ.Size = new System.Drawing.Size(124, 30);
             this.editApliCeFZ.StyleController = this.layoutControl4;
             this.editApliCeFZ.TabIndex = 29;
             // 
             // editApliCeAZ
             // 
-            this.editApliCeAZ.Location = new System.Drawing.Point(272, 180);
+            this.editApliCeAZ.Location = new System.Drawing.Point(279, 392);
             this.editApliCeAZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editApliCeAZ.MenuManager = this.ribbonControl1;
             this.editApliCeAZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editApliCeAZ.Name = "editApliCeAZ";
             this.editApliCeAZ.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.editApliCeAZ.Properties.Caption = "aplicaCentCost_A_Z";
-            this.editApliCeAZ.Size = new System.Drawing.Size(141, 30);
+            this.editApliCeAZ.Size = new System.Drawing.Size(145, 30);
             this.editApliCeAZ.StyleController = this.layoutControl4;
             this.editApliCeAZ.TabIndex = 31;
             // 
             // editApliCeCZ
             // 
-            this.editApliCeCZ.Location = new System.Drawing.Point(417, 180);
+            this.editApliCeCZ.Location = new System.Drawing.Point(428, 392);
             this.editApliCeCZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editApliCeCZ.MenuManager = this.ribbonControl1;
             this.editApliCeCZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editApliCeCZ.Name = "editApliCeCZ";
             this.editApliCeCZ.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.editApliCeCZ.Properties.Caption = "aplicaCentCost_C_Z";
-            this.editApliCeCZ.Size = new System.Drawing.Size(194, 30);
+            this.editApliCeCZ.Size = new System.Drawing.Size(200, 30);
             this.editApliCeCZ.StyleController = this.layoutControl4;
             this.editApliCeCZ.TabIndex = 32;
             // 
             // editApliCeDZ
             // 
-            this.editApliCeDZ.Location = new System.Drawing.Point(148, 180);
+            this.editApliCeDZ.Location = new System.Drawing.Point(152, 392);
             this.editApliCeDZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editApliCeDZ.MenuManager = this.ribbonControl1;
             this.editApliCeDZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editApliCeDZ.Name = "editApliCeDZ";
             this.editApliCeDZ.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.editApliCeDZ.Properties.Caption = "aplicaCentCost_D_Z";
-            this.editApliCeDZ.Size = new System.Drawing.Size(120, 30);
+            this.editApliCeDZ.Size = new System.Drawing.Size(123, 30);
             this.editApliCeDZ.StyleController = this.layoutControl4;
             this.editApliCeDZ.TabIndex = 30;
             // 
             // editApliCeFR
             // 
-            this.editApliCeFR.Location = new System.Drawing.Point(24, 214);
+            this.editApliCeFR.Location = new System.Drawing.Point(24, 426);
             this.editApliCeFR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editApliCeFR.MenuManager = this.ribbonControl1;
             this.editApliCeFR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editApliCeFR.Name = "editApliCeFR";
             this.editApliCeFR.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.editApliCeFR.Properties.Caption = "aplicaCentCost_F_R";
-            this.editApliCeFR.Size = new System.Drawing.Size(120, 30);
+            this.editApliCeFR.Size = new System.Drawing.Size(124, 30);
             this.editApliCeFR.StyleController = this.layoutControl4;
             this.editApliCeFR.TabIndex = 33;
             // 
             // editApliCeAR
             // 
-            this.editApliCeAR.Location = new System.Drawing.Point(272, 214);
+            this.editApliCeAR.Location = new System.Drawing.Point(279, 426);
             this.editApliCeAR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editApliCeAR.MenuManager = this.ribbonControl1;
             this.editApliCeAR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editApliCeAR.Name = "editApliCeAR";
             this.editApliCeAR.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.editApliCeAR.Properties.Caption = "aplicaCentCost_A_R";
-            this.editApliCeAR.Size = new System.Drawing.Size(141, 30);
+            this.editApliCeAR.Size = new System.Drawing.Size(145, 30);
             this.editApliCeAR.StyleController = this.layoutControl4;
             this.editApliCeAR.TabIndex = 35;
             this.editApliCeAR.EditValueChanged += new System.EventHandler(this.textEdit23_EditValueChanged);
             // 
             // editApliCeCR
             // 
-            this.editApliCeCR.Location = new System.Drawing.Point(148, 214);
+            this.editApliCeCR.Location = new System.Drawing.Point(152, 426);
             this.editApliCeCR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editApliCeCR.MenuManager = this.ribbonControl1;
             this.editApliCeCR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editApliCeCR.Name = "editApliCeCR";
             this.editApliCeCR.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.editApliCeCR.Properties.Caption = "aplicaCentCost_C_R";
-            this.editApliCeCR.Size = new System.Drawing.Size(120, 30);
+            this.editApliCeCR.Size = new System.Drawing.Size(123, 30);
             this.editApliCeCR.StyleController = this.layoutControl4;
             this.editApliCeCR.TabIndex = 34;
             // 
             // editApliCeDR
             // 
-            this.editApliCeDR.Location = new System.Drawing.Point(417, 214);
+            this.editApliCeDR.Location = new System.Drawing.Point(428, 426);
             this.editApliCeDR.MaximumSize = new System.Drawing.Size(0, 30);
             this.editApliCeDR.MenuManager = this.ribbonControl1;
             this.editApliCeDR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editApliCeDR.Name = "editApliCeDR";
             this.editApliCeDR.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.editApliCeDR.Properties.Caption = "aplicaCentCost_D_R";
-            this.editApliCeDR.Size = new System.Drawing.Size(194, 30);
+            this.editApliCeDR.Size = new System.Drawing.Size(200, 30);
             this.editApliCeDR.StyleController = this.layoutControl4;
             this.editApliCeDR.TabIndex = 36;
             // 
@@ -1538,7 +1539,7 @@
             this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup6});
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(635, 490);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(652, 490);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // layoutControlGroup6
@@ -1584,7 +1585,7 @@
             this.layoutControlItem90});
             this.layoutControlGroup6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup6.Name = "layoutControlGroup6";
-            this.layoutControlGroup6.Size = new System.Drawing.Size(615, 470);
+            this.layoutControlGroup6.Size = new System.Drawing.Size(632, 470);
             this.layoutControlGroup6.Text = "Información";
             // 
             // layoutControlItem3
@@ -1592,7 +1593,7 @@
             this.layoutControlItem3.Control = this.editCuFZ;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 78);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(190, 34);
+            this.layoutControlItem3.Size = new System.Drawing.Size(195, 34);
             this.layoutControlItem3.Text = "cuenta_F_Z";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(96, 13);
@@ -1602,7 +1603,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 418);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(591, 10);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(608, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem68
@@ -1610,16 +1611,16 @@
             this.layoutControlItem68.Control = this.editDescripcion;
             this.layoutControlItem68.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem68.Name = "layoutControlItem68";
-            this.layoutControlItem68.Size = new System.Drawing.Size(591, 44);
+            this.layoutControlItem68.Size = new System.Drawing.Size(608, 44);
             this.layoutControlItem68.Text = "Descripción";
             this.layoutControlItem68.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlItem69
             // 
             this.layoutControlItem69.Control = this.editSubCuFZ;
-            this.layoutControlItem69.Location = new System.Drawing.Point(190, 78);
+            this.layoutControlItem69.Location = new System.Drawing.Point(195, 78);
             this.layoutControlItem69.Name = "layoutControlItem69";
-            this.layoutControlItem69.Size = new System.Drawing.Size(182, 34);
+            this.layoutControlItem69.Size = new System.Drawing.Size(187, 34);
             this.layoutControlItem69.Text = "subCuenta_F_Z";
             this.layoutControlItem69.TextSize = new System.Drawing.Size(96, 13);
             // 
@@ -1628,16 +1629,16 @@
             this.layoutControlItem71.Control = this.editCuAZ;
             this.layoutControlItem71.Location = new System.Drawing.Point(0, 112);
             this.layoutControlItem71.Name = "layoutControlItem71";
-            this.layoutControlItem71.Size = new System.Drawing.Size(190, 34);
+            this.layoutControlItem71.Size = new System.Drawing.Size(195, 34);
             this.layoutControlItem71.Text = "cuenta_A_Z";
             this.layoutControlItem71.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlItem78
             // 
             this.layoutControlItem78.Control = this.editSubCuCZ;
-            this.layoutControlItem78.Location = new System.Drawing.Point(190, 146);
+            this.layoutControlItem78.Location = new System.Drawing.Point(195, 146);
             this.layoutControlItem78.Name = "layoutControlItem78";
-            this.layoutControlItem78.Size = new System.Drawing.Size(182, 34);
+            this.layoutControlItem78.Size = new System.Drawing.Size(187, 34);
             this.layoutControlItem78.Text = "subCuenta_C_Z";
             this.layoutControlItem78.TextSize = new System.Drawing.Size(96, 13);
             // 
@@ -1646,16 +1647,16 @@
             this.layoutControlItem79.Control = this.editCuDZ;
             this.layoutControlItem79.Location = new System.Drawing.Point(0, 180);
             this.layoutControlItem79.Name = "layoutControlItem79";
-            this.layoutControlItem79.Size = new System.Drawing.Size(190, 34);
+            this.layoutControlItem79.Size = new System.Drawing.Size(195, 34);
             this.layoutControlItem79.Text = "cuenta_D_Z";
             this.layoutControlItem79.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlItem81
             // 
             this.layoutControlItem81.Control = this.editSubCuDZ;
-            this.layoutControlItem81.Location = new System.Drawing.Point(190, 180);
+            this.layoutControlItem81.Location = new System.Drawing.Point(195, 180);
             this.layoutControlItem81.Name = "layoutControlItem81";
-            this.layoutControlItem81.Size = new System.Drawing.Size(182, 34);
+            this.layoutControlItem81.Size = new System.Drawing.Size(187, 34);
             this.layoutControlItem81.Text = "subCuenta_D_Z";
             this.layoutControlItem81.TextSize = new System.Drawing.Size(96, 13);
             // 
@@ -1664,16 +1665,16 @@
             this.layoutControlItem91.Control = this.editCuCR;
             this.layoutControlItem91.Location = new System.Drawing.Point(0, 282);
             this.layoutControlItem91.Name = "layoutControlItem91";
-            this.layoutControlItem91.Size = new System.Drawing.Size(190, 34);
+            this.layoutControlItem91.Size = new System.Drawing.Size(195, 34);
             this.layoutControlItem91.Text = "cuenta_C_R";
             this.layoutControlItem91.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlItem93
             // 
             this.layoutControlItem93.Control = this.editSubCuCR;
-            this.layoutControlItem93.Location = new System.Drawing.Point(190, 282);
+            this.layoutControlItem93.Location = new System.Drawing.Point(195, 282);
             this.layoutControlItem93.Name = "layoutControlItem93";
-            this.layoutControlItem93.Size = new System.Drawing.Size(182, 34);
+            this.layoutControlItem93.Size = new System.Drawing.Size(187, 34);
             this.layoutControlItem93.Text = "subCuenta_C_R";
             this.layoutControlItem93.TextSize = new System.Drawing.Size(96, 13);
             // 
@@ -1682,25 +1683,16 @@
             this.layoutControlItem95.Control = this.editCuDR;
             this.layoutControlItem95.Location = new System.Drawing.Point(0, 316);
             this.layoutControlItem95.Name = "layoutControlItem95";
-            this.layoutControlItem95.Size = new System.Drawing.Size(190, 34);
+            this.layoutControlItem95.Size = new System.Drawing.Size(195, 34);
             this.layoutControlItem95.Text = "cuenta_D_R";
             this.layoutControlItem95.TextSize = new System.Drawing.Size(96, 13);
-            // 
-            // layoutControlItem101
-            // 
-            this.layoutControlItem101.Control = this.editNumeroG;
-            this.layoutControlItem101.Location = new System.Drawing.Point(0, 44);
-            this.layoutControlItem101.Name = "layoutControlItem101";
-            this.layoutControlItem101.Size = new System.Drawing.Size(190, 34);
-            this.layoutControlItem101.Text = "Numero de grupo";
-            this.layoutControlItem101.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.editApliCeFZ;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 350);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(124, 34);
+            this.layoutControlItem5.Size = new System.Drawing.Size(128, 34);
             this.layoutControlItem5.Text = "aplicaCentCost_F_Z";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
@@ -1708,9 +1700,9 @@
             // layoutControlItem72
             // 
             this.layoutControlItem72.Control = this.editApliCeAZ;
-            this.layoutControlItem72.Location = new System.Drawing.Point(248, 350);
+            this.layoutControlItem72.Location = new System.Drawing.Point(255, 350);
             this.layoutControlItem72.Name = "layoutControlItem72";
-            this.layoutControlItem72.Size = new System.Drawing.Size(145, 34);
+            this.layoutControlItem72.Size = new System.Drawing.Size(149, 34);
             this.layoutControlItem72.Text = "aplicaCentCost_A_Z";
             this.layoutControlItem72.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem72.TextVisible = false;
@@ -1718,9 +1710,9 @@
             // layoutControlItem76
             // 
             this.layoutControlItem76.Control = this.editApliCeCZ;
-            this.layoutControlItem76.Location = new System.Drawing.Point(393, 350);
+            this.layoutControlItem76.Location = new System.Drawing.Point(404, 350);
             this.layoutControlItem76.Name = "layoutControlItem76";
-            this.layoutControlItem76.Size = new System.Drawing.Size(198, 34);
+            this.layoutControlItem76.Size = new System.Drawing.Size(204, 34);
             this.layoutControlItem76.Text = "aplicaCentCost_C_Z";
             this.layoutControlItem76.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem76.TextVisible = false;
@@ -1728,9 +1720,9 @@
             // layoutControlItem80
             // 
             this.layoutControlItem80.Control = this.editApliCeDZ;
-            this.layoutControlItem80.Location = new System.Drawing.Point(124, 350);
+            this.layoutControlItem80.Location = new System.Drawing.Point(128, 350);
             this.layoutControlItem80.Name = "layoutControlItem80";
-            this.layoutControlItem80.Size = new System.Drawing.Size(124, 34);
+            this.layoutControlItem80.Size = new System.Drawing.Size(127, 34);
             this.layoutControlItem80.Text = "aplicaCentCost_D_Z";
             this.layoutControlItem80.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem80.TextVisible = false;
@@ -1740,7 +1732,7 @@
             this.layoutControlItem84.Control = this.editApliCeFR;
             this.layoutControlItem84.Location = new System.Drawing.Point(0, 384);
             this.layoutControlItem84.Name = "layoutControlItem84";
-            this.layoutControlItem84.Size = new System.Drawing.Size(124, 34);
+            this.layoutControlItem84.Size = new System.Drawing.Size(128, 34);
             this.layoutControlItem84.Text = "aplicaCentCost_F_R";
             this.layoutControlItem84.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem84.TextVisible = false;
@@ -1748,9 +1740,9 @@
             // layoutControlItem88
             // 
             this.layoutControlItem88.Control = this.editApliCeAR;
-            this.layoutControlItem88.Location = new System.Drawing.Point(248, 384);
+            this.layoutControlItem88.Location = new System.Drawing.Point(255, 384);
             this.layoutControlItem88.Name = "layoutControlItem88";
-            this.layoutControlItem88.Size = new System.Drawing.Size(145, 34);
+            this.layoutControlItem88.Size = new System.Drawing.Size(149, 34);
             this.layoutControlItem88.Text = "aplicaCentCost_A_R";
             this.layoutControlItem88.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem88.TextVisible = false;
@@ -1758,9 +1750,9 @@
             // layoutControlItem92
             // 
             this.layoutControlItem92.Control = this.editApliCeCR;
-            this.layoutControlItem92.Location = new System.Drawing.Point(124, 384);
+            this.layoutControlItem92.Location = new System.Drawing.Point(128, 384);
             this.layoutControlItem92.Name = "layoutControlItem92";
-            this.layoutControlItem92.Size = new System.Drawing.Size(124, 34);
+            this.layoutControlItem92.Size = new System.Drawing.Size(127, 34);
             this.layoutControlItem92.Text = "aplicaCentCost_C_R";
             this.layoutControlItem92.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem92.TextVisible = false;
@@ -1768,9 +1760,9 @@
             // layoutControlItem96
             // 
             this.layoutControlItem96.Control = this.editApliCeDR;
-            this.layoutControlItem96.Location = new System.Drawing.Point(393, 384);
+            this.layoutControlItem96.Location = new System.Drawing.Point(404, 384);
             this.layoutControlItem96.Name = "layoutControlItem96";
-            this.layoutControlItem96.Size = new System.Drawing.Size(198, 34);
+            this.layoutControlItem96.Size = new System.Drawing.Size(204, 34);
             this.layoutControlItem96.Text = "aplicaCentCost_D_R";
             this.layoutControlItem96.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem96.TextVisible = false;
@@ -1778,63 +1770,36 @@
             // layoutControlItem70
             // 
             this.layoutControlItem70.Control = this.editSubSCuFZ;
-            this.layoutControlItem70.Location = new System.Drawing.Point(372, 78);
+            this.layoutControlItem70.Location = new System.Drawing.Point(382, 78);
             this.layoutControlItem70.Name = "layoutControlItem70";
-            this.layoutControlItem70.Size = new System.Drawing.Size(219, 34);
+            this.layoutControlItem70.Size = new System.Drawing.Size(226, 34);
             this.layoutControlItem70.Text = "subSubCuenta_F_Z";
             this.layoutControlItem70.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlItem73
             // 
             this.layoutControlItem73.Control = this.editSubCuAZ;
-            this.layoutControlItem73.Location = new System.Drawing.Point(190, 112);
+            this.layoutControlItem73.Location = new System.Drawing.Point(195, 112);
             this.layoutControlItem73.Name = "layoutControlItem73";
-            this.layoutControlItem73.Size = new System.Drawing.Size(182, 34);
+            this.layoutControlItem73.Size = new System.Drawing.Size(187, 34);
             this.layoutControlItem73.Text = "subCuenta_A_Z";
             this.layoutControlItem73.TextSize = new System.Drawing.Size(96, 13);
-            // 
-            // layoutControlItem74
-            // 
-            this.layoutControlItem74.Control = this.editSubSCuAZ;
-            this.layoutControlItem74.Location = new System.Drawing.Point(372, 112);
-            this.layoutControlItem74.Name = "layoutControlItem74";
-            this.layoutControlItem74.Size = new System.Drawing.Size(219, 34);
-            this.layoutControlItem74.Text = "subSubCuenta_A_Z";
-            this.layoutControlItem74.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlItem75
             // 
             this.layoutControlItem75.Control = this.editCuCZ;
             this.layoutControlItem75.Location = new System.Drawing.Point(0, 146);
             this.layoutControlItem75.Name = "layoutControlItem75";
-            this.layoutControlItem75.Size = new System.Drawing.Size(190, 34);
+            this.layoutControlItem75.Size = new System.Drawing.Size(195, 34);
             this.layoutControlItem75.Text = "cuenta_C_Z";
             this.layoutControlItem75.TextSize = new System.Drawing.Size(96, 13);
-            // 
-            // layoutControlItem77
-            // 
-            this.layoutControlItem77.Control = this.editSubSCuCZ;
-            this.layoutControlItem77.Location = new System.Drawing.Point(372, 146);
-            this.layoutControlItem77.Name = "layoutControlItem77";
-            this.layoutControlItem77.Size = new System.Drawing.Size(219, 34);
-            this.layoutControlItem77.Text = "subSubCuenta_C_Z";
-            this.layoutControlItem77.TextSize = new System.Drawing.Size(96, 13);
-            // 
-            // layoutControlItem82
-            // 
-            this.layoutControlItem82.Control = this.editSubSCuDZ;
-            this.layoutControlItem82.Location = new System.Drawing.Point(372, 180);
-            this.layoutControlItem82.Name = "layoutControlItem82";
-            this.layoutControlItem82.Size = new System.Drawing.Size(219, 34);
-            this.layoutControlItem82.Text = "subSubCuenta_D_Z";
-            this.layoutControlItem82.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlItem87
             // 
             this.layoutControlItem87.Control = this.editCuAR;
             this.layoutControlItem87.Location = new System.Drawing.Point(0, 248);
             this.layoutControlItem87.Name = "layoutControlItem87";
-            this.layoutControlItem87.Size = new System.Drawing.Size(190, 34);
+            this.layoutControlItem87.Size = new System.Drawing.Size(195, 34);
             this.layoutControlItem87.Text = "cuenta_A_R";
             this.layoutControlItem87.TextSize = new System.Drawing.Size(96, 13);
             // 
@@ -1843,90 +1808,126 @@
             this.layoutControlItem83.Control = this.editCuFR;
             this.layoutControlItem83.Location = new System.Drawing.Point(0, 214);
             this.layoutControlItem83.Name = "layoutControlItem83";
-            this.layoutControlItem83.Size = new System.Drawing.Size(190, 34);
+            this.layoutControlItem83.Size = new System.Drawing.Size(195, 34);
             this.layoutControlItem83.Text = "cuenta_F_R";
             this.layoutControlItem83.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlItem85
             // 
             this.layoutControlItem85.Control = this.editSubCuFR;
-            this.layoutControlItem85.Location = new System.Drawing.Point(190, 214);
+            this.layoutControlItem85.Location = new System.Drawing.Point(195, 214);
             this.layoutControlItem85.Name = "layoutControlItem85";
-            this.layoutControlItem85.Size = new System.Drawing.Size(182, 34);
+            this.layoutControlItem85.Size = new System.Drawing.Size(187, 34);
             this.layoutControlItem85.Text = "subCuenta_F_R";
             this.layoutControlItem85.TextSize = new System.Drawing.Size(96, 13);
-            // 
-            // layoutControlItem86
-            // 
-            this.layoutControlItem86.Control = this.editSubSCuFR;
-            this.layoutControlItem86.Location = new System.Drawing.Point(372, 214);
-            this.layoutControlItem86.Name = "layoutControlItem86";
-            this.layoutControlItem86.Size = new System.Drawing.Size(219, 34);
-            this.layoutControlItem86.Text = "subSubCuenta_F_R";
-            this.layoutControlItem86.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlItem89
             // 
             this.layoutControlItem89.Control = this.editSubCuAR;
-            this.layoutControlItem89.Location = new System.Drawing.Point(190, 248);
+            this.layoutControlItem89.Location = new System.Drawing.Point(195, 248);
             this.layoutControlItem89.Name = "layoutControlItem89";
-            this.layoutControlItem89.Size = new System.Drawing.Size(182, 34);
+            this.layoutControlItem89.Size = new System.Drawing.Size(187, 34);
             this.layoutControlItem89.Text = "subCuenta_A_R";
             this.layoutControlItem89.TextSize = new System.Drawing.Size(96, 13);
-            // 
-            // layoutControlItem90
-            // 
-            this.layoutControlItem90.Control = this.editSubSCuAR;
-            this.layoutControlItem90.Location = new System.Drawing.Point(372, 248);
-            this.layoutControlItem90.Name = "layoutControlItem90";
-            this.layoutControlItem90.Size = new System.Drawing.Size(219, 34);
-            this.layoutControlItem90.Text = "subSubCuenta_A_R";
-            this.layoutControlItem90.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlItem94
             // 
             this.layoutControlItem94.Control = this.editSubSCuCR;
-            this.layoutControlItem94.Location = new System.Drawing.Point(372, 282);
+            this.layoutControlItem94.Location = new System.Drawing.Point(382, 282);
             this.layoutControlItem94.Name = "layoutControlItem94";
-            this.layoutControlItem94.Size = new System.Drawing.Size(219, 34);
+            this.layoutControlItem94.Size = new System.Drawing.Size(226, 34);
             this.layoutControlItem94.Text = "subSubCuenta_C_R";
             this.layoutControlItem94.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlItem97
             // 
             this.layoutControlItem97.Control = this.editSubCuDR;
-            this.layoutControlItem97.Location = new System.Drawing.Point(190, 316);
+            this.layoutControlItem97.Location = new System.Drawing.Point(195, 316);
             this.layoutControlItem97.Name = "layoutControlItem97";
-            this.layoutControlItem97.Size = new System.Drawing.Size(182, 34);
+            this.layoutControlItem97.Size = new System.Drawing.Size(187, 34);
             this.layoutControlItem97.Text = "subCuenta_D_R";
             this.layoutControlItem97.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlItem98
             // 
             this.layoutControlItem98.Control = this.editSubSCuDR;
-            this.layoutControlItem98.Location = new System.Drawing.Point(372, 316);
+            this.layoutControlItem98.Location = new System.Drawing.Point(382, 316);
             this.layoutControlItem98.Name = "layoutControlItem98";
-            this.layoutControlItem98.Size = new System.Drawing.Size(219, 34);
+            this.layoutControlItem98.Size = new System.Drawing.Size(226, 34);
             this.layoutControlItem98.Text = "subSubCuenta_D_R";
             this.layoutControlItem98.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlItem99
             // 
             this.layoutControlItem99.Control = this.editCantidad;
-            this.layoutControlItem99.Location = new System.Drawing.Point(190, 44);
+            this.layoutControlItem99.Location = new System.Drawing.Point(195, 44);
             this.layoutControlItem99.Name = "layoutControlItem99";
-            this.layoutControlItem99.Size = new System.Drawing.Size(182, 34);
+            this.layoutControlItem99.Size = new System.Drawing.Size(187, 34);
             this.layoutControlItem99.Text = "cantidad";
             this.layoutControlItem99.TextSize = new System.Drawing.Size(96, 13);
+            // 
+            // layoutControlItem101
+            // 
+            this.layoutControlItem101.Control = this.editNumeroG;
+            this.layoutControlItem101.Location = new System.Drawing.Point(0, 44);
+            this.layoutControlItem101.Name = "layoutControlItem101";
+            this.layoutControlItem101.Size = new System.Drawing.Size(195, 34);
+            this.layoutControlItem101.Text = "Numero de grupo";
+            this.layoutControlItem101.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlItem100
             // 
             this.layoutControlItem100.Control = this.editImporte;
-            this.layoutControlItem100.Location = new System.Drawing.Point(372, 44);
+            this.layoutControlItem100.Location = new System.Drawing.Point(382, 44);
             this.layoutControlItem100.Name = "layoutControlItem100";
-            this.layoutControlItem100.Size = new System.Drawing.Size(219, 34);
+            this.layoutControlItem100.Size = new System.Drawing.Size(226, 34);
             this.layoutControlItem100.Text = "importe";
             this.layoutControlItem100.TextSize = new System.Drawing.Size(96, 13);
+            // 
+            // layoutControlItem74
+            // 
+            this.layoutControlItem74.Control = this.editSubSCuAZ;
+            this.layoutControlItem74.Location = new System.Drawing.Point(382, 112);
+            this.layoutControlItem74.Name = "layoutControlItem74";
+            this.layoutControlItem74.Size = new System.Drawing.Size(226, 34);
+            this.layoutControlItem74.Text = "subSubCuenta_A_Z";
+            this.layoutControlItem74.TextSize = new System.Drawing.Size(96, 13);
+            // 
+            // layoutControlItem77
+            // 
+            this.layoutControlItem77.Control = this.editSubSCuCZ;
+            this.layoutControlItem77.Location = new System.Drawing.Point(382, 146);
+            this.layoutControlItem77.Name = "layoutControlItem77";
+            this.layoutControlItem77.Size = new System.Drawing.Size(226, 34);
+            this.layoutControlItem77.Text = "subSubCuenta_C_Z";
+            this.layoutControlItem77.TextSize = new System.Drawing.Size(96, 13);
+            // 
+            // layoutControlItem82
+            // 
+            this.layoutControlItem82.Control = this.editSubSCuDZ;
+            this.layoutControlItem82.Location = new System.Drawing.Point(382, 180);
+            this.layoutControlItem82.Name = "layoutControlItem82";
+            this.layoutControlItem82.Size = new System.Drawing.Size(226, 34);
+            this.layoutControlItem82.Text = "subSubCuenta_D_Z";
+            this.layoutControlItem82.TextSize = new System.Drawing.Size(96, 13);
+            // 
+            // layoutControlItem86
+            // 
+            this.layoutControlItem86.Control = this.editSubSCuFR;
+            this.layoutControlItem86.Location = new System.Drawing.Point(382, 214);
+            this.layoutControlItem86.Name = "layoutControlItem86";
+            this.layoutControlItem86.Size = new System.Drawing.Size(226, 34);
+            this.layoutControlItem86.Text = "subSubCuenta_F_R";
+            this.layoutControlItem86.TextSize = new System.Drawing.Size(96, 13);
+            // 
+            // layoutControlItem90
+            // 
+            this.layoutControlItem90.Control = this.editSubSCuAR;
+            this.layoutControlItem90.Location = new System.Drawing.Point(382, 248);
+            this.layoutControlItem90.Name = "layoutControlItem90";
+            this.layoutControlItem90.Size = new System.Drawing.Size(226, 34);
+            this.layoutControlItem90.Text = "subSubCuenta_A_R";
+            this.layoutControlItem90.TextSize = new System.Drawing.Size(96, 13);
             // 
             // layoutControlGroup1
             // 
@@ -2538,7 +2539,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem91)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem93)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem95)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem101)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem72)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem76)).EndInit();
@@ -2549,21 +2549,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem96)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem70)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem73)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem74)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem75)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem77)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem82)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem87)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem83)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem85)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem86)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem89)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem90)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem94)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem97)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem98)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem99)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem101)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem100)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem74)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem77)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem82)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem86)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem90)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();

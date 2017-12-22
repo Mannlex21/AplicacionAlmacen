@@ -11,38 +11,60 @@ namespace AplicacionAlmacen.Controlador
     {
         public List<GpoMateriales> GetAllGrupos()
         {
-            using (var bd = new AlmacenEntities())
-            {
-                var list = bd.GpoMateriales;
-                return list.ToList();
+            try {
+                using (var bd = new AlmacenEntities())
+                {
+                    var list = bd.GpoMateriales;
+                    return list.ToList();
+                }
             }
-        }
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return null;
+            }
+}
         public List<GpoMateriales> GetGrupos(int page, int pageSize)
         {
-            using (var bd = new AlmacenEntities())
-            {
-                int pageIndex = Convert.ToInt32(page);
-                var Results = bd.GpoMateriales.OrderBy(s => s.numGpo).Skip(pageIndex * pageSize).Take(pageSize).ToList();
-                return Results;
+            try { 
+                using (var bd = new AlmacenEntities())
+                {
+                    int pageIndex = Convert.ToInt32(page);
+                    var Results = bd.GpoMateriales.OrderBy(s => s.numGpo).Skip(pageIndex * pageSize).Take(pageSize).ToList();
+                    return Results;
+                }
             }
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return null;
+            }
+           
         }
         public int numeroGrupo()
         {
-            var context = new AlmacenEntities();
-            var connection = context.Database.Connection;
-            int cont = 0;
-            using (SqlConnection con = new SqlConnection(connection.ConnectionString))
-            {
-                string query = "SELECT COUNT(*) FROM GpoMateriales";
-                using (SqlCommand cmd = new SqlCommand(query))
+            try { 
+                var context = new AlmacenEntities();
+                var connection = context.Database.Connection;
+                int cont = 0;
+                using (SqlConnection con = new SqlConnection(connection.ConnectionString))
                 {
-                    cmd.Connection = con;
-                    con.Open();
-                    cont = Convert.ToInt32(cmd.ExecuteScalar());
-                    con.Close();
+                    string query = "SELECT COUNT(*) FROM GpoMateriales";
+                    using (SqlCommand cmd = new SqlCommand(query))
+                    {
+                        cmd.Connection = con;
+                        con.Open();
+                        cont = Convert.ToInt32(cmd.ExecuteScalar());
+                        con.Close();
+                    }
                 }
+                return cont;
             }
-            return cont;
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return 0;
+            }
         }
         public Object guardarGrupo(GpoMateriales grupo)
         {
@@ -171,7 +193,7 @@ namespace AplicacionAlmacen.Controlador
                         ", subSubCuenta_A_R = @subSubCuenta_A_R, cuenta_C_R = @cuenta_C_R, aplicaCentCost_C_R = @aplicaCentCost_C_R" +
                         ", subCuenta_C_R = @subCuenta_C_R, subSubCuenta_C_R = @subSubCuenta_C_R, cuenta_D_R = @cuenta_D_R" +
                         ", aplicaCentCost_D_R = @aplicaCentCost_D_R, subCuenta_D_R = @subCuenta_D_R, subSubCuenta_D_R = @subSubCuenta_D_R" +
-                        ", cantidad = @cantidad, importe = @importe" +
+                        ", cantidad = @cantidad, importe = @importe " +
                         "WHERE numGpo = @numGpo";
                         query += " SELECT SCOPE_IDENTITY()";
                         using (SqlCommand cmd = new SqlCommand(query))
@@ -226,6 +248,41 @@ namespace AplicacionAlmacen.Controlador
                     result = new { message = "No se encontro el grupo", code = 2 };
                 }*/
 
+                return result;
+            }
+            catch (SqlException odbcEx)
+            {
+                Object result = new { message = "Error: " + odbcEx.Message.ToString(), code = 2 };
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Object result = new { message = "Error: " + ex.Message.ToString(), code = 2 };
+                return result;
+            }
+
+        }
+        public Object borrarGrupo(GpoMateriales grupo)
+        {
+            try
+            {
+                string s;
+                var context = new AlmacenEntities();
+                var connection = context.Database.Connection;
+                using (SqlConnection con = new SqlConnection(connection.ConnectionString))
+                {
+                    string query = "DELETE FROM GpoMateriales WHERE numGpo=@numGpo";
+                    query += " SELECT SCOPE_IDENTITY()";
+                    using (SqlCommand cmd = new SqlCommand(query))
+                    {
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.Parameters.AddWithValue("@numGpo", grupo.numGpo);
+                        s = cmd.ExecuteScalar().ToString();
+                        con.Close();
+                    }
+                }
+                Object result = new { message = "Se borro correctamente", code = 1 };
                 return result;
             }
             catch (SqlException odbcEx)

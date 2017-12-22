@@ -88,6 +88,7 @@ namespace AplicacionAlmacen.Vista
         {
             ResetControls(tabPage2);
             DisableControls(tabPage2);
+            tipo = 's';
 
         }
 

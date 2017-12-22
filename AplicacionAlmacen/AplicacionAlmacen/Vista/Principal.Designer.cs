@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panel = new DevExpress.XtraEditors.TileControl();
             this.tileGroup2 = new DevExpress.XtraEditors.TileGroup();
-            this.tileItem5 = new DevExpress.XtraEditors.TileItem();
-            this.tileItem6 = new DevExpress.XtraEditors.TileItem();
             this.tileItem1 = new DevExpress.XtraEditors.TileItem();
             this.tileItem4 = new DevExpress.XtraEditors.TileItem();
             this.tileItem2 = new DevExpress.XtraEditors.TileItem();
             this.tileItem3 = new DevExpress.XtraEditors.TileItem();
+            this.tileItem5 = new DevExpress.XtraEditors.TileItem();
+            this.tileItem6 = new DevExpress.XtraEditors.TileItem();
+            this.lblConexion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panel
@@ -71,42 +72,6 @@
             this.tileGroup2.Items.Add(this.tileItem2);
             this.tileGroup2.Items.Add(this.tileItem3);
             this.tileGroup2.Name = "tileGroup2";
-            // 
-            // tileItem5
-            // 
-            this.tileItem5.AppearanceItem.Normal.BackColor = System.Drawing.Color.White;
-            this.tileItem5.AppearanceItem.Normal.BackColor2 = System.Drawing.Color.Gainsboro;
-            this.tileItem5.AppearanceItem.Normal.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F, System.Drawing.FontStyle.Bold);
-            this.tileItem5.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
-            this.tileItem5.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileItem5.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileItem5.AppearanceItem.Normal.Options.UseForeColor = true;
-            tileItemElement5.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileItemElement5.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
-            tileItemElement5.Text = "Materiales";
-            tileItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileItem5.Elements.Add(tileItemElement5);
-            this.tileItem5.Id = 2;
-            this.tileItem5.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
-            this.tileItem5.Name = "tileItem5";
-            // 
-            // tileItem6
-            // 
-            this.tileItem6.AppearanceItem.Normal.BackColor = System.Drawing.Color.White;
-            this.tileItem6.AppearanceItem.Normal.BackColor2 = System.Drawing.Color.Gainsboro;
-            this.tileItem6.AppearanceItem.Normal.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F, System.Drawing.FontStyle.Bold);
-            this.tileItem6.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
-            this.tileItem6.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileItem6.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileItem6.AppearanceItem.Normal.Options.UseForeColor = true;
-            tileItemElement6.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileItemElement6.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
-            tileItemElement6.Text = "Materiales";
-            tileItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileItem6.Elements.Add(tileItemElement6);
-            this.tileItem6.Id = 2;
-            this.tileItem6.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
-            this.tileItem6.Name = "tileItem6";
             // 
             // tileItem1
             // 
@@ -189,11 +154,57 @@
             this.tileItem3.Name = "tileItem3";
             this.tileItem3.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItem3_ItemClick);
             // 
+            // tileItem5
+            // 
+            this.tileItem5.AppearanceItem.Normal.BackColor = System.Drawing.Color.White;
+            this.tileItem5.AppearanceItem.Normal.BackColor2 = System.Drawing.Color.Gainsboro;
+            this.tileItem5.AppearanceItem.Normal.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F, System.Drawing.FontStyle.Bold);
+            this.tileItem5.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
+            this.tileItem5.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileItem5.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileItem5.AppearanceItem.Normal.Options.UseForeColor = true;
+            tileItemElement5.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileItemElement5.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
+            tileItemElement5.Text = "Materiales";
+            tileItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileItem5.Elements.Add(tileItemElement5);
+            this.tileItem5.Id = 2;
+            this.tileItem5.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
+            this.tileItem5.Name = "tileItem5";
+            // 
+            // tileItem6
+            // 
+            this.tileItem6.AppearanceItem.Normal.BackColor = System.Drawing.Color.White;
+            this.tileItem6.AppearanceItem.Normal.BackColor2 = System.Drawing.Color.Gainsboro;
+            this.tileItem6.AppearanceItem.Normal.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F, System.Drawing.FontStyle.Bold);
+            this.tileItem6.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
+            this.tileItem6.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileItem6.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileItem6.AppearanceItem.Normal.Options.UseForeColor = true;
+            tileItemElement6.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileItemElement6.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
+            tileItemElement6.Text = "Materiales";
+            tileItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileItem6.Elements.Add(tileItemElement6);
+            this.tileItem6.Id = 2;
+            this.tileItem6.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
+            this.tileItem6.Name = "tileItem6";
+            // 
+            // lblConexion
+            // 
+            this.lblConexion.AutoSize = true;
+            this.lblConexion.BackColor = System.Drawing.Color.Transparent;
+            this.lblConexion.Location = new System.Drawing.Point(-3, 308);
+            this.lblConexion.Name = "lblConexion";
+            this.lblConexion.Size = new System.Drawing.Size(0, 13);
+            this.lblConexion.TabIndex = 1;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(380, 321);
+            this.Controls.Add(this.lblConexion);
             this.Controls.Add(this.panel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.LookAndFeel.SkinName = "The Bezier";
@@ -202,6 +213,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Principal_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -215,5 +227,6 @@
         private DevExpress.XtraEditors.TileItem tileItem5;
         private DevExpress.XtraEditors.TileItem tileItem6;
         private DevExpress.XtraEditors.TileItem tileItem3;
+        private System.Windows.Forms.Label lblConexion;
     }
 }

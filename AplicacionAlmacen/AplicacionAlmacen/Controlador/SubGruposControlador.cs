@@ -11,38 +11,59 @@ namespace AplicacionAlmacen.Controlador
     {
         public List<SubGrupos> GetAllSubGrupos()
         {
-            using (var bd = new AlmacenEntities())
+            try { 
+                using (var bd = new AlmacenEntities())
+                {
+                    var list = bd.SubGrupos.ToList();
+                    return list;
+                }
+            }
+            catch (SqlException odbcEx)
             {
-                var list = bd.SubGrupos.ToList();
-                return list;
+                var error = odbcEx;
+                return null;
             }
         }
         public List<SubGrupos> GetSubGrupos(int page, int pageSize)
         {
-            using (var bd = new AlmacenEntities())
+            try { 
+                using (var bd = new AlmacenEntities())
+                {
+                    int pageIndex = Convert.ToInt32(page);
+                    var Results = bd.SubGrupos.OrderBy(s => s.subGrupo).Skip(pageIndex * pageSize).Take(pageSize).ToList();
+                    return Results;
+                }
+            }
+            catch (SqlException odbcEx)
             {
-                int pageIndex = Convert.ToInt32(page);
-                var Results = bd.SubGrupos.OrderBy(s => s.subGrupo).Skip(pageIndex * pageSize).Take(pageSize).ToList();
-                return Results;
+                var error = odbcEx;
+                return null;
             }
         }
         public int numeroSubG()
         {
-            var context = new AlmacenEntities();
-            var connection = context.Database.Connection;
-            int cont = 0;
-            using (SqlConnection con = new SqlConnection(connection.ConnectionString))
-            {
-                string query = "SELECT COUNT(*) FROM SubGrupos";
-                using (SqlCommand cmd = new SqlCommand(query))
+            try { 
+                var context = new AlmacenEntities();
+                var connection = context.Database.Connection;
+                int cont = 0;
+                using (SqlConnection con = new SqlConnection(connection.ConnectionString))
                 {
-                    cmd.Connection = con;
-                    con.Open();
-                    cont = Convert.ToInt32(cmd.ExecuteScalar());
-                    con.Close();
+                    string query = "SELECT COUNT(*) FROM SubGrupos";
+                    using (SqlCommand cmd = new SqlCommand(query))
+                    {
+                        cmd.Connection = con;
+                        con.Open();
+                        cont = Convert.ToInt32(cmd.ExecuteScalar());
+                        con.Close();
+                    }
                 }
+                return cont;
             }
-            return cont;
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return 0;
+            }
         }
 
         public Object guardarSubGrupo(SubGrupos sub)

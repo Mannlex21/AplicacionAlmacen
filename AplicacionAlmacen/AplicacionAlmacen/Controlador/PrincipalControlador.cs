@@ -13,6 +13,7 @@ namespace AplicacionAlmacen.Controlador
     {
         public List<Materiales> metodo()
         {
+
             AlmacenEntities db = new AlmacenEntities();
             var context = new AlmacenEntities();
             var connection = context.Database.Connection;

@@ -150,6 +150,7 @@ namespace AplicacionAlmacen.Vista
         {
             ResetControls(tabPage3);
             DisableControls(tabPage3);
+            tipo = 's';
         }
 
         private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -160,11 +161,6 @@ namespace AplicacionAlmacen.Vista
                 if (contT == 0)
                 {
                     GpoMateriales s = new GpoMateriales();
-                    //numGpo,descripcion,cuenta_F_Z,aplicaCentCost_F_Z,subCuenta_F_Z,subSubCuenta_F_Z,cuenta_A_Z,aplicaCentCost_A_Z,
-                    //subCuenta_A_Z,subSubCuenta_A_Z,cuenta_C_Z,aplicaCentCost_C_Z,subCuenta_C_Z,subSubCuenta_C_Z,cuenta_D_Z,
-                    //aplicaCentCost_D_Z,subCuenta_D_Z,subSubCuenta_D_Z,cuenta_F_R,aplicaCentCost_F_R,subCuenta_F_R,subSubCuenta_F_R,
-                    //cuenta_A_R,aplicaCentCost_A_R,subCuenta_A_R,subSubCuenta_A_R,cuenta_C_R,aplicaCentCost_C_R,subCuenta_C_R,
-                    //subSubCuenta_C_R,cuenta_D_R,aplicaCentCost_D_R,subCuenta_D_R,subSubCuenta_D_R,cantidad,importe
                     s.numGpo =Int16.Parse(editNumeroG.Text);
                     s.descripcion = editDescripcion.Text;
                     s.cuenta_F_Z = Int32.Parse(editCuFZ.Text);
@@ -202,7 +198,7 @@ namespace AplicacionAlmacen.Vista
                     s.cantidad = decimal.Parse(editCantidad.Text);
                     s.importe = decimal.Parse(editImporte.Text);
 
-                    Object item = g.editarGrupo(s,numGpoA);
+                    Object item = g.guardarGrupo(s);
 
                     System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
                     System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
@@ -310,10 +306,7 @@ namespace AplicacionAlmacen.Vista
             //editGrupo.Text = Tabla.GetRowCellValue(r, "grupo").ToString();
             //editSubGrupo.Text = Tabla.GetRowCellValue(r, "subGrupo").ToString();
 
-            //,,,,aplicaCentCost_F_R,subCuenta_F_R,subSubCuenta_F_R,
-            //cuenta_A_R,aplicaCentCost_A_R,subCuenta_A_R,subSubCuenta_A_R,cuenta_C_R,aplicaCentCost_C_R,subCuenta_C_R,
-            //subSubCuenta_C_R,cuenta_D_R,aplicaCentCost_D_R,subCuenta_D_R,subSubCuenta_D_R,cantidad,importe
-
+            
             editNumeroG.Text = Tabla.GetRowCellValue(r, "numGpo").ToString();
             editDescripcion.Text = Tabla.GetRowCellValue(r, "descripcion").ToString();
             editCuFZ.Text = Tabla.GetRowCellValue(r, "cuenta_F_Z").ToString();
@@ -350,7 +343,7 @@ namespace AplicacionAlmacen.Vista
             }
             
             editSubCuCZ.Text = Tabla.GetRowCellValue(r, "subCuenta_C_Z").ToString();
-            editSubCuCZ.Text = Tabla.GetRowCellValue(r, "subSubCuenta_C_Z").ToString();
+            editSubSCuCZ.Text = Tabla.GetRowCellValue(r, "subSubCuenta_C_Z").ToString();
             editCuDZ.Text = Tabla.GetRowCellValue(r, "cuenta_D_Z").ToString();
             if (Tabla.GetRowCellValue(r, "aplicaCentCost_D_Z").ToString().ToString().Equals("True"))
             {
@@ -363,7 +356,7 @@ namespace AplicacionAlmacen.Vista
             editSubCuDZ.Text = Tabla.GetRowCellValue(r, "subCuenta_D_Z").ToString();
             editSubSCuDZ.Text = Tabla.GetRowCellValue(r, "subSubCuenta_D_Z").ToString();
             editCuFR.Text = Tabla.GetRowCellValue(r, "cuenta_F_R").ToString();
-            if (Tabla.GetRowCellValue(r, "aplicaCentCost_D_Z").ToString().ToString().Equals("True"))
+            if (Tabla.GetRowCellValue(r, "aplicaCentCost_F_R").ToString().ToString().Equals("True"))
             {
                 editApliCeFR.Checked = true;
             }
@@ -371,27 +364,72 @@ namespace AplicacionAlmacen.Vista
             {
                 editApliCeFR.Checked = false;
             }
-            editApliCeFR.Checked = Tabla.GetRowCellValue(r, "").ToString();
-            editSubCuFR.Text = Tabla.GetRowCellValue(r, "").ToString();
-            editSubSCuFR.Text = Tabla.GetRowCellValue(r, "").ToString();
-            editCuAR.Text = Tabla.GetRowCellValue(r, "").ToString();
-            editApliCeAR.Checked = Tabla.GetRowCellValue(r, "").ToString();
-            editSubCuAR.Text = Tabla.GetRowCellValue(r, "").ToString();
-            editSubSCuAR.Text = Tabla.GetRowCellValue(r, "").ToString();
-            editCuCR.Text = Tabla.GetRowCellValue(r, "").ToString();
-            editApliCeCR.Checked = Tabla.GetRowCellValue(r, "").ToString();
-            editSubCuCR.Text = Tabla.GetRowCellValue(r, "").ToString();
-            editSubSCuCR.Text = Tabla.GetRowCellValue(r, "").ToString();
-            editCuDR.Text = Tabla.GetRowCellValue(r, "").ToString();
-            editApliCeDR.Checked = Tabla.GetRowCellValue(r, "").ToString();
-            editSubCuDR.Text = Tabla.GetRowCellValue(r, "").ToString();
-            editSubSCuDR.Text = Tabla.GetRowCellValue(r, "").ToString();
-            editCantidad.Text = Tabla.GetRowCellValue(r, "").ToString();
-            editImporte.Text = Tabla.GetRowCellValue(r, "").ToString();
+            editSubCuFR.Text = Tabla.GetRowCellValue(r, "subCuenta_F_R").ToString();
+            editSubSCuFR.Text = Tabla.GetRowCellValue(r, "subSubCuenta_F_R").ToString();
+            editCuAR.Text = Tabla.GetRowCellValue(r, "cuenta_A_R").ToString();
+            if (Tabla.GetRowCellValue(r, "aplicaCentCost_A_R").ToString().ToString().Equals("True"))
+            {
+                editApliCeAR.Checked = true;
+            }
+            else
+            {
+                editApliCeAR.Checked = false;
+            }
+            editSubCuAR.Text = Tabla.GetRowCellValue(r, "subCuenta_A_R").ToString();
+            editSubSCuAR.Text = Tabla.GetRowCellValue(r, "subSubCuenta_A_R").ToString();
+            editCuCR.Text = Tabla.GetRowCellValue(r, "cuenta_C_R").ToString();
+            if (Tabla.GetRowCellValue(r, "aplicaCentCost_C_R").ToString().ToString().Equals("True"))
+            {
+                editApliCeCR.Checked = true;
+            }
+            else
+            {
+                editApliCeCR.Checked = false;
+            }
+            editSubCuCR.Text = Tabla.GetRowCellValue(r, "subCuenta_C_R").ToString();
+            editSubSCuCR.Text = Tabla.GetRowCellValue(r, "subSubCuenta_C_R").ToString();
+            editCuDR.Text = Tabla.GetRowCellValue(r, "cuenta_D_R").ToString();
+            if (Tabla.GetRowCellValue(r, "aplicaCentCost_D_R").ToString().ToString().Equals("True"))
+            {
+                editApliCeDR.Checked = true;
+            }
+            else
+            {
+                editApliCeDR.Checked = false;
+            }
+            editSubCuDR.Text = Tabla.GetRowCellValue(r, "subCuenta_D_R").ToString();
+            editSubSCuDR.Text = Tabla.GetRowCellValue(r, "subSubCuenta_D_R").ToString();
+            editCantidad.Text = Tabla.GetRowCellValue(r, "cantidad").ToString();
+            editImporte.Text = Tabla.GetRowCellValue(r, "importe").ToString();
             numGpoA = Int32.Parse(Tabla.GetRowCellValue(r, "numGpo").ToString());
 
             this.tabControl1.SelectTab(1);
             EnableControls(tabPage3);
+        }
+
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int r = Tabla.GetSelectedRows()[0];
+            GpoMateriales s = new GpoMateriales();
+            s.numGpo = Int16.Parse(Tabla.GetRowCellValue(r, "numGpo").ToString());
+
+            Object item = g.borrarGrupo(s);
+
+            System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+            System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+            String message = (String)(m.GetValue(item, null));
+            int code = (int)(c.GetValue(item, null));
+
+            if (code == 1)
+            {
+                Recargar();
+                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+            }
+            else if (code == 2)
+            {
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
