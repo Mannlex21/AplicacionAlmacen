@@ -227,7 +227,6 @@ namespace AplicacionAlmacen.Vista
         }
         private void EnableControls(Control con)
         {
-
             if (con != null)
             {
                 foreach (Control c in con.Controls)
@@ -236,11 +235,9 @@ namespace AplicacionAlmacen.Vista
                 }
                 con.Enabled = true;
             }
-
         }
         private void ResetControls(Control con)
         {
-
             if (con != null)
             {
                 foreach (Control c in con.Controls)
@@ -253,13 +250,10 @@ namespace AplicacionAlmacen.Vista
                     TextEdit textBox = (TextEdit)con;
                     textBox.Text = null;
                 }
-
             }
-
         }
         private void CheckControls(Control con)
         {
-
             if (con != null)
             {
                 foreach (Control c in con.Controls)
@@ -275,9 +269,7 @@ namespace AplicacionAlmacen.Vista
                         contT++;
                     }
                 }
-
             }
-
         }
     }
 }
