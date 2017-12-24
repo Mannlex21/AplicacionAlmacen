@@ -10,12 +10,18 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.LookAndFeel;
 using AplicacionAlmacen.Modelo;
+using System.Runtime.InteropServices;
+
 namespace AplicacionAlmacen.Vista
 {
+    
     public partial class CatalogoGrupos : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        static Controlador.GruposControlador g =new Controlador.GruposControlador();
+        private const int EM_SETCUEBANNER = 0x1501;
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)]string lParam);
 
+        static Controlador.GruposControlador g =new Controlador.GruposControlador();
         static int totalRecords = 1;
         static private int pageSize = 30;
         static List<GpoMateriales> records = new List<GpoMateriales>();
@@ -32,6 +38,18 @@ namespace AplicacionAlmacen.Vista
             bindingSource.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
 
+
+            editBusquedaNumG.Text = "Numero de grupo";
+        }
+        private void RemoveTextPlaceHolder(object sender, EventArgs e)
+        {
+            editBusquedaNumG.Text = "";
+        }
+
+        private void AddTextPlaceHolder(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(editBusquedaNumG.Text))
+                editBusquedaNumG.Text = "Enter text here...";
         }
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
@@ -431,5 +449,11 @@ namespace AplicacionAlmacen.Vista
                 MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void editApliCeFZ_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        
     }
 }

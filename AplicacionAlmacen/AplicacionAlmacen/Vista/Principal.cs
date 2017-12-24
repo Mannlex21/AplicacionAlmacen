@@ -23,29 +23,10 @@ namespace AplicacionAlmacen
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             panel.BackColor = Color.FromArgb(50, Color.Black);
             NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
-
         }
         private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
         {
-            /*if (e.IsAvailable)*/
-            if (verificarConexion())
-            {
-                tileItem1.Enabled = true;
-                tileItem2.Enabled = true;
-                tileItem3.Enabled = true;
-                tileItem4.Enabled = true;
-                lblConexion.Text = "";
-            }
-            else
-            {
-                tileItem1.Enabled = false;
-                tileItem2.Enabled = false;
-                tileItem3.Enabled = false;
-                tileItem4.Enabled = false;
-                lblConexion.ForeColor = System.Drawing.Color.Red;
-                lblConexion.Text = "No hay conexión";
-                lblConexion.BackColor = Color.Transparent;
-            }
+            Red();
         }
 
         private void tileItem1_ItemClick(object sender, TileItemEventArgs e)
@@ -68,13 +49,35 @@ namespace AplicacionAlmacen
 
         private void Principal_Load(object sender, EventArgs e)
         {
-           
-
+            //QUITAR CUANTO NO ESTE CONECTADO EN SERVIDOR
+            //Red();
         }
         private void tileItem3_ItemClick(object sender, TileItemEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             new Vista.CatalogoSubGrupos().Show();
+        }
+        public void Red()
+        {
+            /*if (e.IsAvailable)*/
+            if (verificarConexion())
+            {
+                tileItem1.Enabled = true;
+                tileItem2.Enabled = true;
+                tileItem3.Enabled = true;
+                tileItem4.Enabled = true;
+                lblConexion.Text = "";
+            }
+            else
+            {
+                tileItem1.Enabled = false;
+                tileItem2.Enabled = false;
+                tileItem3.Enabled = false;
+                tileItem4.Enabled = false;
+                lblConexion.ForeColor = System.Drawing.Color.Red;
+                lblConexion.Text = "No hay conexión";
+                lblConexion.BackColor = Color.Transparent;
+            }
         }
         public bool verificarConexion()
         {
