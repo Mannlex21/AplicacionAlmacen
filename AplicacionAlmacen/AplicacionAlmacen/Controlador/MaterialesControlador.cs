@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.SqlServer;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -49,13 +50,26 @@ namespace AplicacionAlmacen.Controlador
                 return 0;
             }
 }
-        public List<Materiales> GetMateriales(int page, int pageSize)
+        public List<Materiales> GetMateriales(int id, string desc, string marca,int page, int pageSize)
         {
             try { 
                 using (var bd = new AlmacenEntities())
                 {
                     int pageIndex = Convert.ToInt32(page);
-                    var Results = bd.Materiales.OrderBy(s => s.idMaterial).Skip(pageIndex * pageSize).Take(pageSize).ToList();
+                    IEnumerable<Materiales> query = bd.Materiales;
+                    if (id>-1)
+                    {
+                        query = query.Where(s=> s.idMaterial.ToString().Contains(id.ToString()));
+                    }
+                    if (desc!="")
+                    {
+                        query = query.Where(s => s.descripcion.ToUpper().Contains(desc.ToUpper()));
+                    }
+                    if (marca!="")
+                    {
+                        query = query.Where(s => s.marca.ToUpper().Contains(marca.ToUpper()));
+                    }
+                    var Results = query.OrderBy(s => s.idMaterial).Skip(pageIndex * pageSize).Take(pageSize).ToList();
                     return Results;
                 }
             }

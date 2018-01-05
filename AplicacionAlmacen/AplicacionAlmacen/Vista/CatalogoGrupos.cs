@@ -37,20 +37,8 @@ namespace AplicacionAlmacen.Vista
             bindingNavigator.BindingSource = bindingSource;
             bindingSource.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
-
-
-            editBusquedaNumG.Text = "Numero de grupo";
-        }
-        private void RemoveTextPlaceHolder(object sender, EventArgs e)
-        {
-            editBusquedaNumG.Text = "";
         }
 
-        private void AddTextPlaceHolder(object sender, EventArgs e)
-        {
-            if (String.IsNullOrWhiteSpace(editBusquedaNumG.Text))
-                editBusquedaNumG.Text = "Enter text here...";
-        }
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
             if (bindingSource.Current is null)
@@ -59,7 +47,7 @@ namespace AplicacionAlmacen.Vista
             }
             else
             {
-                GridControl.DataSource = g.GetGrupos(((int)bindingSource.Current / pageSize), pageSize);
+                GridControl.DataSource = g.GetGrupos(-1, "",((int)bindingSource.Current / pageSize), pageSize);
             }
 
 
@@ -454,6 +442,50 @@ namespace AplicacionAlmacen.Vista
         {
 
         }
-        
+
+        private void GridControl_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void editBusqued_Press(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == '\r')
+            {
+                e.Handled = true;
+            }
+        }
+        private void editBusquedaNumG_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarFiltro();
+            }
+        }
+
+        private void editBusquedaDesc_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarFiltro();
+            }
+        }
+        private void buscarFiltro()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            if (editBusquedaNumG.Text!= "" || editBusquedaDesc.Text != "" )
+            {
+                GridControl.DataSource = g.GetGrupos(editBusquedaNumG.Text.Equals("") ? -1 : Int32.Parse(editBusquedaNumG.Text), editBusquedaDesc.Text, ((int)bindingSource.Current / pageSize), pageSize);
+            }
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            editBusquedaDesc.Text = "";
+            editBusquedaNumG.Text = "";
+            Recargar();
+        }
     }
 }

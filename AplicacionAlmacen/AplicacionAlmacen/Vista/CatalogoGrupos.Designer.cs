@@ -57,6 +57,8 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.editBusquedaNumG = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.editBusquedaDesc = new System.Windows.Forms.ToolStripTextBox();
             this.GridControl = new DevExpress.XtraGrid.GridControl();
             this.Tabla = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.numGpo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -246,6 +248,7 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem66 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -584,7 +587,10 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.toolStripLabel1,
-            this.editBusquedaNumG});
+            this.editBusquedaNumG,
+            this.toolStripLabel2,
+            this.editBusquedaDesc,
+            this.toolStripButton1});
             this.bindingNavigator.Location = new System.Drawing.Point(2, 2);
             this.bindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -666,14 +672,29 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(102, 27);
-            this.toolStripLabel1.Text = "Numero de grupo";
+            this.toolStripLabel1.Size = new System.Drawing.Size(51, 27);
+            this.toolStripLabel1.Text = "No. Gpo";
             // 
             // editBusquedaNumG
             // 
             this.editBusquedaNumG.Name = "editBusquedaNumG";
             this.editBusquedaNumG.Size = new System.Drawing.Size(100, 30);
             this.editBusquedaNumG.ToolTipText = "RTASD";
+            this.editBusquedaNumG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
+            this.editBusquedaNumG.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaNumG_KeyUp);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(69, 27);
+            this.toolStripLabel2.Text = "Descripcion";
+            // 
+            // editBusquedaDesc
+            // 
+            this.editBusquedaDesc.Name = "editBusquedaDesc";
+            this.editBusquedaDesc.Size = new System.Drawing.Size(100, 30);
+            this.editBusquedaDesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
+            this.editBusquedaDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaDesc_KeyUp);
             // 
             // GridControl
             // 
@@ -685,6 +706,7 @@
             this.GridControl.TabIndex = 2;
             this.GridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Tabla});
+            this.GridControl.Click += new System.EventHandler(this.GridControl_Click);
             // 
             // Tabla
             // 
@@ -2589,6 +2611,16 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(567, 10);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::AplicacionAlmacen.Properties.Resources.reload;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 27);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // CatalogoGrupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2990,5 +3022,8 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox editBusquedaNumG;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripTextBox editBusquedaDesc;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

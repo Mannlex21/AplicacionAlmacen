@@ -91,8 +91,6 @@ namespace AplicacionAlmacen.Vista
             Cursor.Current = Cursors.WaitCursor;
             Recargar();
         }
-
-        
     }
 }
 

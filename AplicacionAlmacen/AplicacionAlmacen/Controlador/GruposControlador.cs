@@ -24,13 +24,22 @@ namespace AplicacionAlmacen.Controlador
                 return null;
             }
 }
-        public List<GpoMateriales> GetGrupos(int page, int pageSize)
+        public List<GpoMateriales> GetGrupos(int noGpo, string desc,int page, int pageSize)
         {
             try { 
                 using (var bd = new AlmacenEntities())
                 {
+                    IEnumerable<GpoMateriales> query = bd.GpoMateriales;
+                    if (desc!="")
+                    {
+                        query = query.Where(s => s.descripcion.ToUpper().Contains(desc.ToUpper()));
+                    }
+                    if (noGpo>-1)
+                    {
+                        query = query.Where(s => s.numGpo==noGpo);
+                    }
                     int pageIndex = Convert.ToInt32(page);
-                    var Results = bd.GpoMateriales.OrderBy(s => s.numGpo).Skip(pageIndex * pageSize).Take(pageSize).ToList();
+                    var Results = query.OrderBy(s => s.numGpo).Skip(pageIndex * pageSize).Take(pageSize).ToList();
                     return Results;
                 }
             }

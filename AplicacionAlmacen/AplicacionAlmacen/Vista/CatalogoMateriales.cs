@@ -43,7 +43,16 @@ namespace AplicacionAlmacen.Vista
             }
             else
             {
-                GridControl.DataSource = s.GetMateriales(((int)bindingSource.Current / pageSize), pageSize);
+                int id;
+                if (editBusquedaId.Text.Equals(""))
+                {
+                    id = -1;
+                }
+                else
+                {
+                    id = Int32.Parse(editBusquedaId.Text);
+                }
+                GridControl.DataSource = s.GetMateriales(id, editBusquedaDesc.Text, editBusquedaMarca.Text, ((int)bindingSource.Current / pageSize), pageSize);
             }
             
 
@@ -131,6 +140,56 @@ namespace AplicacionAlmacen.Vista
         private void CatalogoMateriales_Load(object sender, EventArgs e)
         {
             DisableControls(tabPage2);
+        }
+
+        private void editBusqued_Press(object sender, KeyPressEventArgs e)
+        {
+            
+            if (e.KeyChar=='\r')
+            {
+                e.Handled = true;
+            }
+        }
+        private void editBusquedaId_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarFiltro();
+            }
+
+        }
+        private void editBusquedaDesc_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarFiltro();
+            }
+        }
+        private void editBusquedaMarca_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                
+                buscarFiltro();
+            }
+        }
+        private void buscarFiltro()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            if (editBusquedaId.Text!="" || editBusquedaMarca.Text!="" || editBusquedaDesc.Text!="")
+            {
+                GridControl.DataSource = s.GetMateriales(editBusquedaId.Text.Equals("")? -1: Int32.Parse(editBusquedaId.Text), editBusquedaDesc.Text, editBusquedaMarca.Text, ((int)bindingSource.Current / pageSize), pageSize);
+            }
+            
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            editBusquedaDesc.Text = "";
+            editBusquedaId.Text = "";
+            editBusquedaMarca.Text = "";
+            Recargar();
         }
     }
 }
