@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 
 namespace AplicacionAlmacen.Vista
 {
-    
+
     public partial class CatalogoGrupos : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private const int EM_SETCUEBANNER = 0x1501;
@@ -29,8 +29,7 @@ namespace AplicacionAlmacen.Vista
         //E=editar,N=nuevo,s=sin seleccionar
         Char tipo = 's';
         int numGpoA=0;
-        public CatalogoGrupos()
-        {
+        public CatalogoGrupos(){
             InitializeComponent();
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             WindowState = FormWindowState.Maximized;
@@ -39,8 +38,7 @@ namespace AplicacionAlmacen.Vista
             bindingSource.DataSource = new PageOffsetList();
         }
 
-        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
-        {
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e){
             if (bindingSource.Current is null)
             {
                 GridControl.DataSource = null;
@@ -49,15 +47,11 @@ namespace AplicacionAlmacen.Vista
             {
                 GridControl.DataSource = g.GetGrupos(-1, "",((int)bindingSource.Current / pageSize), pageSize);
             }
-
-
         }
-        class PageOffsetList : System.ComponentModel.IListSource
-        {
+        class PageOffsetList : System.ComponentModel.IListSource{
             public bool ContainsListCollection { get; protected set; }
 
-            public System.Collections.IList GetList()
-            {
+            public System.Collections.IList GetList(){
                 totalRecords = g.numeroGrupo();
                 var pageOffsets = new List<int>();
                 for (int offset = 0; offset < totalRecords; offset += pageSize)
@@ -65,42 +59,33 @@ namespace AplicacionAlmacen.Vista
                 return pageOffsets;
             }
         }
-        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             Cursor.Current = Cursors.WaitCursor;
             Recargar();
         }
-        private void Recargar()
-        {
+        private void Recargar(){
             bindingNavigator.BindingSource = bindingSource;
             bindingSource.CurrentChanged += new EventHandler(bindingSource1_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
-
         }
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             tipo = 'N';
             this.tabControl1.SelectTab(1);
             EnableControls(tabPage3);
             ResetControls(tabPage3);
         }
 
-        private void CatalogoGrupos_Load(object sender, EventArgs e)
-        {
+        private void CatalogoGrupos_Load(object sender, EventArgs e){
             DisableControls(tabPage3);
         }
-        private void DisableControls(Control con)
-        {
+        private void DisableControls(Control con){
             foreach (Control c in con.Controls)
             {
                 DisableControls(c);
             }
             con.Enabled = false;
         }
-        private void EnableControls(Control con)
-        {
-
+        private void EnableControls(Control con){
             if (con != null)
             {
                 foreach (Control c in con.Controls)
@@ -109,36 +94,27 @@ namespace AplicacionAlmacen.Vista
                 }
                 con.Enabled = true;
             }
-
         }
-        private void ResetControls(Control con)
-        {
-
+        private void ResetControls(Control con){
             if (con != null)
             {
                 foreach (Control c in con.Controls)
                 {
                     ResetControls(c);
-
                 }
                 if (con is TextEdit)
                 {
                     TextEdit textBox = (TextEdit)con;
                     textBox.Text = null;
                 }
-
             }
-
         }
-        private void CheckControls(Control con)
-        {
-
+        private void CheckControls(Control con){
             if (con != null)
             {
                 foreach (Control c in con.Controls)
                 {
                     CheckControls(c);
-
                 }
                 if (con is TextEdit)
                 {
@@ -148,19 +124,15 @@ namespace AplicacionAlmacen.Vista
                         contT++;
                     }
                 }
-
             }
-
         }
-        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
+        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             ResetControls(tabPage3);
             DisableControls(tabPage3);
             tipo = 's';
         }
 
-        private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
+        private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             if (tipo.Equals('N'))
             {
                 CheckControls(tabPage3);
@@ -303,8 +275,7 @@ namespace AplicacionAlmacen.Vista
 
         }
 
-        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             numGpoA = 0;
             ResetControls(tabPage3);
             tipo = 'E';
@@ -312,7 +283,7 @@ namespace AplicacionAlmacen.Vista
             //editGrupo.Text = Tabla.GetRowCellValue(r, "grupo").ToString();
             //editSubGrupo.Text = Tabla.GetRowCellValue(r, "subGrupo").ToString();
 
-            
+
             editNumeroG.Text = Tabla.GetRowCellValue(r, "numGpo").ToString();
             editDescripcion.Text = Tabla.GetRowCellValue(r, "descripcion").ToString();
             editCuFZ.Text = Tabla.GetRowCellValue(r, "cuenta_F_Z").ToString();
@@ -324,7 +295,7 @@ namespace AplicacionAlmacen.Vista
             {
                 editApliCeFZ.Checked = false;
             }
-            
+
             editSubCuFZ.Text = Tabla.GetRowCellValue(r, "subCuenta_F_Z").ToString();
             editSubSCuFZ.Text = Tabla.GetRowCellValue(r, "subSubCuenta_F_Z").ToString();
             editCuAZ.Text = Tabla.GetRowCellValue(r, "cuenta_A_Z").ToString();
@@ -347,7 +318,7 @@ namespace AplicacionAlmacen.Vista
             {
                 editApliCeCZ.Checked = false;
             }
-            
+
             editSubCuCZ.Text = Tabla.GetRowCellValue(r, "subCuenta_C_Z").ToString();
             editSubSCuCZ.Text = Tabla.GetRowCellValue(r, "subSubCuenta_C_Z").ToString();
             editCuDZ.Text = Tabla.GetRowCellValue(r, "cuenta_D_Z").ToString();
@@ -413,8 +384,7 @@ namespace AplicacionAlmacen.Vista
             EnableControls(tabPage3);
         }
 
-        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             int r = Tabla.GetSelectedRows()[0];
             GpoMateriales s = new GpoMateriales();
             s.numGpo = Int16.Parse(Tabla.GetRowCellValue(r, "numGpo").ToString());
@@ -447,41 +417,34 @@ namespace AplicacionAlmacen.Vista
         {
 
         }
-        private void editBusqued_Press(object sender, KeyPressEventArgs e)
-        {
-
+        private void editBusqued_Press(object sender, KeyPressEventArgs e){
             if (e.KeyChar == '\r')
             {
                 e.Handled = true;
             }
         }
-        private void editBusquedaNumG_KeyUp(object sender, KeyEventArgs e)
-        {
+        private void editBusquedaNumG_KeyUp(object sender, KeyEventArgs e){
             if (e.KeyCode == Keys.Enter)
             {
                 buscarFiltro();
             }
         }
 
-        private void editBusquedaDesc_KeyUp(object sender, KeyEventArgs e)
-        {
+        private void editBusquedaDesc_KeyUp(object sender, KeyEventArgs e){
             if (e.KeyCode == Keys.Enter)
             {
                 buscarFiltro();
             }
         }
-        private void buscarFiltro()
-        {
+        private void buscarFiltro(){
             Cursor.Current = Cursors.WaitCursor;
             if (editBusquedaNumG.Text!= "" || editBusquedaDesc.Text != "" )
             {
                 GridControl.DataSource = g.GetGrupos(editBusquedaNumG.Text.Equals("") ? -1 : Int32.Parse(editBusquedaNumG.Text), editBusquedaDesc.Text, ((int)bindingSource.Current / pageSize), pageSize);
             }
-
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
+        private void toolStripButton1_Click(object sender, EventArgs e){
             Cursor.Current = Cursors.WaitCursor;
             editBusquedaDesc.Text = "";
             editBusquedaNumG.Text = "";

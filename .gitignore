@@ -300,3 +300,4 @@ __pycache__/
 AplicacionAlmacen/AplicacionAlmacen/App.config
 AplicacionAlmacen/AplicacionAlmacen/App.config
 AplicacionAlmacen/AplicacionAlmacen/Properties/licenses.licx
+.DS_Store

@@ -23,8 +23,7 @@ namespace AplicacionAlmacen.Vista
         //E=editar,N=nuevo,s=sin seleccionar
         Char tipo = 's';
         int grupoA=0, subGrupoA=0;
-        public CatalogoSubGrupos()
-        {
+        public CatalogoSubGrupos(){
             InitializeComponent();
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             WindowState = FormWindowState.Maximized;
@@ -32,21 +31,17 @@ namespace AplicacionAlmacen.Vista
             bindingSource.CurrentChanged += new System.EventHandler(bindingSource_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
         }
-        private void bindingSource_CurrentChanged(object sender, EventArgs e)
-        {
+        private void bindingSource_CurrentChanged(object sender, EventArgs e){
             if (bindingSource.Current is null)
             {
                 GridControlSub.DataSource = null;
             }
             else
             {
-                GridControlSub.DataSource = sg.GetSubGrupos(((int)bindingSource.Current / pageSize), pageSize);
+                GridControlSub.DataSource = sg.GetSubGrupos(-1,-1,"",((int)bindingSource.Current / pageSize), pageSize);
             }
-
-
         }
-        class PageOffsetList : System.ComponentModel.IListSource
-        {
+        class PageOffsetList : System.ComponentModel.IListSource{
             public bool ContainsListCollection { get; protected set; }
 
             public System.Collections.IList GetList()
@@ -58,44 +53,27 @@ namespace AplicacionAlmacen.Vista
                 return pageOffsets;
             }
         }
-        private void Recargar()
-        {
+        private void Recargar(){
             bindingNavigator.BindingSource = bindingSource;
             bindingSource.CurrentChanged += new EventHandler(bindingSource_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
-
         }
-        private void btnActualizar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
+        private void btnActualizar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             Cursor.Current = Cursors.WaitCursor;
             Recargar();
         }
-        private void btnNuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            tipo = 'N'; 
+        private void btnNuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
+            tipo = 'N';
             this.tabControl1.SelectTab(1);
             ResetControls(tabPage2);
             EnableControls(tabPage2);
         }
-
-       
-        
-        
-
-        
-    private void btnCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-
-        {
+        private void btnCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             ResetControls(tabPage2);
             DisableControls(tabPage2);
             tipo = 's';
-
         }
-
-
-        private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-
-        {
+        private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             if (tipo.Equals('N'))
             {
                 CheckControls(tabPage2);
@@ -127,7 +105,7 @@ namespace AplicacionAlmacen.Vista
                     }
                 }
                 contT = 0;
-                
+
             }
             else if(tipo.Equals('E')){
                 CheckControls(tabPage2);
@@ -164,20 +142,14 @@ namespace AplicacionAlmacen.Vista
             {
 
             }
-            
-            
         }
-
-
-        private void btnBorrar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-
-        {
+        private void btnBorrar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             int r=TablaSub.GetSelectedRows()[0];
             SubGrupos s = new SubGrupos();
             s.descripcion = TablaSub.GetRowCellValue(r, "descripcion").ToString();
             s.grupo = Int16.Parse(TablaSub.GetRowCellValue(r, "grupo").ToString());
             s.subGrupo = Int16.Parse(TablaSub.GetRowCellValue(r, "subGrupo").ToString());
-            
+
             Object item = sg.borrarSubGrupo(s);
 
             System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
@@ -189,17 +161,14 @@ namespace AplicacionAlmacen.Vista
             {
                 Recargar();
                 MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
-                
+
             }
             else if (code == 2)
             {
                 MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void btnEditar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-
-        {
+        private void btnEditar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             grupoA = 0;
             subGrupoA = 0;
             ResetControls(tabPage2);
@@ -214,20 +183,17 @@ namespace AplicacionAlmacen.Vista
             this.tabControl1.SelectTab(1);
             EnableControls(tabPage2);
         }
-        private void CatalogoSubGrupos_Load(object sender, EventArgs e)
-        {
+        private void CatalogoSubGrupos_Load(object sender, EventArgs e){
             DisableControls(tabPage2);
         }
-        private void DisableControls(Control con)
-        {
+        private void DisableControls(Control con){
             foreach (Control c in con.Controls)
             {
                 DisableControls(c);
             }
             con.Enabled = false;
         }
-        private void EnableControls(Control con)
-        {
+        private void EnableControls(Control con){
             if (con != null)
             {
                 foreach (Control c in con.Controls)
@@ -237,8 +203,7 @@ namespace AplicacionAlmacen.Vista
                 con.Enabled = true;
             }
         }
-        private void ResetControls(Control con)
-        {
+        private void ResetControls(Control con){
             if (con != null)
             {
                 foreach (Control c in con.Controls)
@@ -253,8 +218,7 @@ namespace AplicacionAlmacen.Vista
                 }
             }
         }
-        private void CheckControls(Control con)
-        {
+        private void CheckControls(Control con){
             if (con != null)
             {
                 foreach (Control c in con.Controls)
@@ -270,6 +234,31 @@ namespace AplicacionAlmacen.Vista
                         contT++;
                     }
                 }
+            }
+        }
+        private void editBusquedaGpo_KeyUp(object sender, KeyEventArgs e){
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarFiltro();
+            }
+        }
+        private void editBusquedaSubGpo_KeyUp(object sender, KeyEventArgs e){
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarFiltro();
+            }
+        }
+        private void editBusquedaDesc_KeyUp(object sender, KeyEventArgs e){
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscarFiltro();
+            }
+        }
+        private void buscarFiltro(){
+            Cursor.Current = Cursors.WaitCursor;
+            if (editBusquedaNumG.Text!= "" || editBusquedaDesc.Text != "" )
+            {
+                GridControl.DataSource = sg.GetSubGrupos(editBusquedaNumG.Text.Equals("") ? -1 : Int32.Parse(editBusquedaNumG.Text), editBusquedaDesc.Text, ((int)bindingSource.Current / pageSize), pageSize);
             }
         }
     }
