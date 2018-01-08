@@ -111,8 +111,8 @@ namespace AplicacionAlmacen
             }
             catch (Exception ex)
             {
-                return false;
                 Console.WriteLine("Conexion fallo:" + ex.Message.ToString());
+                return false;
             }
         }
     }
