@@ -55,6 +55,13 @@
             this.bindingNavigatorMoveNextItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.editBusquedaGpo = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.editBusquedaSub = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.editBusquedaDesc = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.GridControlSub = new DevExpress.XtraGrid.GridControl();
             this.TablaSub = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.subGrupo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -125,7 +132,7 @@
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbonControl1.Size = new System.Drawing.Size(737, 143);
+            this.ribbonControl1.Size = new System.Drawing.Size(773, 143);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // btnActualizar
@@ -211,7 +218,7 @@
             this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 508);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(737, 31);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(773, 31);
             // 
             // ribbonPage2
             // 
@@ -225,7 +232,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 143);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(737, 365);
+            this.layoutControl1.Size = new System.Drawing.Size(773, 365);
             this.layoutControl1.TabIndex = 2;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -236,7 +243,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(713, 341);
+            this.tabControl1.Size = new System.Drawing.Size(749, 341);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -245,7 +252,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(705, 315);
+            this.tabPage1.Size = new System.Drawing.Size(741, 315);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "SubGrupos";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -258,7 +265,7 @@
             this.layoutControl3.Location = new System.Drawing.Point(3, 3);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup3;
-            this.layoutControl3.Size = new System.Drawing.Size(699, 309);
+            this.layoutControl3.Size = new System.Drawing.Size(735, 309);
             this.layoutControl3.TabIndex = 1;
             this.layoutControl3.Text = "layoutControl3";
             // 
@@ -279,7 +286,14 @@
             this.bindingNavigatorSeparator4,
             this.bindingNavigatorMoveNextItem1,
             this.bindingNavigatorMoveLastItem1,
-            this.bindingNavigatorSeparator5});
+            this.bindingNavigatorSeparator5,
+            this.toolStripLabel1,
+            this.editBusquedaGpo,
+            this.toolStripLabel2,
+            this.editBusquedaSub,
+            this.toolStripLabel3,
+            this.editBusquedaDesc,
+            this.toolStripButton1});
             this.bindingNavigator.Location = new System.Drawing.Point(2, 2);
             this.bindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
             this.bindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem1;
@@ -287,7 +301,7 @@
             this.bindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem1;
             this.bindingNavigator.Name = "bindingNavigator";
             this.bindingNavigator.PositionItem = this.bindingNavigatorPositionItem1;
-            this.bindingNavigator.Size = new System.Drawing.Size(695, 30);
+            this.bindingNavigator.Size = new System.Drawing.Size(731, 30);
             this.bindingNavigator.TabIndex = 0;
             this.bindingNavigator.Text = "bindingNavigator2";
             // 
@@ -358,13 +372,62 @@
             this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
             this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 30);
             // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(45, 27);
+            this.toolStripLabel1.Text = "NoGpo";
+            // 
+            // editBusquedaGpo
+            // 
+            this.editBusquedaGpo.Name = "editBusquedaGpo";
+            this.editBusquedaGpo.Size = new System.Drawing.Size(100, 30);
+            this.editBusquedaGpo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
+            this.editBusquedaGpo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaGpo_KeyUp);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(65, 27);
+            this.toolStripLabel2.Text = "NoSubGpo";
+            // 
+            // editBusquedaSub
+            // 
+            this.editBusquedaSub.Name = "editBusquedaSub";
+            this.editBusquedaSub.Size = new System.Drawing.Size(100, 30);
+            this.editBusquedaSub.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
+            this.editBusquedaSub.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaSub_KeyUp);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(69, 27);
+            this.toolStripLabel3.Text = "Descripción";
+            // 
+            // editBusquedaDesc
+            // 
+            this.editBusquedaDesc.Name = "editBusquedaDesc";
+            this.editBusquedaDesc.Size = new System.Drawing.Size(100, 30);
+            this.editBusquedaDesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
+            this.editBusquedaDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaDesc_KeyUp);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::AplicacionAlmacen.Properties.Resources.reload;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 27);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // GridControlSub
             // 
             this.GridControlSub.Location = new System.Drawing.Point(2, 36);
             this.GridControlSub.MainView = this.TablaSub;
             this.GridControlSub.MenuManager = this.ribbonControl1;
             this.GridControlSub.Name = "GridControlSub";
-            this.GridControlSub.Size = new System.Drawing.Size(695, 271);
+            this.GridControlSub.Size = new System.Drawing.Size(731, 271);
             this.GridControlSub.TabIndex = 2;
             this.GridControlSub.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.TablaSub});
@@ -417,7 +480,7 @@
             this.layoutControlItem5});
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup3.Size = new System.Drawing.Size(699, 309);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(735, 309);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // layoutControlItem3
@@ -425,7 +488,7 @@
             this.layoutControlItem3.Control = this.GridControlSub;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(699, 275);
+            this.layoutControlItem3.Size = new System.Drawing.Size(735, 275);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -434,7 +497,7 @@
             this.layoutControlItem5.Control = this.bindingNavigator;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(699, 34);
+            this.layoutControlItem5.Size = new System.Drawing.Size(735, 34);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -444,7 +507,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(705, 315);
+            this.tabPage2.Size = new System.Drawing.Size(741, 315);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Formulario";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -458,7 +521,7 @@
             this.layoutControl2.Location = new System.Drawing.Point(3, 3);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(699, 309);
+            this.layoutControl2.Size = new System.Drawing.Size(735, 309);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -470,7 +533,7 @@
             this.editDescripcion.MinimumSize = new System.Drawing.Size(0, 60);
             this.editDescripcion.Name = "editDescripcion";
             this.editDescripcion.Properties.MaxLength = 60;
-            this.editDescripcion.Size = new System.Drawing.Size(594, 60);
+            this.editDescripcion.Size = new System.Drawing.Size(630, 60);
             this.editDescripcion.StyleController = this.layoutControl2;
             this.editDescripcion.TabIndex = 3;
             // 
@@ -483,20 +546,20 @@
             this.editGrupo.Name = "editGrupo";
             this.editGrupo.Properties.Mask.EditMask = "\\d+";
             this.editGrupo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.editGrupo.Size = new System.Drawing.Size(266, 30);
+            this.editGrupo.Size = new System.Drawing.Size(284, 30);
             this.editGrupo.StyleController = this.layoutControl2;
             this.editGrupo.TabIndex = 0;
             // 
             // editSubGrupo
             // 
-            this.editSubGrupo.Location = new System.Drawing.Point(408, 42);
+            this.editSubGrupo.Location = new System.Drawing.Point(426, 42);
             this.editSubGrupo.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubGrupo.MenuManager = this.ribbonControl1;
             this.editSubGrupo.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubGrupo.Name = "editSubGrupo";
             this.editSubGrupo.Properties.Mask.EditMask = "\\d+";
             this.editSubGrupo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.editSubGrupo.Size = new System.Drawing.Size(267, 30);
+            this.editSubGrupo.Size = new System.Drawing.Size(285, 30);
             this.editSubGrupo.StyleController = this.layoutControl2;
             this.editSubGrupo.TabIndex = 2;
             // 
@@ -507,7 +570,7 @@
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup5});
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(699, 309);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(735, 309);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlGroup5
@@ -520,7 +583,7 @@
             this.layoutControlItem6});
             this.layoutControlGroup5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup5.Name = "layoutControlGroup5";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(679, 289);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(715, 289);
             this.layoutControlGroup5.Text = "Informacion";
             // 
             // emptySpaceItem1
@@ -529,7 +592,7 @@
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 98);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(655, 149);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(691, 149);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
@@ -537,16 +600,16 @@
             this.layoutControlItem2.Control = this.editGrupo;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(327, 34);
+            this.layoutControlItem2.Size = new System.Drawing.Size(345, 34);
             this.layoutControlItem2.Text = "Grupo";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(54, 13);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.editSubGrupo;
-            this.layoutControlItem4.Location = new System.Drawing.Point(327, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(345, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(328, 34);
+            this.layoutControlItem4.Size = new System.Drawing.Size(346, 34);
             this.layoutControlItem4.Text = "SubGrupo";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(54, 13);
             // 
@@ -555,7 +618,7 @@
             this.layoutControlItem6.Control = this.editDescripcion;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(655, 64);
+            this.layoutControlItem6.Size = new System.Drawing.Size(691, 64);
             this.layoutControlItem6.Text = "Descripción";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(54, 13);
             // 
@@ -566,7 +629,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(737, 365);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(773, 365);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -574,7 +637,7 @@
             this.layoutControlItem1.Control = this.tabControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(717, 345);
+            this.layoutControlItem1.Size = new System.Drawing.Size(753, 345);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -591,7 +654,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 539);
+            this.ClientSize = new System.Drawing.Size(773, 539);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
@@ -685,5 +748,12 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraBars.BarButtonItem btnGuardar;
         private DevExpress.XtraBars.BarButtonItem btnBorrar;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox editBusquedaGpo;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripTextBox editBusquedaSub;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.ToolStripTextBox editBusquedaDesc;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

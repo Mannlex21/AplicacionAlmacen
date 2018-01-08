@@ -16,6 +16,9 @@ namespace AplicacionAlmacen.Vista
 {
     public partial class Solicitudes : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        public static int preReq;
+        public static int dep;
+        public static int ejer;
         static int totalRecords = 1;
         static private int pageSize = 30;
         static Controlador.SolicitudesControlador s = new Controlador.SolicitudesControlador();
@@ -90,6 +93,20 @@ namespace AplicacionAlmacen.Vista
         {
             Cursor.Current = Cursors.WaitCursor;
             Recargar();
+        }
+
+        private void barButtonItem13_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            int r = Tabla.GetSelectedRows()[0];
+            preReq = Int32.Parse(Tabla.GetRowCellValue(r, "preRequisicion").ToString());
+            dep = Int32.Parse(Tabla.GetRowCellValue(r, "departamento").ToString());
+            ejer = Int32.Parse(Tabla.GetRowCellValue(r, "ejercicio").ToString());
+            new DetalleSolicitud().Show();
+        }
+
+        private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            
         }
     }
 }

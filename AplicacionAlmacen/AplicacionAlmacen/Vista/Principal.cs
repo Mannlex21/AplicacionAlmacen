@@ -46,7 +46,16 @@ namespace AplicacionAlmacen
             Cursor.Current = Cursors.WaitCursor;
             new Vista.CatalogoGrupos().Show();
         }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            const string message = "¿Estas seguro?";
+            const string caption = "Cerrar";
+            var result = MessageBox.Show(message, caption,
+                             MessageBoxButtons.YesNo,
+                             MessageBoxIcon.Question);
 
+            e.Cancel = (result == DialogResult.No);
+        }
         private void Principal_Load(object sender, EventArgs e)
         {
             //QUITAR CUANTO NO ESTE CONECTADO EN SERVIDOR

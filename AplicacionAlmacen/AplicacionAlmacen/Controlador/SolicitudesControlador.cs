@@ -81,6 +81,60 @@ namespace AplicacionAlmacen.Controlador
             }
 
         }
+        public List<DetalleRequisicion> GetSolicitudDet(int preReq, int dep, int ejercicio)
+        {
+            try
+            {
+                AlmacenEntities DB = new AlmacenEntities();
+                var Results = DB.DetalleRequisicion.Where(s => s.preRequisicion==preReq && s.departamento==dep && s.ejercicio==ejercicio).OrderBy(s => s.preRequisicion);
+                return Results.ToList();
+            }
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return null;
+            }
+
+        }
+        
+        /*
+        Function CalDigVer(Valor)
+        Dim Valores(7)
+        Dim Suma
+        Dim Residuo
+        Dim Dig
+        Dim mCos
+
+        Residuo = 0
+        Dig = 0
+        Suma = 0
+        mCos = 0
+
+        For X = 1 To 7
+
+            Valores(X) = Mid(Valor, X, 1)
+
+        Next
+
+        Suma = (Suma + (Val(Valores(7)) * 2))
+        Suma = (Suma + (Val(Valores(6)) * 3))
+        Suma = (Suma + (Val(Valores(5)) * 4))
+        Suma = (Suma + (Val(Valores(4)) * 5))
+        Suma = (Suma + (Val(Valores(3)) * 6))
+        Suma = (Suma + (Val(Valores(2)) * 7))
+        Suma = (Suma + (Val(Valores(1)) * 2))
+
+        mCos = Int(Suma / 11)
+        Residuo = (Suma - (11 * mCos))
+        Dig = 11 - Residuo
+
+        If Dig = 10 Or Dig = 11 Then
+            Dig = 0
+        End If
+
+        CalDigVer = Dig
+
+        End Function */  
     }
 }
 

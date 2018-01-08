@@ -38,7 +38,7 @@ namespace AplicacionAlmacen.Vista
             }
             else
             {
-                GridControlSub.DataSource = sg.GetSubGrupos(-1,-1,"",((int)bindingSource.Current / pageSize), pageSize);
+                GridControlSub.DataSource = sg.GetSubGrupos(((int)bindingSource.Current / pageSize), pageSize);
             }
         }
         class PageOffsetList : System.ComponentModel.IListSource{
@@ -50,6 +50,7 @@ namespace AplicacionAlmacen.Vista
                 var pageOffsets = new List<int>();
                 for (int offset = 0; offset < totalRecords; offset += pageSize)
                     pageOffsets.Add(offset);
+                Console.WriteLine(pageOffsets.Count);
                 return pageOffsets;
             }
         }
@@ -236,29 +237,53 @@ namespace AplicacionAlmacen.Vista
                 }
             }
         }
-        private void editBusquedaGpo_KeyUp(object sender, KeyEventArgs e){
+        private void editBusquedaGpo_KeyUp(object sender, KeyEventArgs e)
+        {
             if (e.KeyCode == Keys.Enter)
             {
                 buscarFiltro();
             }
         }
-        private void editBusquedaSubGpo_KeyUp(object sender, KeyEventArgs e){
+        private void editBusquedaSub_KeyUp(object sender, KeyEventArgs e)
+        {
             if (e.KeyCode == Keys.Enter)
             {
                 buscarFiltro();
             }
         }
-        private void editBusquedaDesc_KeyUp(object sender, KeyEventArgs e){
+        private void editBusquedaDesc_KeyUp(object sender, KeyEventArgs e)
+        {
             if (e.KeyCode == Keys.Enter)
             {
                 buscarFiltro();
             }
+        }
+        private void editBusqued_Press(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                e.Handled = true;
+            }
+        }
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            editBusquedaDesc.Text = "";
+            editBusquedaGpo.Text = "";
+            editBusquedaSub.Text = "";
+            Recargar();
         }
         private void buscarFiltro(){
             Cursor.Current = Cursors.WaitCursor;
-            if (editBusquedaNumG.Text!= "" || editBusquedaDesc.Text != "" )
+            if (editBusquedaDesc.Text!= "" || editBusquedaGpo.Text != "" || editBusquedaSub.Text != "")
             {
-                GridControl.DataSource = sg.GetSubGrupos(editBusquedaNumG.Text.Equals("") ? -1 : Int32.Parse(editBusquedaNumG.Text), editBusquedaDesc.Text, ((int)bindingSource.Current / pageSize), pageSize);
+                var x = sg.GetSubGruposFiltros(editBusquedaGpo.Text.Equals("") ? -1 : Int32.Parse(editBusquedaGpo.Text), editBusquedaSub.Text.Equals("") ? -1 : Int32.Parse(editBusquedaSub.Text), editBusquedaDesc.Text);
+                bindingSource.DataSource = x.Count;
+                GridControlSub.DataSource = x;
+            }
+            else
+            {
+                Recargar();
             }
         }
     }

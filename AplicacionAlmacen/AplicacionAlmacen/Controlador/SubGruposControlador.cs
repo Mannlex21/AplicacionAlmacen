@@ -24,23 +24,43 @@ namespace AplicacionAlmacen.Controlador
                 return null;
             }
         }
-        public List<SubGrupos> GetSubGrupos(Int16 numGpo,Int16 numSubGpo,string desc,int page, int pageSize)
+        public List<SubGrupos> GetSubGrupos(int page, int pageSize)
         {
             try {
                 using (var bd = new AlmacenEntities())
                 {
                   IEnumerable<SubGrupos> query = bd.SubGrupos;
-                  if(numGpo>-1){
-                    query=query.Where(s=>s.grupo==numGpo);
-                  }
-                  if(numSubGpo>-1){
-                    query=query.Where(s=>s.subGrupo==numSubGpo);
-                  }
-                  if(desc!=""){
-                    query=query.Where(s=>s.descripcion.Contains(desc));
-                  }
                     int pageIndex = Convert.ToInt32(page);
                     var Results = query.OrderBy(s => s.subGrupo).Skip(pageIndex * pageSize).Take(pageSize).ToList();
+                    return Results;
+                }
+            }
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return null;
+            }
+        }
+        public List<SubGrupos> GetSubGruposFiltros(int numGpo, int numSubGpo, string desc)
+        {
+            try
+            {
+                using (var bd = new AlmacenEntities())
+                {
+                    IEnumerable<SubGrupos> query = bd.SubGrupos;
+                    if (numGpo > -1)
+                    {
+                        query = query.Where(s => s.grupo == numGpo);
+                    }
+                    if (numSubGpo > -1)
+                    {
+                        query = query.Where(s => s.subGrupo == numSubGpo);
+                    }
+                    if (desc != "")
+                    {
+                        query = query.Where(s => s.descripcion.Contains(desc));
+                    }
+                    var Results = query.OrderBy(s => s.subGrupo).ToList();
                     return Results;
                 }
             }
@@ -59,6 +79,7 @@ namespace AplicacionAlmacen.Controlador
                 using (SqlConnection con = new SqlConnection(connection.ConnectionString))
                 {
                     string query = "SELECT COUNT(*) FROM SubGrupos";
+                    
                     using (SqlCommand cmd = new SqlCommand(query))
                     {
                         cmd.Connection = con;

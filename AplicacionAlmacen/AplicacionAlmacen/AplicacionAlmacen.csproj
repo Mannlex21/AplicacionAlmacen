@@ -188,6 +188,12 @@
     <Compile Include="Vista\CatalogoSubGrupos.Designer.cs">
       <DependentUpon>CatalogoSubGrupos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\DetalleSolicitud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\DetalleSolicitud.Designer.cs">
+      <DependentUpon>DetalleSolicitud.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\CatalogoSubGrupos.resx">
       <DependentUpon>CatalogoSubGrupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\DetalleSolicitud.resx">
+      <DependentUpon>DetalleSolicitud.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -246,6 +255,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="almacen.ico" />
+    <None Include="Resources\valido.bmp" />
     <None Include="Files\workTool.png" />
     <None Include="Files\solicitud.png" />
     <None Include="Files\diagram.png" />
@@ -258,6 +268,8 @@
     <None Include="Files\botones\delete.png" />
     <None Include="Files\botones\clean.png" />
     <None Include="Files\botones\reload.png" />
+    <None Include="Files\botones\valido.png" />
+    <None Include="Files\botones\lupa.png" />
     <Content Include="Modelo\AlmacenEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AlmacenEntities.edmx</DependentUpon>

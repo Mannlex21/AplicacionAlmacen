@@ -45,7 +45,7 @@ namespace AplicacionAlmacen.Vista
             }
             else
             {
-                GridControl.DataSource = g.GetGrupos(-1, "",((int)bindingSource.Current / pageSize), pageSize);
+                GridControl.DataSource = g.GetGrupos(((int)bindingSource.Current / pageSize), pageSize);
             }
         }
         class PageOffsetList : System.ComponentModel.IListSource{
@@ -440,7 +440,13 @@ namespace AplicacionAlmacen.Vista
             Cursor.Current = Cursors.WaitCursor;
             if (editBusquedaNumG.Text!= "" || editBusquedaDesc.Text != "" )
             {
-                GridControl.DataSource = g.GetGrupos(editBusquedaNumG.Text.Equals("") ? -1 : Int32.Parse(editBusquedaNumG.Text), editBusquedaDesc.Text, ((int)bindingSource.Current / pageSize), pageSize);
+                var x= g.GetGruposFiltros(editBusquedaNumG.Text.Equals("") ? -1 : Int32.Parse(editBusquedaNumG.Text), editBusquedaDesc.Text);
+                bindingSource.DataSource = x.Count;
+                GridControl.DataSource = x;
+            }
+            else
+            {
+                Recargar();
             }
         }
 

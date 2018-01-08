@@ -52,12 +52,11 @@ namespace AplicacionAlmacen.Vista
                 {
                     id = Int32.Parse(editBusquedaId.Text);
                 }
-                GridControl.DataSource = s.GetMateriales(id, editBusquedaDesc.Text, editBusquedaMarca.Text, ((int)bindingSource.Current / pageSize), pageSize);
+                GridControl.DataSource = s.GetMateriales( ((int)bindingSource.Current / pageSize), pageSize);
             }
             
 
         }
-
         class PageOffsetList : System.ComponentModel.IListSource
         {
             public bool ContainsListCollection { get; protected set; }
@@ -71,7 +70,6 @@ namespace AplicacionAlmacen.Vista
                 return pageOffsets;
             }
         }
-        
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -84,7 +82,6 @@ namespace AplicacionAlmacen.Vista
             bindingSource.DataSource = new PageOffsetList();
 
         }
-
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.tabControl1.SelectTab(1);
@@ -130,18 +127,15 @@ namespace AplicacionAlmacen.Vista
             }
 
         }
-
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ResetControls(tabPage2);
             DisableControls(tabPage2);
         }
-
         private void CatalogoMateriales_Load(object sender, EventArgs e)
         {
             DisableControls(tabPage2);
         }
-
         private void editBusqued_Press(object sender, KeyPressEventArgs e)
         {
             
@@ -178,11 +172,16 @@ namespace AplicacionAlmacen.Vista
             Cursor.Current = Cursors.WaitCursor;
             if (editBusquedaId.Text!="" || editBusquedaMarca.Text!="" || editBusquedaDesc.Text!="")
             {
-                GridControl.DataSource = s.GetMateriales(editBusquedaId.Text.Equals("")? -1: Int32.Parse(editBusquedaId.Text), editBusquedaDesc.Text, editBusquedaMarca.Text, ((int)bindingSource.Current / pageSize), pageSize);
+                var x = s.GetMaterialesFiltros(editBusquedaId.Text.Equals("")? -1: Int32.Parse(editBusquedaId.Text), editBusquedaDesc.Text, editBusquedaMarca.Text);
+                bindingSource.DataSource = x.Count;
+                GridControl.DataSource = x;
             }
-            
-        }
+            else
+            {
+                Recargar();
+            }
 
+        }
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -190,6 +189,13 @@ namespace AplicacionAlmacen.Vista
             editBusquedaId.Text = "";
             editBusquedaMarca.Text = "";
             Recargar();
+        }
+
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Controlador.MaterialesControlador s = new Controlador.MaterialesControlador();
+            var dig = "";
+            Console.WriteLine(s.getDig(dig));
         }
     }
 }
