@@ -59,32 +59,14 @@ namespace AplicacionAlmacen.Controlador
         {
             try
             {
-                /*var context = new AlmacenEntities();
-                var connection = context.Database.Connection;
-                int cont = 0;
-                using (SqlConnection con = new SqlConnection(connection.ConnectionString))
-                {
-                    string query = "SELECT COUNT(*) FROM Materiales";
-                    using (SqlCommand cmd = new SqlCommand(query))
-                    {
-                        cmd.Connection = con;
-                        con.Open();
-                        cont = Convert.ToInt32(cmd.ExecuteScalar());
-                        con.Close();
-                    }
-                }
-                return cont;*/
                 List<listaM> i= new List<listaM>();
                 using (var bd = new AlmacenEntities())
                 {
-                    //IEnumerable<Materiales> query = bd.Materiales;
-                    //query = query.Where(m=>m.idMaterial.ToString().Length==7);
                     foreach (var element in bd.Materiales.OrderBy(s=> s.idMaterial))
                     {
                         var temporal="";
                         if (element.idMaterial.ToString().Length>=7)
                         {
-                            
                             if (element.idMaterial.ToString().Length == 7)
                             {
                                 temporal = "0" + element.idMaterial;
@@ -99,31 +81,22 @@ namespace AplicacionAlmacen.Controlador
                             });
                         }
                     }
-                    int cont=0;
                     List<listaM> x = new List<listaM>();
                     foreach (var e in i)
                     {
                         if (e.id.Substring(0, 4)==valor)
                         {
-                            
                             var conse = e.id.Substring(e.id.Length - 4);
                             conse=conse.Remove(conse.Length - 1);
                             x.Add(new listaM
                             {
                                 id = conse
                             });
-                            cont += 1;
                         }
                     }
+                    int max = Int32.Parse(x.Max(t => t.id));
                     
-                    /*foreach (var e in x)
-                    {
-                        int v=Int32.Parse(e.id);
-                        if(v)
-                    }*/
-                    Console.WriteLine(x.LastOrDefault());
-                    
-                    return 0;
+                    return max+1;
                 }
 
             }
@@ -192,22 +165,31 @@ namespace AplicacionAlmacen.Controlador
             }
 
             string valor= getConsecutivo(grupo+subgrupo).ToString();
+            if (valor.Length == 2)
+            {
+                valor = "0" + valor;
+            }
+            else if (valor.Length == 1)
+            {
+                valor = "00" + valor;
+            }
+            string result = grupo + "" + subgrupo + "" + valor;
             string[] Valores = new string[7];
             var Suma = 0;
             var Residuo = 0;
             var Dig = 0;
             var mCos = 0;
-            for (int x = 1; x <= 7; x++)
+            for (int x = 0; x < 7; x++)
             {
-                Valores[x] = valor.Substring(x, 1);
+                Valores[x] = result[x].ToString();
             }
-            Suma = (Suma + (Int32.Parse(Valores[7]) * 2));
-            Suma = (Suma + (Int32.Parse(Valores[6]) * 3));
-            Suma = (Suma + (Int32.Parse(Valores[5]) * 4));
-            Suma = (Suma + (Int32.Parse(Valores[4]) * 5));
-            Suma = (Suma + (Int32.Parse(Valores[3]) * 6));
-            Suma = (Suma + (Int32.Parse(Valores[2]) * 7));
-            Suma = (Suma + (Int32.Parse(Valores[1]) * 2));
+            Suma = (Suma + (Int32.Parse(Valores[6]) * 2));
+            Suma = (Suma + (Int32.Parse(Valores[5]) * 3));
+            Suma = (Suma + (Int32.Parse(Valores[4]) * 4));
+            Suma = (Suma + (Int32.Parse(Valores[3]) * 5));
+            Suma = (Suma + (Int32.Parse(Valores[2]) * 6));
+            Suma = (Suma + (Int32.Parse(Valores[1]) * 7));
+            Suma = (Suma + (Int32.Parse(Valores[0]) * 2));
 
             mCos = Suma / 11;
             Residuo = (Suma - (11 * mCos));
@@ -217,9 +199,11 @@ namespace AplicacionAlmacen.Controlador
             {
                 Dig = 0;
             }
-            return Dig;
+            
+            result = result + Dig;
+            return Int32.Parse(result);
         }
-        /*public Object guardarMaterial(Materiales material)
+        public Object guardarMaterial(Materiales material, MaterialesContable materialContable)
         {
             try
             {
@@ -230,7 +214,7 @@ namespace AplicacionAlmacen.Controlador
                 Object result = "";
                 AlmacenEntities db = new AlmacenEntities();
                 var us = from u in db.Materiales select u;
-                us = us.Where(u => u.numGpo == material.numGpo);
+                us = us.Where(u => u.idMaterial == material.idMaterial);
                 var x = us.FirstOrDefault();
                 if (us.FirstOrDefault() == null)
                 {
@@ -254,7 +238,7 @@ namespace AplicacionAlmacen.Controlador
                         {
                             cmd.Connection = con;
                             con.Open();
-                            cmd.Parameters.AddWithValue("@numGpo", grupo.numGpo);
+                            /*cmd.Parameters.AddWithValue("@numGpo", grupo.numGpo);
                             cmd.Parameters.AddWithValue("@descripcion", grupo.descripcion);
                             cmd.Parameters.AddWithValue("@cuenta_F_Z", grupo.cuenta_F_Z);
                             cmd.Parameters.AddWithValue("@aplicaCentCost_F_Z", grupo.aplicaCentCost_F_Z);
@@ -289,7 +273,7 @@ namespace AplicacionAlmacen.Controlador
                             cmd.Parameters.AddWithValue("@subCuenta_D_R", grupo.subCuenta_D_R);
                             cmd.Parameters.AddWithValue("@subSubCuenta_D_R", grupo.subSubCuenta_D_R);
                             cmd.Parameters.AddWithValue("@cantidad", grupo.cantidad);
-                            cmd.Parameters.AddWithValue("@importe", grupo.importe);
+                            cmd.Parameters.AddWithValue("@importe", grupo.importe);*/
                             s = cmd.ExecuteScalar().ToString();
                             con.Close();
                         }
@@ -298,7 +282,7 @@ namespace AplicacionAlmacen.Controlador
                 }
                 else
                 {
-                    result = new { message = "Ya existe este grupo: " + grupo.numGpo, code = 2 };
+                    result = new { message = "Ya existe este grupo: " + material.idMaterial, code = 2 };
                 }
 
                 return result;
@@ -314,6 +298,6 @@ namespace AplicacionAlmacen.Controlador
                 return result;
             }
 
-        }*/
+        }
     }
 }

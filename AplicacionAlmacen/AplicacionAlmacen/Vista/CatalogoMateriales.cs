@@ -211,11 +211,10 @@ namespace AplicacionAlmacen.Vista
             editBusquedaMarca.Text = "";
             Recargar();
         }
-
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Controlador.MaterialesControlador s = new Controlador.MaterialesControlador();
-            s.getDig(editGrupo.Text, editSubGrupo.Text);
+            //s.getDig(editGrupo.Text, editSubGrupo.Text);
             //Console.WriteLine(s.getDig(dig));
             if (tipo.Equals('N'))
             {
@@ -242,42 +241,40 @@ namespace AplicacionAlmacen.Vista
                     m.herramienta = editHerramienta.Checked;
                     m.seguridadInd = editSeguridad.Checked;
 
-                    /*
-                    s.cuenta_F_Z = Int32.Parse(editCuFZ.Text);
-                    s.aplicaCentCost_F_Z = editApliCeFZ.Checked;
-                    s.subCuenta_F_Z = Int32.Parse(editSubCuFZ.Text);
-                    s.subSubCuenta_F_Z = Int32.Parse(editSubSCuFZ.Text);
-                    s.cuenta_A_Z = Int32.Parse(editCuAZ.Text);
-                    s.aplicaCentCost_A_Z = editApliCeAZ.Checked;
-                    s.subCuenta_A_Z = Int32.Parse(editSubCuAZ.Text);
-                    s.subSubCuenta_A_Z = Int32.Parse(editSubSCuAZ.Text);
-                    s.cuenta_C_Z = Int32.Parse(editCuCZ.Text);
-                    s.aplicaCentCost_C_Z = editApliCeCZ.Checked;
-                    s.subCuenta_C_Z = Int32.Parse(editSubCuCZ.Text);
-                    s.subSubCuenta_C_Z = Int32.Parse(editSubCuCZ.Text);
-                    s.cuenta_D_Z = Int32.Parse(editCuDZ.Text);
-                    s.aplicaCentCost_D_Z = editApliCeDZ.Checked;
-                    s.subCuenta_D_Z = Int32.Parse(editSubCuDZ.Text);
-                    s.subSubCuenta_D_Z = Int32.Parse(editSubSCuDZ.Text);
-                    s.cuenta_F_R = Int32.Parse(editCuFR.Text);
-                    s.aplicaCentCost_F_R = editApliCeFR.Checked;
-                    s.subCuenta_F_R = Int32.Parse(editSubCuFR.Text);
-                    s.subSubCuenta_F_R = Int32.Parse(editSubSCuFR.Text);
-                    s.cuenta_A_R = Int32.Parse(editCuAR.Text);
-                    s.aplicaCentCost_A_R = editApliCeAR.Checked;
-                    s.subCuenta_A_R = Int32.Parse(editSubCuAR.Text);
-                    s.subSubCuenta_A_R = Int32.Parse(editSubSCuAR.Text);
-                    s.cuenta_C_R = Int32.Parse(editCuCR.Text);
-                    s.aplicaCentCost_C_R = editApliCeCR.Checked;
-                    s.subCuenta_C_R = Int32.Parse(editSubCuCR.Text);
-                    s.subSubCuenta_C_R = Int32.Parse(editSubSCuCR.Text);
-                    s.cuenta_D_R = Int32.Parse(editCuDR.Text);
-                    s.aplicaCentCost_D_R = editApliCeDR.Checked;
-                    s.subCuenta_D_R = Int32.Parse(editSubCuDR.Text);
-                    s.subSubCuenta_D_R = Int32.Parse(editSubSCuDR.Text);
-                    s.cantidad = decimal.Parse(editCantidad.Text);
-                    s.importe = decimal.Parse(editImporte.Text);
-                    */
+                    
+                    mc.cuenta_F_Z = Int32.Parse(cuenta_F_Z.Text);
+                    mc.aplicaCentCost_F_Z = aplicaCentCost_F_Z.Checked;
+                    mc.subCuenta_F_Z = Int32.Parse(subCuenta_F_Z.Text);
+                    mc.subSubCuenta_F_Z = Int32.Parse(subSubCuenta_F_Z.Text);
+                    mc.cuenta_A_Z = Int32.Parse(cuenta_A_Z.Text);
+                    mc.aplicaCentCost_A_Z = aplicaCentCost_A_Z.Checked;
+                    mc.subCuenta_A_Z = Int32.Parse(subCuenta_A_Z.Text);
+                    mc.subSubCuenta_A_Z = Int32.Parse(subSubCuenta_A_Z.Text);
+                    mc.cuenta_C_Z = Int32.Parse(cuenta_C_Z.Text);
+                    mc.aplicaCentCost_C_Z = aplicaCentCost_C_Z.Checked;
+                    mc.subCuenta_C_Z = Int32.Parse(subCuenta_C_Z.Text);
+                    mc.subSubCuenta_C_Z = Int32.Parse(subSubCuenta_C_Z.Text);
+                    mc.cuenta_D_Z = Int32.Parse(cuenta_D_Z.Text);
+                    mc.aplicaCentCost_D_Z = aplicaCentCost_D_Z.Checked;
+                    mc.subCuenta_D_Z = Int32.Parse(subCuenta_D_Z.Text);
+                    mc.subSubCuenta_D_Z = Int32.Parse(subSubCuenta_D_Z.Text);
+                    mc.cuenta_F_R = Int32.Parse(cuenta_F_R.Text);
+                    mc.aplicaCentCost_F_R = aplicaCentCost_F_R.Checked;
+                    mc.subCuenta_F_R = Int32.Parse(subCuenta_F_R.Text);
+                    mc.subSubCuenta_F_R = Int32.Parse(subSubCuenta_F_R.Text);
+                    mc.cuenta_A_R = Int32.Parse(cuenta_A_R.Text);
+                    mc.aplicaCentCost_A_R = aplicaCentCost_A_R.Checked;
+                    mc.subCuenta_A_R = Int32.Parse(subCuenta_A_R.Text);
+                    mc.subSubCuenta_A_R = Int32.Parse(subSubCuenta_A_R.Text);
+                    mc.cuenta_C_R = Int32.Parse(cuenta_C_R.Text);
+                    mc.aplicaCentCost_C_R = aplicaCentCost_C_R.Checked;
+                    mc.subCuenta_C_R = Int32.Parse(subCuenta_C_R.Text);
+                    mc.subSubCuenta_C_R = Int32.Parse(subSubCuenta_C_R.Text);
+                    mc.cuenta_D_R = Int32.Parse(cuenta_D_R.Text);
+                    mc.aplicaCentCost_D_R = aplicaCentCost_D_R.Checked;
+                    mc.subCuenta_D_R = Int32.Parse(subCuenta_D_R.Text);
+                    mc.subSubCuenta_D_R = Int32.Parse(subSubCuenta_D_R.Text);
+                   
                     //Object item = s.guardarMaterial(m);
 
                     /*System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
@@ -306,45 +303,61 @@ namespace AplicacionAlmacen.Vista
                 CheckControls(tabPage2);
                 if (contT == 0)
                 {
-                    Materiales M = new Materiales();
-                    /*s.numGpo = Int16.Parse(editNumeroG.Text);
-                    s.descripcion = editDescripcion.Text;
-                    s.cuenta_F_Z = Int32.Parse(editCuFZ.Text);
-                    s.aplicaCentCost_F_Z = editApliCeFZ.Checked;
-                    s.subCuenta_F_Z = Int32.Parse(editSubCuFZ.Text);
-                    s.subSubCuenta_F_Z = Int32.Parse(editSubSCuFZ.Text);
-                    s.cuenta_A_Z = Int32.Parse(editCuAZ.Text);
-                    s.aplicaCentCost_A_Z = editApliCeAZ.Checked;
-                    s.subCuenta_A_Z = Int32.Parse(editSubCuAZ.Text);
-                    s.subSubCuenta_A_Z = Int32.Parse(editSubSCuAZ.Text);
-                    s.cuenta_C_Z = Int32.Parse(editCuCZ.Text);
-                    s.aplicaCentCost_C_Z = editApliCeCZ.Checked;
-                    s.subCuenta_C_Z = Int32.Parse(editSubCuCZ.Text);
-                    s.subSubCuenta_C_Z = Int32.Parse(editSubCuCZ.Text);
-                    s.cuenta_D_Z = Int32.Parse(editCuDZ.Text);
-                    s.aplicaCentCost_D_Z = editApliCeDZ.Checked;
-                    s.subCuenta_D_Z = Int32.Parse(editSubCuDZ.Text);
-                    s.subSubCuenta_D_Z = Int32.Parse(editSubSCuDZ.Text);
-                    s.cuenta_F_R = Int32.Parse(editCuFR.Text);
-                    s.aplicaCentCost_F_R = editApliCeFR.Checked;
-                    s.subCuenta_F_R = Int32.Parse(editSubCuFR.Text);
-                    s.subSubCuenta_F_R = Int32.Parse(editSubSCuFR.Text);
-                    s.cuenta_A_R = Int32.Parse(editCuAR.Text);
-                    s.aplicaCentCost_A_R = editApliCeAR.Checked;
-                    s.subCuenta_A_R = Int32.Parse(editSubCuAR.Text);
-                    s.subSubCuenta_A_R = Int32.Parse(editSubSCuAR.Text);
-                    s.cuenta_C_R = Int32.Parse(editCuCR.Text);
-                    s.aplicaCentCost_C_R = editApliCeCR.Checked;
-                    s.subCuenta_C_R = Int32.Parse(editSubCuCR.Text);
-                    s.subSubCuenta_C_R = Int32.Parse(editSubSCuCR.Text);
-                    s.cuenta_D_R = Int32.Parse(editCuDR.Text);
-                    s.aplicaCentCost_D_R = editApliCeDR.Checked;
-                    s.subCuenta_D_R = Int32.Parse(editSubCuDR.Text);
-                    s.subSubCuenta_D_R = Int32.Parse(editSubSCuDR.Text);
-                    s.cantidad = decimal.Parse(editCantidad.Text);
-                    s.importe = decimal.Parse(editImporte.Text);
+                    Materiales m = new Materiales();
+                    MaterialesContable mc = new MaterialesContable();
+                    m.idMaterial = s.getDig(layoutControlItem54.Text, edit.Text);
+                    m.descripcion = editDesc.Text;
+                    m.uMedida = editUnidadM.Text;
+                    m.marca = editMarca.Text; //decimal.Parse(editCantidad.Text);
+                    m.existencia = decimal.Parse(editExistencia.Text);
+                    m.localizacion = editLocali.Text;
+                    m.minimo = decimal.Parse(editMinimo.Text);
+                    m.maximo = decimal.Parse(editMaximo.Text);
+                    m.costoProm = decimal.Parse(editCostoP.Text);
+                    m.costoPromAnt = decimal.Parse(editCostoPA.Text);
+                    m.cantIni = decimal.Parse(editCantidadI.Text);
+                    m.importeIni = decimal.Parse(editImporteI.Text);
+                    m.fechaUltimoMov = editFechaU.DateTime;
+                    m.puntoPedido = decimal.Parse(editPuntoP.Text);
+                    m.pedidoEstandar = decimal.Parse(editPedidoE.Text);
+                    m.herramienta = editHerramienta.Checked;
+                    m.seguridadInd = editSeguridad.Checked;
 
-                    Object item = g.editarGrupo(s, numGpoA);
+
+                    mc.cuenta_F_Z = Int32.Parse(cuenta_F_Z.Text);
+                    mc.aplicaCentCost_F_Z = aplicaCentCost_F_Z.Checked;
+                    mc.subCuenta_F_Z = Int32.Parse(subCuenta_F_Z.Text);
+                    mc.subSubCuenta_F_Z = Int32.Parse(subSubCuenta_F_Z.Text);
+                    mc.cuenta_A_Z = Int32.Parse(cuenta_A_Z.Text);
+                    mc.aplicaCentCost_A_Z = aplicaCentCost_A_Z.Checked;
+                    mc.subCuenta_A_Z = Int32.Parse(subCuenta_A_Z.Text);
+                    mc.subSubCuenta_A_Z = Int32.Parse(subSubCuenta_A_Z.Text);
+                    mc.cuenta_C_Z = Int32.Parse(cuenta_C_Z.Text);
+                    mc.aplicaCentCost_C_Z = aplicaCentCost_C_Z.Checked;
+                    mc.subCuenta_C_Z = Int32.Parse(subCuenta_C_Z.Text);
+                    mc.subSubCuenta_C_Z = Int32.Parse(subSubCuenta_C_Z.Text);
+                    mc.cuenta_D_Z = Int32.Parse(cuenta_D_Z.Text);
+                    mc.aplicaCentCost_D_Z = aplicaCentCost_D_Z.Checked;
+                    mc.subCuenta_D_Z = Int32.Parse(subCuenta_D_Z.Text);
+                    mc.subSubCuenta_D_Z = Int32.Parse(subSubCuenta_D_Z.Text);
+                    mc.cuenta_F_R = Int32.Parse(cuenta_F_R.Text);
+                    mc.aplicaCentCost_F_R = aplicaCentCost_F_R.Checked;
+                    mc.subCuenta_F_R = Int32.Parse(subCuenta_F_R.Text);
+                    mc.subSubCuenta_F_R = Int32.Parse(subSubCuenta_F_R.Text);
+                    mc.cuenta_A_R = Int32.Parse(cuenta_A_R.Text);
+                    mc.aplicaCentCost_A_R = aplicaCentCost_A_R.Checked;
+                    mc.subCuenta_A_R = Int32.Parse(subCuenta_A_R.Text);
+                    mc.subSubCuenta_A_R = Int32.Parse(subSubCuenta_A_R.Text);
+                    mc.cuenta_C_R = Int32.Parse(cuenta_C_R.Text);
+                    mc.aplicaCentCost_C_R = aplicaCentCost_C_R.Checked;
+                    mc.subCuenta_C_R = Int32.Parse(subCuenta_C_R.Text);
+                    mc.subSubCuenta_C_R = Int32.Parse(subSubCuenta_C_R.Text);
+                    mc.cuenta_D_R = Int32.Parse(cuenta_D_R.Text);
+                    mc.aplicaCentCost_D_R = aplicaCentCost_D_R.Checked;
+                    mc.subCuenta_D_R = Int32.Parse(subCuenta_D_R.Text);
+                    mc.subSubCuenta_D_R = Int32.Parse(subSubCuenta_D_R.Text);
+
+                    /*Object item = g.editarGrupo(s, numGpoA);
 
                     System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
                     System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
@@ -371,7 +384,6 @@ namespace AplicacionAlmacen.Vista
 
             }
         }
-
         private void textEdit1_EditValueChanged(object sender, EventArgs e)
         {
 

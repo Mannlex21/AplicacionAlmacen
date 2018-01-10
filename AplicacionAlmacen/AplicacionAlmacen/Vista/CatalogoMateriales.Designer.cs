@@ -98,42 +98,44 @@
             this.editCantidadI = new DevExpress.XtraEditors.TextEdit();
             this.editImporteI = new DevExpress.XtraEditors.TextEdit();
             this.editPuntoP = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit19 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit20 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit21 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit17 = new DevExpress.XtraEditors.TextEdit();
-            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
-            this.textEdit18 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit22 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit23 = new DevExpress.XtraEditors.TextEdit();
-            this.checkEdit3 = new DevExpress.XtraEditors.CheckEdit();
-            this.textEdit24 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit25 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit26 = new DevExpress.XtraEditors.TextEdit();
-            this.checkEdit4 = new DevExpress.XtraEditors.CheckEdit();
-            this.textEdit27 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit28 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit29 = new DevExpress.XtraEditors.TextEdit();
-            this.checkEdit5 = new DevExpress.XtraEditors.CheckEdit();
-            this.textEdit30 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit31 = new DevExpress.XtraEditors.TextEdit();
-            this.checkEdit6 = new DevExpress.XtraEditors.CheckEdit();
-            this.textEdit32 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit33 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit34 = new DevExpress.XtraEditors.TextEdit();
-            this.checkEdit7 = new DevExpress.XtraEditors.CheckEdit();
-            this.textEdit35 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit36 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit37 = new DevExpress.XtraEditors.TextEdit();
-            this.checkEdit8 = new DevExpress.XtraEditors.CheckEdit();
-            this.textEdit38 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit39 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit40 = new DevExpress.XtraEditors.TextEdit();
-            this.checkEdit9 = new DevExpress.XtraEditors.CheckEdit();
+            this.cuenta_A_Z = new DevExpress.XtraEditors.TextEdit();
+            this.cuenta_A_R = new DevExpress.XtraEditors.TextEdit();
+            this.subCuenta_A_Z = new DevExpress.XtraEditors.TextEdit();
+            this.subSubCuenta_A_Z = new DevExpress.XtraEditors.TextEdit();
+            this.aplicaCentCost_A_Z = new DevExpress.XtraEditors.CheckEdit();
+            this.cuenta_C_Z = new DevExpress.XtraEditors.TextEdit();
+            this.subCuenta_C_Z = new DevExpress.XtraEditors.TextEdit();
+            this.subSubCuenta_C_Z = new DevExpress.XtraEditors.TextEdit();
+            this.aplicaCentCost_C_Z = new DevExpress.XtraEditors.CheckEdit();
+            this.cuenta_F_Z = new DevExpress.XtraEditors.TextEdit();
+            this.subCuenta_F_Z = new DevExpress.XtraEditors.TextEdit();
+            this.subSubCuenta_F_Z = new DevExpress.XtraEditors.TextEdit();
+            this.aplicaCentCost_F_Z = new DevExpress.XtraEditors.CheckEdit();
+            this.cuenta_D_Z = new DevExpress.XtraEditors.TextEdit();
+            this.subCuenta_D_Z = new DevExpress.XtraEditors.TextEdit();
+            this.subSubCuenta_D_Z = new DevExpress.XtraEditors.TextEdit();
+            this.aplicaCentCost_D_Z = new DevExpress.XtraEditors.CheckEdit();
+            this.subCuenta_A_R = new DevExpress.XtraEditors.TextEdit();
+            this.subSubCuenta_A_R = new DevExpress.XtraEditors.TextEdit();
+            this.aplicaCentCost_A_R = new DevExpress.XtraEditors.CheckEdit();
+            this.cuenta_C_R = new DevExpress.XtraEditors.TextEdit();
+            this.subCuenta_C_R = new DevExpress.XtraEditors.TextEdit();
+            this.subSubCuenta_C_R = new DevExpress.XtraEditors.TextEdit();
+            this.aplicaCentCost_C_R = new DevExpress.XtraEditors.CheckEdit();
+            this.cuenta_F_R = new DevExpress.XtraEditors.TextEdit();
+            this.subCuenta_F_R = new DevExpress.XtraEditors.TextEdit();
+            this.subSubCuenta_F_R = new DevExpress.XtraEditors.TextEdit();
+            this.aplicaCentCost_D_R = new DevExpress.XtraEditors.CheckEdit();
+            this.cuenta_D_R = new DevExpress.XtraEditors.TextEdit();
+            this.subCuenta_D_R = new DevExpress.XtraEditors.TextEdit();
+            this.subSubCuenta_D_R = new DevExpress.XtraEditors.TextEdit();
+            this.aplicaCentCost_F_R = new DevExpress.XtraEditors.CheckEdit();
             this.editHerramienta = new DevExpress.XtraEditors.CheckEdit();
             this.editFechaU = new DevExpress.XtraEditors.DateEdit();
             this.editPedidoE = new DevExpress.XtraEditors.TextEdit();
             this.editSeguridad = new DevExpress.XtraEditors.CheckEdit();
+            this.editGrupo = new DevExpress.XtraEditors.TextEdit();
+            this.editSubGrupo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -150,9 +152,11 @@
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.grupo = new DevExpress.XtraLayout.LayoutControlItem();
+            this.edit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
             this.Contable = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -197,11 +201,7 @@
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.editGrupo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem54 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.editSubGrupo = new DevExpress.XtraEditors.TextEdit();
-            this.edit = new DevExpress.XtraLayout.LayoutControlItem();
-            this.grupo = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -233,43 +233,45 @@
             ((System.ComponentModel.ISupportInitialize)(this.editCantidadI.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editImporteI.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editPuntoP.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit19.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit20.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit21.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit17.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit18.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit22.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit23.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit24.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit25.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit26.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit27.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit28.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit29.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit30.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit31.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit32.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit33.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit34.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit35.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit36.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit37.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit8.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit38.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit39.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit40.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit9.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_A_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_A_R.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_A_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_A_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_A_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_C_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_C_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_C_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_C_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_F_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_F_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_F_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_F_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_D_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_D_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_D_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_D_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_A_R.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_A_R.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_A_R.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_C_R.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_C_R.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_C_R.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_C_R.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_F_R.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_F_R.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_F_R.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_D_R.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_D_R.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_D_R.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_D_R.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_F_R.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editHerramienta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editFechaU.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editFechaU.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editPedidoE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editSeguridad.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editGrupo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editSubGrupo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
@@ -286,9 +288,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grupo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Contable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
@@ -332,11 +336,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editGrupo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem54)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editSubGrupo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grupo)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -779,38 +779,38 @@
             this.layoutControl3.Controls.Add(this.editCantidadI);
             this.layoutControl3.Controls.Add(this.editImporteI);
             this.layoutControl3.Controls.Add(this.editPuntoP);
-            this.layoutControl3.Controls.Add(this.textEdit19);
-            this.layoutControl3.Controls.Add(this.textEdit20);
-            this.layoutControl3.Controls.Add(this.textEdit21);
-            this.layoutControl3.Controls.Add(this.textEdit17);
-            this.layoutControl3.Controls.Add(this.checkEdit2);
-            this.layoutControl3.Controls.Add(this.textEdit18);
-            this.layoutControl3.Controls.Add(this.textEdit22);
-            this.layoutControl3.Controls.Add(this.textEdit23);
-            this.layoutControl3.Controls.Add(this.checkEdit3);
-            this.layoutControl3.Controls.Add(this.textEdit24);
-            this.layoutControl3.Controls.Add(this.textEdit25);
-            this.layoutControl3.Controls.Add(this.textEdit26);
-            this.layoutControl3.Controls.Add(this.checkEdit4);
-            this.layoutControl3.Controls.Add(this.textEdit27);
-            this.layoutControl3.Controls.Add(this.textEdit28);
-            this.layoutControl3.Controls.Add(this.textEdit29);
-            this.layoutControl3.Controls.Add(this.checkEdit5);
-            this.layoutControl3.Controls.Add(this.textEdit30);
-            this.layoutControl3.Controls.Add(this.textEdit31);
-            this.layoutControl3.Controls.Add(this.checkEdit6);
-            this.layoutControl3.Controls.Add(this.textEdit32);
-            this.layoutControl3.Controls.Add(this.textEdit33);
-            this.layoutControl3.Controls.Add(this.textEdit34);
-            this.layoutControl3.Controls.Add(this.checkEdit7);
-            this.layoutControl3.Controls.Add(this.textEdit35);
-            this.layoutControl3.Controls.Add(this.textEdit36);
-            this.layoutControl3.Controls.Add(this.textEdit37);
-            this.layoutControl3.Controls.Add(this.checkEdit8);
-            this.layoutControl3.Controls.Add(this.textEdit38);
-            this.layoutControl3.Controls.Add(this.textEdit39);
-            this.layoutControl3.Controls.Add(this.textEdit40);
-            this.layoutControl3.Controls.Add(this.checkEdit9);
+            this.layoutControl3.Controls.Add(this.cuenta_A_Z);
+            this.layoutControl3.Controls.Add(this.cuenta_A_R);
+            this.layoutControl3.Controls.Add(this.subCuenta_A_Z);
+            this.layoutControl3.Controls.Add(this.subSubCuenta_A_Z);
+            this.layoutControl3.Controls.Add(this.aplicaCentCost_A_Z);
+            this.layoutControl3.Controls.Add(this.cuenta_C_Z);
+            this.layoutControl3.Controls.Add(this.subCuenta_C_Z);
+            this.layoutControl3.Controls.Add(this.subSubCuenta_C_Z);
+            this.layoutControl3.Controls.Add(this.aplicaCentCost_C_Z);
+            this.layoutControl3.Controls.Add(this.cuenta_F_Z);
+            this.layoutControl3.Controls.Add(this.subCuenta_F_Z);
+            this.layoutControl3.Controls.Add(this.subSubCuenta_F_Z);
+            this.layoutControl3.Controls.Add(this.aplicaCentCost_F_Z);
+            this.layoutControl3.Controls.Add(this.cuenta_D_Z);
+            this.layoutControl3.Controls.Add(this.subCuenta_D_Z);
+            this.layoutControl3.Controls.Add(this.subSubCuenta_D_Z);
+            this.layoutControl3.Controls.Add(this.aplicaCentCost_D_Z);
+            this.layoutControl3.Controls.Add(this.subCuenta_A_R);
+            this.layoutControl3.Controls.Add(this.subSubCuenta_A_R);
+            this.layoutControl3.Controls.Add(this.aplicaCentCost_A_R);
+            this.layoutControl3.Controls.Add(this.cuenta_C_R);
+            this.layoutControl3.Controls.Add(this.subCuenta_C_R);
+            this.layoutControl3.Controls.Add(this.subSubCuenta_C_R);
+            this.layoutControl3.Controls.Add(this.aplicaCentCost_C_R);
+            this.layoutControl3.Controls.Add(this.cuenta_F_R);
+            this.layoutControl3.Controls.Add(this.subCuenta_F_R);
+            this.layoutControl3.Controls.Add(this.subSubCuenta_F_R);
+            this.layoutControl3.Controls.Add(this.aplicaCentCost_D_R);
+            this.layoutControl3.Controls.Add(this.cuenta_D_R);
+            this.layoutControl3.Controls.Add(this.subCuenta_D_R);
+            this.layoutControl3.Controls.Add(this.subSubCuenta_D_R);
+            this.layoutControl3.Controls.Add(this.aplicaCentCost_F_R);
             this.layoutControl3.Controls.Add(this.editHerramienta);
             this.layoutControl3.Controls.Add(this.editFechaU);
             this.layoutControl3.Controls.Add(this.editPedidoE);
@@ -828,7 +828,7 @@
             // 
             // editDesc
             // 
-            this.editDesc.Location = new System.Drawing.Point(124, -154);
+            this.editDesc.Location = new System.Drawing.Point(124, -420);
             this.editDesc.MaximumSize = new System.Drawing.Size(0, 80);
             this.editDesc.MenuManager = this.ribbonControl1;
             this.editDesc.MinimumSize = new System.Drawing.Size(0, 80);
@@ -941,7 +941,7 @@
             // 
             // editUnidadM
             // 
-            this.editUnidadM.Location = new System.Drawing.Point(124, -70);
+            this.editUnidadM.Location = new System.Drawing.Point(124, -336);
             this.editUnidadM.MaximumSize = new System.Drawing.Size(0, 30);
             this.editUnidadM.MenuManager = this.ribbonControl1;
             this.editUnidadM.MinimumSize = new System.Drawing.Size(0, 30);
@@ -952,7 +952,7 @@
             // 
             // editMarca
             // 
-            this.editMarca.Location = new System.Drawing.Point(347, -70);
+            this.editMarca.Location = new System.Drawing.Point(347, -336);
             this.editMarca.MaximumSize = new System.Drawing.Size(0, 30);
             this.editMarca.MenuManager = this.ribbonControl1;
             this.editMarca.MinimumSize = new System.Drawing.Size(0, 30);
@@ -963,7 +963,7 @@
             // 
             // editExistencia
             // 
-            this.editExistencia.Location = new System.Drawing.Point(604, -70);
+            this.editExistencia.Location = new System.Drawing.Point(604, -336);
             this.editExistencia.MaximumSize = new System.Drawing.Size(0, 30);
             this.editExistencia.MenuManager = this.ribbonControl1;
             this.editExistencia.MinimumSize = new System.Drawing.Size(0, 30);
@@ -974,7 +974,7 @@
             // 
             // editMaximo
             // 
-            this.editMaximo.Location = new System.Drawing.Point(604, -36);
+            this.editMaximo.Location = new System.Drawing.Point(604, -302);
             this.editMaximo.MaximumSize = new System.Drawing.Size(0, 30);
             this.editMaximo.MenuManager = this.ribbonControl1;
             this.editMaximo.MinimumSize = new System.Drawing.Size(0, 30);
@@ -985,7 +985,7 @@
             // 
             // editMinimo
             // 
-            this.editMinimo.Location = new System.Drawing.Point(347, -36);
+            this.editMinimo.Location = new System.Drawing.Point(347, -302);
             this.editMinimo.MaximumSize = new System.Drawing.Size(0, 30);
             this.editMinimo.MenuManager = this.ribbonControl1;
             this.editMinimo.MinimumSize = new System.Drawing.Size(0, 30);
@@ -996,7 +996,7 @@
             // 
             // editLocali
             // 
-            this.editLocali.Location = new System.Drawing.Point(124, -36);
+            this.editLocali.Location = new System.Drawing.Point(124, -302);
             this.editLocali.MaximumSize = new System.Drawing.Size(0, 30);
             this.editLocali.MenuManager = this.ribbonControl1;
             this.editLocali.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1007,7 +1007,7 @@
             // 
             // editCostoP
             // 
-            this.editCostoP.Location = new System.Drawing.Point(124, -2);
+            this.editCostoP.Location = new System.Drawing.Point(124, -268);
             this.editCostoP.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCostoP.MenuManager = this.ribbonControl1;
             this.editCostoP.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1018,7 +1018,7 @@
             // 
             // editCostoPA
             // 
-            this.editCostoPA.Location = new System.Drawing.Point(347, -2);
+            this.editCostoPA.Location = new System.Drawing.Point(347, -268);
             this.editCostoPA.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCostoPA.MenuManager = this.ribbonControl1;
             this.editCostoPA.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1029,7 +1029,7 @@
             // 
             // editImporte
             // 
-            this.editImporte.Location = new System.Drawing.Point(604, -2);
+            this.editImporte.Location = new System.Drawing.Point(604, -268);
             this.editImporte.MaximumSize = new System.Drawing.Size(0, 30);
             this.editImporte.MenuManager = this.ribbonControl1;
             this.editImporte.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1040,7 +1040,7 @@
             // 
             // editCantidadI
             // 
-            this.editCantidadI.Location = new System.Drawing.Point(124, 32);
+            this.editCantidadI.Location = new System.Drawing.Point(124, -234);
             this.editCantidadI.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCantidadI.MenuManager = this.ribbonControl1;
             this.editCantidadI.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1051,7 +1051,7 @@
             // 
             // editImporteI
             // 
-            this.editImporteI.Location = new System.Drawing.Point(347, 32);
+            this.editImporteI.Location = new System.Drawing.Point(347, -234);
             this.editImporteI.MaximumSize = new System.Drawing.Size(0, 30);
             this.editImporteI.MenuManager = this.ribbonControl1;
             this.editImporteI.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1062,7 +1062,7 @@
             // 
             // editPuntoP
             // 
-            this.editPuntoP.Location = new System.Drawing.Point(347, 66);
+            this.editPuntoP.Location = new System.Drawing.Point(347, -200);
             this.editPuntoP.MaximumSize = new System.Drawing.Size(0, 30);
             this.editPuntoP.MenuManager = this.ribbonControl1;
             this.editPuntoP.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1071,369 +1071,369 @@
             this.editPuntoP.StyleController = this.layoutControl3;
             this.editPuntoP.TabIndex = 15;
             // 
-            // textEdit19
+            // cuenta_A_Z
             // 
-            this.textEdit19.Location = new System.Drawing.Point(83, 202);
-            this.textEdit19.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit19.MenuManager = this.ribbonControl1;
-            this.textEdit19.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit19.Name = "textEdit19";
-            this.textEdit19.Size = new System.Drawing.Size(92, 30);
-            this.textEdit19.StyleController = this.layoutControl3;
-            this.textEdit19.TabIndex = 18;
+            this.cuenta_A_Z.Location = new System.Drawing.Point(83, -64);
+            this.cuenta_A_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_A_Z.MenuManager = this.ribbonControl1;
+            this.cuenta_A_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_A_Z.Name = "cuenta_A_Z";
+            this.cuenta_A_Z.Size = new System.Drawing.Size(92, 30);
+            this.cuenta_A_Z.StyleController = this.layoutControl3;
+            this.cuenta_A_Z.TabIndex = 20;
             // 
-            // textEdit20
+            // cuenta_A_R
             // 
-            this.textEdit20.Location = new System.Drawing.Point(84, 374);
-            this.textEdit20.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit20.MenuManager = this.ribbonControl1;
-            this.textEdit20.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit20.Name = "textEdit20";
-            this.textEdit20.Size = new System.Drawing.Size(92, 30);
-            this.textEdit20.StyleController = this.layoutControl3;
-            this.textEdit20.TabIndex = 34;
+            this.cuenta_A_R.Location = new System.Drawing.Point(84, 108);
+            this.cuenta_A_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_A_R.MenuManager = this.ribbonControl1;
+            this.cuenta_A_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_A_R.Name = "cuenta_A_R";
+            this.cuenta_A_R.Size = new System.Drawing.Size(92, 30);
+            this.cuenta_A_R.StyleController = this.layoutControl3;
+            this.cuenta_A_R.TabIndex = 36;
             // 
-            // textEdit21
+            // subCuenta_A_Z
             // 
-            this.textEdit21.Location = new System.Drawing.Point(261, 202);
-            this.textEdit21.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit21.MenuManager = this.ribbonControl1;
-            this.textEdit21.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit21.Name = "textEdit21";
-            this.textEdit21.Size = new System.Drawing.Size(92, 30);
-            this.textEdit21.StyleController = this.layoutControl3;
-            this.textEdit21.TabIndex = 19;
+            this.subCuenta_A_Z.Location = new System.Drawing.Point(261, -64);
+            this.subCuenta_A_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_A_Z.MenuManager = this.ribbonControl1;
+            this.subCuenta_A_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_A_Z.Name = "subCuenta_A_Z";
+            this.subCuenta_A_Z.Size = new System.Drawing.Size(92, 30);
+            this.subCuenta_A_Z.StyleController = this.layoutControl3;
+            this.subCuenta_A_Z.TabIndex = 21;
             // 
-            // textEdit17
+            // subSubCuenta_A_Z
             // 
-            this.textEdit17.Location = new System.Drawing.Point(457, 202);
-            this.textEdit17.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit17.MenuManager = this.ribbonControl1;
-            this.textEdit17.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit17.Name = "textEdit17";
-            this.textEdit17.Size = new System.Drawing.Size(92, 30);
-            this.textEdit17.StyleController = this.layoutControl3;
-            this.textEdit17.TabIndex = 20;
+            this.subSubCuenta_A_Z.Location = new System.Drawing.Point(457, -64);
+            this.subSubCuenta_A_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_A_Z.MenuManager = this.ribbonControl1;
+            this.subSubCuenta_A_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_A_Z.Name = "subSubCuenta_A_Z";
+            this.subSubCuenta_A_Z.Size = new System.Drawing.Size(92, 30);
+            this.subSubCuenta_A_Z.StyleController = this.layoutControl3;
+            this.subSubCuenta_A_Z.TabIndex = 22;
             // 
-            // checkEdit2
+            // aplicaCentCost_A_Z
             // 
-            this.checkEdit2.Location = new System.Drawing.Point(553, 202);
-            this.checkEdit2.MaximumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit2.MenuManager = this.ribbonControl1;
-            this.checkEdit2.MinimumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit2.Name = "checkEdit2";
-            this.checkEdit2.Properties.Caption = "aplicaCentCost_A_Z";
-            this.checkEdit2.Size = new System.Drawing.Size(119, 30);
-            this.checkEdit2.StyleController = this.layoutControl3;
-            this.checkEdit2.TabIndex = 21;
+            this.aplicaCentCost_A_Z.Location = new System.Drawing.Point(553, -64);
+            this.aplicaCentCost_A_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_A_Z.MenuManager = this.ribbonControl1;
+            this.aplicaCentCost_A_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_A_Z.Name = "aplicaCentCost_A_Z";
+            this.aplicaCentCost_A_Z.Properties.Caption = "aplicaCentCost_A_Z";
+            this.aplicaCentCost_A_Z.Size = new System.Drawing.Size(119, 30);
+            this.aplicaCentCost_A_Z.StyleController = this.layoutControl3;
+            this.aplicaCentCost_A_Z.TabIndex = 23;
             // 
-            // textEdit18
+            // cuenta_C_Z
             // 
-            this.textEdit18.Location = new System.Drawing.Point(83, 236);
-            this.textEdit18.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit18.MenuManager = this.ribbonControl1;
-            this.textEdit18.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit18.Name = "textEdit18";
-            this.textEdit18.Size = new System.Drawing.Size(92, 30);
-            this.textEdit18.StyleController = this.layoutControl3;
-            this.textEdit18.TabIndex = 22;
+            this.cuenta_C_Z.Location = new System.Drawing.Point(83, -30);
+            this.cuenta_C_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_C_Z.MenuManager = this.ribbonControl1;
+            this.cuenta_C_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_C_Z.Name = "cuenta_C_Z";
+            this.cuenta_C_Z.Size = new System.Drawing.Size(92, 30);
+            this.cuenta_C_Z.StyleController = this.layoutControl3;
+            this.cuenta_C_Z.TabIndex = 24;
             // 
-            // textEdit22
+            // subCuenta_C_Z
             // 
-            this.textEdit22.Location = new System.Drawing.Point(261, 236);
-            this.textEdit22.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit22.MenuManager = this.ribbonControl1;
-            this.textEdit22.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit22.Name = "textEdit22";
-            this.textEdit22.Size = new System.Drawing.Size(92, 30);
-            this.textEdit22.StyleController = this.layoutControl3;
-            this.textEdit22.TabIndex = 23;
+            this.subCuenta_C_Z.Location = new System.Drawing.Point(261, -30);
+            this.subCuenta_C_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_C_Z.MenuManager = this.ribbonControl1;
+            this.subCuenta_C_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_C_Z.Name = "subCuenta_C_Z";
+            this.subCuenta_C_Z.Size = new System.Drawing.Size(92, 30);
+            this.subCuenta_C_Z.StyleController = this.layoutControl3;
+            this.subCuenta_C_Z.TabIndex = 25;
             // 
-            // textEdit23
+            // subSubCuenta_C_Z
             // 
-            this.textEdit23.Location = new System.Drawing.Point(457, 236);
-            this.textEdit23.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit23.MenuManager = this.ribbonControl1;
-            this.textEdit23.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit23.Name = "textEdit23";
-            this.textEdit23.Size = new System.Drawing.Size(92, 30);
-            this.textEdit23.StyleController = this.layoutControl3;
-            this.textEdit23.TabIndex = 24;
+            this.subSubCuenta_C_Z.Location = new System.Drawing.Point(457, -30);
+            this.subSubCuenta_C_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_C_Z.MenuManager = this.ribbonControl1;
+            this.subSubCuenta_C_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_C_Z.Name = "subSubCuenta_C_Z";
+            this.subSubCuenta_C_Z.Size = new System.Drawing.Size(92, 30);
+            this.subSubCuenta_C_Z.StyleController = this.layoutControl3;
+            this.subSubCuenta_C_Z.TabIndex = 26;
             // 
-            // checkEdit3
+            // aplicaCentCost_C_Z
             // 
-            this.checkEdit3.Location = new System.Drawing.Point(553, 236);
-            this.checkEdit3.MaximumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit3.MenuManager = this.ribbonControl1;
-            this.checkEdit3.MinimumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit3.Name = "checkEdit3";
-            this.checkEdit3.Properties.Caption = "aplicaCentCost_C_Z";
-            this.checkEdit3.Size = new System.Drawing.Size(119, 30);
-            this.checkEdit3.StyleController = this.layoutControl3;
-            this.checkEdit3.TabIndex = 25;
+            this.aplicaCentCost_C_Z.Location = new System.Drawing.Point(553, -30);
+            this.aplicaCentCost_C_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_C_Z.MenuManager = this.ribbonControl1;
+            this.aplicaCentCost_C_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_C_Z.Name = "aplicaCentCost_C_Z";
+            this.aplicaCentCost_C_Z.Properties.Caption = "aplicaCentCost_C_Z";
+            this.aplicaCentCost_C_Z.Size = new System.Drawing.Size(119, 30);
+            this.aplicaCentCost_C_Z.StyleController = this.layoutControl3;
+            this.aplicaCentCost_C_Z.TabIndex = 27;
             // 
-            // textEdit24
+            // cuenta_F_Z
             // 
-            this.textEdit24.Location = new System.Drawing.Point(82, 304);
-            this.textEdit24.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit24.MenuManager = this.ribbonControl1;
-            this.textEdit24.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit24.Name = "textEdit24";
-            this.textEdit24.Size = new System.Drawing.Size(93, 30);
-            this.textEdit24.StyleController = this.layoutControl3;
-            this.textEdit24.TabIndex = 30;
+            this.cuenta_F_Z.Location = new System.Drawing.Point(82, 38);
+            this.cuenta_F_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_F_Z.MenuManager = this.ribbonControl1;
+            this.cuenta_F_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_F_Z.Name = "cuenta_F_Z";
+            this.cuenta_F_Z.Size = new System.Drawing.Size(93, 30);
+            this.cuenta_F_Z.StyleController = this.layoutControl3;
+            this.cuenta_F_Z.TabIndex = 32;
             // 
-            // textEdit25
+            // subCuenta_F_Z
             // 
-            this.textEdit25.Location = new System.Drawing.Point(260, 304);
-            this.textEdit25.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit25.MenuManager = this.ribbonControl1;
-            this.textEdit25.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit25.Name = "textEdit25";
-            this.textEdit25.Size = new System.Drawing.Size(93, 30);
-            this.textEdit25.StyleController = this.layoutControl3;
-            this.textEdit25.TabIndex = 31;
+            this.subCuenta_F_Z.Location = new System.Drawing.Point(260, 38);
+            this.subCuenta_F_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_F_Z.MenuManager = this.ribbonControl1;
+            this.subCuenta_F_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_F_Z.Name = "subCuenta_F_Z";
+            this.subCuenta_F_Z.Size = new System.Drawing.Size(93, 30);
+            this.subCuenta_F_Z.StyleController = this.layoutControl3;
+            this.subCuenta_F_Z.TabIndex = 33;
             // 
-            // textEdit26
+            // subSubCuenta_F_Z
             // 
-            this.textEdit26.Location = new System.Drawing.Point(456, 304);
-            this.textEdit26.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit26.MenuManager = this.ribbonControl1;
-            this.textEdit26.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit26.Name = "textEdit26";
-            this.textEdit26.Size = new System.Drawing.Size(93, 30);
-            this.textEdit26.StyleController = this.layoutControl3;
-            this.textEdit26.TabIndex = 32;
+            this.subSubCuenta_F_Z.Location = new System.Drawing.Point(456, 38);
+            this.subSubCuenta_F_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_F_Z.MenuManager = this.ribbonControl1;
+            this.subSubCuenta_F_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_F_Z.Name = "subSubCuenta_F_Z";
+            this.subSubCuenta_F_Z.Size = new System.Drawing.Size(93, 30);
+            this.subSubCuenta_F_Z.StyleController = this.layoutControl3;
+            this.subSubCuenta_F_Z.TabIndex = 34;
             // 
-            // checkEdit4
+            // aplicaCentCost_F_Z
             // 
-            this.checkEdit4.Location = new System.Drawing.Point(553, 304);
-            this.checkEdit4.MaximumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit4.MenuManager = this.ribbonControl1;
-            this.checkEdit4.MinimumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit4.Name = "checkEdit4";
-            this.checkEdit4.Properties.Caption = "aplicaCentCost_F_Z";
-            this.checkEdit4.Size = new System.Drawing.Size(119, 30);
-            this.checkEdit4.StyleController = this.layoutControl3;
-            this.checkEdit4.TabIndex = 33;
+            this.aplicaCentCost_F_Z.Location = new System.Drawing.Point(553, 38);
+            this.aplicaCentCost_F_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_F_Z.MenuManager = this.ribbonControl1;
+            this.aplicaCentCost_F_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_F_Z.Name = "aplicaCentCost_F_Z";
+            this.aplicaCentCost_F_Z.Properties.Caption = "aplicaCentCost_F_Z";
+            this.aplicaCentCost_F_Z.Size = new System.Drawing.Size(119, 30);
+            this.aplicaCentCost_F_Z.StyleController = this.layoutControl3;
+            this.aplicaCentCost_F_Z.TabIndex = 35;
             // 
-            // textEdit27
+            // cuenta_D_Z
             // 
-            this.textEdit27.Location = new System.Drawing.Point(83, 270);
-            this.textEdit27.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit27.MenuManager = this.ribbonControl1;
-            this.textEdit27.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit27.Name = "textEdit27";
-            this.textEdit27.Size = new System.Drawing.Size(92, 30);
-            this.textEdit27.StyleController = this.layoutControl3;
-            this.textEdit27.TabIndex = 26;
+            this.cuenta_D_Z.Location = new System.Drawing.Point(83, 4);
+            this.cuenta_D_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_D_Z.MenuManager = this.ribbonControl1;
+            this.cuenta_D_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_D_Z.Name = "cuenta_D_Z";
+            this.cuenta_D_Z.Size = new System.Drawing.Size(92, 30);
+            this.cuenta_D_Z.StyleController = this.layoutControl3;
+            this.cuenta_D_Z.TabIndex = 28;
             // 
-            // textEdit28
+            // subCuenta_D_Z
             // 
-            this.textEdit28.Location = new System.Drawing.Point(261, 270);
-            this.textEdit28.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit28.MenuManager = this.ribbonControl1;
-            this.textEdit28.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit28.Name = "textEdit28";
-            this.textEdit28.Size = new System.Drawing.Size(92, 30);
-            this.textEdit28.StyleController = this.layoutControl3;
-            this.textEdit28.TabIndex = 27;
+            this.subCuenta_D_Z.Location = new System.Drawing.Point(261, 4);
+            this.subCuenta_D_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_D_Z.MenuManager = this.ribbonControl1;
+            this.subCuenta_D_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_D_Z.Name = "subCuenta_D_Z";
+            this.subCuenta_D_Z.Size = new System.Drawing.Size(92, 30);
+            this.subCuenta_D_Z.StyleController = this.layoutControl3;
+            this.subCuenta_D_Z.TabIndex = 29;
             // 
-            // textEdit29
+            // subSubCuenta_D_Z
             // 
-            this.textEdit29.Location = new System.Drawing.Point(457, 270);
-            this.textEdit29.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit29.MenuManager = this.ribbonControl1;
-            this.textEdit29.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit29.Name = "textEdit29";
-            this.textEdit29.Size = new System.Drawing.Size(92, 30);
-            this.textEdit29.StyleController = this.layoutControl3;
-            this.textEdit29.TabIndex = 28;
+            this.subSubCuenta_D_Z.Location = new System.Drawing.Point(457, 4);
+            this.subSubCuenta_D_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_D_Z.MenuManager = this.ribbonControl1;
+            this.subSubCuenta_D_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_D_Z.Name = "subSubCuenta_D_Z";
+            this.subSubCuenta_D_Z.Size = new System.Drawing.Size(92, 30);
+            this.subSubCuenta_D_Z.StyleController = this.layoutControl3;
+            this.subSubCuenta_D_Z.TabIndex = 30;
             // 
-            // checkEdit5
+            // aplicaCentCost_D_Z
             // 
-            this.checkEdit5.Location = new System.Drawing.Point(553, 270);
-            this.checkEdit5.MaximumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit5.MenuManager = this.ribbonControl1;
-            this.checkEdit5.MinimumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit5.Name = "checkEdit5";
-            this.checkEdit5.Properties.Caption = "aplicaCentCost_D_Z";
-            this.checkEdit5.Size = new System.Drawing.Size(119, 30);
-            this.checkEdit5.StyleController = this.layoutControl3;
-            this.checkEdit5.TabIndex = 29;
+            this.aplicaCentCost_D_Z.Location = new System.Drawing.Point(553, 4);
+            this.aplicaCentCost_D_Z.MaximumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_D_Z.MenuManager = this.ribbonControl1;
+            this.aplicaCentCost_D_Z.MinimumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_D_Z.Name = "aplicaCentCost_D_Z";
+            this.aplicaCentCost_D_Z.Properties.Caption = "aplicaCentCost_D_Z";
+            this.aplicaCentCost_D_Z.Size = new System.Drawing.Size(119, 30);
+            this.aplicaCentCost_D_Z.StyleController = this.layoutControl3;
+            this.aplicaCentCost_D_Z.TabIndex = 31;
             // 
-            // textEdit30
+            // subCuenta_A_R
             // 
-            this.textEdit30.Location = new System.Drawing.Point(263, 374);
-            this.textEdit30.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit30.MenuManager = this.ribbonControl1;
-            this.textEdit30.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit30.Name = "textEdit30";
-            this.textEdit30.Size = new System.Drawing.Size(93, 30);
-            this.textEdit30.StyleController = this.layoutControl3;
-            this.textEdit30.TabIndex = 35;
+            this.subCuenta_A_R.Location = new System.Drawing.Point(263, 108);
+            this.subCuenta_A_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_A_R.MenuManager = this.ribbonControl1;
+            this.subCuenta_A_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_A_R.Name = "subCuenta_A_R";
+            this.subCuenta_A_R.Size = new System.Drawing.Size(93, 30);
+            this.subCuenta_A_R.StyleController = this.layoutControl3;
+            this.subCuenta_A_R.TabIndex = 37;
             // 
-            // textEdit31
+            // subSubCuenta_A_R
             // 
-            this.textEdit31.Location = new System.Drawing.Point(461, 374);
-            this.textEdit31.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit31.MenuManager = this.ribbonControl1;
-            this.textEdit31.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit31.Name = "textEdit31";
-            this.textEdit31.Size = new System.Drawing.Size(87, 30);
-            this.textEdit31.StyleController = this.layoutControl3;
-            this.textEdit31.TabIndex = 36;
+            this.subSubCuenta_A_R.Location = new System.Drawing.Point(461, 108);
+            this.subSubCuenta_A_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_A_R.MenuManager = this.ribbonControl1;
+            this.subSubCuenta_A_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_A_R.Name = "subSubCuenta_A_R";
+            this.subSubCuenta_A_R.Size = new System.Drawing.Size(87, 30);
+            this.subSubCuenta_A_R.StyleController = this.layoutControl3;
+            this.subSubCuenta_A_R.TabIndex = 38;
             // 
-            // checkEdit6
+            // aplicaCentCost_A_R
             // 
-            this.checkEdit6.Location = new System.Drawing.Point(552, 374);
-            this.checkEdit6.MaximumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit6.MenuManager = this.ribbonControl1;
-            this.checkEdit6.MinimumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit6.Name = "checkEdit6";
-            this.checkEdit6.Properties.Caption = "aplicaCentCost_A_R";
-            this.checkEdit6.Size = new System.Drawing.Size(120, 30);
-            this.checkEdit6.StyleController = this.layoutControl3;
-            this.checkEdit6.TabIndex = 37;
+            this.aplicaCentCost_A_R.Location = new System.Drawing.Point(552, 108);
+            this.aplicaCentCost_A_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_A_R.MenuManager = this.ribbonControl1;
+            this.aplicaCentCost_A_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_A_R.Name = "aplicaCentCost_A_R";
+            this.aplicaCentCost_A_R.Properties.Caption = "aplicaCentCost_A_R";
+            this.aplicaCentCost_A_R.Size = new System.Drawing.Size(120, 30);
+            this.aplicaCentCost_A_R.StyleController = this.layoutControl3;
+            this.aplicaCentCost_A_R.TabIndex = 39;
             // 
-            // textEdit32
+            // cuenta_C_R
             // 
-            this.textEdit32.Location = new System.Drawing.Point(84, 408);
-            this.textEdit32.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit32.MenuManager = this.ribbonControl1;
-            this.textEdit32.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit32.Name = "textEdit32";
-            this.textEdit32.Size = new System.Drawing.Size(92, 30);
-            this.textEdit32.StyleController = this.layoutControl3;
-            this.textEdit32.TabIndex = 38;
+            this.cuenta_C_R.Location = new System.Drawing.Point(84, 142);
+            this.cuenta_C_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_C_R.MenuManager = this.ribbonControl1;
+            this.cuenta_C_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_C_R.Name = "cuenta_C_R";
+            this.cuenta_C_R.Size = new System.Drawing.Size(92, 30);
+            this.cuenta_C_R.StyleController = this.layoutControl3;
+            this.cuenta_C_R.TabIndex = 40;
             // 
-            // textEdit33
+            // subCuenta_C_R
             // 
-            this.textEdit33.Location = new System.Drawing.Point(263, 408);
-            this.textEdit33.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit33.MenuManager = this.ribbonControl1;
-            this.textEdit33.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit33.Name = "textEdit33";
-            this.textEdit33.Size = new System.Drawing.Size(93, 30);
-            this.textEdit33.StyleController = this.layoutControl3;
-            this.textEdit33.TabIndex = 39;
+            this.subCuenta_C_R.Location = new System.Drawing.Point(263, 142);
+            this.subCuenta_C_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_C_R.MenuManager = this.ribbonControl1;
+            this.subCuenta_C_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_C_R.Name = "subCuenta_C_R";
+            this.subCuenta_C_R.Size = new System.Drawing.Size(93, 30);
+            this.subCuenta_C_R.StyleController = this.layoutControl3;
+            this.subCuenta_C_R.TabIndex = 41;
             // 
-            // textEdit34
+            // subSubCuenta_C_R
             // 
-            this.textEdit34.Location = new System.Drawing.Point(461, 408);
-            this.textEdit34.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit34.MenuManager = this.ribbonControl1;
-            this.textEdit34.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit34.Name = "textEdit34";
-            this.textEdit34.Size = new System.Drawing.Size(87, 30);
-            this.textEdit34.StyleController = this.layoutControl3;
-            this.textEdit34.TabIndex = 40;
+            this.subSubCuenta_C_R.Location = new System.Drawing.Point(461, 142);
+            this.subSubCuenta_C_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_C_R.MenuManager = this.ribbonControl1;
+            this.subSubCuenta_C_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_C_R.Name = "subSubCuenta_C_R";
+            this.subSubCuenta_C_R.Size = new System.Drawing.Size(87, 30);
+            this.subSubCuenta_C_R.StyleController = this.layoutControl3;
+            this.subSubCuenta_C_R.TabIndex = 42;
             // 
-            // checkEdit7
+            // aplicaCentCost_C_R
             // 
-            this.checkEdit7.Location = new System.Drawing.Point(552, 408);
-            this.checkEdit7.MaximumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit7.MenuManager = this.ribbonControl1;
-            this.checkEdit7.MinimumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit7.Name = "checkEdit7";
-            this.checkEdit7.Properties.Caption = "aplicaCentCost_C_R";
-            this.checkEdit7.Size = new System.Drawing.Size(120, 30);
-            this.checkEdit7.StyleController = this.layoutControl3;
-            this.checkEdit7.TabIndex = 41;
+            this.aplicaCentCost_C_R.Location = new System.Drawing.Point(552, 142);
+            this.aplicaCentCost_C_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_C_R.MenuManager = this.ribbonControl1;
+            this.aplicaCentCost_C_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_C_R.Name = "aplicaCentCost_C_R";
+            this.aplicaCentCost_C_R.Properties.Caption = "aplicaCentCost_C_R";
+            this.aplicaCentCost_C_R.Size = new System.Drawing.Size(120, 30);
+            this.aplicaCentCost_C_R.StyleController = this.layoutControl3;
+            this.aplicaCentCost_C_R.TabIndex = 43;
             // 
-            // textEdit35
+            // cuenta_F_R
             // 
-            this.textEdit35.Location = new System.Drawing.Point(83, 476);
-            this.textEdit35.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit35.MenuManager = this.ribbonControl1;
-            this.textEdit35.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit35.Name = "textEdit35";
-            this.textEdit35.Size = new System.Drawing.Size(93, 30);
-            this.textEdit35.StyleController = this.layoutControl3;
-            this.textEdit35.TabIndex = 46;
+            this.cuenta_F_R.Location = new System.Drawing.Point(83, 210);
+            this.cuenta_F_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_F_R.MenuManager = this.ribbonControl1;
+            this.cuenta_F_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_F_R.Name = "cuenta_F_R";
+            this.cuenta_F_R.Size = new System.Drawing.Size(93, 30);
+            this.cuenta_F_R.StyleController = this.layoutControl3;
+            this.cuenta_F_R.TabIndex = 48;
             // 
-            // textEdit36
+            // subCuenta_F_R
             // 
-            this.textEdit36.Location = new System.Drawing.Point(262, 476);
-            this.textEdit36.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit36.MenuManager = this.ribbonControl1;
-            this.textEdit36.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit36.Name = "textEdit36";
-            this.textEdit36.Size = new System.Drawing.Size(94, 30);
-            this.textEdit36.StyleController = this.layoutControl3;
-            this.textEdit36.TabIndex = 47;
+            this.subCuenta_F_R.Location = new System.Drawing.Point(262, 210);
+            this.subCuenta_F_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_F_R.MenuManager = this.ribbonControl1;
+            this.subCuenta_F_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_F_R.Name = "subCuenta_F_R";
+            this.subCuenta_F_R.Size = new System.Drawing.Size(94, 30);
+            this.subCuenta_F_R.StyleController = this.layoutControl3;
+            this.subCuenta_F_R.TabIndex = 49;
             // 
-            // textEdit37
+            // subSubCuenta_F_R
             // 
-            this.textEdit37.Location = new System.Drawing.Point(460, 476);
-            this.textEdit37.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit37.MenuManager = this.ribbonControl1;
-            this.textEdit37.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit37.Name = "textEdit37";
-            this.textEdit37.Size = new System.Drawing.Size(88, 30);
-            this.textEdit37.StyleController = this.layoutControl3;
-            this.textEdit37.TabIndex = 48;
+            this.subSubCuenta_F_R.Location = new System.Drawing.Point(460, 210);
+            this.subSubCuenta_F_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_F_R.MenuManager = this.ribbonControl1;
+            this.subSubCuenta_F_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_F_R.Name = "subSubCuenta_F_R";
+            this.subSubCuenta_F_R.Size = new System.Drawing.Size(88, 30);
+            this.subSubCuenta_F_R.StyleController = this.layoutControl3;
+            this.subSubCuenta_F_R.TabIndex = 50;
             // 
-            // checkEdit8
+            // aplicaCentCost_D_R
             // 
-            this.checkEdit8.Location = new System.Drawing.Point(552, 442);
-            this.checkEdit8.MaximumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit8.MenuManager = this.ribbonControl1;
-            this.checkEdit8.MinimumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit8.Name = "checkEdit8";
-            this.checkEdit8.Properties.Caption = "aplicaCentCost_D_R";
-            this.checkEdit8.Size = new System.Drawing.Size(120, 30);
-            this.checkEdit8.StyleController = this.layoutControl3;
-            this.checkEdit8.TabIndex = 45;
+            this.aplicaCentCost_D_R.Location = new System.Drawing.Point(552, 176);
+            this.aplicaCentCost_D_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_D_R.MenuManager = this.ribbonControl1;
+            this.aplicaCentCost_D_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_D_R.Name = "aplicaCentCost_D_R";
+            this.aplicaCentCost_D_R.Properties.Caption = "aplicaCentCost_D_R";
+            this.aplicaCentCost_D_R.Size = new System.Drawing.Size(120, 30);
+            this.aplicaCentCost_D_R.StyleController = this.layoutControl3;
+            this.aplicaCentCost_D_R.TabIndex = 47;
             // 
-            // textEdit38
+            // cuenta_D_R
             // 
-            this.textEdit38.Location = new System.Drawing.Point(84, 442);
-            this.textEdit38.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit38.MenuManager = this.ribbonControl1;
-            this.textEdit38.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit38.Name = "textEdit38";
-            this.textEdit38.Size = new System.Drawing.Size(92, 30);
-            this.textEdit38.StyleController = this.layoutControl3;
-            this.textEdit38.TabIndex = 42;
+            this.cuenta_D_R.Location = new System.Drawing.Point(84, 176);
+            this.cuenta_D_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_D_R.MenuManager = this.ribbonControl1;
+            this.cuenta_D_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.cuenta_D_R.Name = "cuenta_D_R";
+            this.cuenta_D_R.Size = new System.Drawing.Size(92, 30);
+            this.cuenta_D_R.StyleController = this.layoutControl3;
+            this.cuenta_D_R.TabIndex = 44;
             // 
-            // textEdit39
+            // subCuenta_D_R
             // 
-            this.textEdit39.Location = new System.Drawing.Point(263, 442);
-            this.textEdit39.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit39.MenuManager = this.ribbonControl1;
-            this.textEdit39.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit39.Name = "textEdit39";
-            this.textEdit39.Size = new System.Drawing.Size(93, 30);
-            this.textEdit39.StyleController = this.layoutControl3;
-            this.textEdit39.TabIndex = 43;
+            this.subCuenta_D_R.Location = new System.Drawing.Point(263, 176);
+            this.subCuenta_D_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_D_R.MenuManager = this.ribbonControl1;
+            this.subCuenta_D_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subCuenta_D_R.Name = "subCuenta_D_R";
+            this.subCuenta_D_R.Size = new System.Drawing.Size(93, 30);
+            this.subCuenta_D_R.StyleController = this.layoutControl3;
+            this.subCuenta_D_R.TabIndex = 45;
             // 
-            // textEdit40
+            // subSubCuenta_D_R
             // 
-            this.textEdit40.Location = new System.Drawing.Point(461, 442);
-            this.textEdit40.MaximumSize = new System.Drawing.Size(0, 30);
-            this.textEdit40.MenuManager = this.ribbonControl1;
-            this.textEdit40.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit40.Name = "textEdit40";
-            this.textEdit40.Size = new System.Drawing.Size(87, 30);
-            this.textEdit40.StyleController = this.layoutControl3;
-            this.textEdit40.TabIndex = 44;
+            this.subSubCuenta_D_R.Location = new System.Drawing.Point(461, 176);
+            this.subSubCuenta_D_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_D_R.MenuManager = this.ribbonControl1;
+            this.subSubCuenta_D_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.subSubCuenta_D_R.Name = "subSubCuenta_D_R";
+            this.subSubCuenta_D_R.Size = new System.Drawing.Size(87, 30);
+            this.subSubCuenta_D_R.StyleController = this.layoutControl3;
+            this.subSubCuenta_D_R.TabIndex = 46;
             // 
-            // checkEdit9
+            // aplicaCentCost_F_R
             // 
-            this.checkEdit9.Location = new System.Drawing.Point(552, 476);
-            this.checkEdit9.MaximumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit9.MenuManager = this.ribbonControl1;
-            this.checkEdit9.MinimumSize = new System.Drawing.Size(0, 30);
-            this.checkEdit9.Name = "checkEdit9";
-            this.checkEdit9.Properties.Caption = "aplicaCentCost_F_R";
-            this.checkEdit9.Size = new System.Drawing.Size(120, 30);
-            this.checkEdit9.StyleController = this.layoutControl3;
-            this.checkEdit9.TabIndex = 49;
+            this.aplicaCentCost_F_R.Location = new System.Drawing.Point(552, 210);
+            this.aplicaCentCost_F_R.MaximumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_F_R.MenuManager = this.ribbonControl1;
+            this.aplicaCentCost_F_R.MinimumSize = new System.Drawing.Size(0, 30);
+            this.aplicaCentCost_F_R.Name = "aplicaCentCost_F_R";
+            this.aplicaCentCost_F_R.Properties.Caption = "aplicaCentCost_F_R";
+            this.aplicaCentCost_F_R.Size = new System.Drawing.Size(120, 30);
+            this.aplicaCentCost_F_R.StyleController = this.layoutControl3;
+            this.aplicaCentCost_F_R.TabIndex = 51;
             // 
             // editHerramienta
             // 
-            this.editHerramienta.Location = new System.Drawing.Point(239, 100);
+            this.editHerramienta.Location = new System.Drawing.Point(239, -166);
             this.editHerramienta.MaximumSize = new System.Drawing.Size(0, 30);
             this.editHerramienta.MenuManager = this.ribbonControl1;
             this.editHerramienta.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1442,12 +1442,12 @@
             this.editHerramienta.Properties.Caption = "Herramienta";
             this.editHerramienta.Size = new System.Drawing.Size(253, 30);
             this.editHerramienta.StyleController = this.layoutControl3;
-            this.editHerramienta.TabIndex = 16;
+            this.editHerramienta.TabIndex = 18;
             // 
             // editFechaU
             // 
             this.editFechaU.EditValue = null;
-            this.editFechaU.Location = new System.Drawing.Point(124, 66);
+            this.editFechaU.Location = new System.Drawing.Point(124, -200);
             this.editFechaU.MaximumSize = new System.Drawing.Size(0, 30);
             this.editFechaU.MenuManager = this.ribbonControl1;
             this.editFechaU.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1469,7 +1469,7 @@
             // editPedidoE
             // 
             this.editPedidoE.EditValue = "";
-            this.editPedidoE.Location = new System.Drawing.Point(604, 32);
+            this.editPedidoE.Location = new System.Drawing.Point(604, -234);
             this.editPedidoE.MaximumSize = new System.Drawing.Size(0, 30);
             this.editPedidoE.MenuManager = this.ribbonControl1;
             this.editPedidoE.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1480,7 +1480,7 @@
             // 
             // editSeguridad
             // 
-            this.editSeguridad.Location = new System.Drawing.Point(496, 100);
+            this.editSeguridad.Location = new System.Drawing.Point(496, -166);
             this.editSeguridad.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSeguridad.MenuManager = this.ribbonControl1;
             this.editSeguridad.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1489,7 +1489,30 @@
             this.editSeguridad.Properties.Caption = "Seguridad Ind";
             this.editSeguridad.Size = new System.Drawing.Size(180, 30);
             this.editSeguridad.StyleController = this.layoutControl3;
-            this.editSeguridad.TabIndex = 17;
+            this.editSeguridad.TabIndex = 19;
+            // 
+            // editGrupo
+            // 
+            this.editGrupo.Location = new System.Drawing.Point(604, -200);
+            this.editGrupo.MaximumSize = new System.Drawing.Size(0, 30);
+            this.editGrupo.MenuManager = this.ribbonControl1;
+            this.editGrupo.MinimumSize = new System.Drawing.Size(0, 30);
+            this.editGrupo.Name = "editGrupo";
+            this.editGrupo.Size = new System.Drawing.Size(72, 30);
+            this.editGrupo.StyleController = this.layoutControl3;
+            this.editGrupo.TabIndex = 16;
+            this.editGrupo.EditValueChanged += new System.EventHandler(this.textEdit1_EditValueChanged);
+            // 
+            // editSubGrupo
+            // 
+            this.editSubGrupo.Location = new System.Drawing.Point(124, -166);
+            this.editSubGrupo.MaximumSize = new System.Drawing.Size(0, 30);
+            this.editSubGrupo.MenuManager = this.ribbonControl1;
+            this.editSubGrupo.MinimumSize = new System.Drawing.Size(0, 30);
+            this.editSubGrupo.Name = "editSubGrupo";
+            this.editSubGrupo.Size = new System.Drawing.Size(111, 30);
+            this.editSubGrupo.StyleController = this.layoutControl3;
+            this.editSubGrupo.TabIndex = 17;
             // 
             // layoutControlGroup3
             // 
@@ -1658,16 +1681,6 @@
             this.layoutControlItem19.Text = "Punto pedido";
             this.layoutControlItem19.TextSize = new System.Drawing.Size(105, 13);
             // 
-            // layoutControlItem21
-            // 
-            this.layoutControlItem21.Control = this.editHerramienta;
-            this.layoutControlItem21.Location = new System.Drawing.Point(223, 254);
-            this.layoutControlItem21.Name = "layoutControlItem21";
-            this.layoutControlItem21.Size = new System.Drawing.Size(257, 34);
-            this.layoutControlItem21.Text = "Herramienta";
-            this.layoutControlItem21.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem21.TextVisible = false;
-            // 
             // layoutControlItem20
             // 
             this.layoutControlItem20.Control = this.editPedidoE;
@@ -1676,6 +1689,24 @@
             this.layoutControlItem20.Size = new System.Drawing.Size(184, 34);
             this.layoutControlItem20.Text = "Pedido estandar";
             this.layoutControlItem20.TextSize = new System.Drawing.Size(105, 13);
+            // 
+            // grupo
+            // 
+            this.grupo.Control = this.editGrupo;
+            this.grupo.Location = new System.Drawing.Point(480, 220);
+            this.grupo.Name = "grupo";
+            this.grupo.Size = new System.Drawing.Size(184, 34);
+            this.grupo.Text = "Grupo";
+            this.grupo.TextSize = new System.Drawing.Size(105, 13);
+            // 
+            // edit
+            // 
+            this.edit.Control = this.editSubGrupo;
+            this.edit.Location = new System.Drawing.Point(0, 254);
+            this.edit.Name = "edit";
+            this.edit.Size = new System.Drawing.Size(223, 34);
+            this.edit.Text = "SubGrupo";
+            this.edit.TextSize = new System.Drawing.Size(105, 13);
             // 
             // layoutControlItem16
             // 
@@ -1686,6 +1717,16 @@
             this.layoutControlItem16.Text = "Seguridad ind";
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
+            // 
+            // layoutControlItem21
+            // 
+            this.layoutControlItem21.Control = this.editHerramienta;
+            this.layoutControlItem21.Location = new System.Drawing.Point(223, 254);
+            this.layoutControlItem21.Name = "layoutControlItem21";
+            this.layoutControlItem21.Size = new System.Drawing.Size(257, 34);
+            this.layoutControlItem21.Text = "Herramienta";
+            this.layoutControlItem21.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem21.TextVisible = false;
             // 
             // Contable
             // 
@@ -1727,7 +1768,7 @@
             // 
             // layoutControlItem24
             // 
-            this.layoutControlItem24.Control = this.textEdit19;
+            this.layoutControlItem24.Control = this.cuenta_A_Z;
             this.layoutControlItem24.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem24.Name = "layoutControlItem24";
             this.layoutControlItem24.Size = new System.Drawing.Size(159, 34);
@@ -1738,7 +1779,7 @@
             // 
             // layoutControlItem26
             // 
-            this.layoutControlItem26.Control = this.textEdit21;
+            this.layoutControlItem26.Control = this.subCuenta_A_Z;
             this.layoutControlItem26.Location = new System.Drawing.Point(159, 0);
             this.layoutControlItem26.Name = "layoutControlItem26";
             this.layoutControlItem26.Size = new System.Drawing.Size(178, 34);
@@ -1749,7 +1790,7 @@
             // 
             // layoutControlItem22
             // 
-            this.layoutControlItem22.Control = this.textEdit17;
+            this.layoutControlItem22.Control = this.subSubCuenta_A_Z;
             this.layoutControlItem22.Location = new System.Drawing.Point(337, 0);
             this.layoutControlItem22.Name = "layoutControlItem22";
             this.layoutControlItem22.Size = new System.Drawing.Size(196, 34);
@@ -1760,7 +1801,7 @@
             // 
             // layoutControlItem23
             // 
-            this.layoutControlItem23.Control = this.checkEdit2;
+            this.layoutControlItem23.Control = this.aplicaCentCost_A_Z;
             this.layoutControlItem23.Location = new System.Drawing.Point(533, 0);
             this.layoutControlItem23.Name = "layoutControlItem23";
             this.layoutControlItem23.Size = new System.Drawing.Size(123, 34);
@@ -1770,7 +1811,7 @@
             // 
             // layoutControlItem27
             // 
-            this.layoutControlItem27.Control = this.textEdit18;
+            this.layoutControlItem27.Control = this.cuenta_C_Z;
             this.layoutControlItem27.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem27.Name = "layoutControlItem27";
             this.layoutControlItem27.Size = new System.Drawing.Size(159, 34);
@@ -1781,7 +1822,7 @@
             // 
             // layoutControlItem28
             // 
-            this.layoutControlItem28.Control = this.textEdit22;
+            this.layoutControlItem28.Control = this.subCuenta_C_Z;
             this.layoutControlItem28.Location = new System.Drawing.Point(159, 34);
             this.layoutControlItem28.Name = "layoutControlItem28";
             this.layoutControlItem28.Size = new System.Drawing.Size(178, 34);
@@ -1792,7 +1833,7 @@
             // 
             // layoutControlItem29
             // 
-            this.layoutControlItem29.Control = this.textEdit23;
+            this.layoutControlItem29.Control = this.subSubCuenta_C_Z;
             this.layoutControlItem29.Location = new System.Drawing.Point(337, 34);
             this.layoutControlItem29.Name = "layoutControlItem29";
             this.layoutControlItem29.Size = new System.Drawing.Size(196, 34);
@@ -1803,7 +1844,7 @@
             // 
             // layoutControlItem30
             // 
-            this.layoutControlItem30.Control = this.checkEdit3;
+            this.layoutControlItem30.Control = this.aplicaCentCost_C_Z;
             this.layoutControlItem30.Location = new System.Drawing.Point(533, 34);
             this.layoutControlItem30.Name = "layoutControlItem30";
             this.layoutControlItem30.Size = new System.Drawing.Size(123, 34);
@@ -1812,7 +1853,7 @@
             // 
             // layoutControlItem31
             // 
-            this.layoutControlItem31.Control = this.textEdit24;
+            this.layoutControlItem31.Control = this.cuenta_F_Z;
             this.layoutControlItem31.Location = new System.Drawing.Point(0, 102);
             this.layoutControlItem31.Name = "layoutControlItem31";
             this.layoutControlItem31.Size = new System.Drawing.Size(159, 34);
@@ -1823,7 +1864,7 @@
             // 
             // layoutControlItem32
             // 
-            this.layoutControlItem32.Control = this.textEdit25;
+            this.layoutControlItem32.Control = this.subCuenta_F_Z;
             this.layoutControlItem32.Location = new System.Drawing.Point(159, 102);
             this.layoutControlItem32.Name = "layoutControlItem32";
             this.layoutControlItem32.Size = new System.Drawing.Size(178, 34);
@@ -1834,7 +1875,7 @@
             // 
             // layoutControlItem33
             // 
-            this.layoutControlItem33.Control = this.textEdit26;
+            this.layoutControlItem33.Control = this.subSubCuenta_F_Z;
             this.layoutControlItem33.Location = new System.Drawing.Point(337, 102);
             this.layoutControlItem33.Name = "layoutControlItem33";
             this.layoutControlItem33.Size = new System.Drawing.Size(196, 34);
@@ -1845,7 +1886,7 @@
             // 
             // layoutControlItem34
             // 
-            this.layoutControlItem34.Control = this.checkEdit4;
+            this.layoutControlItem34.Control = this.aplicaCentCost_F_Z;
             this.layoutControlItem34.Location = new System.Drawing.Point(533, 102);
             this.layoutControlItem34.Name = "layoutControlItem34";
             this.layoutControlItem34.Size = new System.Drawing.Size(123, 34);
@@ -1854,7 +1895,7 @@
             // 
             // layoutControlItem35
             // 
-            this.layoutControlItem35.Control = this.textEdit27;
+            this.layoutControlItem35.Control = this.cuenta_D_Z;
             this.layoutControlItem35.Location = new System.Drawing.Point(0, 68);
             this.layoutControlItem35.Name = "layoutControlItem35";
             this.layoutControlItem35.Size = new System.Drawing.Size(159, 34);
@@ -1865,7 +1906,7 @@
             // 
             // layoutControlItem36
             // 
-            this.layoutControlItem36.Control = this.textEdit28;
+            this.layoutControlItem36.Control = this.subCuenta_D_Z;
             this.layoutControlItem36.Location = new System.Drawing.Point(159, 68);
             this.layoutControlItem36.Name = "layoutControlItem36";
             this.layoutControlItem36.Size = new System.Drawing.Size(178, 34);
@@ -1876,7 +1917,7 @@
             // 
             // layoutControlItem37
             // 
-            this.layoutControlItem37.Control = this.textEdit29;
+            this.layoutControlItem37.Control = this.subSubCuenta_D_Z;
             this.layoutControlItem37.Location = new System.Drawing.Point(337, 68);
             this.layoutControlItem37.Name = "layoutControlItem37";
             this.layoutControlItem37.Size = new System.Drawing.Size(196, 34);
@@ -1887,7 +1928,7 @@
             // 
             // layoutControlItem38
             // 
-            this.layoutControlItem38.Control = this.checkEdit5;
+            this.layoutControlItem38.Control = this.aplicaCentCost_D_Z;
             this.layoutControlItem38.Location = new System.Drawing.Point(533, 68);
             this.layoutControlItem38.Name = "layoutControlItem38";
             this.layoutControlItem38.Size = new System.Drawing.Size(123, 34);
@@ -1921,7 +1962,7 @@
             // 
             // layoutControlItem25
             // 
-            this.layoutControlItem25.Control = this.textEdit20;
+            this.layoutControlItem25.Control = this.cuenta_A_R;
             this.layoutControlItem25.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem25.Name = "layoutControlItem25";
             this.layoutControlItem25.Size = new System.Drawing.Size(160, 34);
@@ -1932,7 +1973,7 @@
             // 
             // layoutControlItem39
             // 
-            this.layoutControlItem39.Control = this.textEdit30;
+            this.layoutControlItem39.Control = this.subCuenta_A_R;
             this.layoutControlItem39.Location = new System.Drawing.Point(160, 0);
             this.layoutControlItem39.Name = "layoutControlItem39";
             this.layoutControlItem39.Size = new System.Drawing.Size(180, 34);
@@ -1943,7 +1984,7 @@
             // 
             // layoutControlItem40
             // 
-            this.layoutControlItem40.Control = this.textEdit31;
+            this.layoutControlItem40.Control = this.subSubCuenta_A_R;
             this.layoutControlItem40.Location = new System.Drawing.Point(340, 0);
             this.layoutControlItem40.Name = "layoutControlItem40";
             this.layoutControlItem40.Size = new System.Drawing.Size(192, 34);
@@ -1954,7 +1995,7 @@
             // 
             // layoutControlItem41
             // 
-            this.layoutControlItem41.Control = this.checkEdit6;
+            this.layoutControlItem41.Control = this.aplicaCentCost_A_R;
             this.layoutControlItem41.Location = new System.Drawing.Point(532, 0);
             this.layoutControlItem41.Name = "layoutControlItem41";
             this.layoutControlItem41.Size = new System.Drawing.Size(124, 34);
@@ -1963,7 +2004,7 @@
             // 
             // layoutControlItem42
             // 
-            this.layoutControlItem42.Control = this.textEdit32;
+            this.layoutControlItem42.Control = this.cuenta_C_R;
             this.layoutControlItem42.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem42.Name = "layoutControlItem42";
             this.layoutControlItem42.Size = new System.Drawing.Size(160, 34);
@@ -1974,7 +2015,7 @@
             // 
             // layoutControlItem43
             // 
-            this.layoutControlItem43.Control = this.textEdit33;
+            this.layoutControlItem43.Control = this.subCuenta_C_R;
             this.layoutControlItem43.Location = new System.Drawing.Point(160, 34);
             this.layoutControlItem43.Name = "layoutControlItem43";
             this.layoutControlItem43.Size = new System.Drawing.Size(180, 34);
@@ -1985,7 +2026,7 @@
             // 
             // layoutControlItem44
             // 
-            this.layoutControlItem44.Control = this.textEdit34;
+            this.layoutControlItem44.Control = this.subSubCuenta_C_R;
             this.layoutControlItem44.Location = new System.Drawing.Point(340, 34);
             this.layoutControlItem44.Name = "layoutControlItem44";
             this.layoutControlItem44.Size = new System.Drawing.Size(192, 34);
@@ -1996,7 +2037,7 @@
             // 
             // layoutControlItem45
             // 
-            this.layoutControlItem45.Control = this.checkEdit7;
+            this.layoutControlItem45.Control = this.aplicaCentCost_C_R;
             this.layoutControlItem45.Location = new System.Drawing.Point(532, 34);
             this.layoutControlItem45.Name = "layoutControlItem45";
             this.layoutControlItem45.Size = new System.Drawing.Size(124, 34);
@@ -2005,7 +2046,7 @@
             // 
             // layoutControlItem46
             // 
-            this.layoutControlItem46.Control = this.textEdit35;
+            this.layoutControlItem46.Control = this.cuenta_F_R;
             this.layoutControlItem46.Location = new System.Drawing.Point(0, 102);
             this.layoutControlItem46.Name = "layoutControlItem46";
             this.layoutControlItem46.Size = new System.Drawing.Size(160, 34);
@@ -2016,7 +2057,7 @@
             // 
             // layoutControlItem47
             // 
-            this.layoutControlItem47.Control = this.textEdit36;
+            this.layoutControlItem47.Control = this.subCuenta_F_R;
             this.layoutControlItem47.Location = new System.Drawing.Point(160, 102);
             this.layoutControlItem47.Name = "layoutControlItem47";
             this.layoutControlItem47.Size = new System.Drawing.Size(180, 34);
@@ -2027,7 +2068,7 @@
             // 
             // layoutControlItem48
             // 
-            this.layoutControlItem48.Control = this.textEdit37;
+            this.layoutControlItem48.Control = this.subSubCuenta_F_R;
             this.layoutControlItem48.Location = new System.Drawing.Point(340, 102);
             this.layoutControlItem48.Name = "layoutControlItem48";
             this.layoutControlItem48.Size = new System.Drawing.Size(192, 34);
@@ -2038,7 +2079,7 @@
             // 
             // layoutControlItem49
             // 
-            this.layoutControlItem49.Control = this.checkEdit8;
+            this.layoutControlItem49.Control = this.aplicaCentCost_D_R;
             this.layoutControlItem49.Location = new System.Drawing.Point(532, 68);
             this.layoutControlItem49.Name = "layoutControlItem49";
             this.layoutControlItem49.Size = new System.Drawing.Size(124, 34);
@@ -2047,7 +2088,7 @@
             // 
             // layoutControlItem50
             // 
-            this.layoutControlItem50.Control = this.textEdit38;
+            this.layoutControlItem50.Control = this.cuenta_D_R;
             this.layoutControlItem50.Location = new System.Drawing.Point(0, 68);
             this.layoutControlItem50.Name = "layoutControlItem50";
             this.layoutControlItem50.Size = new System.Drawing.Size(160, 34);
@@ -2058,7 +2099,7 @@
             // 
             // layoutControlItem51
             // 
-            this.layoutControlItem51.Control = this.textEdit39;
+            this.layoutControlItem51.Control = this.subCuenta_D_R;
             this.layoutControlItem51.Location = new System.Drawing.Point(160, 68);
             this.layoutControlItem51.Name = "layoutControlItem51";
             this.layoutControlItem51.Size = new System.Drawing.Size(180, 34);
@@ -2069,7 +2110,7 @@
             // 
             // layoutControlItem52
             // 
-            this.layoutControlItem52.Control = this.textEdit40;
+            this.layoutControlItem52.Control = this.subSubCuenta_D_R;
             this.layoutControlItem52.Location = new System.Drawing.Point(340, 68);
             this.layoutControlItem52.Name = "layoutControlItem52";
             this.layoutControlItem52.Size = new System.Drawing.Size(192, 34);
@@ -2080,7 +2121,7 @@
             // 
             // layoutControlItem53
             // 
-            this.layoutControlItem53.Control = this.checkEdit9;
+            this.layoutControlItem53.Control = this.aplicaCentCost_F_R;
             this.layoutControlItem53.Location = new System.Drawing.Point(532, 102);
             this.layoutControlItem53.Name = "layoutControlItem53";
             this.layoutControlItem53.Size = new System.Drawing.Size(124, 34);
@@ -2153,18 +2194,6 @@
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextVisible = false;
             // 
-            // editGrupo
-            // 
-            this.editGrupo.Location = new System.Drawing.Point(604, 66);
-            this.editGrupo.MaximumSize = new System.Drawing.Size(0, 30);
-            this.editGrupo.MenuManager = this.ribbonControl1;
-            this.editGrupo.MinimumSize = new System.Drawing.Size(0, 30);
-            this.editGrupo.Name = "editGrupo";
-            this.editGrupo.Size = new System.Drawing.Size(72, 30);
-            this.editGrupo.StyleController = this.layoutControl3;
-            this.editGrupo.TabIndex = 50;
-            this.editGrupo.EditValueChanged += new System.EventHandler(this.textEdit1_EditValueChanged);
-            // 
             // layoutControlItem54
             // 
             this.layoutControlItem54.Control = this.editGrupo;
@@ -2173,35 +2202,6 @@
             this.layoutControlItem54.Size = new System.Drawing.Size(184, 34);
             this.layoutControlItem54.Text = "Grupo";
             this.layoutControlItem54.TextSize = new System.Drawing.Size(105, 13);
-            // 
-            // editSubGrupo
-            // 
-            this.editSubGrupo.Location = new System.Drawing.Point(124, 100);
-            this.editSubGrupo.MaximumSize = new System.Drawing.Size(0, 30);
-            this.editSubGrupo.MenuManager = this.ribbonControl1;
-            this.editSubGrupo.MinimumSize = new System.Drawing.Size(0, 30);
-            this.editSubGrupo.Name = "editSubGrupo";
-            this.editSubGrupo.Size = new System.Drawing.Size(111, 30);
-            this.editSubGrupo.StyleController = this.layoutControl3;
-            this.editSubGrupo.TabIndex = 51;
-            // 
-            // edit
-            // 
-            this.edit.Control = this.editSubGrupo;
-            this.edit.Location = new System.Drawing.Point(0, 254);
-            this.edit.Name = "edit";
-            this.edit.Size = new System.Drawing.Size(223, 34);
-            this.edit.Text = "SubGrupo";
-            this.edit.TextSize = new System.Drawing.Size(105, 13);
-            // 
-            // grupo
-            // 
-            this.grupo.Control = this.editGrupo;
-            this.grupo.Location = new System.Drawing.Point(480, 220);
-            this.grupo.Name = "grupo";
-            this.grupo.Size = new System.Drawing.Size(184, 34);
-            this.grupo.Text = "Grupo";
-            this.grupo.TextSize = new System.Drawing.Size(105, 13);
             // 
             // CatalogoMateriales
             // 
@@ -2250,43 +2250,45 @@
             ((System.ComponentModel.ISupportInitialize)(this.editCantidadI.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editImporteI.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editPuntoP.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit19.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit20.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit21.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit17.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit18.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit22.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit23.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit24.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit25.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit26.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit27.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit28.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit29.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit30.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit31.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit32.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit33.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit34.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit35.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit36.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit37.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit8.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit38.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit39.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit40.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit9.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_A_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_A_R.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_A_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_A_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_A_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_C_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_C_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_C_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_C_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_F_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_F_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_F_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_F_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_D_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_D_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_D_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_D_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_A_R.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_A_R.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_A_R.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_C_R.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_C_R.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_C_R.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_C_R.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_F_R.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_F_R.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_F_R.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_D_R.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuenta_D_R.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCuenta_D_R.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subSubCuenta_D_R.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aplicaCentCost_F_R.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editHerramienta.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editFechaU.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editFechaU.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editPedidoE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editSeguridad.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editGrupo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editSubGrupo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
@@ -2303,9 +2305,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grupo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Contable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
@@ -2349,11 +2353,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editGrupo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem54)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editSubGrupo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grupo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2458,55 +2458,55 @@
         private DevExpress.XtraLayout.LayoutControlGroup Contable;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup6;
-        private DevExpress.XtraEditors.TextEdit textEdit19;
-        private DevExpress.XtraEditors.TextEdit textEdit20;
-        private DevExpress.XtraEditors.TextEdit textEdit21;
+        private DevExpress.XtraEditors.TextEdit cuenta_A_Z;
+        private DevExpress.XtraEditors.TextEdit cuenta_A_R;
+        private DevExpress.XtraEditors.TextEdit subCuenta_A_Z;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem24;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem26;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem25;
-        private DevExpress.XtraEditors.TextEdit textEdit17;
-        private DevExpress.XtraEditors.CheckEdit checkEdit2;
+        private DevExpress.XtraEditors.TextEdit subSubCuenta_A_Z;
+        private DevExpress.XtraEditors.CheckEdit aplicaCentCost_A_Z;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem22;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem23;
-        private DevExpress.XtraEditors.TextEdit textEdit18;
+        private DevExpress.XtraEditors.TextEdit cuenta_C_Z;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem27;
-        private DevExpress.XtraEditors.TextEdit textEdit22;
-        private DevExpress.XtraEditors.TextEdit textEdit23;
-        private DevExpress.XtraEditors.CheckEdit checkEdit3;
+        private DevExpress.XtraEditors.TextEdit subCuenta_C_Z;
+        private DevExpress.XtraEditors.TextEdit subSubCuenta_C_Z;
+        private DevExpress.XtraEditors.CheckEdit aplicaCentCost_C_Z;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem28;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem29;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem30;
-        private DevExpress.XtraEditors.TextEdit textEdit24;
+        private DevExpress.XtraEditors.TextEdit cuenta_F_Z;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem31;
-        private DevExpress.XtraEditors.TextEdit textEdit25;
-        private DevExpress.XtraEditors.TextEdit textEdit26;
-        private DevExpress.XtraEditors.CheckEdit checkEdit4;
+        private DevExpress.XtraEditors.TextEdit subCuenta_F_Z;
+        private DevExpress.XtraEditors.TextEdit subSubCuenta_F_Z;
+        private DevExpress.XtraEditors.CheckEdit aplicaCentCost_F_Z;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem32;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem33;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem34;
-        private DevExpress.XtraEditors.TextEdit textEdit27;
+        private DevExpress.XtraEditors.TextEdit cuenta_D_Z;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem35;
-        private DevExpress.XtraEditors.TextEdit textEdit28;
-        private DevExpress.XtraEditors.TextEdit textEdit29;
-        private DevExpress.XtraEditors.CheckEdit checkEdit5;
+        private DevExpress.XtraEditors.TextEdit subCuenta_D_Z;
+        private DevExpress.XtraEditors.TextEdit subSubCuenta_D_Z;
+        private DevExpress.XtraEditors.CheckEdit aplicaCentCost_D_Z;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem36;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem37;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem38;
-        private DevExpress.XtraEditors.TextEdit textEdit30;
-        private DevExpress.XtraEditors.TextEdit textEdit31;
-        private DevExpress.XtraEditors.CheckEdit checkEdit6;
-        private DevExpress.XtraEditors.TextEdit textEdit32;
-        private DevExpress.XtraEditors.TextEdit textEdit33;
-        private DevExpress.XtraEditors.TextEdit textEdit34;
-        private DevExpress.XtraEditors.CheckEdit checkEdit7;
-        private DevExpress.XtraEditors.TextEdit textEdit35;
-        private DevExpress.XtraEditors.TextEdit textEdit36;
-        private DevExpress.XtraEditors.TextEdit textEdit37;
-        private DevExpress.XtraEditors.CheckEdit checkEdit8;
-        private DevExpress.XtraEditors.TextEdit textEdit38;
-        private DevExpress.XtraEditors.TextEdit textEdit39;
-        private DevExpress.XtraEditors.TextEdit textEdit40;
-        private DevExpress.XtraEditors.CheckEdit checkEdit9;
+        private DevExpress.XtraEditors.TextEdit subCuenta_A_R;
+        private DevExpress.XtraEditors.TextEdit subSubCuenta_A_R;
+        private DevExpress.XtraEditors.CheckEdit aplicaCentCost_A_R;
+        private DevExpress.XtraEditors.TextEdit cuenta_C_R;
+        private DevExpress.XtraEditors.TextEdit subCuenta_C_R;
+        private DevExpress.XtraEditors.TextEdit subSubCuenta_C_R;
+        private DevExpress.XtraEditors.CheckEdit aplicaCentCost_C_R;
+        private DevExpress.XtraEditors.TextEdit cuenta_F_R;
+        private DevExpress.XtraEditors.TextEdit subCuenta_F_R;
+        private DevExpress.XtraEditors.TextEdit subSubCuenta_F_R;
+        private DevExpress.XtraEditors.CheckEdit aplicaCentCost_D_R;
+        private DevExpress.XtraEditors.TextEdit cuenta_D_R;
+        private DevExpress.XtraEditors.TextEdit subCuenta_D_R;
+        private DevExpress.XtraEditors.TextEdit subSubCuenta_D_R;
+        private DevExpress.XtraEditors.CheckEdit aplicaCentCost_F_R;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem39;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem40;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem41;
