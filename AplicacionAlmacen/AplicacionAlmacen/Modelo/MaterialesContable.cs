@@ -14,13 +14,8 @@ namespace AplicacionAlmacen.Modelo
     
     public partial class MaterialesContable
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MaterialesContable()
-        {
-            this.Materiales = new HashSet<Materiales>();
-        }
-    
         public int idMaterialesCont { get; set; }
+        public Nullable<int> idMaterial { get; set; }
         public Nullable<int> cuenta_F_Z { get; set; }
         public Nullable<bool> aplicaCentCost_F_Z { get; set; }
         public Nullable<int> subCuenta_F_Z { get; set; }
@@ -54,7 +49,6 @@ namespace AplicacionAlmacen.Modelo
         public Nullable<int> subCuenta_D_R { get; set; }
         public Nullable<int> subSubCuenta_D_R { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Materiales> Materiales { get; set; }
+        public virtual Materiales Materiales { get; set; }
     }
 }

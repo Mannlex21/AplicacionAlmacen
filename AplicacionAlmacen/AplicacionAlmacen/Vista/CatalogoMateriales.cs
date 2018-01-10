@@ -21,6 +21,7 @@ namespace AplicacionAlmacen.Vista
         //E=editar,N=nuevo,s=sin seleccionar
         Char tipo = 's';
         int contT = 0;
+        int materialA = 0;
         public CatalogoMateriales()
         {
             InitializeComponent();
@@ -29,7 +30,8 @@ namespace AplicacionAlmacen.Vista
             bindingNavigator.BindingSource = bindingSource;
             bindingSource.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
-            
+            editFechaU.DateTime = DateTime.Today;
+
 
         }
         void afterLoad(object sender, EventArgs e)
@@ -87,8 +89,11 @@ namespace AplicacionAlmacen.Vista
         }
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            tipo = 'N';
             this.tabControl1.SelectTab(1);
             EnableControls(tabPage2);
+            ResetControls(tabPage2);
+            editFechaU.DateTime = DateTime.Today;
         }
         private void DisableControls(Control con)
         {
@@ -124,7 +129,7 @@ namespace AplicacionAlmacen.Vista
                 if (con is TextEdit)
                 {
                     TextEdit textBox = (TextEdit)con;
-                    textBox.Text = null;
+                    textBox.Text = "0";
                 }
 
             }
@@ -214,8 +219,6 @@ namespace AplicacionAlmacen.Vista
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Controlador.MaterialesControlador s = new Controlador.MaterialesControlador();
-            //s.getDig(editGrupo.Text, editSubGrupo.Text);
-            //Console.WriteLine(s.getDig(dig));
             if (tipo.Equals('N'))
             {
                 CheckControls(tabPage2);
@@ -223,10 +226,12 @@ namespace AplicacionAlmacen.Vista
                 {
                     Materiales m = new Materiales();
                     MaterialesContable mc = new MaterialesContable();
-                    m.idMaterial = s.getDig(layoutControlItem54.Text,edit.Text);
+                    var idMaterial= s.getDig(editGrupo.Text, editSubGrupo.Text);
+                    m.idMaterial = Int32.Parse(idMaterial);
+                    m.materialReferencia = idMaterial;
                     m.descripcion = editDesc.Text;
                     m.uMedida = editUnidadM.Text;
-                    m.marca = editMarca.Text; //decimal.Parse(editCantidad.Text);
+                    m.marca = editMarca.Text;
                     m.existencia = decimal.Parse(editExistencia.Text);
                     m.localizacion = editLocali.Text;
                     m.minimo = decimal.Parse(editMinimo.Text);
@@ -235,13 +240,15 @@ namespace AplicacionAlmacen.Vista
                     m.costoPromAnt = decimal.Parse(editCostoPA.Text);
                     m.cantIni = decimal.Parse(editCantidadI.Text);
                     m.importeIni = decimal.Parse(editImporteI.Text);
+                    m.importe= decimal.Parse(editImporte.Text);
                     m.fechaUltimoMov = editFechaU.DateTime;
                     m.puntoPedido = decimal.Parse(editPuntoP.Text);
                     m.pedidoEstandar = decimal.Parse(editPedidoE.Text);
                     m.herramienta = editHerramienta.Checked;
                     m.seguridadInd = editSeguridad.Checked;
 
-                    
+
+                    mc.idMaterial = Int32.Parse(idMaterial);
                     mc.cuenta_F_Z = Int32.Parse(cuenta_F_Z.Text);
                     mc.aplicaCentCost_F_Z = aplicaCentCost_F_Z.Checked;
                     mc.subCuenta_F_Z = Int32.Parse(subCuenta_F_Z.Text);
@@ -275,11 +282,11 @@ namespace AplicacionAlmacen.Vista
                     mc.subCuenta_D_R = Int32.Parse(subCuenta_D_R.Text);
                     mc.subSubCuenta_D_R = Int32.Parse(subSubCuenta_D_R.Text);
                    
-                    //Object item = s.guardarMaterial(m);
+                    Object item = s.guardarMaterial(m,mc);
 
-                    /*System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                    System.Reflection.PropertyInfo msg = item.GetType().GetProperty("message");
                     System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
-                    String message = (String)(m.GetValue(item, null));
+                    String message = (String)(msg.GetValue(item, null));
                     int code = (int)(c.GetValue(item, null));
 
                     if (code == 1)
@@ -293,7 +300,7 @@ namespace AplicacionAlmacen.Vista
                     else if (code == 2)
                     {
                         MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }*/
+                    }
                 }
                 contT = 0;
 
@@ -305,10 +312,10 @@ namespace AplicacionAlmacen.Vista
                 {
                     Materiales m = new Materiales();
                     MaterialesContable mc = new MaterialesContable();
-                    m.idMaterial = s.getDig(layoutControlItem54.Text, edit.Text);
+                    m.idMaterial = materialA;
                     m.descripcion = editDesc.Text;
                     m.uMedida = editUnidadM.Text;
-                    m.marca = editMarca.Text; //decimal.Parse(editCantidad.Text);
+                    m.marca = editMarca.Text; 
                     m.existencia = decimal.Parse(editExistencia.Text);
                     m.localizacion = editLocali.Text;
                     m.minimo = decimal.Parse(editMinimo.Text);
@@ -317,13 +324,14 @@ namespace AplicacionAlmacen.Vista
                     m.costoPromAnt = decimal.Parse(editCostoPA.Text);
                     m.cantIni = decimal.Parse(editCantidadI.Text);
                     m.importeIni = decimal.Parse(editImporteI.Text);
+                    m.importe = decimal.Parse(editImporte.Text);
                     m.fechaUltimoMov = editFechaU.DateTime;
                     m.puntoPedido = decimal.Parse(editPuntoP.Text);
                     m.pedidoEstandar = decimal.Parse(editPedidoE.Text);
                     m.herramienta = editHerramienta.Checked;
                     m.seguridadInd = editSeguridad.Checked;
 
-
+                    mc.idMaterial = materialA;
                     mc.cuenta_F_Z = Int32.Parse(cuenta_F_Z.Text);
                     mc.aplicaCentCost_F_Z = aplicaCentCost_F_Z.Checked;
                     mc.subCuenta_F_Z = Int32.Parse(subCuenta_F_Z.Text);
@@ -357,17 +365,17 @@ namespace AplicacionAlmacen.Vista
                     mc.subCuenta_D_R = Int32.Parse(subCuenta_D_R.Text);
                     mc.subSubCuenta_D_R = Int32.Parse(subSubCuenta_D_R.Text);
 
-                    /*Object item = g.editarGrupo(s, numGpoA);
+                    Object item = s.editarMaterial(m,mc);
 
-                    System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                    System.Reflection.PropertyInfo msg = item.GetType().GetProperty("message");
                     System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
-                    String message = (String)(m.GetValue(item, null));
+                    String message = (String)(msg.GetValue(item, null));
                     int code = (int)(c.GetValue(item, null));
 
                     if (code == 1)
                     {
-                        ResetControls(tabPage3);
-                        DisableControls(tabPage3);
+                        ResetControls(tabPage2);
+                        DisableControls(tabPage2);
                         tipo = 's';
                         Recargar();
                         MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -375,7 +383,7 @@ namespace AplicacionAlmacen.Vista
                     else if (code == 2)
                     {
                         MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }*/
+                    }
                 }
                 contT = 0;
             }
@@ -384,9 +392,37 @@ namespace AplicacionAlmacen.Vista
 
             }
         }
-        private void textEdit1_EditValueChanged(object sender, EventArgs e)
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            materialA = 0;
+            ResetControls(tabPage2);
+            tipo = 'E';
+            int r = Tabla.GetSelectedRows()[0];
+            materialA = Int32.Parse(Tabla.GetRowCellValue(r, "idMaterial").ToString());
+        }
 
+        private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int r = Tabla.GetSelectedRows()[0];
+            int idMaterial= Int32.Parse(Tabla.GetRowCellValue(r, "idMaterial").ToString());
+
+            Object item = s.borrarMaterial(idMaterial);
+
+            System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+            System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+            String message = (String)(m.GetValue(item, null));
+            int code = (int)(c.GetValue(item, null));
+
+            if (code == 1)
+            {
+                Recargar();
+                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+            }
+            else if (code == 2)
+            {
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

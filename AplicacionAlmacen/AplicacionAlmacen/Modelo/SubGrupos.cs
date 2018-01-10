@@ -17,5 +17,7 @@ namespace AplicacionAlmacen.Modelo
         public short grupo { get; set; }
         public short subGrupo { get; set; }
         public string descripcion { get; set; }
+    
+        public virtual GpoMateriales GpoMateriales { get; set; }
     }
 }
