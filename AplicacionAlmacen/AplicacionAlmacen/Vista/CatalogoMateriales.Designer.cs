@@ -69,6 +69,8 @@
             this.puntoPedido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pedidoEstandar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.marca = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.herramienta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.seguridadInd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -566,7 +568,9 @@
             this.fechaUltimoMov,
             this.puntoPedido,
             this.pedidoEstandar,
-            this.marca});
+            this.marca,
+            this.herramienta,
+            this.seguridadInd});
             this.Tabla.GridControl = this.GridControl;
             this.Tabla.Name = "Tabla";
             this.Tabla.OptionsBehavior.Editable = false;
@@ -718,6 +722,22 @@
             this.marca.VisibleIndex = 3;
             this.marca.Width = 65;
             // 
+            // herramienta
+            // 
+            this.herramienta.Caption = "Herramienta";
+            this.herramienta.FieldName = "herramienta";
+            this.herramienta.Name = "herramienta";
+            this.herramienta.Visible = true;
+            this.herramienta.VisibleIndex = 16;
+            // 
+            // seguridadInd
+            // 
+            this.seguridadInd.Caption = "Seguridad";
+            this.seguridadInd.FieldName = "seguridadInd";
+            this.seguridadInd.Name = "seguridadInd";
+            this.seguridadInd.Visible = true;
+            this.seguridadInd.VisibleIndex = 17;
+            // 
             // gridView1
             // 
             this.gridView1.GridControl = this.GridControl;
@@ -828,8 +848,8 @@
             // 
             // editDesc
             // 
-            this.editDesc.EditValue = "des";
-            this.editDesc.Location = new System.Drawing.Point(124, -54);
+            this.editDesc.EditValue = "";
+            this.editDesc.Location = new System.Drawing.Point(124, 34);
             this.editDesc.MaximumSize = new System.Drawing.Size(0, 80);
             this.editDesc.MenuManager = this.ribbonControl1;
             this.editDesc.MinimumSize = new System.Drawing.Size(0, 80);
@@ -944,8 +964,8 @@
             // 
             // editUnidadM
             // 
-            this.editUnidadM.EditValue = "0";
-            this.editUnidadM.Location = new System.Drawing.Point(124, 30);
+            this.editUnidadM.EditValue = "";
+            this.editUnidadM.Location = new System.Drawing.Point(124, 118);
             this.editUnidadM.MaximumSize = new System.Drawing.Size(0, 30);
             this.editUnidadM.MenuManager = this.ribbonControl1;
             this.editUnidadM.MinimumSize = new System.Drawing.Size(0, 30);
@@ -956,8 +976,8 @@
             // 
             // editMarca
             // 
-            this.editMarca.EditValue = "0";
-            this.editMarca.Location = new System.Drawing.Point(341, 30);
+            this.editMarca.EditValue = "";
+            this.editMarca.Location = new System.Drawing.Point(341, 118);
             this.editMarca.MaximumSize = new System.Drawing.Size(0, 30);
             this.editMarca.MenuManager = this.ribbonControl1;
             this.editMarca.MinimumSize = new System.Drawing.Size(0, 30);
@@ -969,12 +989,14 @@
             // 
             // editExistencia
             // 
-            this.editExistencia.EditValue = "0";
-            this.editExistencia.Location = new System.Drawing.Point(574, 30);
+            this.editExistencia.EditValue = "";
+            this.editExistencia.Location = new System.Drawing.Point(574, 118);
             this.editExistencia.MaximumSize = new System.Drawing.Size(0, 30);
             this.editExistencia.MenuManager = this.ribbonControl1;
             this.editExistencia.MinimumSize = new System.Drawing.Size(0, 30);
             this.editExistencia.Name = "editExistencia";
+            this.editExistencia.Properties.Mask.EditMask = "f2";
+            this.editExistencia.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editExistencia.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.editExistencia.Size = new System.Drawing.Size(102, 30);
             this.editExistencia.StyleController = this.layoutControl3;
@@ -982,12 +1004,14 @@
             // 
             // editMaximo
             // 
-            this.editMaximo.EditValue = "0";
-            this.editMaximo.Location = new System.Drawing.Point(574, 64);
+            this.editMaximo.EditValue = "";
+            this.editMaximo.Location = new System.Drawing.Point(574, 152);
             this.editMaximo.MaximumSize = new System.Drawing.Size(0, 30);
             this.editMaximo.MenuManager = this.ribbonControl1;
             this.editMaximo.MinimumSize = new System.Drawing.Size(0, 30);
             this.editMaximo.Name = "editMaximo";
+            this.editMaximo.Properties.Mask.EditMask = "f2";
+            this.editMaximo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editMaximo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.editMaximo.Size = new System.Drawing.Size(102, 30);
             this.editMaximo.StyleController = this.layoutControl3;
@@ -995,12 +1019,14 @@
             // 
             // editMinimo
             // 
-            this.editMinimo.EditValue = "0";
-            this.editMinimo.Location = new System.Drawing.Point(341, 64);
+            this.editMinimo.EditValue = "";
+            this.editMinimo.Location = new System.Drawing.Point(341, 152);
             this.editMinimo.MaximumSize = new System.Drawing.Size(0, 30);
             this.editMinimo.MenuManager = this.ribbonControl1;
             this.editMinimo.MinimumSize = new System.Drawing.Size(0, 30);
             this.editMinimo.Name = "editMinimo";
+            this.editMinimo.Properties.Mask.EditMask = "f2";
+            this.editMinimo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editMinimo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.editMinimo.Size = new System.Drawing.Size(121, 30);
             this.editMinimo.StyleController = this.layoutControl3;
@@ -1008,12 +1034,13 @@
             // 
             // editLocali
             // 
-            this.editLocali.EditValue = "0";
-            this.editLocali.Location = new System.Drawing.Point(124, 64);
+            this.editLocali.EditValue = "";
+            this.editLocali.Location = new System.Drawing.Point(124, 152);
             this.editLocali.MaximumSize = new System.Drawing.Size(0, 30);
             this.editLocali.MenuManager = this.ribbonControl1;
             this.editLocali.MinimumSize = new System.Drawing.Size(0, 30);
             this.editLocali.Name = "editLocali";
+            this.editLocali.Properties.Mask.EditMask = "f2";
             this.editLocali.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.editLocali.Size = new System.Drawing.Size(105, 30);
             this.editLocali.StyleController = this.layoutControl3;
@@ -1021,12 +1048,14 @@
             // 
             // editCostoP
             // 
-            this.editCostoP.EditValue = "0";
-            this.editCostoP.Location = new System.Drawing.Point(124, 98);
+            this.editCostoP.EditValue = "";
+            this.editCostoP.Location = new System.Drawing.Point(124, 186);
             this.editCostoP.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCostoP.MenuManager = this.ribbonControl1;
             this.editCostoP.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCostoP.Name = "editCostoP";
+            this.editCostoP.Properties.Mask.EditMask = "f2";
+            this.editCostoP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editCostoP.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.editCostoP.Size = new System.Drawing.Size(105, 30);
             this.editCostoP.StyleController = this.layoutControl3;
@@ -1034,12 +1063,14 @@
             // 
             // editCostoPA
             // 
-            this.editCostoPA.EditValue = "0";
-            this.editCostoPA.Location = new System.Drawing.Point(341, 98);
+            this.editCostoPA.EditValue = "";
+            this.editCostoPA.Location = new System.Drawing.Point(341, 186);
             this.editCostoPA.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCostoPA.MenuManager = this.ribbonControl1;
             this.editCostoPA.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCostoPA.Name = "editCostoPA";
+            this.editCostoPA.Properties.Mask.EditMask = "f2";
+            this.editCostoPA.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editCostoPA.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.editCostoPA.Size = new System.Drawing.Size(121, 30);
             this.editCostoPA.StyleController = this.layoutControl3;
@@ -1047,12 +1078,14 @@
             // 
             // editImporte
             // 
-            this.editImporte.EditValue = "0";
-            this.editImporte.Location = new System.Drawing.Point(574, 98);
+            this.editImporte.EditValue = "";
+            this.editImporte.Location = new System.Drawing.Point(574, 186);
             this.editImporte.MaximumSize = new System.Drawing.Size(0, 30);
             this.editImporte.MenuManager = this.ribbonControl1;
             this.editImporte.MinimumSize = new System.Drawing.Size(0, 30);
             this.editImporte.Name = "editImporte";
+            this.editImporte.Properties.Mask.EditMask = "f2";
+            this.editImporte.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editImporte.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.editImporte.Size = new System.Drawing.Size(102, 30);
             this.editImporte.StyleController = this.layoutControl3;
@@ -1060,12 +1093,14 @@
             // 
             // editCantidadI
             // 
-            this.editCantidadI.EditValue = "0";
-            this.editCantidadI.Location = new System.Drawing.Point(124, 132);
+            this.editCantidadI.EditValue = "";
+            this.editCantidadI.Location = new System.Drawing.Point(124, 220);
             this.editCantidadI.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCantidadI.MenuManager = this.ribbonControl1;
             this.editCantidadI.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCantidadI.Name = "editCantidadI";
+            this.editCantidadI.Properties.Mask.EditMask = "f2";
+            this.editCantidadI.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editCantidadI.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.editCantidadI.Size = new System.Drawing.Size(105, 30);
             this.editCantidadI.StyleController = this.layoutControl3;
@@ -1073,12 +1108,14 @@
             // 
             // editImporteI
             // 
-            this.editImporteI.EditValue = "0";
-            this.editImporteI.Location = new System.Drawing.Point(341, 132);
+            this.editImporteI.EditValue = "";
+            this.editImporteI.Location = new System.Drawing.Point(341, 220);
             this.editImporteI.MaximumSize = new System.Drawing.Size(0, 30);
             this.editImporteI.MenuManager = this.ribbonControl1;
             this.editImporteI.MinimumSize = new System.Drawing.Size(0, 30);
             this.editImporteI.Name = "editImporteI";
+            this.editImporteI.Properties.Mask.EditMask = "f2";
+            this.editImporteI.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editImporteI.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.editImporteI.Size = new System.Drawing.Size(121, 30);
             this.editImporteI.StyleController = this.layoutControl3;
@@ -1086,12 +1123,14 @@
             // 
             // editPuntoP
             // 
-            this.editPuntoP.EditValue = "0";
-            this.editPuntoP.Location = new System.Drawing.Point(341, 166);
+            this.editPuntoP.EditValue = "";
+            this.editPuntoP.Location = new System.Drawing.Point(341, 254);
             this.editPuntoP.MaximumSize = new System.Drawing.Size(0, 30);
             this.editPuntoP.MenuManager = this.ribbonControl1;
             this.editPuntoP.MinimumSize = new System.Drawing.Size(0, 30);
             this.editPuntoP.Name = "editPuntoP";
+            this.editPuntoP.Properties.Mask.EditMask = "f2";
+            this.editPuntoP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editPuntoP.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.editPuntoP.Size = new System.Drawing.Size(121, 30);
             this.editPuntoP.StyleController = this.layoutControl3;
@@ -1099,8 +1138,8 @@
             // 
             // cuenta_A_Z
             // 
-            this.cuenta_A_Z.EditValue = "0";
-            this.cuenta_A_Z.Location = new System.Drawing.Point(83, 302);
+            this.cuenta_A_Z.EditValue = "";
+            this.cuenta_A_Z.Location = new System.Drawing.Point(83, 390);
             this.cuenta_A_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.cuenta_A_Z.MenuManager = this.ribbonControl1;
             this.cuenta_A_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1112,8 +1151,8 @@
             // 
             // cuenta_A_R
             // 
-            this.cuenta_A_R.EditValue = "0";
-            this.cuenta_A_R.Location = new System.Drawing.Point(84, 474);
+            this.cuenta_A_R.EditValue = "";
+            this.cuenta_A_R.Location = new System.Drawing.Point(84, 562);
             this.cuenta_A_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.cuenta_A_R.MenuManager = this.ribbonControl1;
             this.cuenta_A_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1125,8 +1164,8 @@
             // 
             // subCuenta_A_Z
             // 
-            this.subCuenta_A_Z.EditValue = "0";
-            this.subCuenta_A_Z.Location = new System.Drawing.Point(261, 302);
+            this.subCuenta_A_Z.EditValue = "";
+            this.subCuenta_A_Z.Location = new System.Drawing.Point(261, 390);
             this.subCuenta_A_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.subCuenta_A_Z.MenuManager = this.ribbonControl1;
             this.subCuenta_A_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1138,8 +1177,8 @@
             // 
             // subSubCuenta_A_Z
             // 
-            this.subSubCuenta_A_Z.EditValue = "0";
-            this.subSubCuenta_A_Z.Location = new System.Drawing.Point(457, 302);
+            this.subSubCuenta_A_Z.EditValue = "";
+            this.subSubCuenta_A_Z.Location = new System.Drawing.Point(457, 390);
             this.subSubCuenta_A_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.subSubCuenta_A_Z.MenuManager = this.ribbonControl1;
             this.subSubCuenta_A_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1151,7 +1190,7 @@
             // 
             // aplicaCentCost_A_Z
             // 
-            this.aplicaCentCost_A_Z.Location = new System.Drawing.Point(553, 302);
+            this.aplicaCentCost_A_Z.Location = new System.Drawing.Point(553, 390);
             this.aplicaCentCost_A_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.aplicaCentCost_A_Z.MenuManager = this.ribbonControl1;
             this.aplicaCentCost_A_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1163,8 +1202,8 @@
             // 
             // cuenta_C_Z
             // 
-            this.cuenta_C_Z.EditValue = "0";
-            this.cuenta_C_Z.Location = new System.Drawing.Point(83, 336);
+            this.cuenta_C_Z.EditValue = "";
+            this.cuenta_C_Z.Location = new System.Drawing.Point(83, 424);
             this.cuenta_C_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.cuenta_C_Z.MenuManager = this.ribbonControl1;
             this.cuenta_C_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1176,8 +1215,8 @@
             // 
             // subCuenta_C_Z
             // 
-            this.subCuenta_C_Z.EditValue = "0";
-            this.subCuenta_C_Z.Location = new System.Drawing.Point(261, 336);
+            this.subCuenta_C_Z.EditValue = "";
+            this.subCuenta_C_Z.Location = new System.Drawing.Point(261, 424);
             this.subCuenta_C_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.subCuenta_C_Z.MenuManager = this.ribbonControl1;
             this.subCuenta_C_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1189,8 +1228,8 @@
             // 
             // subSubCuenta_C_Z
             // 
-            this.subSubCuenta_C_Z.EditValue = "0";
-            this.subSubCuenta_C_Z.Location = new System.Drawing.Point(457, 336);
+            this.subSubCuenta_C_Z.EditValue = "";
+            this.subSubCuenta_C_Z.Location = new System.Drawing.Point(457, 424);
             this.subSubCuenta_C_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.subSubCuenta_C_Z.MenuManager = this.ribbonControl1;
             this.subSubCuenta_C_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1202,7 +1241,7 @@
             // 
             // aplicaCentCost_C_Z
             // 
-            this.aplicaCentCost_C_Z.Location = new System.Drawing.Point(553, 336);
+            this.aplicaCentCost_C_Z.Location = new System.Drawing.Point(553, 424);
             this.aplicaCentCost_C_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.aplicaCentCost_C_Z.MenuManager = this.ribbonControl1;
             this.aplicaCentCost_C_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1214,8 +1253,8 @@
             // 
             // cuenta_F_Z
             // 
-            this.cuenta_F_Z.EditValue = "0";
-            this.cuenta_F_Z.Location = new System.Drawing.Point(82, 404);
+            this.cuenta_F_Z.EditValue = "";
+            this.cuenta_F_Z.Location = new System.Drawing.Point(82, 492);
             this.cuenta_F_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.cuenta_F_Z.MenuManager = this.ribbonControl1;
             this.cuenta_F_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1227,8 +1266,8 @@
             // 
             // subCuenta_F_Z
             // 
-            this.subCuenta_F_Z.EditValue = "0";
-            this.subCuenta_F_Z.Location = new System.Drawing.Point(260, 404);
+            this.subCuenta_F_Z.EditValue = "";
+            this.subCuenta_F_Z.Location = new System.Drawing.Point(260, 492);
             this.subCuenta_F_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.subCuenta_F_Z.MenuManager = this.ribbonControl1;
             this.subCuenta_F_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1240,8 +1279,8 @@
             // 
             // subSubCuenta_F_Z
             // 
-            this.subSubCuenta_F_Z.EditValue = "0";
-            this.subSubCuenta_F_Z.Location = new System.Drawing.Point(456, 404);
+            this.subSubCuenta_F_Z.EditValue = "";
+            this.subSubCuenta_F_Z.Location = new System.Drawing.Point(456, 492);
             this.subSubCuenta_F_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.subSubCuenta_F_Z.MenuManager = this.ribbonControl1;
             this.subSubCuenta_F_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1253,7 +1292,7 @@
             // 
             // aplicaCentCost_F_Z
             // 
-            this.aplicaCentCost_F_Z.Location = new System.Drawing.Point(553, 404);
+            this.aplicaCentCost_F_Z.Location = new System.Drawing.Point(553, 492);
             this.aplicaCentCost_F_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.aplicaCentCost_F_Z.MenuManager = this.ribbonControl1;
             this.aplicaCentCost_F_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1265,8 +1304,8 @@
             // 
             // cuenta_D_Z
             // 
-            this.cuenta_D_Z.EditValue = "0";
-            this.cuenta_D_Z.Location = new System.Drawing.Point(83, 370);
+            this.cuenta_D_Z.EditValue = "";
+            this.cuenta_D_Z.Location = new System.Drawing.Point(83, 458);
             this.cuenta_D_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.cuenta_D_Z.MenuManager = this.ribbonControl1;
             this.cuenta_D_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1278,8 +1317,8 @@
             // 
             // subCuenta_D_Z
             // 
-            this.subCuenta_D_Z.EditValue = "0";
-            this.subCuenta_D_Z.Location = new System.Drawing.Point(261, 370);
+            this.subCuenta_D_Z.EditValue = "";
+            this.subCuenta_D_Z.Location = new System.Drawing.Point(261, 458);
             this.subCuenta_D_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.subCuenta_D_Z.MenuManager = this.ribbonControl1;
             this.subCuenta_D_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1291,8 +1330,8 @@
             // 
             // subSubCuenta_D_Z
             // 
-            this.subSubCuenta_D_Z.EditValue = "0";
-            this.subSubCuenta_D_Z.Location = new System.Drawing.Point(457, 370);
+            this.subSubCuenta_D_Z.EditValue = "";
+            this.subSubCuenta_D_Z.Location = new System.Drawing.Point(457, 458);
             this.subSubCuenta_D_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.subSubCuenta_D_Z.MenuManager = this.ribbonControl1;
             this.subSubCuenta_D_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1304,7 +1343,7 @@
             // 
             // aplicaCentCost_D_Z
             // 
-            this.aplicaCentCost_D_Z.Location = new System.Drawing.Point(553, 370);
+            this.aplicaCentCost_D_Z.Location = new System.Drawing.Point(553, 458);
             this.aplicaCentCost_D_Z.MaximumSize = new System.Drawing.Size(0, 30);
             this.aplicaCentCost_D_Z.MenuManager = this.ribbonControl1;
             this.aplicaCentCost_D_Z.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1316,8 +1355,8 @@
             // 
             // subCuenta_A_R
             // 
-            this.subCuenta_A_R.EditValue = "0";
-            this.subCuenta_A_R.Location = new System.Drawing.Point(263, 474);
+            this.subCuenta_A_R.EditValue = "";
+            this.subCuenta_A_R.Location = new System.Drawing.Point(263, 562);
             this.subCuenta_A_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.subCuenta_A_R.MenuManager = this.ribbonControl1;
             this.subCuenta_A_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1329,8 +1368,8 @@
             // 
             // subSubCuenta_A_R
             // 
-            this.subSubCuenta_A_R.EditValue = "0";
-            this.subSubCuenta_A_R.Location = new System.Drawing.Point(461, 474);
+            this.subSubCuenta_A_R.EditValue = "";
+            this.subSubCuenta_A_R.Location = new System.Drawing.Point(461, 562);
             this.subSubCuenta_A_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.subSubCuenta_A_R.MenuManager = this.ribbonControl1;
             this.subSubCuenta_A_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1342,7 +1381,7 @@
             // 
             // aplicaCentCost_A_R
             // 
-            this.aplicaCentCost_A_R.Location = new System.Drawing.Point(552, 474);
+            this.aplicaCentCost_A_R.Location = new System.Drawing.Point(552, 562);
             this.aplicaCentCost_A_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.aplicaCentCost_A_R.MenuManager = this.ribbonControl1;
             this.aplicaCentCost_A_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1354,8 +1393,8 @@
             // 
             // cuenta_C_R
             // 
-            this.cuenta_C_R.EditValue = "0";
-            this.cuenta_C_R.Location = new System.Drawing.Point(84, 508);
+            this.cuenta_C_R.EditValue = "";
+            this.cuenta_C_R.Location = new System.Drawing.Point(84, 596);
             this.cuenta_C_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.cuenta_C_R.MenuManager = this.ribbonControl1;
             this.cuenta_C_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1367,8 +1406,8 @@
             // 
             // subCuenta_C_R
             // 
-            this.subCuenta_C_R.EditValue = "0";
-            this.subCuenta_C_R.Location = new System.Drawing.Point(263, 508);
+            this.subCuenta_C_R.EditValue = "";
+            this.subCuenta_C_R.Location = new System.Drawing.Point(263, 596);
             this.subCuenta_C_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.subCuenta_C_R.MenuManager = this.ribbonControl1;
             this.subCuenta_C_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1380,8 +1419,8 @@
             // 
             // subSubCuenta_C_R
             // 
-            this.subSubCuenta_C_R.EditValue = "0";
-            this.subSubCuenta_C_R.Location = new System.Drawing.Point(461, 508);
+            this.subSubCuenta_C_R.EditValue = "";
+            this.subSubCuenta_C_R.Location = new System.Drawing.Point(461, 596);
             this.subSubCuenta_C_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.subSubCuenta_C_R.MenuManager = this.ribbonControl1;
             this.subSubCuenta_C_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1393,7 +1432,7 @@
             // 
             // aplicaCentCost_C_R
             // 
-            this.aplicaCentCost_C_R.Location = new System.Drawing.Point(552, 508);
+            this.aplicaCentCost_C_R.Location = new System.Drawing.Point(552, 596);
             this.aplicaCentCost_C_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.aplicaCentCost_C_R.MenuManager = this.ribbonControl1;
             this.aplicaCentCost_C_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1405,8 +1444,8 @@
             // 
             // cuenta_F_R
             // 
-            this.cuenta_F_R.EditValue = "0";
-            this.cuenta_F_R.Location = new System.Drawing.Point(83, 576);
+            this.cuenta_F_R.EditValue = "";
+            this.cuenta_F_R.Location = new System.Drawing.Point(83, 664);
             this.cuenta_F_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.cuenta_F_R.MenuManager = this.ribbonControl1;
             this.cuenta_F_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1418,8 +1457,8 @@
             // 
             // subCuenta_F_R
             // 
-            this.subCuenta_F_R.EditValue = "0";
-            this.subCuenta_F_R.Location = new System.Drawing.Point(262, 576);
+            this.subCuenta_F_R.EditValue = "";
+            this.subCuenta_F_R.Location = new System.Drawing.Point(262, 664);
             this.subCuenta_F_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.subCuenta_F_R.MenuManager = this.ribbonControl1;
             this.subCuenta_F_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1431,8 +1470,8 @@
             // 
             // subSubCuenta_F_R
             // 
-            this.subSubCuenta_F_R.EditValue = "0";
-            this.subSubCuenta_F_R.Location = new System.Drawing.Point(460, 576);
+            this.subSubCuenta_F_R.EditValue = "";
+            this.subSubCuenta_F_R.Location = new System.Drawing.Point(460, 664);
             this.subSubCuenta_F_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.subSubCuenta_F_R.MenuManager = this.ribbonControl1;
             this.subSubCuenta_F_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1444,7 +1483,7 @@
             // 
             // aplicaCentCost_D_R
             // 
-            this.aplicaCentCost_D_R.Location = new System.Drawing.Point(552, 542);
+            this.aplicaCentCost_D_R.Location = new System.Drawing.Point(552, 630);
             this.aplicaCentCost_D_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.aplicaCentCost_D_R.MenuManager = this.ribbonControl1;
             this.aplicaCentCost_D_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1456,8 +1495,8 @@
             // 
             // cuenta_D_R
             // 
-            this.cuenta_D_R.EditValue = "0";
-            this.cuenta_D_R.Location = new System.Drawing.Point(84, 542);
+            this.cuenta_D_R.EditValue = "";
+            this.cuenta_D_R.Location = new System.Drawing.Point(84, 630);
             this.cuenta_D_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.cuenta_D_R.MenuManager = this.ribbonControl1;
             this.cuenta_D_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1469,8 +1508,8 @@
             // 
             // subCuenta_D_R
             // 
-            this.subCuenta_D_R.EditValue = "0";
-            this.subCuenta_D_R.Location = new System.Drawing.Point(263, 542);
+            this.subCuenta_D_R.EditValue = "";
+            this.subCuenta_D_R.Location = new System.Drawing.Point(263, 630);
             this.subCuenta_D_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.subCuenta_D_R.MenuManager = this.ribbonControl1;
             this.subCuenta_D_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1482,8 +1521,8 @@
             // 
             // subSubCuenta_D_R
             // 
-            this.subSubCuenta_D_R.EditValue = "0";
-            this.subSubCuenta_D_R.Location = new System.Drawing.Point(461, 542);
+            this.subSubCuenta_D_R.EditValue = "";
+            this.subSubCuenta_D_R.Location = new System.Drawing.Point(461, 630);
             this.subSubCuenta_D_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.subSubCuenta_D_R.MenuManager = this.ribbonControl1;
             this.subSubCuenta_D_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1495,7 +1534,7 @@
             // 
             // aplicaCentCost_F_R
             // 
-            this.aplicaCentCost_F_R.Location = new System.Drawing.Point(552, 576);
+            this.aplicaCentCost_F_R.Location = new System.Drawing.Point(552, 664);
             this.aplicaCentCost_F_R.MaximumSize = new System.Drawing.Size(0, 30);
             this.aplicaCentCost_F_R.MenuManager = this.ribbonControl1;
             this.aplicaCentCost_F_R.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1507,7 +1546,7 @@
             // 
             // editHerramienta
             // 
-            this.editHerramienta.Location = new System.Drawing.Point(233, 200);
+            this.editHerramienta.Location = new System.Drawing.Point(233, 288);
             this.editHerramienta.MaximumSize = new System.Drawing.Size(0, 30);
             this.editHerramienta.MenuManager = this.ribbonControl1;
             this.editHerramienta.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1521,7 +1560,7 @@
             // editFechaU
             // 
             this.editFechaU.EditValue = new System.DateTime(2018, 1, 10, 0, 0, 0, 0);
-            this.editFechaU.Location = new System.Drawing.Point(124, 166);
+            this.editFechaU.Location = new System.Drawing.Point(124, 254);
             this.editFechaU.MaximumSize = new System.Drawing.Size(0, 30);
             this.editFechaU.MenuManager = this.ribbonControl1;
             this.editFechaU.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1542,12 +1581,14 @@
             // 
             // editPedidoE
             // 
-            this.editPedidoE.EditValue = "0";
-            this.editPedidoE.Location = new System.Drawing.Point(574, 132);
+            this.editPedidoE.EditValue = "";
+            this.editPedidoE.Location = new System.Drawing.Point(574, 220);
             this.editPedidoE.MaximumSize = new System.Drawing.Size(0, 30);
             this.editPedidoE.MenuManager = this.ribbonControl1;
             this.editPedidoE.MinimumSize = new System.Drawing.Size(0, 30);
             this.editPedidoE.Name = "editPedidoE";
+            this.editPedidoE.Properties.Mask.EditMask = "f2";
+            this.editPedidoE.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editPedidoE.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.editPedidoE.Size = new System.Drawing.Size(102, 30);
             this.editPedidoE.StyleController = this.layoutControl3;
@@ -1555,7 +1596,7 @@
             // 
             // editSeguridad
             // 
-            this.editSeguridad.Location = new System.Drawing.Point(466, 200);
+            this.editSeguridad.Location = new System.Drawing.Point(466, 288);
             this.editSeguridad.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSeguridad.MenuManager = this.ribbonControl1;
             this.editSeguridad.MinimumSize = new System.Drawing.Size(0, 30);
@@ -1568,12 +1609,15 @@
             // 
             // editGrupo
             // 
-            this.editGrupo.EditValue = "1";
-            this.editGrupo.Location = new System.Drawing.Point(574, 166);
+            this.editGrupo.EditValue = "";
+            this.editGrupo.Location = new System.Drawing.Point(574, 254);
             this.editGrupo.MaximumSize = new System.Drawing.Size(0, 30);
             this.editGrupo.MenuManager = this.ribbonControl1;
             this.editGrupo.MinimumSize = new System.Drawing.Size(0, 30);
             this.editGrupo.Name = "editGrupo";
+            this.editGrupo.Properties.Mask.EditMask = "\\d+";
+            this.editGrupo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.editGrupo.Properties.MaxLength = 2;
             this.editGrupo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.editGrupo.Size = new System.Drawing.Size(102, 30);
             this.editGrupo.StyleController = this.layoutControl3;
@@ -1581,12 +1625,13 @@
             // 
             // editSubGrupo
             // 
-            this.editSubGrupo.EditValue = "1";
-            this.editSubGrupo.Location = new System.Drawing.Point(124, 200);
+            this.editSubGrupo.EditValue = "";
+            this.editSubGrupo.Location = new System.Drawing.Point(124, 288);
             this.editSubGrupo.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubGrupo.MenuManager = this.ribbonControl1;
             this.editSubGrupo.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubGrupo.Name = "editSubGrupo";
+            this.editSubGrupo.Properties.MaxLength = 2;
             this.editSubGrupo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.editSubGrupo.Size = new System.Drawing.Size(105, 30);
             this.editSubGrupo.StyleController = this.layoutControl3;
@@ -2211,7 +2256,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(681, 10);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(664, 10);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
@@ -2219,7 +2264,7 @@
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.Location = new System.Drawing.Point(0, 172);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(681, 10);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(664, 10);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem1
@@ -2227,7 +2272,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 314);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(689, 10);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(672, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup1
@@ -2611,5 +2656,7 @@
         private DevExpress.XtraEditors.TextEdit editSubGrupo;
         private DevExpress.XtraLayout.LayoutControlItem edit;
         private DevExpress.XtraLayout.LayoutControlItem grupo;
+        private DevExpress.XtraGrid.Columns.GridColumn herramienta;
+        private DevExpress.XtraGrid.Columns.GridColumn seguridadInd;
     }
 }

@@ -89,6 +89,7 @@ namespace AplicacionAlmacen.Vista
         }
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             tipo = 'N';
             this.tabControl1.SelectTab(1);
             EnableControls(tabPage2);
@@ -129,7 +130,7 @@ namespace AplicacionAlmacen.Vista
                 if (con is TextEdit)
                 {
                     TextEdit textBox = (TextEdit)con;
-                    textBox.Text = "0";
+                    textBox.Text = null;
                 }
 
             }
@@ -155,8 +156,10 @@ namespace AplicacionAlmacen.Vista
         }
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             ResetControls(tabPage2);
             DisableControls(tabPage2);
+            tipo = 's';
         }
         private void CatalogoMateriales_Load(object sender, EventArgs e)
         {
@@ -218,89 +221,97 @@ namespace AplicacionAlmacen.Vista
         }
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Controlador.MaterialesControlador s = new Controlador.MaterialesControlador();
+            Cursor.Current = Cursors.WaitCursor;
             if (tipo.Equals('N'))
             {
                 CheckControls(tabPage2);
                 if (contT == 0)
                 {
-                    Materiales m = new Materiales();
-                    MaterialesContable mc = new MaterialesContable();
-                    var idMaterial= s.getDig(editGrupo.Text, editSubGrupo.Text);
-                    m.idMaterial = Int32.Parse(idMaterial);
-                    m.materialReferencia = idMaterial;
-                    m.descripcion = editDesc.Text;
-                    m.uMedida = editUnidadM.Text;
-                    m.marca = editMarca.Text;
-                    m.existencia = decimal.Parse(editExistencia.Text);
-                    m.localizacion = editLocali.Text;
-                    m.minimo = decimal.Parse(editMinimo.Text);
-                    m.maximo = decimal.Parse(editMaximo.Text);
-                    m.costoProm = decimal.Parse(editCostoP.Text);
-                    m.costoPromAnt = decimal.Parse(editCostoPA.Text);
-                    m.cantIni = decimal.Parse(editCantidadI.Text);
-                    m.importeIni = decimal.Parse(editImporteI.Text);
-                    m.importe= decimal.Parse(editImporte.Text);
-                    m.fechaUltimoMov = editFechaU.DateTime;
-                    m.puntoPedido = decimal.Parse(editPuntoP.Text);
-                    m.pedidoEstandar = decimal.Parse(editPedidoE.Text);
-                    m.herramienta = editHerramienta.Checked;
-                    m.seguridadInd = editSeguridad.Checked;
-
-
-                    mc.idMaterial = Int32.Parse(idMaterial);
-                    mc.cuenta_F_Z = Int32.Parse(cuenta_F_Z.Text);
-                    mc.aplicaCentCost_F_Z = aplicaCentCost_F_Z.Checked;
-                    mc.subCuenta_F_Z = Int32.Parse(subCuenta_F_Z.Text);
-                    mc.subSubCuenta_F_Z = Int32.Parse(subSubCuenta_F_Z.Text);
-                    mc.cuenta_A_Z = Int32.Parse(cuenta_A_Z.Text);
-                    mc.aplicaCentCost_A_Z = aplicaCentCost_A_Z.Checked;
-                    mc.subCuenta_A_Z = Int32.Parse(subCuenta_A_Z.Text);
-                    mc.subSubCuenta_A_Z = Int32.Parse(subSubCuenta_A_Z.Text);
-                    mc.cuenta_C_Z = Int32.Parse(cuenta_C_Z.Text);
-                    mc.aplicaCentCost_C_Z = aplicaCentCost_C_Z.Checked;
-                    mc.subCuenta_C_Z = Int32.Parse(subCuenta_C_Z.Text);
-                    mc.subSubCuenta_C_Z = Int32.Parse(subSubCuenta_C_Z.Text);
-                    mc.cuenta_D_Z = Int32.Parse(cuenta_D_Z.Text);
-                    mc.aplicaCentCost_D_Z = aplicaCentCost_D_Z.Checked;
-                    mc.subCuenta_D_Z = Int32.Parse(subCuenta_D_Z.Text);
-                    mc.subSubCuenta_D_Z = Int32.Parse(subSubCuenta_D_Z.Text);
-                    mc.cuenta_F_R = Int32.Parse(cuenta_F_R.Text);
-                    mc.aplicaCentCost_F_R = aplicaCentCost_F_R.Checked;
-                    mc.subCuenta_F_R = Int32.Parse(subCuenta_F_R.Text);
-                    mc.subSubCuenta_F_R = Int32.Parse(subSubCuenta_F_R.Text);
-                    mc.cuenta_A_R = Int32.Parse(cuenta_A_R.Text);
-                    mc.aplicaCentCost_A_R = aplicaCentCost_A_R.Checked;
-                    mc.subCuenta_A_R = Int32.Parse(subCuenta_A_R.Text);
-                    mc.subSubCuenta_A_R = Int32.Parse(subSubCuenta_A_R.Text);
-                    mc.cuenta_C_R = Int32.Parse(cuenta_C_R.Text);
-                    mc.aplicaCentCost_C_R = aplicaCentCost_C_R.Checked;
-                    mc.subCuenta_C_R = Int32.Parse(subCuenta_C_R.Text);
-                    mc.subSubCuenta_C_R = Int32.Parse(subSubCuenta_C_R.Text);
-                    mc.cuenta_D_R = Int32.Parse(cuenta_D_R.Text);
-                    mc.aplicaCentCost_D_R = aplicaCentCost_D_R.Checked;
-                    mc.subCuenta_D_R = Int32.Parse(subCuenta_D_R.Text);
-                    mc.subSubCuenta_D_R = Int32.Parse(subSubCuenta_D_R.Text);
-                   
-                    Object item = s.guardarMaterial(m,mc);
-
-                    System.Reflection.PropertyInfo msg = item.GetType().GetProperty("message");
-                    System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
-                    String message = (String)(msg.GetValue(item, null));
-                    int code = (int)(c.GetValue(item, null));
-
-                    if (code == 1)
+                    if (Int32.Parse(editGrupo.Text)!=0 && Int32.Parse(editSubGrupo.Text) != 0)
                     {
-                        ResetControls(tabPage2);
-                        DisableControls(tabPage2);
-                        tipo = 's';
-                        Recargar();
-                        MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        Materiales m = new Materiales();
+                        MaterialesContable mc = new MaterialesContable();
+                        var idMaterial = s.getDig(editGrupo.Text, editSubGrupo.Text);
+                        m.idMaterial = Int32.Parse(idMaterial);
+                        m.materialReferencia = idMaterial;
+                        m.descripcion = editDesc.Text;
+                        m.uMedida = editUnidadM.Text;
+                        m.marca = editMarca.Text;
+                        m.existencia = decimal.Parse(editExistencia.Text);
+                        m.localizacion = editLocali.Text;
+                        m.minimo = decimal.Parse(editMinimo.Text);
+                        m.maximo = decimal.Parse(editMaximo.Text);
+                        m.costoProm = decimal.Parse(editCostoP.Text);
+                        m.costoPromAnt = decimal.Parse(editCostoPA.Text);
+                        m.cantIni = decimal.Parse(editCantidadI.Text);
+                        m.importeIni = decimal.Parse(editImporteI.Text);
+                        m.importe = decimal.Parse(editImporte.Text);
+                        m.fechaUltimoMov = editFechaU.DateTime;
+                        m.puntoPedido = decimal.Parse(editPuntoP.Text);
+                        m.pedidoEstandar = decimal.Parse(editPedidoE.Text);
+                        m.herramienta = editHerramienta.Checked;
+                        m.seguridadInd = editSeguridad.Checked;
+
+
+                        mc.idMaterial = Int32.Parse(idMaterial);
+                        mc.cuenta_F_Z = Int32.Parse(cuenta_F_Z.Text);
+                        mc.aplicaCentCost_F_Z = aplicaCentCost_F_Z.Checked;
+                        mc.subCuenta_F_Z = Int32.Parse(subCuenta_F_Z.Text);
+                        mc.subSubCuenta_F_Z = Int32.Parse(subSubCuenta_F_Z.Text);
+                        mc.cuenta_A_Z = Int32.Parse(cuenta_A_Z.Text);
+                        mc.aplicaCentCost_A_Z = aplicaCentCost_A_Z.Checked;
+                        mc.subCuenta_A_Z = Int32.Parse(subCuenta_A_Z.Text);
+                        mc.subSubCuenta_A_Z = Int32.Parse(subSubCuenta_A_Z.Text);
+                        mc.cuenta_C_Z = Int32.Parse(cuenta_C_Z.Text);
+                        mc.aplicaCentCost_C_Z = aplicaCentCost_C_Z.Checked;
+                        mc.subCuenta_C_Z = Int32.Parse(subCuenta_C_Z.Text);
+                        mc.subSubCuenta_C_Z = Int32.Parse(subSubCuenta_C_Z.Text);
+                        mc.cuenta_D_Z = Int32.Parse(cuenta_D_Z.Text);
+                        mc.aplicaCentCost_D_Z = aplicaCentCost_D_Z.Checked;
+                        mc.subCuenta_D_Z = Int32.Parse(subCuenta_D_Z.Text);
+                        mc.subSubCuenta_D_Z = Int32.Parse(subSubCuenta_D_Z.Text);
+                        mc.cuenta_F_R = Int32.Parse(cuenta_F_R.Text);
+                        mc.aplicaCentCost_F_R = aplicaCentCost_F_R.Checked;
+                        mc.subCuenta_F_R = Int32.Parse(subCuenta_F_R.Text);
+                        mc.subSubCuenta_F_R = Int32.Parse(subSubCuenta_F_R.Text);
+                        mc.cuenta_A_R = Int32.Parse(cuenta_A_R.Text);
+                        mc.aplicaCentCost_A_R = aplicaCentCost_A_R.Checked;
+                        mc.subCuenta_A_R = Int32.Parse(subCuenta_A_R.Text);
+                        mc.subSubCuenta_A_R = Int32.Parse(subSubCuenta_A_R.Text);
+                        mc.cuenta_C_R = Int32.Parse(cuenta_C_R.Text);
+                        mc.aplicaCentCost_C_R = aplicaCentCost_C_R.Checked;
+                        mc.subCuenta_C_R = Int32.Parse(subCuenta_C_R.Text);
+                        mc.subSubCuenta_C_R = Int32.Parse(subSubCuenta_C_R.Text);
+                        mc.cuenta_D_R = Int32.Parse(cuenta_D_R.Text);
+                        mc.aplicaCentCost_D_R = aplicaCentCost_D_R.Checked;
+                        mc.subCuenta_D_R = Int32.Parse(subCuenta_D_R.Text);
+                        mc.subSubCuenta_D_R = Int32.Parse(subSubCuenta_D_R.Text);
+
+                        Object item = s.guardarMaterial(m, mc);
+
+                        System.Reflection.PropertyInfo msg = item.GetType().GetProperty("message");
+                        System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+                        String message = (String)(msg.GetValue(item, null));
+                        int code = (int)(c.GetValue(item, null));
+
+                        if (code == 1)
+                        {
+                            ResetControls(tabPage2);
+                            DisableControls(tabPage2);
+                            tipo = 's';
+                            Recargar();
+                            MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        }
+                        else if (code == 2)
+                        {
+                            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else if (code == 2)
+                    else
                     {
-                        MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Grupo o SubGrupo no puede ser 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    
                 }
                 contT = 0;
 
@@ -310,80 +321,88 @@ namespace AplicacionAlmacen.Vista
                 CheckControls(tabPage2);
                 if (contT == 0)
                 {
-                    Materiales m = new Materiales();
-                    MaterialesContable mc = new MaterialesContable();
-                    m.idMaterial = materialA;
-                    m.descripcion = editDesc.Text;
-                    m.uMedida = editUnidadM.Text;
-                    m.marca = editMarca.Text; 
-                    m.existencia = decimal.Parse(editExistencia.Text);
-                    m.localizacion = editLocali.Text;
-                    m.minimo = decimal.Parse(editMinimo.Text);
-                    m.maximo = decimal.Parse(editMaximo.Text);
-                    m.costoProm = decimal.Parse(editCostoP.Text);
-                    m.costoPromAnt = decimal.Parse(editCostoPA.Text);
-                    m.cantIni = decimal.Parse(editCantidadI.Text);
-                    m.importeIni = decimal.Parse(editImporteI.Text);
-                    m.importe = decimal.Parse(editImporte.Text);
-                    m.fechaUltimoMov = editFechaU.DateTime;
-                    m.puntoPedido = decimal.Parse(editPuntoP.Text);
-                    m.pedidoEstandar = decimal.Parse(editPedidoE.Text);
-                    m.herramienta = editHerramienta.Checked;
-                    m.seguridadInd = editSeguridad.Checked;
-
-                    mc.idMaterial = materialA;
-                    mc.cuenta_F_Z = Int32.Parse(cuenta_F_Z.Text);
-                    mc.aplicaCentCost_F_Z = aplicaCentCost_F_Z.Checked;
-                    mc.subCuenta_F_Z = Int32.Parse(subCuenta_F_Z.Text);
-                    mc.subSubCuenta_F_Z = Int32.Parse(subSubCuenta_F_Z.Text);
-                    mc.cuenta_A_Z = Int32.Parse(cuenta_A_Z.Text);
-                    mc.aplicaCentCost_A_Z = aplicaCentCost_A_Z.Checked;
-                    mc.subCuenta_A_Z = Int32.Parse(subCuenta_A_Z.Text);
-                    mc.subSubCuenta_A_Z = Int32.Parse(subSubCuenta_A_Z.Text);
-                    mc.cuenta_C_Z = Int32.Parse(cuenta_C_Z.Text);
-                    mc.aplicaCentCost_C_Z = aplicaCentCost_C_Z.Checked;
-                    mc.subCuenta_C_Z = Int32.Parse(subCuenta_C_Z.Text);
-                    mc.subSubCuenta_C_Z = Int32.Parse(subSubCuenta_C_Z.Text);
-                    mc.cuenta_D_Z = Int32.Parse(cuenta_D_Z.Text);
-                    mc.aplicaCentCost_D_Z = aplicaCentCost_D_Z.Checked;
-                    mc.subCuenta_D_Z = Int32.Parse(subCuenta_D_Z.Text);
-                    mc.subSubCuenta_D_Z = Int32.Parse(subSubCuenta_D_Z.Text);
-                    mc.cuenta_F_R = Int32.Parse(cuenta_F_R.Text);
-                    mc.aplicaCentCost_F_R = aplicaCentCost_F_R.Checked;
-                    mc.subCuenta_F_R = Int32.Parse(subCuenta_F_R.Text);
-                    mc.subSubCuenta_F_R = Int32.Parse(subSubCuenta_F_R.Text);
-                    mc.cuenta_A_R = Int32.Parse(cuenta_A_R.Text);
-                    mc.aplicaCentCost_A_R = aplicaCentCost_A_R.Checked;
-                    mc.subCuenta_A_R = Int32.Parse(subCuenta_A_R.Text);
-                    mc.subSubCuenta_A_R = Int32.Parse(subSubCuenta_A_R.Text);
-                    mc.cuenta_C_R = Int32.Parse(cuenta_C_R.Text);
-                    mc.aplicaCentCost_C_R = aplicaCentCost_C_R.Checked;
-                    mc.subCuenta_C_R = Int32.Parse(subCuenta_C_R.Text);
-                    mc.subSubCuenta_C_R = Int32.Parse(subSubCuenta_C_R.Text);
-                    mc.cuenta_D_R = Int32.Parse(cuenta_D_R.Text);
-                    mc.aplicaCentCost_D_R = aplicaCentCost_D_R.Checked;
-                    mc.subCuenta_D_R = Int32.Parse(subCuenta_D_R.Text);
-                    mc.subSubCuenta_D_R = Int32.Parse(subSubCuenta_D_R.Text);
-
-                    Object item = s.editarMaterial(m,mc);
-
-                    System.Reflection.PropertyInfo msg = item.GetType().GetProperty("message");
-                    System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
-                    String message = (String)(msg.GetValue(item, null));
-                    int code = (int)(c.GetValue(item, null));
-
-                    if (code == 1)
+                    if (Int32.Parse(editGrupo.Text) != 0 && Int32.Parse(editSubGrupo.Text) != 0)
                     {
-                        ResetControls(tabPage2);
-                        DisableControls(tabPage2);
-                        tipo = 's';
-                        Recargar();
-                        MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        Materiales m = new Materiales();
+                        MaterialesContable mc = new MaterialesContable();
+                        m.idMaterial = materialA;
+                        m.descripcion = editDesc.Text;
+                        m.uMedida = editUnidadM.Text;
+                        m.marca = editMarca.Text;
+                        m.existencia = decimal.Parse(editExistencia.Text);
+                        m.localizacion = editLocali.Text;
+                        m.minimo = decimal.Parse(editMinimo.Text);
+                        m.maximo = decimal.Parse(editMaximo.Text);
+                        m.costoProm = decimal.Parse(editCostoP.Text);
+                        m.costoPromAnt = decimal.Parse(editCostoPA.Text);
+                        m.cantIni = decimal.Parse(editCantidadI.Text);
+                        m.importeIni = decimal.Parse(editImporteI.Text);
+                        m.importe = decimal.Parse(editImporte.Text);
+                        m.fechaUltimoMov = editFechaU.DateTime;
+                        m.puntoPedido = decimal.Parse(editPuntoP.Text);
+                        m.pedidoEstandar = decimal.Parse(editPedidoE.Text);
+                        m.herramienta = editHerramienta.Checked;
+                        m.seguridadInd = editSeguridad.Checked;
+
+                        mc.idMaterial = materialA;
+                        mc.cuenta_F_Z = Int32.Parse(cuenta_F_Z.Text);
+                        mc.aplicaCentCost_F_Z = aplicaCentCost_F_Z.Checked;
+                        mc.subCuenta_F_Z = Int32.Parse(subCuenta_F_Z.Text);
+                        mc.subSubCuenta_F_Z = Int32.Parse(subSubCuenta_F_Z.Text);
+                        mc.cuenta_A_Z = Int32.Parse(cuenta_A_Z.Text);
+                        mc.aplicaCentCost_A_Z = aplicaCentCost_A_Z.Checked;
+                        mc.subCuenta_A_Z = Int32.Parse(subCuenta_A_Z.Text);
+                        mc.subSubCuenta_A_Z = Int32.Parse(subSubCuenta_A_Z.Text);
+                        mc.cuenta_C_Z = Int32.Parse(cuenta_C_Z.Text);
+                        mc.aplicaCentCost_C_Z = aplicaCentCost_C_Z.Checked;
+                        mc.subCuenta_C_Z = Int32.Parse(subCuenta_C_Z.Text);
+                        mc.subSubCuenta_C_Z = Int32.Parse(subSubCuenta_C_Z.Text);
+                        mc.cuenta_D_Z = Int32.Parse(cuenta_D_Z.Text);
+                        mc.aplicaCentCost_D_Z = aplicaCentCost_D_Z.Checked;
+                        mc.subCuenta_D_Z = Int32.Parse(subCuenta_D_Z.Text);
+                        mc.subSubCuenta_D_Z = Int32.Parse(subSubCuenta_D_Z.Text);
+                        mc.cuenta_F_R = Int32.Parse(cuenta_F_R.Text);
+                        mc.aplicaCentCost_F_R = aplicaCentCost_F_R.Checked;
+                        mc.subCuenta_F_R = Int32.Parse(subCuenta_F_R.Text);
+                        mc.subSubCuenta_F_R = Int32.Parse(subSubCuenta_F_R.Text);
+                        mc.cuenta_A_R = Int32.Parse(cuenta_A_R.Text);
+                        mc.aplicaCentCost_A_R = aplicaCentCost_A_R.Checked;
+                        mc.subCuenta_A_R = Int32.Parse(subCuenta_A_R.Text);
+                        mc.subSubCuenta_A_R = Int32.Parse(subSubCuenta_A_R.Text);
+                        mc.cuenta_C_R = Int32.Parse(cuenta_C_R.Text);
+                        mc.aplicaCentCost_C_R = aplicaCentCost_C_R.Checked;
+                        mc.subCuenta_C_R = Int32.Parse(subCuenta_C_R.Text);
+                        mc.subSubCuenta_C_R = Int32.Parse(subSubCuenta_C_R.Text);
+                        mc.cuenta_D_R = Int32.Parse(cuenta_D_R.Text);
+                        mc.aplicaCentCost_D_R = aplicaCentCost_D_R.Checked;
+                        mc.subCuenta_D_R = Int32.Parse(subCuenta_D_R.Text);
+                        mc.subSubCuenta_D_R = Int32.Parse(subSubCuenta_D_R.Text);
+
+                        Object item = s.editarMaterial(m, mc);
+
+                        System.Reflection.PropertyInfo msg = item.GetType().GetProperty("message");
+                        System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+                        String message = (String)(msg.GetValue(item, null));
+                        int code = (int)(c.GetValue(item, null));
+
+                        if (code == 1)
+                        {
+                            ResetControls(tabPage2);
+                            DisableControls(tabPage2);
+                            tipo = 's';
+                            Recargar();
+                            MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        }
+                        else if (code == 2)
+                        {
+                            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else if (code == 2)
+                    else
                     {
-                        MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Grupo o SubGrupo no puede ser 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    
                 }
                 contT = 0;
             }
@@ -394,15 +413,68 @@ namespace AplicacionAlmacen.Vista
         }
         private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             materialA = 0;
             ResetControls(tabPage2);
             tipo = 'E';
             int r = Tabla.GetSelectedRows()[0];
             materialA = Int32.Parse(Tabla.GetRowCellValue(r, "idMaterial").ToString());
-        }
+            editDesc.Text = Tabla.GetRowCellValue(r, "descripcion").ToString();
+            editUnidadM.Text = Tabla.GetRowCellValue(r, "uMedida").ToString();
+            editMarca.Text = Tabla.GetRowCellValue(r, "marca").ToString();
+            editExistencia.Text = Tabla.GetRowCellValue(r, "existencia").ToString();
+            editLocali.Text = Tabla.GetRowCellValue(r, "localizacion").ToString();
+            editMinimo.Text = Tabla.GetRowCellValue(r, "minimo").ToString();
+            editMaximo.Text = Tabla.GetRowCellValue(r, "maximo").ToString();
+            editCostoP.Text = Tabla.GetRowCellValue(r, "costoProm").ToString();
+            editCostoPA.Text = Tabla.GetRowCellValue(r, "costoPromAnt").ToString();
+            editCantidadI.Text = Tabla.GetRowCellValue(r, "cantIni").ToString();
+            editImporte.Text = Tabla.GetRowCellValue(r, "importe").ToString();
+            editImporteI.Text = Tabla.GetRowCellValue(r, "importeIni").ToString();
+            editFechaU.Text= Tabla.GetRowCellValue(r, "fechaUltimoMov").ToString();
+            editHerramienta.Checked = (Tabla.GetRowCellValue(r, "herramienta").ToString().Equals("True")) ? true : false;
+            editSeguridad.Checked = (Tabla.GetRowCellValue(r, "seguridadInd").ToString().Equals("True")) ? true : false;
+            
+            var objM=s.GetMaterialContable(materialA);
+            cuenta_A_Z.Text= objM.cuenta_A_Z.ToString();
+            cuenta_C_Z.Text = objM.cuenta_C_Z.ToString();
+            cuenta_D_Z.Text = objM.cuenta_D_Z.ToString();
+            cuenta_F_Z.Text = objM.cuenta_F_Z.ToString();
+            subCuenta_A_Z.Text = objM.subCuenta_A_Z.ToString();
+            subCuenta_C_Z.Text = objM.subCuenta_C_Z.ToString();
+            subCuenta_D_Z.Text = objM.subCuenta_D_Z.ToString();
+            subCuenta_F_Z.Text = objM.subCuenta_F_Z.ToString();
+            subSubCuenta_A_Z.Text = objM.subSubCuenta_A_Z.ToString();
+            subSubCuenta_C_Z.Text = objM.subSubCuenta_C_Z.ToString();
+            subSubCuenta_D_Z.Text = objM.subSubCuenta_D_Z.ToString();
+            subSubCuenta_F_Z.Text = objM.subSubCuenta_F_Z.ToString();
+            aplicaCentCost_A_Z.Checked = (objM.aplicaCentCost_A_Z == true) ?  true :  false;
+            aplicaCentCost_C_Z.Checked = (objM.aplicaCentCost_C_Z == true) ? true : false;
+            aplicaCentCost_D_Z.Checked = (objM.aplicaCentCost_D_Z == true) ? true : false;
+            aplicaCentCost_F_Z.Checked = (objM.aplicaCentCost_F_Z == true) ? true : false;
 
+            cuenta_A_R.Text = objM.cuenta_A_R.ToString();
+            cuenta_C_R.Text = objM.cuenta_C_R.ToString();
+            cuenta_D_R.Text = objM.cuenta_D_R.ToString();
+            cuenta_F_R.Text = objM.cuenta_F_R.ToString();
+            subCuenta_A_R.Text = objM.subCuenta_A_R.ToString();
+            subCuenta_C_R.Text = objM.subCuenta_C_R.ToString();
+            subCuenta_D_R.Text = objM.subCuenta_D_R.ToString();
+            subCuenta_F_R.Text = objM.subCuenta_F_R.ToString();
+            subSubCuenta_A_R.Text = objM.subSubCuenta_A_R.ToString();
+            subSubCuenta_C_R.Text = objM.subSubCuenta_C_R.ToString();
+            subSubCuenta_D_R.Text = objM.subSubCuenta_D_R.ToString();
+            subSubCuenta_F_R.Text = objM.subSubCuenta_F_R.ToString();
+            aplicaCentCost_A_R.Checked = (objM.aplicaCentCost_A_R == true) ? true : false;
+            aplicaCentCost_C_R.Checked = (objM.aplicaCentCost_C_R == true) ? true : false;
+            aplicaCentCost_D_R.Checked = (objM.aplicaCentCost_D_R == true) ? true : false;
+            aplicaCentCost_F_R.Checked = (objM.aplicaCentCost_F_R == true) ? true : false;
+            this.tabControl1.SelectTab(1);
+            EnableControls(tabPage2);
+        }
         private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             int r = Tabla.GetSelectedRows()[0];
             int idMaterial= Int32.Parse(Tabla.GetRowCellValue(r, "idMaterial").ToString());
 

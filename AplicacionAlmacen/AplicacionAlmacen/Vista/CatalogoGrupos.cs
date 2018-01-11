@@ -69,6 +69,7 @@ namespace AplicacionAlmacen.Vista
             bindingSource.DataSource = new PageOffsetList();
         }
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
+            Cursor.Current = Cursors.WaitCursor;
             tipo = 'N';
             this.tabControl1.SelectTab(1);
             EnableControls(tabPage3);
@@ -127,12 +128,14 @@ namespace AplicacionAlmacen.Vista
             }
         }
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
+            Cursor.Current = Cursors.WaitCursor;
             ResetControls(tabPage3);
             DisableControls(tabPage3);
             tipo = 's';
         }
 
         private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
+            Cursor.Current = Cursors.WaitCursor;
             if (tipo.Equals('N'))
             {
                 CheckControls(tabPage3);
@@ -276,6 +279,7 @@ namespace AplicacionAlmacen.Vista
         }
 
         private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
+            Cursor.Current = Cursors.WaitCursor;
             numGpoA = 0;
             ResetControls(tabPage3);
             tipo = 'E';
@@ -385,6 +389,7 @@ namespace AplicacionAlmacen.Vista
         }
 
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
+            Cursor.Current = Cursors.WaitCursor;
             int r = Tabla.GetSelectedRows()[0];
             GpoMateriales s = new GpoMateriales();
             s.numGpo = Int16.Parse(Tabla.GetRowCellValue(r, "numGpo").ToString());

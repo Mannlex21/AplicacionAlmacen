@@ -81,6 +81,7 @@ namespace AplicacionAlmacen.Vista
 
         private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             new CatalogoGrupos().Show();
         }
 
@@ -97,6 +98,7 @@ namespace AplicacionAlmacen.Vista
 
         private void barButtonItem13_ItemClick(object sender, ItemClickEventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             int r = Tabla.GetSelectedRows()[0];
             preReq = Int32.Parse(Tabla.GetRowCellValue(r, "preRequisicion").ToString());
             dep = Int32.Parse(Tabla.GetRowCellValue(r, "departamento").ToString());
@@ -106,7 +108,7 @@ namespace AplicacionAlmacen.Vista
 
         private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
         {
-            
+            Cursor.Current = Cursors.WaitCursor;
         }
     }
 }

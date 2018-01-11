@@ -127,6 +127,23 @@ namespace AplicacionAlmacen.Controlador
                 return null;
             }
         }
+        public MaterialesContable GetMaterialContable(int idMaterial)
+        {
+            try
+            {
+                using (var bd = new AlmacenEntities())
+                {
+                    IEnumerable<MaterialesContable> query = bd.MaterialesContable;
+                    var Results = query.Where(m=>m.idMaterial==idMaterial).ToList();
+                    return Results.FirstOrDefault();
+                }
+            }
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return null;
+            }
+        }
         public List<Materiales> GetMaterialesFiltros(int id, string desc, string marca)
         {
             try

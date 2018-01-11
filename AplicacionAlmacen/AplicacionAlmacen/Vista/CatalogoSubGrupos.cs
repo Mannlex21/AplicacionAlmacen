@@ -64,17 +64,20 @@ namespace AplicacionAlmacen.Vista
             Recargar();
         }
         private void btnNuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
+            Cursor.Current = Cursors.WaitCursor;
             tipo = 'N';
             this.tabControl1.SelectTab(1);
             ResetControls(tabPage2);
             EnableControls(tabPage2);
         }
         private void btnCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
+            Cursor.Current = Cursors.WaitCursor;
             ResetControls(tabPage2);
             DisableControls(tabPage2);
             tipo = 's';
         }
         private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
+            Cursor.Current = Cursors.WaitCursor;
             if (tipo.Equals('N'))
             {
                 CheckControls(tabPage2);
@@ -145,6 +148,7 @@ namespace AplicacionAlmacen.Vista
             }
         }
         private void btnBorrar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
+            Cursor.Current = Cursors.WaitCursor;
             int r=TablaSub.GetSelectedRows()[0];
             SubGrupos s = new SubGrupos();
             s.descripcion = TablaSub.GetRowCellValue(r, "descripcion").ToString();
@@ -170,6 +174,7 @@ namespace AplicacionAlmacen.Vista
             }
         }
         private void btnEditar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
+            Cursor.Current = Cursors.WaitCursor;
             grupoA = 0;
             subGrupoA = 0;
             ResetControls(tabPage2);
