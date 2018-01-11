@@ -283,8 +283,8 @@ namespace AplicacionAlmacen.Controlador
                 var connection = context.Database.Connection;
                 using (SqlConnection con = new SqlConnection(connection.ConnectionString))
                 {
-                    string query = "DELETE FROM Materiales WHERE idMaterial=@idMaterial;" +
-                        "DELETE FROM MaterialesContable WHERE idMaterial=@idMaterial2";
+                    string query = "DELETE FROM MaterialesContable WHERE idMaterial=@idMaterial2 " +
+                                   " DELETE FROM Materiales WHERE idMaterial=@idMaterial;";
                     query += " SELECT SCOPE_IDENTITY()";
                     using (SqlCommand cmd = new SqlCommand(query))
                     {
