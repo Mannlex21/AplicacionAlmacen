@@ -96,45 +96,98 @@ namespace AplicacionAlmacen.Controlador
             }
 
         }
-        
-        /*
-        Function CalDigVer(Valor)
-        Dim Valores(7)
-        Dim Suma
-        Dim Residuo
-        Dim Dig
-        Dim mCos
+        public int getConsecutivo(string ciclo, string departamento, int ejercicio)
+        {
+            List<listaS> c = new List<listaS>();
+            using (var bd = new AlmacenEntities())
+            {
+                
+                foreach (var x in bd.Solicitud_Requisiciones)
+                {
+                    if (x.requisicion!="n/a") {
+                        string[] sp = x.requisicion.Split('/');
+                        string ci = "" + sp[0].ToString()[0];
+                        string dep = "" + sp[0].ToString()[1] + sp[0].ToString()[2];
+                        string ej = sp[2].ToString();
+                        string ej2 = "" + ejercicio.ToString()[2] + ejercicio.ToString()[3];
+                        if (ci.Equals(ciclo) && dep.Equals(departamento) && ej.Equals(ej2))
+                        {
+                            int conse = Int32.Parse(sp[1]);
+                            c.Add(new listaS
+                            {
+                                id = conse
+                            });
+                        }
 
-        Residuo = 0
-        Dig = 0
-        Suma = 0
-        mCos = 0
-
-        For X = 1 To 7
-
-            Valores(X) = Mid(Valor, X, 1)
-
-        Next
-
-        Suma = (Suma + (Val(Valores(7)) * 2))
-        Suma = (Suma + (Val(Valores(6)) * 3))
-        Suma = (Suma + (Val(Valores(5)) * 4))
-        Suma = (Suma + (Val(Valores(4)) * 5))
-        Suma = (Suma + (Val(Valores(3)) * 6))
-        Suma = (Suma + (Val(Valores(2)) * 7))
-        Suma = (Suma + (Val(Valores(1)) * 2))
-
-        mCos = Int(Suma / 11)
-        Residuo = (Suma - (11 * mCos))
-        Dig = 11 - Residuo
-
-        If Dig = 10 Or Dig = 11 Then
-            Dig = 0
-        End If
-
-        CalDigVer = Dig
-
-        End Function */  
+                    }
+                }
+            }
+            int max = 0;
+            if (c.Count != 0)
+            {
+                max = c.Max(t => t.id);
+            }
+            return max+1;
+        }
+        class listaS
+        {
+            public int id { get; set; }
+        }
+        public Object claveSolicitud(string ciclo, string departamento, int ejercicio)
+        {
+            Object result = "";
+            try
+            {
+                int conse = getConsecutivo(ciclo, departamento, ejercicio);
+                string consecutivo = "";
+                string ej2 = "" + ejercicio.ToString()[2] + ejercicio.ToString()[3];
+                
+                consecutivo = (conse.ToString().Length == 1) ? "000" + conse : (conse.ToString().Length == 2) ? "00" + conse : (conse.ToString().Length == 3) ? "0" + conse : "" + conse;
+                string r = ciclo + departamento + "/" + consecutivo + "/" + ej2;
+                result = new { message = "OK",result=r, code = 1 };
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result = new { message = "Error: " + ex.Message.ToString(),result="error", code = 2 };
+                return result;
+            }
+            
+        }
+        public Object asignarClave(string clave, int id)
+        {
+            Object result = "";
+            try
+            {
+                
+                var context = new AlmacenEntities();
+                var connection = context.Database.Connection;
+                using (SqlConnection con = new SqlConnection(connection.ConnectionString))
+                {
+                    string query = "UPDATE Solicitud_Requisiciones SET requisicion='"+clave+"' WHERE preRequisicion="+id;
+                    using (SqlCommand cmd = new SqlCommand(query))
+                    {
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.ExecuteScalar();
+                        con.Close();
+                    }
+                }
+                result = new { message = "Se asigno la clave "+clave+" correctamente", code = 1 };
+                return result;
+            }
+            catch (SqlException odbcEx)
+            {
+                result = new { message = "Error: " + odbcEx.Message.ToString(), code = 2 };
+                return result;
+            }
+            catch (Exception odbcEx)
+            {
+                result = new { message = "Error: " + odbcEx.Message.ToString(), code = 2 };
+                return result;
+            }
+            
+        }
     }
 }
 

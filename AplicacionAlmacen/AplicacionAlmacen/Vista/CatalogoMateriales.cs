@@ -418,6 +418,13 @@ namespace AplicacionAlmacen.Vista
             ResetControls(tabPage2);
             tipo = 'E';
             int r = Tabla.GetSelectedRows()[0];
+
+            string idMaterialRef= Tabla.GetRowCellValue(r, "materialReferencia").ToString();
+            string grupo = idMaterialRef[0].ToString() +idMaterialRef[1].ToString();
+            string subGrupo = idMaterialRef[2].ToString()+idMaterialRef[3].ToString();
+
+            editGrupo.Text = grupo;
+            editSubGrupo.Text = subGrupo;
             materialA = Int32.Parse(Tabla.GetRowCellValue(r, "idMaterial").ToString());
             editDesc.Text = Tabla.GetRowCellValue(r, "descripcion").ToString();
             editUnidadM.Text = Tabla.GetRowCellValue(r, "uMedida").ToString();
@@ -431,6 +438,8 @@ namespace AplicacionAlmacen.Vista
             editCantidadI.Text = Tabla.GetRowCellValue(r, "cantIni").ToString();
             editImporte.Text = Tabla.GetRowCellValue(r, "importe").ToString();
             editImporteI.Text = Tabla.GetRowCellValue(r, "importeIni").ToString();
+            editPedidoE.Text= Tabla.GetRowCellValue(r, "pedidoEstandar").ToString();
+            editPuntoP.Text= Tabla.GetRowCellValue(r, "puntoPedido").ToString();
             editFechaU.Text= Tabla.GetRowCellValue(r, "fechaUltimoMov").ToString();
             editHerramienta.Checked = (Tabla.GetRowCellValue(r, "herramienta").ToString().Equals("True")) ? true : false;
             editSeguridad.Checked = (Tabla.GetRowCellValue(r, "seguridadInd").ToString().Equals("True")) ? true : false;
@@ -471,6 +480,8 @@ namespace AplicacionAlmacen.Vista
             aplicaCentCost_F_R.Checked = (objM.aplicaCentCost_F_R == true) ? true : false;
             this.tabControl1.SelectTab(1);
             EnableControls(tabPage2);
+            editGrupo.Enabled = false;
+            editSubGrupo.Enabled = false;
         }
         private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
