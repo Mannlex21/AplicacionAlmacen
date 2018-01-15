@@ -81,13 +81,54 @@ namespace AplicacionAlmacen.Controlador
             }
 
         }
-        public List<DetalleRequisicion> GetSolicitudDet(int preReq, int dep, int ejercicio)
+        public bool existeMaterial(int id)
+        {
+            try {
+                AlmacenEntities DB = new AlmacenEntities();
+                var Results = DB.Materiales.Where(s => s.idMaterial==id).FirstOrDefault();
+                if (Results == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+                
+            }
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return false;
+            }
+        }
+        public List<dynamic> GetSolicitudDet(int preReq, int dep, int ejercicio)
         {
             try
             {
                 AlmacenEntities DB = new AlmacenEntities();
-                var Results = DB.DetalleRequisicion.Where(s => s.preRequisicion==preReq && s.departamento==dep && s.ejercicio==ejercicio).OrderBy(s => s.preRequisicion);
-                return Results.ToList();
+                var Results = (from pd in DB.DetalleRequisicion
+                         //join od in DB.Materiales on pd.material equals od.idMaterial
+                         orderby pd.partida
+                         select new
+                         {
+                             pd.partida,
+                             pd.preRequisicion,
+                             pd.departamento,
+                             pd.material,
+                             pd.cantidad,
+                             pd.detalle,
+                             pd.ejercicio,
+                             pd.costoU,
+                             pd.costoTotal,
+                             pd.FechaUltimaEntrada,
+                             pd.descripcion,
+                             existencia=(DB.Materiales.Where(s=>s.idMaterial==pd.material).FirstOrDefault().existencia==null)?pd.existencia: DB.Materiales.Where(s => s.idMaterial == pd.material).FirstOrDefault().existencia
+                             //Customer = .Name //define anonymous type Customer
+                         }).Where(s => s.preRequisicion == preReq && s.departamento == dep && s.ejercicio == ejercicio).ToList();
+                
+                //var Results = DB.DetalleRequisicion.Where(s => s.preRequisicion==preReq && s.departamento==dep && s.ejercicio==ejercicio).OrderBy(s => s.preRequisicion);
+                return Results.ToList<dynamic>();
             }
             catch (SqlException odbcEx)
             {
@@ -173,7 +214,7 @@ namespace AplicacionAlmacen.Controlador
                         con.Close();
                     }
                 }
-                result = new { message = "Se asigno la clave "+clave+" correctamente", code = 1 };
+                result = new { message = "Se asigno la siguiente clave correctamente: "+clave, code = 1 };
                 return result;
             }
             catch (SqlException odbcEx)

@@ -27,7 +27,6 @@ namespace AplicacionAlmacen.Modelo
     
         public virtual DbSet<Configuracion> Configuracion { get; set; }
         public virtual DbSet<Departamentos> Departamentos { get; set; }
-        public virtual DbSet<DetalleRequisicion> DetalleRequisicion { get; set; }
         public virtual DbSet<DetalleRequisicion2> DetalleRequisicion2 { get; set; }
         public virtual DbSet<DetallesUsuarios> DetallesUsuarios { get; set; }
         public virtual DbSet<GpoMateriales> GpoMateriales { get; set; }
@@ -37,5 +36,6 @@ namespace AplicacionAlmacen.Modelo
         public virtual DbSet<SubGrupos> SubGrupos { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<DetalleRequisicion> DetalleRequisicion { get; set; }
     }
 }

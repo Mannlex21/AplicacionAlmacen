@@ -1,4 +1,8 @@
-﻿namespace AplicacionAlmacen.Vista
+﻿using DevExpress.Utils;
+using DevExpress.XtraGrid.Views.Grid;
+using System.Drawing;
+
+namespace AplicacionAlmacen.Vista
 {
     partial class DetalleSolicitud
     {
@@ -41,12 +45,13 @@
             this.detalle = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ejercicio = new DevExpress.XtraGrid.Columns.GridColumn();
             this.existencia = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panel = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.costoU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.costoTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.fechaUltimaEntrada = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.descripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridControl)).BeginInit();
@@ -64,7 +69,7 @@
             this.layoutControl1.Margin = new System.Windows.Forms.Padding(0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.panel;
-            this.layoutControl1.Size = new System.Drawing.Size(915, 348);
+            this.layoutControl1.Size = new System.Drawing.Size(837, 348);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -73,7 +78,7 @@
             this.GridControl.Location = new System.Drawing.Point(2, 2);
             this.GridControl.MainView = this.Tabla;
             this.GridControl.Name = "GridControl";
-            this.GridControl.Size = new System.Drawing.Size(911, 344);
+            this.GridControl.Size = new System.Drawing.Size(833, 344);
             this.GridControl.TabIndex = 4;
             this.GridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Tabla});
@@ -86,6 +91,7 @@
             this.departamento,
             this.Material,
             this.cantidad,
+            this.descripcion,
             this.detalle,
             this.ejercicio,
             this.existencia,
@@ -162,26 +168,6 @@
             this.existencia.Visible = true;
             this.existencia.VisibleIndex = 7;
             // 
-            // panel
-            // 
-            this.panel.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.panel.GroupBordersVisible = false;
-            this.panel.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.panel.Name = "panel";
-            this.panel.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.panel.Size = new System.Drawing.Size(915, 348);
-            this.panel.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.GridControl;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(915, 348);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
             // costoU
             // 
             this.costoU.Caption = "Costo unitario";
@@ -206,16 +192,45 @@
             this.fechaUltimaEntrada.Visible = true;
             this.fechaUltimaEntrada.VisibleIndex = 10;
             // 
+            // panel
+            // 
+            this.panel.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.panel.GroupBordersVisible = false;
+            this.panel.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1});
+            this.panel.Name = "panel";
+            this.panel.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.panel.Size = new System.Drawing.Size(837, 348);
+            this.panel.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.GridControl;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(837, 348);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // descripcion
+            // 
+            this.descripcion.Caption = "Descripcion";
+            this.descripcion.FieldName = "descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.Visible = true;
+            this.descripcion.VisibleIndex = 11;
+            // 
             // DetalleSolicitud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 348);
+            this.ClientSize = new System.Drawing.Size(837, 348);
             this.Controls.Add(this.layoutControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DetalleSolicitud";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalle";
+            this.Load += new System.EventHandler(this.DetalleSolicitud_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridControl)).EndInit();
@@ -246,5 +261,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn costoU;
         private DevExpress.XtraGrid.Columns.GridColumn costoTotal;
         private DevExpress.XtraGrid.Columns.GridColumn fechaUltimaEntrada;
+        private DevExpress.XtraGrid.Columns.GridColumn descripcion;
     }
 }

@@ -108,49 +108,60 @@ namespace AplicacionAlmacen.Vista
 
         private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
-            int r = Tabla.GetSelectedRows()[0];
-            string ciclo=Tabla.GetRowCellValue(r, "ciclo").ToString();
-            string departamento=Tabla.GetRowCellValue(r, "departamento").ToString();
-            int ejercicio = Int32.Parse(Tabla.GetRowCellValue(r, "ejercicio").ToString()); 
-            int preRequisicion = Int32.Parse(Tabla.GetRowCellValue(r, "preRequisicion").ToString());
-
-            Object item = s.claveSolicitud(ciclo, departamento, ejercicio);
-
-            System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
-            System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
-            System.Reflection.PropertyInfo re = item.GetType().GetProperty("result");
-            String message = (String)(m.GetValue(item, null));
-            String result = (String)(re.GetValue(item, null));
-            int code = (int)(c.GetValue(item, null));
-
-            if (code==1)
+            
+            const string msg = "La requisición debe contener materiales existentes.¿Desea continuar?";
+            const string caption = "Asignación";
+            var res = MessageBox.Show(msg, caption,
+                             MessageBoxButtons.YesNo,
+                             MessageBoxIcon.Question);
+            if(res == DialogResult.Yes)
             {
-                string clave = result;
+                Cursor.Current = Cursors.WaitCursor;
+                int r = Tabla.GetSelectedRows()[0];
+                string ciclo = Tabla.GetRowCellValue(r, "ciclo").ToString();
+                string departamento = Tabla.GetRowCellValue(r, "departamento").ToString();
+                int ejercicio = Int32.Parse(Tabla.GetRowCellValue(r, "ejercicio").ToString());
+                int preRequisicion = Int32.Parse(Tabla.GetRowCellValue(r, "preRequisicion").ToString());
 
-                Object item2 = s.asignarClave(clave, preRequisicion);
+                Object item = s.claveSolicitud(ciclo, departamento, ejercicio);
 
-                System.Reflection.PropertyInfo m2 = item2.GetType().GetProperty("message");
-                System.Reflection.PropertyInfo c2 = item2.GetType().GetProperty("code");
-                String message2 = (String)(m2.GetValue(item2, null));
-                int code2 = (int)(c2.GetValue(item2, null));
-                if (code2==1)
+                System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+                System.Reflection.PropertyInfo re = item.GetType().GetProperty("result");
+                String message = (String)(m.GetValue(item, null));
+                String result = (String)(re.GetValue(item, null));
+                int code = (int)(c.GetValue(item, null));
+
+                if (code == 1)
                 {
-                    Recargar();
-                    MessageBox.Show(message2, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    
+                    string clave = result;
+
+                    Object item2 = s.asignarClave(clave, preRequisicion);
+
+                    System.Reflection.PropertyInfo m2 = item2.GetType().GetProperty("message");
+                    System.Reflection.PropertyInfo c2 = item2.GetType().GetProperty("code");
+                    String message2 = (String)(m2.GetValue(item2, null));
+                    int code2 = (int)(c2.GetValue(item2, null));
+                    if (code2 == 1)
+                    {
+                        Recargar();
+                        MessageBox.Show(message2, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show(message2, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(message2, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
-            
-            
         }
     }
 }

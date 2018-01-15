@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.0
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplicacionAlmacen", "AplicacionAlmacen\AplicacionAlmacen.csproj", "{52A2015A-8F8B-4F5B-9424-FA20EA777A85}"
 EndProject
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0404FB5D-590F-46C5-9518-097FF87B1B5B}
+		SolutionGuid = {762DA381-DFAB-495F-A6FA-7B1B2E898334}
 	EndGlobalSection
 EndGlobal
