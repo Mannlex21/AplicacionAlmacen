@@ -23,6 +23,8 @@
         <AssociationConnector Association="bdAdquisicionMaterialModel.FK_MaterialesContable_Materiales" />
         <EntityTypeShape EntityType="bdAdquisicionMaterialModel.DetalleRequisicion" Width="1.5" PointX="5.25" PointY="3.5" />
         <AssociationConnector Association="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Solicitud2" />
+        <EntityTypeShape EntityType="bdAdquisicionMaterialModel.AdjuntoMateriales" Width="1.5" PointX="5.25" PointY="22.5" />
+        <AssociationConnector Association="bdAdquisicionMaterialModel.FK_AdjuntoMateriales_Materiales1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

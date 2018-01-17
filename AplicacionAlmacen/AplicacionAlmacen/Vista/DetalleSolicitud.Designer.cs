@@ -42,6 +42,7 @@ namespace AplicacionAlmacen.Vista
             this.departamento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Material = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cantidad = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.descripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.detalle = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ejercicio = new DevExpress.XtraGrid.Columns.GridColumn();
             this.existencia = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -51,7 +52,7 @@ namespace AplicacionAlmacen.Vista
             this.panel = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.descripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.imagen = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridControl)).BeginInit();
@@ -97,6 +98,7 @@ namespace AplicacionAlmacen.Vista
             this.existencia,
             this.costoU,
             this.costoTotal,
+            this.imagen,
             this.fechaUltimaEntrada});
             this.Tabla.GridControl = this.GridControl;
             this.Tabla.Name = "Tabla";
@@ -134,7 +136,7 @@ namespace AplicacionAlmacen.Vista
             this.Material.FieldName = "material";
             this.Material.Name = "Material";
             this.Material.Visible = true;
-            this.Material.VisibleIndex = 3;
+            this.Material.VisibleIndex = 5;
             // 
             // cantidad
             // 
@@ -142,7 +144,15 @@ namespace AplicacionAlmacen.Vista
             this.cantidad.FieldName = "cantidad";
             this.cantidad.Name = "cantidad";
             this.cantidad.Visible = true;
-            this.cantidad.VisibleIndex = 4;
+            this.cantidad.VisibleIndex = 6;
+            // 
+            // descripcion
+            // 
+            this.descripcion.Caption = "Descripcion";
+            this.descripcion.FieldName = "descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.Visible = true;
+            this.descripcion.VisibleIndex = 3;
             // 
             // detalle
             // 
@@ -150,7 +160,7 @@ namespace AplicacionAlmacen.Vista
             this.detalle.FieldName = "detalle";
             this.detalle.Name = "detalle";
             this.detalle.Visible = true;
-            this.detalle.VisibleIndex = 5;
+            this.detalle.VisibleIndex = 4;
             // 
             // ejercicio
             // 
@@ -158,7 +168,7 @@ namespace AplicacionAlmacen.Vista
             this.ejercicio.FieldName = "ejercicio";
             this.ejercicio.Name = "ejercicio";
             this.ejercicio.Visible = true;
-            this.ejercicio.VisibleIndex = 6;
+            this.ejercicio.VisibleIndex = 7;
             // 
             // existencia
             // 
@@ -166,7 +176,7 @@ namespace AplicacionAlmacen.Vista
             this.existencia.FieldName = "existencia";
             this.existencia.Name = "existencia";
             this.existencia.Visible = true;
-            this.existencia.VisibleIndex = 7;
+            this.existencia.VisibleIndex = 8;
             // 
             // costoU
             // 
@@ -174,7 +184,7 @@ namespace AplicacionAlmacen.Vista
             this.costoU.FieldName = "costoU";
             this.costoU.Name = "costoU";
             this.costoU.Visible = true;
-            this.costoU.VisibleIndex = 8;
+            this.costoU.VisibleIndex = 9;
             // 
             // costoTotal
             // 
@@ -182,7 +192,7 @@ namespace AplicacionAlmacen.Vista
             this.costoTotal.FieldName = "costoTotal";
             this.costoTotal.Name = "costoTotal";
             this.costoTotal.Visible = true;
-            this.costoTotal.VisibleIndex = 9;
+            this.costoTotal.VisibleIndex = 10;
             // 
             // fechaUltimaEntrada
             // 
@@ -190,7 +200,7 @@ namespace AplicacionAlmacen.Vista
             this.fechaUltimaEntrada.FieldName = "FechaUltimaEntrada";
             this.fechaUltimaEntrada.Name = "fechaUltimaEntrada";
             this.fechaUltimaEntrada.Visible = true;
-            this.fechaUltimaEntrada.VisibleIndex = 10;
+            this.fechaUltimaEntrada.VisibleIndex = 12;
             // 
             // panel
             // 
@@ -212,13 +222,13 @@ namespace AplicacionAlmacen.Vista
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // descripcion
+            // imagen
             // 
-            this.descripcion.Caption = "Descripcion";
-            this.descripcion.FieldName = "descripcion";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.Visible = true;
-            this.descripcion.VisibleIndex = 11;
+            this.imagen.Caption = "Imagen";
+            this.imagen.FieldName = "imagen";
+            this.imagen.Name = "imagen";
+            this.imagen.Visible = true;
+            this.imagen.VisibleIndex = 11;
             // 
             // DetalleSolicitud
             // 
@@ -262,5 +272,6 @@ namespace AplicacionAlmacen.Vista
         private DevExpress.XtraGrid.Columns.GridColumn costoTotal;
         private DevExpress.XtraGrid.Columns.GridColumn fechaUltimaEntrada;
         private DevExpress.XtraGrid.Columns.GridColumn descripcion;
+        private DevExpress.XtraGrid.Columns.GridColumn imagen;
     }
 }

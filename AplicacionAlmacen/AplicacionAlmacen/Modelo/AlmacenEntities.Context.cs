@@ -18,9 +18,8 @@ namespace AplicacionAlmacen.Modelo
         public AlmacenEntities()
             : base("name=AlmacenEntities")
         {
-            this.Configuration.LazyLoadingEnabled = false;
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -38,5 +37,6 @@ namespace AplicacionAlmacen.Modelo
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<DetalleRequisicion> DetalleRequisicion { get; set; }
+        public virtual DbSet<AdjuntoMateriales> AdjuntoMateriales { get; set; }
     }
 }

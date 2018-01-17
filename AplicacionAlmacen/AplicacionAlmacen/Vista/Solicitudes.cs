@@ -30,82 +30,54 @@ namespace AplicacionAlmacen.Vista
             CheckForIllegalCrossThreadCalls = false;
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             WindowState = FormWindowState.Maximized;
-
-            bindingNavigator.BindingSource= bindingSource;
-            bindingSource.CurrentChanged += new EventHandler(bindingSource1_CurrentChanged);
-            bindingSource.DataSource = new PageOffsetList();
+            GridControl.DataSource = s.GetSolicitudesAll(depaCombo.Text);
             foreach (var t in d.GetDepartamentos())
             {
                 depaCombo.Items.Add(t.descripcion);
             }
-
         }
         private void Recargar()
         {
-            bindingNavigator.BindingSource = bindingSource;
-            bindingSource.CurrentChanged += new EventHandler(bindingSource1_CurrentChanged);
-            bindingSource.DataSource = new PageOffsetList();
-
+            GridControl.DataSource = s.GetSolicitudesAll(depaCombo.Text);
         }
-        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
-        {
-            if(bindingSource.Current is null) {
-                GridControl.DataSource = null;
-            }
-            else {
-                GridControl.DataSource = s.GetSolicitudes(depaCombo.Text, ((int)bindingSource.Current / pageSize), pageSize);
-            }
-            
-            
-        }
-
-        class PageOffsetList : System.ComponentModel.IListSource
-        {
-            public bool ContainsListCollection { get; protected set; }
-
-            public System.Collections.IList GetList()
-            {
-                totalRecords = s.numeroSol();
-                // Return a list of page offsets based on "totalRecords" and "pageSize"
-                var pageOffsets = new List<int>();
-                for (int offset = 0; offset < totalRecords; offset += pageSize)
-                    pageOffsets.Add(offset);
-                return pageOffsets;
-            }
-        }
-
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
         {
             new CatalogoMateriales().Show();
         }
-
         private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             new CatalogoGrupos().Show();
         }
-
-        private void depaCombo_Click(object sender, EventArgs e)
-        {
-            GridControl.DataSource = s.GetSolicitudes(depaCombo.Text, ((int)bindingSource.Current / pageSize), pageSize);
+        private void depaCombo_Click(object sender, EventArgs e){
+            GridControl.DataSource = s.GetSolicitudesAll(depaCombo.Text);
         }
-
-        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
-        {
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e){
             Cursor.Current = Cursors.WaitCursor;
             Recargar();
         }
-
         private void barButtonItem13_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
-            int r = Tabla.GetSelectedRows()[0];
-            preReq = Int32.Parse(Tabla.GetRowCellValue(r, "preRequisicion").ToString());
-            dep = Int32.Parse(Tabla.GetRowCellValue(r, "departamento").ToString());
-            ejer = Int32.Parse(Tabla.GetRowCellValue(r, "ejercicio").ToString());
-            new DetalleSolicitud().Show();
+            if (Tabla.GetSelectedRows().Length == 0)
+            {
+                MessageBox.Show("Se debe seleccionar al menos una solicitud", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                int contS = 0;
+                foreach (int i in Tabla.GetSelectedRows())
+                {
+                    contS++;
+                    int r = i;
+                    preReq = Int32.Parse(Tabla.GetRowCellValue(r, "preRequisicion").ToString());
+                    dep = Int32.Parse(Tabla.GetRowCellValue(r, "departamento").ToString());
+                    ejer = Int32.Parse(Tabla.GetRowCellValue(r, "ejercicio").ToString());
+                    new DetalleSolicitud().Show();
+                }
+            }
+                
         }
-
         private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (Tabla.GetSelectedRows().Length==0)
@@ -175,6 +147,11 @@ namespace AplicacionAlmacen.Vista
             }
             
             
+        }
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            depaCombo.SelectedItem = null;
+            Recargar();
         }
     }
 }

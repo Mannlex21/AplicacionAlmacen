@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Data.Entity.SqlServer;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using AplicacionAlmacen.Modelo;
 namespace AplicacionAlmacen.Controlador
 {
@@ -50,6 +53,7 @@ namespace AplicacionAlmacen.Controlador
                 return 0;
             }
         }
+        string carpetaImagen = "\\\\172.16.0.5\\Materiales\\Principal\\";
         class listaM
         {
             public string id { get; set; }
@@ -329,6 +333,53 @@ namespace AplicacionAlmacen.Controlador
                 return result;
             }
 
+        }
+        public String crearImagen(String url, String primero, String id)
+        {
+            try
+            {
+                url = url.ToLower();
+
+                String ext = (url.EndsWith(".png") )? ".png" : ".jpg";
+                try
+                {
+                    String nuevo = carpetaImagen + primero+"-" + id + ext;
+                    File.Copy(url, nuevo, true);
+                    return nuevo;
+                }
+                catch (FileNotFoundException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            catch (IOException e)
+            {
+            }
+            return "";
+        }
+        public void eliminarImagen(String img)
+        {
+            File.Delete(carpetaImagen + img);
+        }
+        public Bitmap imagen(String img)
+        {
+            try
+            {
+                FileStream fs = new FileStream(carpetaImagen + img, FileMode.Open, FileAccess.Read);
+                Image foto = Image.FromStream(fs);
+                fs.Close();
+                return (Bitmap)foto;
+            }
+            catch (IOException)
+            {
+                return null;
+            }
+        }
+
+        public String actualizar(String img, String url, String tab, String id)
+        {
+            eliminarImagen(img);
+            return crearImagen(url, tab, id);
         }
     }
 }

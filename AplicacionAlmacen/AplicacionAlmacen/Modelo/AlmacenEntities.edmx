@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="bdAdquisicionMaterialModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdjuntoMateriales">
+          <Key>
+            <PropertyRef Name="idAdjunto" />
+          </Key>
+          <Property Name="idAdjunto" Type="int" Nullable="false" />
+          <Property Name="idMaterial" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="255" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="255" />
+        </EntityType>
         <EntityType Name="Configuracion">
           <Key>
             <PropertyRef Name="ejercicio" />
@@ -139,6 +148,7 @@
           <Property Name="herramienta" Type="bit" Nullable="false" />
           <Property Name="marca" Type="nvarchar" MaxLength="255" />
           <Property Name="materialReferencia" Type="nchar" MaxLength="8" />
+          <Property Name="imagen" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="MaterialesContable">
           <Key>
@@ -235,6 +245,18 @@
           <Property Name="Role" Type="nvarchar" MaxLength="100" />
           <Property Name="departamento" Type="int" />
         </EntityType>
+        <Association Name="FK_AdjuntoMateriales_Materiales1">
+          <End Role="Materiales" Type="Self.Materiales" Multiplicity="1" />
+          <End Role="AdjuntoMateriales" Type="Self.AdjuntoMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materiales">
+              <PropertyRef Name="idMaterial" />
+            </Principal>
+            <Dependent Role="AdjuntoMateriales">
+              <PropertyRef Name="idMaterial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_DetalleRequisicion_Solicitud">
           <End Role="Solicitud_Requisiciones" Type="Self.Solicitud_Requisiciones" Multiplicity="1" />
           <End Role="DetalleRequisicion2" Type="Self.DetalleRequisicion2" Multiplicity="*" />
@@ -316,6 +338,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="bdAdquisicionMaterialModelStoreContainer">
+          <EntitySet Name="AdjuntoMateriales" EntityType="Self.AdjuntoMateriales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Configuracion" EntityType="Self.Configuracion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DetalleRequisicion" EntityType="Self.DetalleRequisicion" Schema="dbo" store:Type="Tables" />
@@ -328,6 +351,10 @@
           <EntitySet Name="SubGrupos" EntityType="Self.SubGrupos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AdjuntoMateriales_Materiales1" Association="Self.FK_AdjuntoMateriales_Materiales1">
+            <End Role="Materiales" EntitySet="Materiales" />
+            <End Role="AdjuntoMateriales" EntitySet="AdjuntoMateriales" />
+          </AssociationSet>
           <AssociationSet Name="FK_DetalleRequisicion_Solicitud" Association="Self.FK_DetalleRequisicion_Solicitud">
             <End Role="Solicitud_Requisiciones" EntitySet="Solicitud_Requisiciones" />
             <End Role="DetalleRequisicion2" EntitySet="DetalleRequisicion2" />
@@ -393,6 +420,11 @@
           <AssociationSet Name="FK_DetalleRequisicion_Solicitud2" Association="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Solicitud2">
             <End Role="Solicitud_Requisiciones" EntitySet="Solicitud_Requisiciones" />
             <End Role="DetalleRequisicion" EntitySet="DetalleRequisicion" />
+          </AssociationSet>
+          <EntitySet Name="AdjuntoMateriales" EntityType="bdAdquisicionMaterialModel.AdjuntoMateriales" />
+          <AssociationSet Name="FK_AdjuntoMateriales_Materiales1" Association="bdAdquisicionMaterialModel.FK_AdjuntoMateriales_Materiales1">
+            <End Role="Materiales" EntitySet="Materiales" />
+            <End Role="AdjuntoMateriales" EntitySet="AdjuntoMateriales" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Configuracion">
@@ -515,6 +547,8 @@
           <Property Name="marca" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="materialReferencia" Type="String" MaxLength="8" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="MaterialesContable" Relationship="bdAdquisicionMaterialModel.FK_MaterialesContable_Materiales" FromRole="Materiales" ToRole="MaterialesContable" />
+          <Property Name="imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdjuntoMateriales" Relationship="bdAdquisicionMaterialModel.FK_AdjuntoMateriales_Materiales1" FromRole="Materiales" ToRole="AdjuntoMateriales" />
         </EntityType>
         <EntityType Name="MaterialesContable">
           <Key>
@@ -717,6 +751,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="AdjuntoMateriales">
+          <Key>
+            <PropertyRef Name="idAdjunto" />
+          </Key>
+          <Property Name="idAdjunto" Type="Int32" Nullable="false" />
+          <Property Name="idMaterial" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Materiales" Relationship="bdAdquisicionMaterialModel.FK_AdjuntoMateriales_Materiales1" FromRole="AdjuntoMateriales" ToRole="Materiales" />
+        </EntityType>
+        <Association Name="FK_AdjuntoMateriales_Materiales1">
+          <End Type="bdAdquisicionMaterialModel.Materiales" Role="Materiales" Multiplicity="1" />
+          <End Type="bdAdquisicionMaterialModel.AdjuntoMateriales" Role="AdjuntoMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materiales">
+              <PropertyRef Name="idMaterial" />
+            </Principal>
+            <Dependent Role="AdjuntoMateriales">
+              <PropertyRef Name="idMaterial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -823,6 +879,7 @@
           <EntitySetMapping Name="Materiales">
             <EntityTypeMapping TypeName="bdAdquisicionMaterialModel.Materiales">
               <MappingFragment StoreEntitySet="Materiales">
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
                 <ScalarProperty Name="materialReferencia" ColumnName="materialReferencia" />
                 <ScalarProperty Name="marca" ColumnName="marca" />
                 <ScalarProperty Name="herramienta" ColumnName="herramienta" />
@@ -959,6 +1016,16 @@
                 <ScalarProperty Name="requisicion" ColumnName="requisicion" />
                 <ScalarProperty Name="preRequisicion" ColumnName="preRequisicion" />
                 <ScalarProperty Name="idDReq" ColumnName="idDReq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdjuntoMateriales">
+            <EntityTypeMapping TypeName="bdAdquisicionMaterialModel.AdjuntoMateriales">
+              <MappingFragment StoreEntitySet="AdjuntoMateriales">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+                <ScalarProperty Name="idAdjunto" ColumnName="idAdjunto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

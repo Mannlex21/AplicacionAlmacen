@@ -81,6 +81,34 @@ namespace AplicacionAlmacen.Controlador
             }
 
         }
+        public List<Solicitud_Requisiciones> GetSolicitudesAll(string depa)
+        {
+            try
+            {
+                AlmacenEntities DB = new AlmacenEntities();
+                if (depa == "")
+                {
+                    var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
+                        && s.liberaElectrico == true && s.liberaSeguridad == true && s.liberaAlmacen == false && s.requisicion == "n/a")
+                        .OrderBy(s => s.preRequisicion);
+                    return Results.ToList();
+                }
+                else
+                {
+                    var dep = DB.Departamentos.Where(s => s.descripcion == depa).FirstOrDefault();
+                    var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
+                        && s.liberaElectrico == true && s.liberaSeguridad == true && s.liberaAlmacen == false && s.requisicion == "n/a" && s.departamento == dep.idDepartamento)
+                        .OrderBy(s => s.preRequisicion);
+                    return Results.ToList();
+                }
+            }
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return null;
+            }
+
+        }
         public bool existeMaterial(int id)
         {
             try {

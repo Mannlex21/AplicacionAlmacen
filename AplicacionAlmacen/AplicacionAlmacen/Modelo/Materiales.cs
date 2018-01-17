@@ -18,6 +18,7 @@ namespace AplicacionAlmacen.Modelo
         public Materiales()
         {
             this.MaterialesContable = new HashSet<MaterialesContable>();
+            this.AdjuntoMateriales = new HashSet<AdjuntoMateriales>();
         }
     
         public int idMaterial { get; set; }
@@ -39,8 +40,11 @@ namespace AplicacionAlmacen.Modelo
         public bool herramienta { get; set; }
         public string marca { get; set; }
         public string materialReferencia { get; set; }
+        public string imagen { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MaterialesContable> MaterialesContable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AdjuntoMateriales> AdjuntoMateriales { get; set; }
     }
 }

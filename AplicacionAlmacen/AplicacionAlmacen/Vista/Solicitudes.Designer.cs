@@ -49,41 +49,26 @@
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.bindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.depaCombo = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.GridControl = new DevExpress.XtraGrid.GridControl();
             this.Tabla = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.preRequisicion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.requisicion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.fechaRequisicion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.uso = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.fechaNecesitar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.departamento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ciclo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.area = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.fechaRecepcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ejercicio = new DevExpress.XtraGrid.Columns.GridColumn();
             this.solicitante = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.fechaRequisicion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.fechaRecepcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.fechaNecesitar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
@@ -103,13 +88,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
@@ -254,7 +232,6 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -290,99 +267,24 @@
             this.bindingNavigator.AddNewItem = null;
             this.bindingNavigator.AutoSize = false;
             this.bindingNavigator.BindingSource = this.bindingSource;
-            this.bindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.bindingNavigator.CountItem = null;
             this.bindingNavigator.DeleteItem = null;
             this.bindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
             this.bindingNavigator.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.bindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.toolStripSeparator1,
             this.toolStripLabel1,
-            this.depaCombo});
+            this.depaCombo,
+            this.toolStripButton1});
             this.bindingNavigator.Location = new System.Drawing.Point(2, 2);
-            this.bindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.bindingNavigator.MoveFirstItem = null;
+            this.bindingNavigator.MoveLastItem = null;
+            this.bindingNavigator.MoveNextItem = null;
+            this.bindingNavigator.MovePreviousItem = null;
             this.bindingNavigator.Name = "bindingNavigator";
-            this.bindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.bindingNavigator.PositionItem = null;
             this.bindingNavigator.Size = new System.Drawing.Size(771, 30);
             this.bindingNavigator.TabIndex = 0;
             this.bindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 27);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 27);
-            this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 27);
-            this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 30);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Posición";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 30);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 27);
-            this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 27);
-            this.bindingNavigatorMoveLastItem.Text = "Mover último";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 30);
             // 
             // toolStripLabel1
             // 
@@ -396,6 +298,16 @@
             this.depaCombo.Name = "depaCombo";
             this.depaCombo.Size = new System.Drawing.Size(280, 30);
             this.depaCombo.SelectedIndexChanged += new System.EventHandler(this.depaCombo_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::AplicacionAlmacen.Properties.Resources.reload;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 27);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // GridControl
             // 
@@ -414,15 +326,15 @@
             this.Tabla.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.preRequisicion,
             this.requisicion,
-            this.fechaRequisicion,
             this.uso,
-            this.fechaNecesitar,
             this.departamento,
             this.ciclo,
             this.area,
-            this.fechaRecepcion,
             this.ejercicio,
-            this.solicitante});
+            this.solicitante,
+            this.fechaRequisicion,
+            this.fechaRecepcion,
+            this.fechaNecesitar});
             this.Tabla.GridControl = this.GridControl;
             this.Tabla.Name = "Tabla";
             this.Tabla.OptionsBehavior.Editable = false;
@@ -450,32 +362,14 @@
             this.requisicion.VisibleIndex = 2;
             this.requisicion.Width = 70;
             // 
-            // fechaRequisicion
-            // 
-            this.fechaRequisicion.Caption = "Fecha de requisicion";
-            this.fechaRequisicion.FieldName = "fechaRequisicion";
-            this.fechaRequisicion.Name = "fechaRequisicion";
-            this.fechaRequisicion.Visible = true;
-            this.fechaRequisicion.VisibleIndex = 3;
-            this.fechaRequisicion.Width = 112;
-            // 
             // uso
             // 
             this.uso.Caption = "Uso";
             this.uso.FieldName = "uso";
             this.uso.Name = "uso";
             this.uso.Visible = true;
-            this.uso.VisibleIndex = 4;
+            this.uso.VisibleIndex = 3;
             this.uso.Width = 36;
-            // 
-            // fechaNecesitar
-            // 
-            this.fechaNecesitar.Caption = "Fecha a nececistar";
-            this.fechaNecesitar.FieldName = "fechaNecesitar";
-            this.fechaNecesitar.Name = "fechaNecesitar";
-            this.fechaNecesitar.Visible = true;
-            this.fechaNecesitar.VisibleIndex = 5;
-            this.fechaNecesitar.Width = 105;
             // 
             // departamento
             // 
@@ -483,7 +377,7 @@
             this.departamento.FieldName = "departamento";
             this.departamento.Name = "departamento";
             this.departamento.Visible = true;
-            this.departamento.VisibleIndex = 6;
+            this.departamento.VisibleIndex = 4;
             this.departamento.Width = 85;
             // 
             // ciclo
@@ -492,7 +386,7 @@
             this.ciclo.FieldName = "ciclo";
             this.ciclo.Name = "ciclo";
             this.ciclo.Visible = true;
-            this.ciclo.VisibleIndex = 7;
+            this.ciclo.VisibleIndex = 5;
             this.ciclo.Width = 40;
             // 
             // area
@@ -501,17 +395,8 @@
             this.area.FieldName = "area";
             this.area.Name = "area";
             this.area.Visible = true;
-            this.area.VisibleIndex = 8;
+            this.area.VisibleIndex = 6;
             this.area.Width = 41;
-            // 
-            // fechaRecepcion
-            // 
-            this.fechaRecepcion.Caption = "Fecha de recepcion";
-            this.fechaRecepcion.FieldName = "fechaRecepcion";
-            this.fechaRecepcion.Name = "fechaRecepcion";
-            this.fechaRecepcion.Visible = true;
-            this.fechaRecepcion.VisibleIndex = 9;
-            this.fechaRecepcion.Width = 108;
             // 
             // ejercicio
             // 
@@ -519,7 +404,7 @@
             this.ejercicio.FieldName = "ejercicio";
             this.ejercicio.Name = "ejercicio";
             this.ejercicio.Visible = true;
-            this.ejercicio.VisibleIndex = 10;
+            this.ejercicio.VisibleIndex = 7;
             this.ejercicio.Width = 57;
             // 
             // solicitante
@@ -528,8 +413,35 @@
             this.solicitante.FieldName = "solicitante";
             this.solicitante.Name = "solicitante";
             this.solicitante.Visible = true;
-            this.solicitante.VisibleIndex = 11;
+            this.solicitante.VisibleIndex = 8;
             this.solicitante.Width = 70;
+            // 
+            // fechaRequisicion
+            // 
+            this.fechaRequisicion.Caption = "Fecha de requisicion";
+            this.fechaRequisicion.FieldName = "fechaRequisicion";
+            this.fechaRequisicion.Name = "fechaRequisicion";
+            this.fechaRequisicion.Visible = true;
+            this.fechaRequisicion.VisibleIndex = 9;
+            this.fechaRequisicion.Width = 112;
+            // 
+            // fechaRecepcion
+            // 
+            this.fechaRecepcion.Caption = "Fecha de recepcion";
+            this.fechaRecepcion.FieldName = "fechaRecepcion";
+            this.fechaRecepcion.Name = "fechaRecepcion";
+            this.fechaRecepcion.Visible = true;
+            this.fechaRecepcion.VisibleIndex = 11;
+            this.fechaRecepcion.Width = 108;
+            // 
+            // fechaNecesitar
+            // 
+            this.fechaNecesitar.Caption = "Fecha a nececistar";
+            this.fechaNecesitar.FieldName = "fechaNecesitar";
+            this.fechaNecesitar.Name = "fechaNecesitar";
+            this.fechaNecesitar.Visible = true;
+            this.fechaNecesitar.VisibleIndex = 10;
+            this.fechaNecesitar.Width = 105;
             // 
             // gridView1
             // 
@@ -565,71 +477,6 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(775, 205);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.layoutControl3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(781, 245);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Otro";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // layoutControl3
-            // 
-            this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl3.Location = new System.Drawing.Point(3, 3);
-            this.layoutControl3.Name = "layoutControl3";
-            this.layoutControl3.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(505, 130, 650, 400);
-            this.layoutControl3.Root = this.layoutControlGroup3;
-            this.layoutControl3.Size = new System.Drawing.Size(775, 239);
-            this.layoutControl3.TabIndex = 0;
-            this.layoutControl3.Text = "layoutControl3";
-            // 
-            // layoutControlGroup3
-            // 
-            this.layoutControlGroup3.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup3.GroupBordersVisible = false;
-            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup4,
-            this.layoutControlGroup5});
-            this.layoutControlGroup3.Name = "Root";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(775, 239);
-            this.layoutControlGroup3.TextVisible = false;
-            // 
-            // layoutControlGroup4
-            // 
-            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.emptySpaceItem1});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(755, 167);
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 0);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(731, 125);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlGroup5
-            // 
-            this.layoutControlGroup5.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.emptySpaceItem2});
-            this.layoutControlGroup5.Location = new System.Drawing.Point(0, 167);
-            this.layoutControlGroup5.Name = "layoutControlGroup5";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(755, 52);
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(731, 10);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup1
             // 
@@ -690,13 +537,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
@@ -717,16 +557,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private DevExpress.XtraLayout.LayoutControl layoutControl2;
-        private System.Windows.Forms.BindingNavigator bindingNavigator;
-        private System.Windows.Forms.BindingSource bindingSource;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private DevExpress.XtraGrid.GridControl GridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView Tabla;
         private DevExpress.XtraGrid.Columns.GridColumn preRequisicion;
@@ -742,26 +572,21 @@
         private DevExpress.XtraGrid.Columns.GridColumn solicitante;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private System.Windows.Forms.TabPage tabPage2;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControl layoutControl3;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup5;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripComboBox depaCombo;
         private DevExpress.XtraBars.BarButtonItem barButtonItem12;
         private DevExpress.XtraBars.BarButtonItem barButtonItem13;
+        private System.Windows.Forms.BindingNavigator bindingNavigator;
+        private System.Windows.Forms.BindingSource bindingSource;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripComboBox depaCombo;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

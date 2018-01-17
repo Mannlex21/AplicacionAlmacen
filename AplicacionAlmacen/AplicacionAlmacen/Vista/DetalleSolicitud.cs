@@ -22,10 +22,8 @@ namespace AplicacionAlmacen.Vista
             InitializeComponent();
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             Solicitudes s2 = new Solicitudes();
-
+            this.Text = "Detalle (PreRequisición: "+Solicitudes.preReq+" - Departamento: "+Solicitudes.dep+" - Ejercicio: "+Solicitudes.ejer+")";
             GridControl.DataSource = s.GetSolicitudDet(Solicitudes.preReq, Solicitudes.dep, Solicitudes.ejer);
-            bindingSource.CurrentChanged += new EventHandler(bindingSource_CurrentChanged);
-
             Tabla.RowCellStyle += (sender, e) => {
                 GridView view = sender as GridView;
                 if (e.Column.FieldName == "cantidad")
@@ -55,17 +53,6 @@ namespace AplicacionAlmacen.Vista
 
                 }
             };
-        }
-        private void bindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-            if (bindingSource.Current is null)
-            {
-                GridControl.DataSource = null;
-            }
-            else
-            {
-                GridControl.DataSource = s.GetSolicitudDet(Solicitudes.preReq, Solicitudes.dep, Solicitudes.ejer);
-            }
         }
 
         private void DetalleSolicitud_Load(object sender, EventArgs e)

@@ -223,6 +223,7 @@ namespace AplicacionAlmacen.Vista
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
+            //s.crear(editImagen.Text, "Material-", "1");
             if (tipo.Equals('N'))
             {
                 CheckControls(tabPage2);
@@ -252,6 +253,7 @@ namespace AplicacionAlmacen.Vista
                         m.pedidoEstandar = decimal.Parse(editPedidoE.Text);
                         m.herramienta = editHerramienta.Checked;
                         m.seguridadInd = editSeguridad.Checked;
+                        m.imagen = "Material-" +idMaterial;
 
 
                         mc.idMaterial = Int32.Parse(idMaterial);
@@ -297,6 +299,8 @@ namespace AplicacionAlmacen.Vista
 
                         if (code == 1)
                         {
+                            s.crearImagen(editImagen.Text, "Material", idMaterial);
+
                             ResetControls(tabPage2);
                             DisableControls(tabPage2);
                             tipo = 's';
@@ -345,8 +349,8 @@ namespace AplicacionAlmacen.Vista
                         m.pedidoEstandar = decimal.Parse(editPedidoE.Text);
                         m.herramienta = editHerramienta.Checked;
                         m.seguridadInd = editSeguridad.Checked;
+                        m.imagen = "Material-" + idMaterialRef;
 
-                        
                         mc.idMaterial = materialA;
                         mc.cuenta_F_Z = Int32.Parse(cuenta_F_Z.Text);
                         mc.aplicaCentCost_F_Z = aplicaCentCost_F_Z.Checked;
@@ -390,6 +394,7 @@ namespace AplicacionAlmacen.Vista
 
                         if (code == 1)
                         {
+                            s.crearImagen(editImagen.Text, "Material", idMaterialRef);
                             ResetControls(tabPage2);
                             DisableControls(tabPage2);
                             tipo = 's';
@@ -502,6 +507,7 @@ namespace AplicacionAlmacen.Vista
 
             if (code == 1)
             {
+                s.eliminarImagen("Material-"+Tabla.GetRowCellValue(r, "materialReferencia").ToString());
                 Recargar();
                 MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
 
@@ -510,6 +516,17 @@ namespace AplicacionAlmacen.Vista
             {
                 MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void editImagen_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog abrirArchivo = new OpenFileDialog();
+            abrirArchivo.Filter = "Archivos de imagen (.jpg, *.png)|.jpg;*.png";
+
+            if (abrirArchivo.ShowDialog() == DialogResult.OK)
+            {
+                editImagen.Text = abrirArchivo.FileName;
+            } 
         }
     }
 }
