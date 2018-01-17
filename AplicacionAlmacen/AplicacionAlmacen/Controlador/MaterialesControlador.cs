@@ -227,28 +227,28 @@ namespace AplicacionAlmacen.Controlador
         {
             try
             {
-                var context = new AlmacenEntities();
-                var connection = context.Database.Connection;
-
-                Object result = "";
-                AlmacenEntities db = new AlmacenEntities();
-                var us = from u in db.Materiales select u;
-                us = us.Where(u => u.idMaterial == material.idMaterial);
-                var x = us.FirstOrDefault();
-                if (us.FirstOrDefault() == null)
+                using (var bd = new AlmacenEntities())
                 {
-                    context.Materiales.Add(material);
-                    context.SaveChanges();
-                    context.MaterialesContable.Add(materialContable);
-                    context.SaveChanges();
-                    result = new { message = "Se guardo correctamente", code = 1 };
-                }
-                else
-                {
-                    result = new { message = "Ya existe este grupo: " + material.idMaterial, code = 2 };
-                }
+                    Object result = "";
+                    AlmacenEntities db = new AlmacenEntities();
+                    var us = from u in db.Materiales select u;
+                    us = us.Where(u => u.idMaterial == material.idMaterial);
+                    var x = us.FirstOrDefault();
+                    if (us.FirstOrDefault() == null)
+                    {
+                        bd.Materiales.Add(material);
+                        bd.SaveChanges();
+                        bd.MaterialesContable.Add(materialContable);
+                        bd.SaveChanges();
+                        result = new { message = "Se guardo correctamente", code = 1 };
+                    }
+                    else
+                    {
+                        result = new { message = "Ya existe este grupo: " + material.idMaterial, code = 2 };
+                    }
 
-                return result;
+                    return result;
+                }
             }
             catch (SqlException odbcEx)
             {
@@ -266,18 +266,20 @@ namespace AplicacionAlmacen.Controlador
         {
             try
             {
-                var context = new AlmacenEntities();
-                var connection = context.Database.Connection;
-                Object result = "";
-                using (SqlConnection con = new SqlConnection(connection.ConnectionString))
+                
+                using (var bd = new AlmacenEntities())
                 {
-                    context.Entry(material).State=System.Data.Entity.EntityState.Modified;
-                    context.Entry(materialesContable).State = System.Data.Entity.EntityState.Modified;
-                    context.SaveChanges();
-                }
-                result = new { message = "Se edito correctamente", code = 1 };
+                    Object result = "";
+                    var idMC = bd.MaterialesContable.AsNoTracking().Where(s => s.idMaterial == material.idMaterial).FirstOrDefault().idMaterialesCont;
+                    materialesContable.idMaterialesCont = idMC;
+                    bd.Entry(material).State = System.Data.Entity.EntityState.Modified;
+                    bd.Entry(materialesContable).State = System.Data.Entity.EntityState.Modified;
+                    bd.SaveChanges();
+                    result = new { message = "Se edito correctamente", code = 1 };
 
-                return result;
+                    return result;
+                }
+                
             }
             catch (SqlException odbcEx)
             {

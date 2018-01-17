@@ -195,27 +195,50 @@ namespace AplicacionAlmacen.Controlador
             }
             
         }
-        public Object asignarClave(string clave, int id)
+        public Object asignarClave(string clave, int id, int ejercicio, int departamento)
         {
             Object result = "";
             try
             {
-                
-                var context = new AlmacenEntities();
-                var connection = context.Database.Connection;
-                using (SqlConnection con = new SqlConnection(connection.ConnectionString))
+                int contF= 0;
+                List<DetalleRequisicion> li;
+                using (var bd = new AlmacenEntities())
                 {
-                    string query = "UPDATE Solicitud_Requisiciones SET requisicion='"+clave+"' WHERE preRequisicion="+id;
-                    using (SqlCommand cmd = new SqlCommand(query))
+                     li= bd.DetalleRequisicion.Where(s => s.preRequisicion==id 
+                    && s.departamento==departamento && s.ejercicio==ejercicio).ToList();
+                }
+                AlmacenEntities DB = new AlmacenEntities();
+                foreach (var i in li)
+                {
+                    if (DB.Materiales.Where(s => s.idMaterial == i.material).FirstOrDefault().existencia >= i.cantidad)
                     {
-                        cmd.Connection = con;
-                        con.Open();
-                        cmd.ExecuteScalar();
-                        con.Close();
+                        contF++;
                     }
                 }
-                result = new { message = "Se asigno la siguiente clave correctamente: "+clave, code = 1 };
-                return result;
+                if (contF==0)
+                {
+                    var context = new AlmacenEntities();
+                    var connection = context.Database.Connection;
+                    using (SqlConnection con = new SqlConnection(connection.ConnectionString))
+                    {
+                        string query = "UPDATE Solicitud_Requisiciones SET requisicion='" + clave + "' WHERE preRequisicion=" + id;
+                        using (SqlCommand cmd = new SqlCommand(query))
+                        {
+                            cmd.Connection = con;
+                            con.Open();
+                            cmd.ExecuteScalar();
+                            con.Close();
+                        }
+                    }
+                    result = new { message = "Se asigno la siguiente clave correctamente: " + clave, code = 1 };
+                    return result;
+                }
+                else
+                {
+                    result = new { message = "Actualmente hay existencia de los materiales" + clave, code = 2 };
+                    return result;
+                }
+                
             }
             catch (SqlException odbcEx)
             {

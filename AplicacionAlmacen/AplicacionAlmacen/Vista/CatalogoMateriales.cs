@@ -22,6 +22,7 @@ namespace AplicacionAlmacen.Vista
         Char tipo = 's';
         int contT = 0;
         int materialA = 0;
+        string idMaterialRef="";
         public CatalogoMateriales()
         {
             InitializeComponent();
@@ -326,6 +327,7 @@ namespace AplicacionAlmacen.Vista
                         Materiales m = new Materiales();
                         MaterialesContable mc = new MaterialesContable();
                         m.idMaterial = materialA;
+                        m.materialReferencia = idMaterialRef;
                         m.descripcion = editDesc.Text;
                         m.uMedida = editUnidadM.Text;
                         m.marca = editMarca.Text;
@@ -344,6 +346,7 @@ namespace AplicacionAlmacen.Vista
                         m.herramienta = editHerramienta.Checked;
                         m.seguridadInd = editSeguridad.Checked;
 
+                        
                         mc.idMaterial = materialA;
                         mc.cuenta_F_Z = Int32.Parse(cuenta_F_Z.Text);
                         mc.aplicaCentCost_F_Z = aplicaCentCost_F_Z.Checked;
@@ -415,11 +418,12 @@ namespace AplicacionAlmacen.Vista
         {
             Cursor.Current = Cursors.WaitCursor;
             materialA = 0;
+            idMaterialRef = "";
             ResetControls(tabPage2);
             tipo = 'E';
             int r = Tabla.GetSelectedRows()[0];
 
-            string idMaterialRef= Tabla.GetRowCellValue(r, "materialReferencia").ToString();
+            idMaterialRef= Tabla.GetRowCellValue(r, "materialReferencia").ToString();
             string grupo = idMaterialRef[0].ToString() +idMaterialRef[1].ToString();
             string subGrupo = idMaterialRef[2].ToString()+idMaterialRef[3].ToString();
 

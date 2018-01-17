@@ -32,17 +32,11 @@ namespace AplicacionAlmacen.Vista
                 {
                     double exis = Double.Parse(view.GetRowCellValue(e.RowHandle, "existencia").ToString());
                     double cant = Double.Parse(view.GetRowCellValue(e.RowHandle, "cantidad").ToString());
-                    if (cant > exis)
+                    if (cant <= exis)
                     {
-                        e.Appearance.BackColor = Color.Red;
-                        e.Appearance.ForeColor = Color.White;
-                    }
-                    else
-                    {
-                        e.Appearance.BackColor = Color.LightGreen;
+                        e.Appearance.BackColor = Color.Yellow;
                         e.Appearance.ForeColor = Color.Black;
                     }
-
                 }
                 if (e.Column.FieldName == "material")
                 {

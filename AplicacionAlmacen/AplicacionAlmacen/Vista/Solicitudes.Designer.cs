@@ -427,7 +427,10 @@
             this.Tabla.Name = "Tabla";
             this.Tabla.OptionsBehavior.Editable = false;
             this.Tabla.OptionsBehavior.ReadOnly = true;
+            this.Tabla.OptionsSelection.MultiSelect = true;
+            this.Tabla.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.Tabla.OptionsView.ShowGroupPanel = false;
+            this.Tabla.OptionsView.ShowIndicator = false;
             // 
             // preRequisicion
             // 
@@ -435,7 +438,7 @@
             this.preRequisicion.FieldName = "preRequisicion";
             this.preRequisicion.Name = "preRequisicion";
             this.preRequisicion.Visible = true;
-            this.preRequisicion.VisibleIndex = 0;
+            this.preRequisicion.VisibleIndex = 1;
             this.preRequisicion.Width = 85;
             // 
             // requisicion
@@ -444,7 +447,7 @@
             this.requisicion.FieldName = "requisicion";
             this.requisicion.Name = "requisicion";
             this.requisicion.Visible = true;
-            this.requisicion.VisibleIndex = 1;
+            this.requisicion.VisibleIndex = 2;
             this.requisicion.Width = 70;
             // 
             // fechaRequisicion
@@ -453,7 +456,7 @@
             this.fechaRequisicion.FieldName = "fechaRequisicion";
             this.fechaRequisicion.Name = "fechaRequisicion";
             this.fechaRequisicion.Visible = true;
-            this.fechaRequisicion.VisibleIndex = 2;
+            this.fechaRequisicion.VisibleIndex = 3;
             this.fechaRequisicion.Width = 112;
             // 
             // uso
@@ -462,7 +465,7 @@
             this.uso.FieldName = "uso";
             this.uso.Name = "uso";
             this.uso.Visible = true;
-            this.uso.VisibleIndex = 3;
+            this.uso.VisibleIndex = 4;
             this.uso.Width = 36;
             // 
             // fechaNecesitar
@@ -471,7 +474,7 @@
             this.fechaNecesitar.FieldName = "fechaNecesitar";
             this.fechaNecesitar.Name = "fechaNecesitar";
             this.fechaNecesitar.Visible = true;
-            this.fechaNecesitar.VisibleIndex = 4;
+            this.fechaNecesitar.VisibleIndex = 5;
             this.fechaNecesitar.Width = 105;
             // 
             // departamento
@@ -480,7 +483,7 @@
             this.departamento.FieldName = "departamento";
             this.departamento.Name = "departamento";
             this.departamento.Visible = true;
-            this.departamento.VisibleIndex = 5;
+            this.departamento.VisibleIndex = 6;
             this.departamento.Width = 85;
             // 
             // ciclo
@@ -489,7 +492,7 @@
             this.ciclo.FieldName = "ciclo";
             this.ciclo.Name = "ciclo";
             this.ciclo.Visible = true;
-            this.ciclo.VisibleIndex = 6;
+            this.ciclo.VisibleIndex = 7;
             this.ciclo.Width = 40;
             // 
             // area
@@ -498,7 +501,7 @@
             this.area.FieldName = "area";
             this.area.Name = "area";
             this.area.Visible = true;
-            this.area.VisibleIndex = 7;
+            this.area.VisibleIndex = 8;
             this.area.Width = 41;
             // 
             // fechaRecepcion
@@ -507,7 +510,7 @@
             this.fechaRecepcion.FieldName = "fechaRecepcion";
             this.fechaRecepcion.Name = "fechaRecepcion";
             this.fechaRecepcion.Visible = true;
-            this.fechaRecepcion.VisibleIndex = 8;
+            this.fechaRecepcion.VisibleIndex = 9;
             this.fechaRecepcion.Width = 108;
             // 
             // ejercicio
@@ -516,7 +519,7 @@
             this.ejercicio.FieldName = "ejercicio";
             this.ejercicio.Name = "ejercicio";
             this.ejercicio.Visible = true;
-            this.ejercicio.VisibleIndex = 9;
+            this.ejercicio.VisibleIndex = 10;
             this.ejercicio.Width = 57;
             // 
             // solicitante
@@ -525,7 +528,7 @@
             this.solicitante.FieldName = "solicitante";
             this.solicitante.Name = "solicitante";
             this.solicitante.Visible = true;
-            this.solicitante.VisibleIndex = 10;
+            this.solicitante.VisibleIndex = 11;
             this.solicitante.Width = 70;
             // 
             // gridView1
