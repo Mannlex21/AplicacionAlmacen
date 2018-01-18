@@ -149,6 +149,7 @@
           <Property Name="marca" Type="nvarchar" MaxLength="255" />
           <Property Name="materialReferencia" Type="nchar" MaxLength="8" />
           <Property Name="imagen" Type="nvarchar" MaxLength="255" />
+          <Property Name="adjunto" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="MaterialesContable">
           <Key>
@@ -549,6 +550,7 @@
           <NavigationProperty Name="MaterialesContable" Relationship="bdAdquisicionMaterialModel.FK_MaterialesContable_Materiales" FromRole="Materiales" ToRole="MaterialesContable" />
           <Property Name="imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AdjuntoMateriales" Relationship="bdAdquisicionMaterialModel.FK_AdjuntoMateriales_Materiales1" FromRole="Materiales" ToRole="AdjuntoMateriales" />
+          <Property Name="adjunto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MaterialesContable">
           <Key>
@@ -879,6 +881,7 @@
           <EntitySetMapping Name="Materiales">
             <EntityTypeMapping TypeName="bdAdquisicionMaterialModel.Materiales">
               <MappingFragment StoreEntitySet="Materiales">
+                <ScalarProperty Name="adjunto" ColumnName="adjunto" />
                 <ScalarProperty Name="imagen" ColumnName="imagen" />
                 <ScalarProperty Name="materialReferencia" ColumnName="materialReferencia" />
                 <ScalarProperty Name="marca" ColumnName="marca" />

@@ -13,6 +13,9 @@ namespace AplicacionAlmacen.Controlador
 {
     class MaterialesControlador
     {
+        string carpetaImagen = "\\\\172.16.0.5\\Materiales\\Principal\\";
+        string carpetaAdjunto= "\\\\172.16.0.5\\Materiales\\Adjuntos\\";
+        //string carpetaImagen = @"E:\Documentos\Programacion\MatImg\Material\";
         public List<Materiales> GetAllMateriales()
         {
             try { 
@@ -53,8 +56,7 @@ namespace AplicacionAlmacen.Controlador
                 return 0;
             }
         }
-        //string carpetaImagen = "\\\\172.16.0.5\\Materiales\\Principal\\";
-        string carpetaImagen =@"E:\Documentos\Programacion\MatImg\Material\";
+        
         class listaM
         {
             public string id { get; set; }
@@ -355,9 +357,11 @@ namespace AplicacionAlmacen.Controlador
             }
             catch (IOException e)
             {
+                Console.WriteLine(e);
             }
             return "";
         }
+
         public void eliminarImagen(String img)
         {
             File.Delete(carpetaImagen + img);
@@ -376,10 +380,64 @@ namespace AplicacionAlmacen.Controlador
                 return null;
             }
         }
-        public String actualizar(String img, String url, String tab, String id)
+        public String actualizarImagen(String img, String url, String tab, String id)
         {
             eliminarImagen(img);
             return crearImagen(url, tab, id);
+        }
+        public string crearCarpetaAdjunto(string dir)
+        {
+            try
+            {
+                if (Directory.Exists(carpetaAdjunto + dir))
+                {
+                    Console.WriteLine("That path exists already.");
+                    return carpetaAdjunto + dir;
+                }
+                else
+                {
+                    DirectoryInfo di = Directory.CreateDirectory(carpetaAdjunto+dir);
+                    return carpetaAdjunto + dir;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The process failed: {0}", e.ToString());
+                return "";
+            }
+        }
+        public void crearImagenes(string url, string primero, string id,string urlN)
+        {
+            try
+            {
+                url = url.ToLower();
+                String[] urlA = url.Split(',');
+                for (int i = 0;i < urlA.Length;i++)
+                {
+                    string nuevo = "";
+                    if (urlA[i] != "")
+                    {
+                        string[] parts = urlA[i].Split('\\');
+                        string[] ext = parts[parts.Length - 1].Split('.');
+                        string[] files = Directory.GetFiles(urlN);
+                        int fc = files.Length + 1;
+
+                        nuevo ="M-"+fc+"."+ext[1];
+                        File.Copy(urlA[i], urlN + "\\" + nuevo, true);
+                    }
+                }
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+        public void eliminarAdjuntos(string dir)
+        {
+            if (dir!="")
+            {
+                Directory.Delete(dir, true);
+            }
         }
     }
 }

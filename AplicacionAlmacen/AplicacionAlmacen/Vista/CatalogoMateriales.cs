@@ -13,6 +13,8 @@ using DevExpress.LookAndFeel;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid;
+using System.Diagnostics;
+using System.IO;
 
 namespace AplicacionAlmacen.Vista
 {
@@ -22,8 +24,10 @@ namespace AplicacionAlmacen.Vista
         public static string imgNombre;
         static int totalRecords = 1;
         static private int pageSize = 30;
-        //public static string = "\\\\172.16.0.5\\Materiales\\Principal\\";
-        public static string carpetaImagen = @"E:\Documentos\Programacion\MatImg\Material\";
+        public static string  carpetaImagen = "\\\\172.16.0.5\\Materiales\\Principal\\";
+        string carpetaAdjunto = "\\\\172.16.0.5\\Materiales\\Adjuntos\\";
+        public static string directorio ="";
+        //public static string carpetaImagen = @"E:\Documentos\Programacion\MatImg\Material\";
         static List<Materiales> records = new List<Materiales>();
         //E=editar,N=nuevo,s=sin seleccionar
         Char tipo = 's';
@@ -156,9 +160,17 @@ namespace AplicacionAlmacen.Vista
                 if (con is TextEdit)
                 {
                     TextEdit textBox = (TextEdit)con;
+                    
                     if (textBox.Text == "")
                     {
-                        contT++;
+                        if (textBox.Name == "editAdjunto")
+                        {
+
+                        }
+                        else
+                        {
+                            contT++;
+                        }
                     }
                 }
             }
@@ -261,6 +273,7 @@ namespace AplicacionAlmacen.Vista
                         m.pedidoEstandar = decimal.Parse(editPedidoE.Text);
                         m.herramienta = editHerramienta.Checked;
                         m.seguridadInd = editSeguridad.Checked;
+                        m.adjunto = carpetaAdjunto + "Material-" + idMaterial;
                         string url =editImagen.Text.ToLower();
 
                         String ext = (url.EndsWith(".png")) ? ".png" : ".jpg";
@@ -312,6 +325,9 @@ namespace AplicacionAlmacen.Vista
                         {
                             s.crearImagen(editImagen.Text, "Material", idMaterial);
 
+                            string urlN=s.crearCarpetaAdjunto("Material-"+idMaterial);
+                            s.crearImagenes(editAdjunto.Text, "Material", idMaterial,urlN);
+
                             ResetControls(tabPage2);
                             DisableControls(tabPage2);
                             tipo = 's';
@@ -360,6 +376,7 @@ namespace AplicacionAlmacen.Vista
                         m.pedidoEstandar = decimal.Parse(editPedidoE.Text);
                         m.herramienta = editHerramienta.Checked;
                         m.seguridadInd = editSeguridad.Checked;
+                        m.adjunto = carpetaAdjunto + "Material-" + idMaterialRef;
                         string url = editImagen.Text.ToLower();
 
                         String ext = (url.EndsWith(".png")) ? ".png" : ".jpg";
@@ -409,6 +426,9 @@ namespace AplicacionAlmacen.Vista
                         if (code == 1)
                         {
                             s.crearImagen(editImagen.Text, "Material", idMaterialRef);
+                            string urlN = s.crearCarpetaAdjunto("Material-" + idMaterialRef);
+                            s.crearImagenes(editAdjunto.Text, "Material", idMaterialRef, urlN);
+
                             ResetControls(tabPage2);
                             DisableControls(tabPage2);
                             tipo = 's';
@@ -523,6 +543,8 @@ namespace AplicacionAlmacen.Vista
             if (code == 1)
             {
                 s.eliminarImagen("Material-"+Tabla.GetRowCellValue(r, "materialReferencia").ToString());
+                string d = (Tabla.GetRowCellValue(r, "adjunto") == null) ? "" : Tabla.GetRowCellValue(r, "adjunto").ToString();
+                s.eliminarAdjuntos(d);
                 Recargar();
                 MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
 
@@ -532,9 +554,9 @@ namespace AplicacionAlmacen.Vista
                 MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void editImagen_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             OpenFileDialog abrirArchivo = new OpenFileDialog();
             abrirArchivo.Filter = "Archivos de imagen (.jpg, *.png)|.jpg;*.png";
 
@@ -545,10 +567,44 @@ namespace AplicacionAlmacen.Vista
         }
         private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             int r = Tabla.GetSelectedRows()[0];
-            imgNombre=(Tabla.GetRowCellValue(r, "imagen")==null)?"unknow.png": Tabla.GetRowCellValue(r, "imagen").ToString();
+            imgNombre=(Tabla.GetRowCellValue(r, "imagen")==null)?"unknown.png": Tabla.GetRowCellValue(r, "imagen").ToString();
             new DetalleMaterial().Show();
 
+        }
+        private void barButtonItem8_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int r = Tabla.GetSelectedRows()[0];
+            string dir = carpetaAdjunto + "Material-" + Tabla.GetRowCellValue(r, "materialReferencia").ToString();
+            directorio = (dir==null || dir=="")?"":dir;
+            
+            try
+            {
+                new DetalleMaterialAdj().Show();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("The process failed: {0}", ex.ToString());
+            }
+            
+        }
+        private void textEdit1_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            OpenFileDialog abrirArchivo = new OpenFileDialog();
+            abrirArchivo.Multiselect=true;
+            abrirArchivo.Filter = "Archivos de imagen (*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG|"
+                                + "Todos los archivos (*.*)|*.*";
+            if (abrirArchivo.ShowDialog() == DialogResult.OK)
+            {
+                string fileN = "";
+                for (int i=0;i<abrirArchivo.FileNames.Length;i++)
+                {
+                    fileN+=abrirArchivo.FileNames[i]+",";
+                }
+                editAdjunto.Text =fileN;
+            }
         }
     }
 }

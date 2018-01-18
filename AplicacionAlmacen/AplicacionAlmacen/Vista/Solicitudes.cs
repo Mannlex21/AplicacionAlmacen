@@ -19,8 +19,6 @@ namespace AplicacionAlmacen.Vista
         public static int preReq;
         public static int dep;
         public static int ejer;
-        static int totalRecords = 1;
-        static private int pageSize = 30;
         static Controlador.SolicitudesControlador s = new Controlador.SolicitudesControlador();
         static Controlador.DepartamentosControlador d = new Controlador.DepartamentosControlador();
         static List<Solicitud_Requisiciones> records = new List<Solicitud_Requisiciones>();

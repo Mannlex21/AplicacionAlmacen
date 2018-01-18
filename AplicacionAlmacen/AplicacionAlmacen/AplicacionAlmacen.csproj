@@ -197,6 +197,12 @@
     <Compile Include="Vista\DetalleMaterial.Designer.cs">
       <DependentUpon>DetalleMaterial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\DetalleMaterialAdj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\DetalleMaterialAdj.Designer.cs">
+      <DependentUpon>DetalleMaterialAdj.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\DetalleSolicitud.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\DetalleMaterial.resx">
       <DependentUpon>DetalleMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\DetalleMaterialAdj.resx">
+      <DependentUpon>DetalleMaterialAdj.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\DetalleSolicitud.resx">
       <DependentUpon>DetalleSolicitud.cs</DependentUpon>
@@ -283,6 +292,7 @@
     <None Include="Files\botones\valido.png" />
     <None Include="Files\botones\lupa.png" />
     <None Include="Files\botones\img.png" />
+    <None Include="Files\botones\attachment.png" />
     <Content Include="Modelo\AlmacenEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AlmacenEntities.edmx</DependentUpon>
