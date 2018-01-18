@@ -72,6 +72,7 @@
             this.herramienta = new DevExpress.XtraGrid.Columns.GridColumn();
             this.seguridadInd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.materialReferencia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.imagen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -86,6 +87,7 @@
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -161,7 +163,7 @@
             this.edit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.imagen = new DevExpress.XtraLayout.LayoutControlItem();
+            this.imagen2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.Contable = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -207,7 +209,6 @@
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem54 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.img = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -300,7 +301,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.edit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imagen2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Contable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
@@ -578,7 +579,7 @@
             this.herramienta,
             this.seguridadInd,
             this.materialReferencia,
-            this.img});
+            this.imagen});
             this.Tabla.GridControl = this.GridControl;
             this.Tabla.Name = "Tabla";
             this.Tabla.OptionsBehavior.Editable = false;
@@ -754,6 +755,14 @@
             this.materialReferencia.Visible = true;
             this.materialReferencia.VisibleIndex = 18;
             // 
+            // imagen
+            // 
+            this.imagen.Caption = "Imagen";
+            this.imagen.FieldName = "imagen";
+            this.imagen.Name = "imagen";
+            this.imagen.Visible = true;
+            this.imagen.VisibleIndex = 19;
+            // 
             // gridView1
             // 
             this.gridView1.GridControl = this.GridControl;
@@ -885,9 +894,10 @@
             this.barButtonItem3,
             this.barButtonItem4,
             this.barButtonItem5,
-            this.barButtonItem6});
+            this.barButtonItem6,
+            this.barButtonItem7});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 7;
+            this.ribbonControl1.MaxItemId = 8;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -954,6 +964,16 @@
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "Ver";
+            this.barButtonItem7.Id = 7;
+            this.barButtonItem7.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.img;
+            this.barButtonItem7.Name = "barButtonItem7";
+            this.barButtonItem7.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -969,6 +989,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem4);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem5);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem7);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Herramientas";
             // 
@@ -1164,7 +1185,7 @@
             this.cuenta_A_Z.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cuenta_A_Z.Size = new System.Drawing.Size(96, 30);
             this.cuenta_A_Z.StyleController = this.layoutControl3;
-            this.cuenta_A_Z.TabIndex = 20;
+            this.cuenta_A_Z.TabIndex = 21;
             // 
             // cuenta_A_R
             // 
@@ -1177,7 +1198,7 @@
             this.cuenta_A_R.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cuenta_A_R.Size = new System.Drawing.Size(96, 30);
             this.cuenta_A_R.StyleController = this.layoutControl3;
-            this.cuenta_A_R.TabIndex = 36;
+            this.cuenta_A_R.TabIndex = 37;
             // 
             // subCuenta_A_Z
             // 
@@ -1190,7 +1211,7 @@
             this.subCuenta_A_Z.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subCuenta_A_Z.Size = new System.Drawing.Size(97, 30);
             this.subCuenta_A_Z.StyleController = this.layoutControl3;
-            this.subCuenta_A_Z.TabIndex = 21;
+            this.subCuenta_A_Z.TabIndex = 22;
             // 
             // subSubCuenta_A_Z
             // 
@@ -1203,7 +1224,7 @@
             this.subSubCuenta_A_Z.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subSubCuenta_A_Z.Size = new System.Drawing.Size(97, 30);
             this.subSubCuenta_A_Z.StyleController = this.layoutControl3;
-            this.subSubCuenta_A_Z.TabIndex = 22;
+            this.subSubCuenta_A_Z.TabIndex = 23;
             // 
             // aplicaCentCost_A_Z
             // 
@@ -1215,7 +1236,7 @@
             this.aplicaCentCost_A_Z.Properties.Caption = "aplicaCentCost_A_Z";
             this.aplicaCentCost_A_Z.Size = new System.Drawing.Size(122, 30);
             this.aplicaCentCost_A_Z.StyleController = this.layoutControl3;
-            this.aplicaCentCost_A_Z.TabIndex = 23;
+            this.aplicaCentCost_A_Z.TabIndex = 24;
             // 
             // cuenta_C_Z
             // 
@@ -1228,7 +1249,7 @@
             this.cuenta_C_Z.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cuenta_C_Z.Size = new System.Drawing.Size(96, 30);
             this.cuenta_C_Z.StyleController = this.layoutControl3;
-            this.cuenta_C_Z.TabIndex = 24;
+            this.cuenta_C_Z.TabIndex = 25;
             // 
             // subCuenta_C_Z
             // 
@@ -1241,7 +1262,7 @@
             this.subCuenta_C_Z.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subCuenta_C_Z.Size = new System.Drawing.Size(97, 30);
             this.subCuenta_C_Z.StyleController = this.layoutControl3;
-            this.subCuenta_C_Z.TabIndex = 25;
+            this.subCuenta_C_Z.TabIndex = 26;
             // 
             // subSubCuenta_C_Z
             // 
@@ -1254,7 +1275,7 @@
             this.subSubCuenta_C_Z.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subSubCuenta_C_Z.Size = new System.Drawing.Size(97, 30);
             this.subSubCuenta_C_Z.StyleController = this.layoutControl3;
-            this.subSubCuenta_C_Z.TabIndex = 26;
+            this.subSubCuenta_C_Z.TabIndex = 27;
             // 
             // aplicaCentCost_C_Z
             // 
@@ -1266,7 +1287,7 @@
             this.aplicaCentCost_C_Z.Properties.Caption = "aplicaCentCost_C_Z";
             this.aplicaCentCost_C_Z.Size = new System.Drawing.Size(122, 30);
             this.aplicaCentCost_C_Z.StyleController = this.layoutControl3;
-            this.aplicaCentCost_C_Z.TabIndex = 27;
+            this.aplicaCentCost_C_Z.TabIndex = 28;
             // 
             // cuenta_F_Z
             // 
@@ -1279,7 +1300,7 @@
             this.cuenta_F_Z.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cuenta_F_Z.Size = new System.Drawing.Size(97, 30);
             this.cuenta_F_Z.StyleController = this.layoutControl3;
-            this.cuenta_F_Z.TabIndex = 32;
+            this.cuenta_F_Z.TabIndex = 33;
             // 
             // subCuenta_F_Z
             // 
@@ -1292,7 +1313,7 @@
             this.subCuenta_F_Z.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subCuenta_F_Z.Size = new System.Drawing.Size(98, 30);
             this.subCuenta_F_Z.StyleController = this.layoutControl3;
-            this.subCuenta_F_Z.TabIndex = 33;
+            this.subCuenta_F_Z.TabIndex = 34;
             // 
             // subSubCuenta_F_Z
             // 
@@ -1305,7 +1326,7 @@
             this.subSubCuenta_F_Z.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subSubCuenta_F_Z.Size = new System.Drawing.Size(98, 30);
             this.subSubCuenta_F_Z.StyleController = this.layoutControl3;
-            this.subSubCuenta_F_Z.TabIndex = 34;
+            this.subSubCuenta_F_Z.TabIndex = 35;
             // 
             // aplicaCentCost_F_Z
             // 
@@ -1317,7 +1338,7 @@
             this.aplicaCentCost_F_Z.Properties.Caption = "aplicaCentCost_F_Z";
             this.aplicaCentCost_F_Z.Size = new System.Drawing.Size(122, 30);
             this.aplicaCentCost_F_Z.StyleController = this.layoutControl3;
-            this.aplicaCentCost_F_Z.TabIndex = 35;
+            this.aplicaCentCost_F_Z.TabIndex = 36;
             // 
             // cuenta_D_Z
             // 
@@ -1330,7 +1351,7 @@
             this.cuenta_D_Z.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cuenta_D_Z.Size = new System.Drawing.Size(96, 30);
             this.cuenta_D_Z.StyleController = this.layoutControl3;
-            this.cuenta_D_Z.TabIndex = 28;
+            this.cuenta_D_Z.TabIndex = 29;
             // 
             // subCuenta_D_Z
             // 
@@ -1343,7 +1364,7 @@
             this.subCuenta_D_Z.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subCuenta_D_Z.Size = new System.Drawing.Size(97, 30);
             this.subCuenta_D_Z.StyleController = this.layoutControl3;
-            this.subCuenta_D_Z.TabIndex = 29;
+            this.subCuenta_D_Z.TabIndex = 30;
             // 
             // subSubCuenta_D_Z
             // 
@@ -1356,7 +1377,7 @@
             this.subSubCuenta_D_Z.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subSubCuenta_D_Z.Size = new System.Drawing.Size(97, 30);
             this.subSubCuenta_D_Z.StyleController = this.layoutControl3;
-            this.subSubCuenta_D_Z.TabIndex = 30;
+            this.subSubCuenta_D_Z.TabIndex = 31;
             // 
             // aplicaCentCost_D_Z
             // 
@@ -1368,7 +1389,7 @@
             this.aplicaCentCost_D_Z.Properties.Caption = "aplicaCentCost_D_Z";
             this.aplicaCentCost_D_Z.Size = new System.Drawing.Size(122, 30);
             this.aplicaCentCost_D_Z.StyleController = this.layoutControl3;
-            this.aplicaCentCost_D_Z.TabIndex = 31;
+            this.aplicaCentCost_D_Z.TabIndex = 32;
             // 
             // subCuenta_A_R
             // 
@@ -1381,7 +1402,7 @@
             this.subCuenta_A_R.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subCuenta_A_R.Size = new System.Drawing.Size(98, 30);
             this.subCuenta_A_R.StyleController = this.layoutControl3;
-            this.subCuenta_A_R.TabIndex = 37;
+            this.subCuenta_A_R.TabIndex = 38;
             // 
             // subSubCuenta_A_R
             // 
@@ -1394,7 +1415,7 @@
             this.subSubCuenta_A_R.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subSubCuenta_A_R.Size = new System.Drawing.Size(92, 30);
             this.subSubCuenta_A_R.StyleController = this.layoutControl3;
-            this.subSubCuenta_A_R.TabIndex = 38;
+            this.subSubCuenta_A_R.TabIndex = 39;
             // 
             // aplicaCentCost_A_R
             // 
@@ -1406,7 +1427,7 @@
             this.aplicaCentCost_A_R.Properties.Caption = "aplicaCentCost_A_R";
             this.aplicaCentCost_A_R.Size = new System.Drawing.Size(123, 30);
             this.aplicaCentCost_A_R.StyleController = this.layoutControl3;
-            this.aplicaCentCost_A_R.TabIndex = 39;
+            this.aplicaCentCost_A_R.TabIndex = 40;
             // 
             // cuenta_C_R
             // 
@@ -1419,7 +1440,7 @@
             this.cuenta_C_R.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cuenta_C_R.Size = new System.Drawing.Size(96, 30);
             this.cuenta_C_R.StyleController = this.layoutControl3;
-            this.cuenta_C_R.TabIndex = 40;
+            this.cuenta_C_R.TabIndex = 41;
             // 
             // subCuenta_C_R
             // 
@@ -1432,7 +1453,7 @@
             this.subCuenta_C_R.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subCuenta_C_R.Size = new System.Drawing.Size(98, 30);
             this.subCuenta_C_R.StyleController = this.layoutControl3;
-            this.subCuenta_C_R.TabIndex = 41;
+            this.subCuenta_C_R.TabIndex = 42;
             // 
             // subSubCuenta_C_R
             // 
@@ -1445,7 +1466,7 @@
             this.subSubCuenta_C_R.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subSubCuenta_C_R.Size = new System.Drawing.Size(92, 30);
             this.subSubCuenta_C_R.StyleController = this.layoutControl3;
-            this.subSubCuenta_C_R.TabIndex = 42;
+            this.subSubCuenta_C_R.TabIndex = 43;
             // 
             // aplicaCentCost_C_R
             // 
@@ -1457,7 +1478,7 @@
             this.aplicaCentCost_C_R.Properties.Caption = "aplicaCentCost_C_R";
             this.aplicaCentCost_C_R.Size = new System.Drawing.Size(123, 30);
             this.aplicaCentCost_C_R.StyleController = this.layoutControl3;
-            this.aplicaCentCost_C_R.TabIndex = 43;
+            this.aplicaCentCost_C_R.TabIndex = 44;
             // 
             // cuenta_F_R
             // 
@@ -1470,7 +1491,7 @@
             this.cuenta_F_R.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cuenta_F_R.Size = new System.Drawing.Size(97, 30);
             this.cuenta_F_R.StyleController = this.layoutControl3;
-            this.cuenta_F_R.TabIndex = 48;
+            this.cuenta_F_R.TabIndex = 49;
             // 
             // subCuenta_F_R
             // 
@@ -1483,7 +1504,7 @@
             this.subCuenta_F_R.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subCuenta_F_R.Size = new System.Drawing.Size(99, 30);
             this.subCuenta_F_R.StyleController = this.layoutControl3;
-            this.subCuenta_F_R.TabIndex = 49;
+            this.subCuenta_F_R.TabIndex = 50;
             // 
             // subSubCuenta_F_R
             // 
@@ -1496,7 +1517,7 @@
             this.subSubCuenta_F_R.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subSubCuenta_F_R.Size = new System.Drawing.Size(93, 30);
             this.subSubCuenta_F_R.StyleController = this.layoutControl3;
-            this.subSubCuenta_F_R.TabIndex = 50;
+            this.subSubCuenta_F_R.TabIndex = 51;
             // 
             // aplicaCentCost_D_R
             // 
@@ -1508,7 +1529,7 @@
             this.aplicaCentCost_D_R.Properties.Caption = "aplicaCentCost_D_R";
             this.aplicaCentCost_D_R.Size = new System.Drawing.Size(123, 30);
             this.aplicaCentCost_D_R.StyleController = this.layoutControl3;
-            this.aplicaCentCost_D_R.TabIndex = 47;
+            this.aplicaCentCost_D_R.TabIndex = 48;
             // 
             // cuenta_D_R
             // 
@@ -1521,7 +1542,7 @@
             this.cuenta_D_R.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cuenta_D_R.Size = new System.Drawing.Size(96, 30);
             this.cuenta_D_R.StyleController = this.layoutControl3;
-            this.cuenta_D_R.TabIndex = 44;
+            this.cuenta_D_R.TabIndex = 45;
             // 
             // subCuenta_D_R
             // 
@@ -1534,7 +1555,7 @@
             this.subCuenta_D_R.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subCuenta_D_R.Size = new System.Drawing.Size(98, 30);
             this.subCuenta_D_R.StyleController = this.layoutControl3;
-            this.subCuenta_D_R.TabIndex = 45;
+            this.subCuenta_D_R.TabIndex = 46;
             // 
             // subSubCuenta_D_R
             // 
@@ -1547,7 +1568,7 @@
             this.subSubCuenta_D_R.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subSubCuenta_D_R.Size = new System.Drawing.Size(92, 30);
             this.subSubCuenta_D_R.StyleController = this.layoutControl3;
-            this.subSubCuenta_D_R.TabIndex = 46;
+            this.subSubCuenta_D_R.TabIndex = 47;
             // 
             // aplicaCentCost_F_R
             // 
@@ -1559,7 +1580,7 @@
             this.aplicaCentCost_F_R.Properties.Caption = "aplicaCentCost_F_R";
             this.aplicaCentCost_F_R.Size = new System.Drawing.Size(123, 30);
             this.aplicaCentCost_F_R.StyleController = this.layoutControl3;
-            this.aplicaCentCost_F_R.TabIndex = 51;
+            this.aplicaCentCost_F_R.TabIndex = 52;
             // 
             // editHerramienta
             // 
@@ -1659,9 +1680,11 @@
             this.editImagen.Location = new System.Drawing.Point(124, 322);
             this.editImagen.MenuManager = this.ribbonControl1;
             this.editImagen.Name = "editImagen";
+            this.editImagen.Properties.ReadOnly = true;
+            this.editImagen.Properties.UseReadOnlyAppearance = false;
             this.editImagen.Size = new System.Drawing.Size(569, 20);
             this.editImagen.StyleController = this.layoutControl3;
-            this.editImagen.TabIndex = 52;
+            this.editImagen.TabIndex = 20;
             this.editImagen.Click += new System.EventHandler(this.editImagen_Click);
             // 
             // layoutControlGroup3
@@ -1699,7 +1722,7 @@
             this.edit,
             this.layoutControlItem16,
             this.layoutControlItem21,
-            this.imagen});
+            this.imagen2});
             this.layoutControlGroup5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup5.Name = "layoutControlGroup5";
             this.layoutControlGroup5.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
@@ -1879,13 +1902,13 @@
             this.layoutControlItem21.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem21.TextVisible = false;
             // 
-            // imagen
+            // imagen2
             // 
-            this.imagen.Control = this.editImagen;
-            this.imagen.Location = new System.Drawing.Point(0, 288);
-            this.imagen.Name = "imagen";
-            this.imagen.Size = new System.Drawing.Size(681, 24);
-            this.imagen.TextSize = new System.Drawing.Size(105, 13);
+            this.imagen2.Control = this.editImagen;
+            this.imagen2.Location = new System.Drawing.Point(0, 288);
+            this.imagen2.Name = "imagen2";
+            this.imagen2.Size = new System.Drawing.Size(681, 24);
+            this.imagen2.TextSize = new System.Drawing.Size(105, 13);
             // 
             // Contable
             // 
@@ -2362,14 +2385,6 @@
             this.layoutControlItem54.Text = "Grupo";
             this.layoutControlItem54.TextSize = new System.Drawing.Size(105, 13);
             // 
-            // img
-            // 
-            this.img.Caption = "Imagen";
-            this.img.FieldName = "imagen";
-            this.img.Name = "img";
-            this.img.Visible = true;
-            this.img.VisibleIndex = 19;
-            // 
             // CatalogoMateriales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2478,7 +2493,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.edit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imagen2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Contable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
@@ -2706,7 +2721,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn seguridadInd;
         private DevExpress.XtraGrid.Columns.GridColumn materialReferencia;
         private DevExpress.XtraEditors.TextEdit editImagen;
-        private DevExpress.XtraLayout.LayoutControlItem imagen;
-        private DevExpress.XtraGrid.Columns.GridColumn img;
+        private DevExpress.XtraLayout.LayoutControlItem imagen2;
+        private DevExpress.XtraGrid.Columns.GridColumn imagen;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
     }
 }

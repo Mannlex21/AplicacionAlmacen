@@ -53,7 +53,8 @@ namespace AplicacionAlmacen.Controlador
                 return 0;
             }
         }
-        string carpetaImagen = "\\\\172.16.0.5\\Materiales\\Principal\\";
+        //string carpetaImagen = "\\\\172.16.0.5\\Materiales\\Principal\\";
+        string carpetaImagen =@"E:\Documentos\Programacion\MatImg\Material\";
         class listaM
         {
             public string id { get; set; }
@@ -375,7 +376,6 @@ namespace AplicacionAlmacen.Controlador
                 return null;
             }
         }
-
         public String actualizar(String img, String url, String tab, String id)
         {
             eliminarImagen(img);

@@ -136,7 +136,6 @@ namespace AplicacionAlmacen.Controlador
             {
                 AlmacenEntities DB = new AlmacenEntities();
                 var Results = (from pd in DB.DetalleRequisicion
-                         //join od in DB.Materiales on pd.material equals od.idMaterial
                          orderby pd.partida
                          select new
                          {
@@ -152,10 +151,7 @@ namespace AplicacionAlmacen.Controlador
                              pd.FechaUltimaEntrada,
                              pd.descripcion,
                              existencia=(DB.Materiales.Where(s=>s.idMaterial==pd.material).FirstOrDefault().existencia==null)?pd.existencia: DB.Materiales.Where(s => s.idMaterial == pd.material).FirstOrDefault().existencia
-                             //Customer = .Name //define anonymous type Customer
                          }).Where(s => s.preRequisicion == preReq && s.departamento == dep && s.ejercicio == ejercicio).ToList();
-                
-                //var Results = DB.DetalleRequisicion.Where(s => s.preRequisicion==preReq && s.departamento==dep && s.ejercicio==ejercicio).OrderBy(s => s.preRequisicion);
                 return Results.ToList<dynamic>();
             }
             catch (SqlException odbcEx)

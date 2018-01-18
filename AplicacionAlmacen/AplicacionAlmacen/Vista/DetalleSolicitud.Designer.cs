@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace AplicacionAlmacen.Vista
 {
-    partial class DetalleSolicitud
+    partial class DetalleMaterialImg
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@ namespace AplicacionAlmacen.Vista
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetalleSolicitud));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetalleMaterialImg));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.GridControl = new DevExpress.XtraGrid.GridControl();
             this.Tabla = new DevExpress.XtraGrid.Views.Grid.GridView();

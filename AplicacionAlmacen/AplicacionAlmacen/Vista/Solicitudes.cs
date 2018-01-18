@@ -73,7 +73,7 @@ namespace AplicacionAlmacen.Vista
                     preReq = Int32.Parse(Tabla.GetRowCellValue(r, "preRequisicion").ToString());
                     dep = Int32.Parse(Tabla.GetRowCellValue(r, "departamento").ToString());
                     ejer = Int32.Parse(Tabla.GetRowCellValue(r, "ejercicio").ToString());
-                    new DetalleSolicitud().Show();
+                    new DetalleMaterialImg().Show();
                 }
             }
                 

@@ -14,10 +14,10 @@ using DevExpress.Utils;
 
 namespace AplicacionAlmacen.Vista
 {
-    public partial class DetalleSolicitud : DevExpress.XtraEditors.XtraForm
+    public partial class DetalleMaterialImg : DevExpress.XtraEditors.XtraForm
     {
         static Controlador.SolicitudesControlador s = new Controlador.SolicitudesControlador();
-        public DetalleSolicitud()
+        public DetalleMaterialImg()
         {
             InitializeComponent();
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");

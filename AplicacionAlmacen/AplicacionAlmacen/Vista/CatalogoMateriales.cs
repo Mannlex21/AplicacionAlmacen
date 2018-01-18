@@ -10,19 +10,27 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using AplicacionAlmacen.Modelo;
 using DevExpress.LookAndFeel;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.XtraGrid;
+
 namespace AplicacionAlmacen.Vista
 {
     public partial class CatalogoMateriales : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         static Controlador.MaterialesControlador s= new Controlador.MaterialesControlador();
+        public static string imgNombre;
         static int totalRecords = 1;
         static private int pageSize = 30;
+        //public static string = "\\\\172.16.0.5\\Materiales\\Principal\\";
+        public static string carpetaImagen = @"E:\Documentos\Programacion\MatImg\Material\";
         static List<Materiales> records = new List<Materiales>();
         //E=editar,N=nuevo,s=sin seleccionar
         Char tipo = 's';
         int contT = 0;
         int materialA = 0;
         string idMaterialRef="";
+
         public CatalogoMateriales()
         {
             InitializeComponent();
@@ -253,7 +261,10 @@ namespace AplicacionAlmacen.Vista
                         m.pedidoEstandar = decimal.Parse(editPedidoE.Text);
                         m.herramienta = editHerramienta.Checked;
                         m.seguridadInd = editSeguridad.Checked;
-                        m.imagen = "Material-" +idMaterial;
+                        string url =editImagen.Text.ToLower();
+
+                        String ext = (url.EndsWith(".png")) ? ".png" : ".jpg";
+                        m.imagen = "Material-" +idMaterial+ext;
 
 
                         mc.idMaterial = Int32.Parse(idMaterial);
@@ -349,7 +360,10 @@ namespace AplicacionAlmacen.Vista
                         m.pedidoEstandar = decimal.Parse(editPedidoE.Text);
                         m.herramienta = editHerramienta.Checked;
                         m.seguridadInd = editSeguridad.Checked;
-                        m.imagen = "Material-" + idMaterialRef;
+                        string url = editImagen.Text.ToLower();
+
+                        String ext = (url.EndsWith(".png")) ? ".png" : ".jpg";
+                        m.imagen = "Material-" + idMaterialRef+ext;
 
                         mc.idMaterial = materialA;
                         mc.cuenta_F_Z = Int32.Parse(cuenta_F_Z.Text);
@@ -452,7 +466,8 @@ namespace AplicacionAlmacen.Vista
             editFechaU.Text= Tabla.GetRowCellValue(r, "fechaUltimoMov").ToString();
             editHerramienta.Checked = (Tabla.GetRowCellValue(r, "herramienta").ToString().Equals("True")) ? true : false;
             editSeguridad.Checked = (Tabla.GetRowCellValue(r, "seguridadInd").ToString().Equals("True")) ? true : false;
-            
+            editImagen.Text = carpetaImagen+ Tabla.GetRowCellValue(r, "imagen").ToString();
+
             var objM=s.GetMaterialContable(materialA);
             cuenta_A_Z.Text= objM.cuenta_A_Z.ToString();
             cuenta_C_Z.Text = objM.cuenta_C_Z.ToString();
@@ -527,6 +542,13 @@ namespace AplicacionAlmacen.Vista
             {
                 editImagen.Text = abrirArchivo.FileName;
             } 
+        }
+        private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int r = Tabla.GetSelectedRows()[0];
+            imgNombre=(Tabla.GetRowCellValue(r, "imagen")==null)?"unknow.png": Tabla.GetRowCellValue(r, "imagen").ToString();
+            new DetalleMaterial().Show();
+
         }
     }
 }
