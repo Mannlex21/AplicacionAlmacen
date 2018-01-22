@@ -199,6 +199,10 @@ namespace AplicacionAlmacen.Vista
                         MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 contT = 0;
 
             }
@@ -264,6 +268,10 @@ namespace AplicacionAlmacen.Vista
                     {
                         MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 contT = 0;
             }

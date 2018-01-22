@@ -112,6 +112,7 @@
     <Compile Include="Controlador\GruposControlador.cs" />
     <Compile Include="Controlador\MaterialesControlador.cs" />
     <Compile Include="Controlador\PrincipalControlador.cs" />
+    <Compile Include="Controlador\RutasGenerales.cs" />
     <Compile Include="Controlador\SolicitudesControlador.cs" />
     <Compile Include="Controlador\SubGruposControlador.cs" />
     <Compile Include="Modelo\AdjuntoMateriales.cs">

@@ -24,10 +24,10 @@ namespace AplicacionAlmacen.Vista
         public static string imgNombre;
         static int totalRecords = 1;
         static private int pageSize = 30;
-        public static string  carpetaImagen = "\\\\172.16.0.5\\Materiales\\Principal\\";
-        string carpetaAdjunto = "\\\\172.16.0.5\\Materiales\\Adjuntos\\";
+        string  carpetaImagen = Controlador.RutasGenerales.carpetaImagen;
+        string carpetaAdjunto = Controlador.RutasGenerales.carpetaAdjunto;
         public static string directorio ="";
-        //public static string carpetaImagen = @"E:\Documentos\Programacion\MatImg\Material\";
+        
         static List<Materiales> records = new List<Materiales>();
         //E=editar,N=nuevo,s=sin seleccionar
         Char tipo = 's';
@@ -243,7 +243,6 @@ namespace AplicacionAlmacen.Vista
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            //s.crear(editImagen.Text, "Material-", "1");
             if (tipo.Equals('N'))
             {
                 CheckControls(tabPage2);
@@ -343,7 +342,11 @@ namespace AplicacionAlmacen.Vista
                     {
                         MessageBox.Show("Grupo o SubGrupo no puede ser 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    
+
+                }
+                else
+                {
+                    MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 contT = 0;
 
@@ -444,7 +447,11 @@ namespace AplicacionAlmacen.Vista
                     {
                         MessageBox.Show("Grupo o SubGrupo no puede ser 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    
+
+                }
+                else
+                {
+                    MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 contT = 0;
             }
@@ -542,7 +549,7 @@ namespace AplicacionAlmacen.Vista
 
             if (code == 1)
             {
-                s.eliminarImagen("Material-"+Tabla.GetRowCellValue(r, "materialReferencia").ToString());
+                s.eliminarImagen(Tabla.GetRowCellValue(r, "imagen").ToString());
                 string d = (Tabla.GetRowCellValue(r, "adjunto") == null) ? "" : Tabla.GetRowCellValue(r, "adjunto").ToString();
                 s.eliminarAdjuntos(d);
                 Recargar();
@@ -558,7 +565,7 @@ namespace AplicacionAlmacen.Vista
         {
             Cursor.Current = Cursors.WaitCursor;
             OpenFileDialog abrirArchivo = new OpenFileDialog();
-            abrirArchivo.Filter = "Archivos de imagen (.jpg, *.png)|.jpg;*.png";
+            abrirArchivo.Filter = "Archivos de imagen (*.JPG, *.PNG)|*.jpg;*.png";
 
             if (abrirArchivo.ShowDialog() == DialogResult.OK)
             {
@@ -606,5 +613,6 @@ namespace AplicacionAlmacen.Vista
                 editAdjunto.Text =fileN;
             }
         }
+        
     }
 }

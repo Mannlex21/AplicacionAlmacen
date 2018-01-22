@@ -13,9 +13,9 @@ namespace AplicacionAlmacen.Controlador
 {
     class MaterialesControlador
     {
-        string carpetaImagen = "\\\\172.16.0.5\\Materiales\\Principal\\";
-        string carpetaAdjunto= "\\\\172.16.0.5\\Materiales\\Adjuntos\\";
-        //string carpetaImagen = @"E:\Documentos\Programacion\MatImg\Material\";
+        string carpetaImagen = RutasGenerales.carpetaImagen;
+        string carpetaAdjunto = RutasGenerales.carpetaAdjunto;
+
         public List<Materiales> GetAllMateriales()
         {
             try { 
@@ -364,7 +364,15 @@ namespace AplicacionAlmacen.Controlador
 
         public void eliminarImagen(String img)
         {
-            File.Delete(carpetaImagen + img);
+            try
+            {
+                string dir = carpetaImagen + img;
+                File.Delete(dir);
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine(e);
+            }
         }
         public Bitmap imagen(String img)
         {
