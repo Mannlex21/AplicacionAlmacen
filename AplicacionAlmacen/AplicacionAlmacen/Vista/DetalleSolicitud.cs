@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using DevExpress.LookAndFeel;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.Utils;
+using System.Net.NetworkInformation;
 
 namespace AplicacionAlmacen.Vista
 {
@@ -24,6 +25,7 @@ namespace AplicacionAlmacen.Vista
             Solicitudes s2 = new Solicitudes();
             this.Text = "Detalle (PreRequisición: "+Solicitudes.preReq+" - Departamento: "+Solicitudes.dep+" - Ejercicio: "+Solicitudes.ejer+")";
             GridControl.DataSource = s.GetSolicitudDet(Solicitudes.preReq, Solicitudes.dep, Solicitudes.ejer);
+            NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
             Tabla.RowCellStyle += (sender, e) => {
                 GridView view = sender as GridView;
                 if (e.Column.FieldName == "cantidad")
@@ -57,7 +59,22 @@ namespace AplicacionAlmacen.Vista
 
         private void DetalleSolicitud_Load(object sender, EventArgs e)
         {
-            
+            Red();
+        }
+        private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
+        {
+            Red();
+        }
+        public void Red()
+        {
+            if (Controlador.Clases.ConexionServidor.verificarConexion())
+            {
+                GridControl.Enabled = true;
+            }
+            else
+            {
+                GridControl.Enabled = false;
+            }
         }
     }
 }

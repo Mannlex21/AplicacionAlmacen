@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using DevExpress.LookAndFeel;
 using AplicacionAlmacen.Modelo;
 using System.Runtime.InteropServices;
+using System.Net.NetworkInformation;
 
 namespace AplicacionAlmacen.Vista
 {
@@ -36,6 +37,7 @@ namespace AplicacionAlmacen.Vista
             bindingNavigator.BindingSource = bindingSource;
             bindingSource.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
+            NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
         }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e){
@@ -68,6 +70,10 @@ namespace AplicacionAlmacen.Vista
             bindingSource.CurrentChanged += new EventHandler(bindingSource1_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
         }
+        private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
+        {
+            Red();
+        }
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             Cursor.Current = Cursors.WaitCursor;
             tipo = 'N';
@@ -75,9 +81,9 @@ namespace AplicacionAlmacen.Vista
             EnableControls(tabPage3);
             ResetControls(tabPage3);
         }
-
         private void CatalogoGrupos_Load(object sender, EventArgs e){
             DisableControls(tabPage3);
+            Red();
         }
         private void DisableControls(Control con){
             foreach (Control c in con.Controls)
@@ -133,7 +139,6 @@ namespace AplicacionAlmacen.Vista
             DisableControls(tabPage3);
             tipo = 's';
         }
-
         private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             Cursor.Current = Cursors.WaitCursor;
             if (tipo.Equals('N'))
@@ -280,12 +285,10 @@ namespace AplicacionAlmacen.Vista
 
             }
         }
-
         private void textEdit23_EditValueChanged(object sender, EventArgs e)
         {
 
         }
-
         private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             Cursor.Current = Cursors.WaitCursor;
             numGpoA = 0;
@@ -395,7 +398,6 @@ namespace AplicacionAlmacen.Vista
             this.tabControl1.SelectTab(1);
             EnableControls(tabPage3);
         }
-
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             Cursor.Current = Cursors.WaitCursor;
             int r = Tabla.GetSelectedRows()[0];
@@ -420,12 +422,10 @@ namespace AplicacionAlmacen.Vista
                 MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void editApliCeFZ_CheckedChanged(object sender, EventArgs e)
         {
 
         }
-
         private void GridControl_Click(object sender, EventArgs e)
         {
 
@@ -442,7 +442,6 @@ namespace AplicacionAlmacen.Vista
                 buscarFiltro();
             }
         }
-
         private void editBusquedaDesc_KeyUp(object sender, KeyEventArgs e){
             if (e.KeyCode == Keys.Enter)
             {
@@ -462,12 +461,28 @@ namespace AplicacionAlmacen.Vista
                 Recargar();
             }
         }
-
         private void toolStripButton1_Click(object sender, EventArgs e){
             Cursor.Current = Cursors.WaitCursor;
             editBusquedaDesc.Text = "";
             editBusquedaNumG.Text = "";
             Recargar();
+        }
+        public void Red()
+        {
+            if (Controlador.Clases.ConexionServidor.verificarConexion())
+            {
+                ribbonControl1.Enabled = true;
+                tabControl1.Enabled = true;
+                textConexion.Caption = "Conectado";
+                textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                ribbonControl1.Enabled = false;
+                tabControl1.Enabled = false;
+                textConexion.Caption = "No hay conexión";
+                textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
+            }
         }
     }
 }

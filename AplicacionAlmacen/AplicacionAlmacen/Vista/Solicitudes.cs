@@ -11,6 +11,7 @@ using DevExpress.XtraBars;
 using AplicacionAlmacen.Modelo;
 using DevExpress.LookAndFeel;
 using DevExpress.XtraGrid.Views.Grid;
+using System.Net.NetworkInformation;
 
 namespace AplicacionAlmacen.Vista
 {
@@ -29,14 +30,20 @@ namespace AplicacionAlmacen.Vista
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             WindowState = FormWindowState.Maximized;
             GridControl.DataSource = s.GetSolicitudesAll(depaCombo.Text);
+            NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
             foreach (var t in d.GetDepartamentos())
             {
                 depaCombo.Items.Add(t.descripcion);
             }
+            
         }
         private void Recargar()
         {
             GridControl.DataSource = s.GetSolicitudesAll(depaCombo.Text);
+        }
+        private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
+        {
+            Red();
         }
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -150,6 +157,28 @@ namespace AplicacionAlmacen.Vista
         {
             depaCombo.SelectedItem = null;
             Recargar();
+        }
+        public void Red()
+        {
+            if (Controlador.Clases.ConexionServidor.verificarConexion())
+            {
+                tabControl1.Enabled = true;
+                ribbon.Enabled = true;
+                textConexion.Caption = "Conectado";
+                textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                tabControl1.Enabled = false;
+                ribbon.Enabled = false;
+                textConexion.Caption = "No hay conexión";
+                textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
+            }
+        }
+
+        private void Solicitudes_Load(object sender, EventArgs e)
+        {
+            Red();
         }
     }
 }

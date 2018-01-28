@@ -28,19 +28,16 @@ namespace AplicacionAlmacen
         {
             Red();
         }
-
         private void tileItem1_ItemClick(object sender, TileItemEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             new Vista.Solicitudes().Show();
         }
-
         private void tileItem4_ItemClick(object sender, TileItemEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             new Vista.CatalogoMateriales().Show();
         }
-
         private void tileItem2_ItemClick(object sender, TileItemEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -59,7 +56,7 @@ namespace AplicacionAlmacen
         private void Principal_Load(object sender, EventArgs e)
         {
             //QUITAR CUANTO NO ESTE CONECTADO EN SERVIDOR
-            //Red();
+            Red();
         }
         private void tileItem3_ItemClick(object sender, TileItemEventArgs e)
         {
@@ -69,51 +66,19 @@ namespace AplicacionAlmacen
         public void Red()
         {
             /*if (e.IsAvailable)*/
-            if (verificarConexion())
+            if (Controlador.Clases.ConexionServidor.verificarConexion())
             {
-                tileItem1.Enabled = true;
-                tileItem2.Enabled = true;
-                tileItem3.Enabled = true;
-                tileItem4.Enabled = true;
+                panel.Enabled = true;
                 lblConexion.Text = "";
             }
             else
             {
-                tileItem1.Enabled = false;
-                tileItem2.Enabled = false;
-                tileItem3.Enabled = false;
-                tileItem4.Enabled = false;
+                panel.Enabled = false;
                 lblConexion.ForeColor = System.Drawing.Color.Red;
                 lblConexion.Text = "No hay conexión";
                 lblConexion.BackColor = Color.Transparent;
             }
         }
-        public bool verificarConexion()
-        {
-            try
-            {
-                Ping myPing = new Ping();
-                String host = "172.16.0.5";
-                byte[] buffer = new byte[32];
-                int timeout = 1000;
-                PingOptions pingOptions = new PingOptions();
-                PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
-                if (reply.Status == IPStatus.Success)
-                {
-                    Console.WriteLine("Conexion exitosa");
-                    return true;
-                    // presumably online
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Conexion fallo:" + ex.Message.ToString());
-                return false;
-            }
-        }
+        
     }
 }

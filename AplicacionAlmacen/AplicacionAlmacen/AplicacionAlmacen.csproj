@@ -108,11 +108,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlador\Clases\ConexionServidor.cs" />
     <Compile Include="Controlador\DepartamentosControlador.cs" />
     <Compile Include="Controlador\GruposControlador.cs" />
     <Compile Include="Controlador\MaterialesControlador.cs" />
     <Compile Include="Controlador\PrincipalControlador.cs" />
-    <Compile Include="Controlador\RutasGenerales.cs" />
+    <Compile Include="Controlador\Clases\RutasGenerales.cs" />
     <Compile Include="Controlador\SolicitudesControlador.cs" />
     <Compile Include="Controlador\SubGruposControlador.cs" />
     <Compile Include="Modelo\AdjuntoMateriales.cs">
@@ -320,8 +321,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controlador\Clases\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

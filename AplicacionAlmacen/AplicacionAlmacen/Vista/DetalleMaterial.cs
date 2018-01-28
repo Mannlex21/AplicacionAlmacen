@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.LookAndFeel;
+using System.Net.NetworkInformation;
 
 namespace AplicacionAlmacen.Vista
 {
@@ -22,6 +23,26 @@ namespace AplicacionAlmacen.Vista
             CatalogoMateriales m = new CatalogoMateriales();
             boxImg.Image= s.imagen(CatalogoMateriales.imgNombre);
             boxImg.SizeMode = PictureBoxSizeMode.Zoom;
+            NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
+        }
+        private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
+        {
+            Red();
+        }
+        private void DetalleMaterial_Load(object sender, EventArgs e)
+        {
+            Red();
+        }
+        public void Red()
+        {
+            if (Controlador.Clases.ConexionServidor.verificarConexion())
+            {
+                boxImg.Enabled = true;
+            }
+            else
+            {
+                boxImg.Enabled = false;
+            }
         }
     }
 }

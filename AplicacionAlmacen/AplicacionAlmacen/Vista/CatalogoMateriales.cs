@@ -15,6 +15,7 @@ using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid;
 using System.Diagnostics;
 using System.IO;
+using System.Net.NetworkInformation;
 
 namespace AplicacionAlmacen.Vista
 {
@@ -44,7 +45,7 @@ namespace AplicacionAlmacen.Vista
             bindingSource.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
             editFechaU.DateTime = DateTime.Today;
-
+            NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
 
         }
         void afterLoad(object sender, EventArgs e)
@@ -87,6 +88,10 @@ namespace AplicacionAlmacen.Vista
                     pageOffsets.Add(offset);
                 return pageOffsets;
             }
+        }
+        private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
+        {
+            Red();
         }
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -185,6 +190,7 @@ namespace AplicacionAlmacen.Vista
         private void CatalogoMateriales_Load(object sender, EventArgs e)
         {
             DisableControls(tabPage2);
+            Red();
         }
         private void editBusqued_Press(object sender, KeyPressEventArgs e)
         {
@@ -613,6 +619,22 @@ namespace AplicacionAlmacen.Vista
                 editAdjunto.Text =fileN;
             }
         }
-        
+        public void Red()
+        {
+            if (Controlador.Clases.ConexionServidor.verificarConexion())
+            {
+                tabControl1.Enabled = true;
+                ribbonControl1.Enabled = true;
+                textConexion.Caption= "Conectado";
+                textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                tabControl1.Enabled = false;
+                ribbonControl1.Enabled = false;
+                textConexion.Caption = "No hay conexión";
+                textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
+            }
+        }
     }
 }

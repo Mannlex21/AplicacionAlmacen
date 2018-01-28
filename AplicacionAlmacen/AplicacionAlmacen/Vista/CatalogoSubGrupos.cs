@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.LookAndFeel;
 using AplicacionAlmacen.Modelo;
+using System.Net.NetworkInformation;
+
 namespace AplicacionAlmacen.Vista
 {
     public partial class CatalogoSubGrupos : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -30,6 +32,7 @@ namespace AplicacionAlmacen.Vista
             bindingNavigator.BindingSource = bindingSource;
             bindingSource.CurrentChanged += new System.EventHandler(bindingSource_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
+            NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
         }
         private void bindingSource_CurrentChanged(object sender, EventArgs e){
             if (bindingSource.Current is null)
@@ -58,6 +61,10 @@ namespace AplicacionAlmacen.Vista
             bindingNavigator.BindingSource = bindingSource;
             bindingSource.CurrentChanged += new EventHandler(bindingSource_CurrentChanged);
             bindingSource.DataSource = new PageOffsetList();
+        }
+        private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
+        {
+            Red();
         }
         private void btnActualizar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             Cursor.Current = Cursors.WaitCursor;
@@ -199,6 +206,7 @@ namespace AplicacionAlmacen.Vista
         }
         private void CatalogoSubGrupos_Load(object sender, EventArgs e){
             DisableControls(tabPage2);
+            Red();
         }
         private void DisableControls(Control con){
             foreach (Control c in con.Controls)
@@ -297,6 +305,23 @@ namespace AplicacionAlmacen.Vista
             else
             {
                 Recargar();
+            }
+        }
+        public void Red()
+        {
+            if (Controlador.Clases.ConexionServidor.verificarConexion())
+            {
+                ribbonControl1.Enabled = true;
+                tabControl1.Enabled = true;
+                textConexion.Caption = "Conectado";
+                textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                ribbonControl1.Enabled = false;
+                tabControl1.Enabled = false;
+                textConexion.Caption = "No hay conexión";
+                textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
             }
         }
     }

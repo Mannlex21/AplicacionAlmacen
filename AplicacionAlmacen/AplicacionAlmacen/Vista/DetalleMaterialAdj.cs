@@ -12,6 +12,7 @@ using DevExpress.LookAndFeel;
 using System.IO;
 using System.Diagnostics;
 using System.Threading;
+using System.Net.NetworkInformation;
 
 namespace AplicacionAlmacen.Vista
 {
@@ -22,6 +23,7 @@ namespace AplicacionAlmacen.Vista
             InitializeComponent();
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             List<Archivo> a = new List<Archivo>();
+            NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
             if (Directory.Exists(CatalogoMateriales.directorio))
             {
                 String[] files = Directory.GetFiles(CatalogoMateriales.directorio);
@@ -66,6 +68,10 @@ namespace AplicacionAlmacen.Vista
         {
             public string archivo { get; set; }
         }
+        private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
+        {
+            Red();
+        }
         private void GridControl_DoubleClick(object sender, EventArgs e)
         {
             try
@@ -80,10 +86,20 @@ namespace AplicacionAlmacen.Vista
             }
             
         }
-
+        public void Red()
+        {
+            if (Controlador.Clases.ConexionServidor.verificarConexion())
+            {
+                GridControl.Enabled = true;
+            }
+            else
+            {
+                GridControl.Enabled = false;
+            }
+        }
         private void DetalleMaterialAdj_Load(object sender, EventArgs e)
         {
-            
+            Red();
         }
     }
 }

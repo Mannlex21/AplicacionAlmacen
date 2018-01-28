@@ -56,10 +56,10 @@
             // 
             // GridControl
             // 
-            this.GridControl.Location = new System.Drawing.Point(12, 12);
+            this.GridControl.Location = new System.Drawing.Point(2, 2);
             this.GridControl.MainView = this.Tabla;
             this.GridControl.Name = "GridControl";
-            this.GridControl.Size = new System.Drawing.Size(506, 327);
+            this.GridControl.Size = new System.Drawing.Size(526, 347);
             this.GridControl.TabIndex = 4;
             this.GridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Tabla});
@@ -89,6 +89,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup1.Size = new System.Drawing.Size(530, 351);
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -97,7 +98,7 @@
             this.layoutControlItem1.Control = this.GridControl;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(510, 331);
+            this.layoutControlItem1.Size = new System.Drawing.Size(530, 351);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
