@@ -40,6 +40,7 @@
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
+            this.textConexion = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -72,7 +73,6 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.textConexion = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -196,6 +196,11 @@
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.barButtonItem13.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem13_ItemClick);
             // 
+            // textConexion
+            // 
+            this.textConexion.Id = 14;
+            this.textConexion.Name = "textConexion";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -297,6 +302,7 @@
             // 
             // depaCombo
             // 
+            this.depaCombo.BackColor = System.Drawing.SystemColors.MenuBar;
             this.depaCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.depaCombo.Name = "depaCombo";
             this.depaCombo.Size = new System.Drawing.Size(280, 30);
@@ -509,11 +515,6 @@
             this.barButtonItem7.Name = "barButtonItem7";
             this.barButtonItem7.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            // 
-            // textConexion
-            // 
-            this.textConexion.Id = 14;
-            this.textConexion.Name = "textConexion";
             // 
             // Solicitudes
             // 

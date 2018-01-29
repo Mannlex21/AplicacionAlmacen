@@ -361,7 +361,6 @@ namespace AplicacionAlmacen.Controlador
             }
             return "";
         }
-
         public void eliminarImagen(String img)
         {
             try

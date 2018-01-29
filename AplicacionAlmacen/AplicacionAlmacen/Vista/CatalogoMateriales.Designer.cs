@@ -90,9 +90,11 @@
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.textConexion = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.editUnidadM = new DevExpress.XtraEditors.TextEdit();
             this.editMarca = new DevExpress.XtraEditors.TextEdit();
@@ -215,8 +217,6 @@
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem54 = new DevExpress.XtraLayout.LayoutControlItem();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
-            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.textConexion = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -236,6 +236,7 @@
             this.layoutControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editDesc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editUnidadM.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editMarca.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editExistencia.Properties)).BeginInit();
@@ -356,7 +357,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem54)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -515,6 +515,7 @@
             // 
             // editBusquedaId
             // 
+            this.editBusquedaId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaId.Name = "editBusquedaId";
             this.editBusquedaId.Size = new System.Drawing.Size(100, 30);
             this.editBusquedaId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
@@ -528,6 +529,7 @@
             // 
             // editBusquedaDesc
             // 
+            this.editBusquedaDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaDesc.Name = "editBusquedaDesc";
             this.editBusquedaDesc.Size = new System.Drawing.Size(100, 30);
             this.editBusquedaDesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
@@ -541,6 +543,7 @@
             // 
             // editBusquedaMarca
             // 
+            this.editBusquedaMarca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaMarca.Name = "editBusquedaMarca";
             this.editBusquedaMarca.Size = new System.Drawing.Size(100, 30);
             this.editBusquedaMarca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
@@ -1009,6 +1012,11 @@
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.barButtonItem8.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem8_ItemClick);
             // 
+            // textConexion
+            // 
+            this.textConexion.Id = 10;
+            this.textConexion.Name = "textConexion";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -1034,6 +1042,11 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem8);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Mas";
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
             // ribbonStatusBar1
             // 
@@ -2463,16 +2476,6 @@
             this.barButtonItem9.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
-            // repositoryItemTextEdit1
-            // 
-            this.repositoryItemTextEdit1.AutoHeight = false;
-            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-            // 
-            // textConexion
-            // 
-            this.textConexion.Id = 10;
-            this.textConexion.Name = "textConexion";
-            // 
             // CatalogoMateriales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2508,6 +2511,7 @@
             this.layoutControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.editDesc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editUnidadM.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editMarca.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editExistencia.Properties)).EndInit();
@@ -2628,7 +2632,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem54)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

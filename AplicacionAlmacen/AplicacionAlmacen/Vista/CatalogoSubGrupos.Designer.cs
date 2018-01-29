@@ -37,6 +37,7 @@
             this.btnCancelar = new DevExpress.XtraBars.BarButtonItem();
             this.btnGuardar = new DevExpress.XtraBars.BarButtonItem();
             this.btnBorrar = new DevExpress.XtraBars.BarButtonItem();
+            this.textConexion = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -85,7 +86,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.textConexion = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -196,6 +196,11 @@
             this.btnBorrar.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.btnBorrar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBorrar_ItemClick);
+            // 
+            // textConexion
+            // 
+            this.textConexion.Id = 7;
+            this.textConexion.Name = "textConexion";
             // 
             // ribbonPage1
             // 
@@ -383,6 +388,7 @@
             // 
             // editBusquedaGpo
             // 
+            this.editBusquedaGpo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaGpo.Name = "editBusquedaGpo";
             this.editBusquedaGpo.Size = new System.Drawing.Size(100, 30);
             this.editBusquedaGpo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
@@ -396,6 +402,7 @@
             // 
             // editBusquedaSub
             // 
+            this.editBusquedaSub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaSub.Name = "editBusquedaSub";
             this.editBusquedaSub.Size = new System.Drawing.Size(100, 30);
             this.editBusquedaSub.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
@@ -409,6 +416,7 @@
             // 
             // editBusquedaDesc
             // 
+            this.editBusquedaDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaDesc.Name = "editBusquedaDesc";
             this.editBusquedaDesc.Size = new System.Drawing.Size(100, 30);
             this.editBusquedaDesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
@@ -652,11 +660,6 @@
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            // 
-            // textConexion
-            // 
-            this.textConexion.Id = 7;
-            this.textConexion.Name = "textConexion";
             // 
             // CatalogoSubGrupos
             // 

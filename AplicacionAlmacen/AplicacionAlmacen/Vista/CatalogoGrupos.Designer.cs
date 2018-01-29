@@ -37,6 +37,7 @@
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.btnGuardar = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.textConexion = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -249,7 +250,6 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem66 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.textConexion = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -495,6 +495,11 @@
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
+            // textConexion
+            // 
+            this.textConexion.Id = 7;
+            this.textConexion.Name = "textConexion";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -680,6 +685,7 @@
             // 
             // editBusquedaNumG
             // 
+            this.editBusquedaNumG.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaNumG.Name = "editBusquedaNumG";
             this.editBusquedaNumG.Size = new System.Drawing.Size(100, 30);
             this.editBusquedaNumG.ToolTipText = "RTASD";
@@ -694,6 +700,7 @@
             // 
             // editBusquedaDesc
             // 
+            this.editBusquedaDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaDesc.Name = "editBusquedaDesc";
             this.editBusquedaDesc.Size = new System.Drawing.Size(100, 30);
             this.editBusquedaDesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
@@ -2623,11 +2630,6 @@
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(567, 10);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // textConexion
-            // 
-            this.textConexion.Id = 7;
-            this.textConexion.Name = "textConexion";
             // 
             // CatalogoGrupos
             // 
