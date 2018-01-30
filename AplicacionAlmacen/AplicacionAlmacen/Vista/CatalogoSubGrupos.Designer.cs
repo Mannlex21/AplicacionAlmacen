@@ -86,6 +86,7 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -301,6 +302,7 @@
             this.editBusquedaSub,
             this.toolStripLabel3,
             this.editBusquedaDesc,
+            this.toolStripButton2,
             this.toolStripButton1});
             this.bindingNavigator.Location = new System.Drawing.Point(2, 2);
             this.bindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
@@ -391,8 +393,6 @@
             this.editBusquedaGpo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaGpo.Name = "editBusquedaGpo";
             this.editBusquedaGpo.Size = new System.Drawing.Size(100, 30);
-            this.editBusquedaGpo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
-            this.editBusquedaGpo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaGpo_KeyUp);
             // 
             // toolStripLabel2
             // 
@@ -405,9 +405,7 @@
             this.editBusquedaSub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaSub.Name = "editBusquedaSub";
             this.editBusquedaSub.Size = new System.Drawing.Size(100, 30);
-            this.editBusquedaSub.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
-            this.editBusquedaSub.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaSub_KeyUp);
-            // 
+             // 
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
@@ -419,8 +417,6 @@
             this.editBusquedaDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaDesc.Name = "editBusquedaDesc";
             this.editBusquedaDesc.Size = new System.Drawing.Size(100, 30);
-            this.editBusquedaDesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
-            this.editBusquedaDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaDesc_KeyUp);
             // 
             // toolStripButton1
             // 
@@ -661,6 +657,16 @@
             this.barButtonItem1.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::AplicacionAlmacen.Properties.Resources.lupa;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 27);
+            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
             // CatalogoSubGrupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -768,5 +774,6 @@
         private System.Windows.Forms.ToolStripTextBox editBusquedaDesc;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private DevExpress.XtraBars.BarStaticItem textConexion;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }

@@ -258,6 +258,7 @@ namespace AplicacionAlmacen.Vista
                 }
             }
         }
+        /*
         private void editBusquedaGpo_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -285,7 +286,7 @@ namespace AplicacionAlmacen.Vista
             {
                 e.Handled = true;
             }
-        }
+        }*/
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -298,15 +299,44 @@ namespace AplicacionAlmacen.Vista
             Cursor.Current = Cursors.WaitCursor;
             if (editBusquedaDesc.Text!= "" || editBusquedaGpo.Text != "" || editBusquedaSub.Text != "")
             {
-                var x = sg.GetSubGruposFiltros(editBusquedaGpo.Text.Equals("") ? -1 : Int32.Parse(editBusquedaGpo.Text), editBusquedaSub.Text.Equals("") ? -1 : Int32.Parse(editBusquedaSub.Text), editBusquedaDesc.Text);
-                bindingSource.DataSource = x.Count;
-                GridControlSub.DataSource = x;
+                //var e = int.TryParse(editBusquedaGpo.Text, out int n);
+                //var e2 = int.TryParse(editBusquedaSub.Text, out int y);
+                if (editBusquedaGpo.Text == "" && editBusquedaSub.Text == "")
+                {
+                    var x = sg.GetSubGruposFiltros(editBusquedaGpo.Text.Equals("") ? -1 : Int32.Parse(editBusquedaGpo.Text), editBusquedaSub.Text.Equals("") ? -1 : Int32.Parse(editBusquedaSub.Text), editBusquedaDesc.Text);
+                    bindingSource.DataSource = x.Count;
+                    GridControlSub.DataSource = x;
+                }
+                else
+                {
+                    var e = editBusquedaGpo.Text.Equals("") ? -1 : int.TryParse(editBusquedaGpo.Text, out int n)? Int32.Parse(editBusquedaGpo.Text):-2;
+                    var e2 = editBusquedaSub.Text.Equals("") ? -1 : int.TryParse(editBusquedaSub.Text, out int y) ? Int32.Parse(editBusquedaSub.Text) : -2;
+                    if(e2==-2 || e == -2)
+                    {
+                        MessageBox.Show("Grupo y SubGrupo deben ser un numero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        var x = sg.GetSubGruposFiltros(editBusquedaGpo.Text.Equals("") ? -1 : Int32.Parse(editBusquedaGpo.Text), editBusquedaSub.Text.Equals("") ? -1 : Int32.Parse(editBusquedaSub.Text), editBusquedaDesc.Text);
+                        bindingSource.DataSource = x.Count;
+                        GridControlSub.DataSource = x;
+                    }
+                    
+                }
+                
+                
             }
             else
             {
                 Recargar();
             }
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            buscarFiltro();
+        }
+
         public void Red()
         {
             if (Controlador.Clases.ConexionServidor.verificarConexion())

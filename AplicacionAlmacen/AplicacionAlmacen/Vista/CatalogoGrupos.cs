@@ -430,6 +430,7 @@ namespace AplicacionAlmacen.Vista
         {
 
         }
+        /*
         private void editBusqued_Press(object sender, KeyPressEventArgs e){
             if (e.KeyChar == '\r')
             {
@@ -447,14 +448,32 @@ namespace AplicacionAlmacen.Vista
             {
                 buscarFiltro();
             }
-        }
+        }*/
         private void buscarFiltro(){
             Cursor.Current = Cursors.WaitCursor;
             if (editBusquedaNumG.Text!= "" || editBusquedaDesc.Text != "" )
             {
-                var x= g.GetGruposFiltros(editBusquedaNumG.Text.Equals("") ? -1 : Int32.Parse(editBusquedaNumG.Text), editBusquedaDesc.Text);
-                bindingSource.DataSource = x.Count;
-                GridControl.DataSource = x;
+                var e = int.TryParse(editBusquedaNumG.Text, out int n);
+                if (editBusquedaNumG.Text==""){
+                    var x = g.GetGruposFiltros(editBusquedaNumG.Text.Equals("") ? -1 : Int32.Parse(editBusquedaNumG.Text), editBusquedaDesc.Text);
+                    bindingSource.DataSource = x.Count;
+                    GridControl.DataSource = x;
+                }
+                else
+                {
+                    if (e)
+                    {
+                        var x = g.GetGruposFiltros(editBusquedaNumG.Text.Equals("") ? -1 : Int32.Parse(editBusquedaNumG.Text), editBusquedaDesc.Text);
+                        bindingSource.DataSource = x.Count;
+                        GridControl.DataSource = x;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Id debe ser un numero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                
+                
             }
             else
             {
@@ -483,6 +502,11 @@ namespace AplicacionAlmacen.Vista
                 textConexion.Caption = "No hay conexión";
                 textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
             }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            buscarFiltro();
         }
     }
 }

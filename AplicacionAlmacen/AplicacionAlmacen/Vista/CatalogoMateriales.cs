@@ -50,6 +50,7 @@ namespace AplicacionAlmacen.Vista
         public CatalogoMateriales()
         {
             InitializeComponent();
+
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             WindowState = FormWindowState.Maximized;
             bindingNavigator.BindingSource = bindingSource;
@@ -203,7 +204,7 @@ namespace AplicacionAlmacen.Vista
             DisableControls(tabPage2);
             Red();
         }
-        private void editBusqued_Press(object sender, KeyPressEventArgs e)
+       /* private void editBusqued_Press(object sender, KeyPressEventArgs e)
         {
             
             if (e.KeyChar=='\r')
@@ -233,15 +234,32 @@ namespace AplicacionAlmacen.Vista
                 
                 buscarFiltro();
             }
-        }
+        }*/
         private void buscarFiltro()
         {
             Cursor.Current = Cursors.WaitCursor;
             if (editBusquedaId.Text!="" || editBusquedaMarca.Text!="" || editBusquedaDesc.Text!="")
             {
-                var x = s.GetMaterialesFiltros(editBusquedaId.Text.Equals("")? -1: Int32.Parse(editBusquedaId.Text), editBusquedaDesc.Text, editBusquedaMarca.Text);
-                bindingSource.DataSource = x.Count;
-                GridControl.DataSource = x;
+                var e = int.TryParse(editBusquedaId.Text, out int n); 
+                if (editBusquedaId.Text==""){
+                    var x = s.GetMaterialesFiltros(editBusquedaId.Text.Equals("") ? -1 : Int32.Parse(editBusquedaId.Text), editBusquedaDesc.Text, editBusquedaMarca.Text);
+                    bindingSource.DataSource = x.Count;
+                    GridControl.DataSource = x;
+                }
+                else{
+                    if (e)
+                    {
+                        var x = s.GetMaterialesFiltros(editBusquedaId.Text.Equals("") ? -1 : Int32.Parse(editBusquedaId.Text), editBusquedaDesc.Text, editBusquedaMarca.Text);
+                        bindingSource.DataSource = x.Count;
+                        GridControl.DataSource = x;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Id debe ser un numero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                
+                
             }
             else
             {
@@ -666,6 +684,10 @@ namespace AplicacionAlmacen.Vista
         {
             new DetalleMaterialSubGrupo(this).Show();
         }
-       
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            buscarFiltro();
+        }
     }
 }

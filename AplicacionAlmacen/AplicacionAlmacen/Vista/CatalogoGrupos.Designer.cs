@@ -60,6 +60,7 @@
             this.editBusquedaNumG = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.editBusquedaDesc = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.GridControl = new DevExpress.XtraGrid.GridControl();
             this.Tabla = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -598,6 +599,7 @@
             this.editBusquedaNumG,
             this.toolStripLabel2,
             this.editBusquedaDesc,
+            this.toolStripButton2,
             this.toolStripButton1});
             this.bindingNavigator.Location = new System.Drawing.Point(2, 2);
             this.bindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
@@ -689,8 +691,6 @@
             this.editBusquedaNumG.Name = "editBusquedaNumG";
             this.editBusquedaNumG.Size = new System.Drawing.Size(100, 30);
             this.editBusquedaNumG.ToolTipText = "RTASD";
-            this.editBusquedaNumG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
-            this.editBusquedaNumG.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaNumG_KeyUp);
             // 
             // toolStripLabel2
             // 
@@ -703,8 +703,16 @@
             this.editBusquedaDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaDesc.Name = "editBusquedaDesc";
             this.editBusquedaDesc.Size = new System.Drawing.Size(100, 30);
-            this.editBusquedaDesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBusqued_Press);
-            this.editBusquedaDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaDesc_KeyUp);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::AplicacionAlmacen.Properties.Resources.lupa;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 27);
+            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton1
             // 
@@ -1202,6 +1210,8 @@
             this.editImporte.MenuManager = this.ribbonControl1;
             this.editImporte.MinimumSize = new System.Drawing.Size(0, 30);
             this.editImporte.Name = "editImporte";
+            this.editImporte.Properties.Mask.EditMask = "f2";
+            this.editImporte.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editImporte.Size = new System.Drawing.Size(141, 30);
             this.editImporte.StyleController = this.layoutControl4;
             this.editImporte.TabIndex = 4;
@@ -1213,6 +1223,8 @@
             this.editCantidad.MenuManager = this.ribbonControl1;
             this.editCantidad.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCantidad.Name = "editCantidad";
+            this.editCantidad.Properties.Mask.EditMask = "f2";
+            this.editCantidad.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editCantidad.Size = new System.Drawing.Size(142, 30);
             this.editCantidad.StyleController = this.layoutControl4;
             this.editCantidad.TabIndex = 3;
@@ -1224,6 +1236,8 @@
             this.editSubSCuDR.MenuManager = this.ribbonControl1;
             this.editSubSCuDR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuDR.Name = "editSubSCuDR";
+            this.editSubSCuDR.Properties.Mask.EditMask = "d";
+            this.editSubSCuDR.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubSCuDR.Size = new System.Drawing.Size(69, 30);
             this.editSubSCuDR.StyleController = this.layoutControl4;
             this.editSubSCuDR.TabIndex = 31;
@@ -1235,6 +1249,8 @@
             this.editSubCuDR.MenuManager = this.ribbonControl1;
             this.editSubCuDR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuDR.Name = "editSubCuDR";
+            this.editSubCuDR.Properties.Mask.EditMask = "d";
+            this.editSubCuDR.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubCuDR.Size = new System.Drawing.Size(67, 30);
             this.editSubCuDR.StyleController = this.layoutControl4;
             this.editSubCuDR.TabIndex = 30;
@@ -1246,6 +1262,8 @@
             this.editCuDR.MenuManager = this.ribbonControl1;
             this.editCuDR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuDR.Name = "editCuDR";
+            this.editCuDR.Properties.Mask.EditMask = "d";
+            this.editCuDR.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editCuDR.Size = new System.Drawing.Size(80, 30);
             this.editCuDR.StyleController = this.layoutControl4;
             this.editCuDR.TabIndex = 29;
@@ -1257,6 +1275,8 @@
             this.editSubSCuCR.MenuManager = this.ribbonControl1;
             this.editSubSCuCR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuCR.Name = "editSubSCuCR";
+            this.editSubSCuCR.Properties.Mask.EditMask = "d";
+            this.editSubSCuCR.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubSCuCR.Size = new System.Drawing.Size(69, 30);
             this.editSubSCuCR.StyleController = this.layoutControl4;
             this.editSubSCuCR.TabIndex = 27;
@@ -1268,6 +1288,8 @@
             this.editSubCuCR.MenuManager = this.ribbonControl1;
             this.editSubCuCR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuCR.Name = "editSubCuCR";
+            this.editSubCuCR.Properties.Mask.EditMask = "d";
+            this.editSubCuCR.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubCuCR.Size = new System.Drawing.Size(67, 30);
             this.editSubCuCR.StyleController = this.layoutControl4;
             this.editSubCuCR.TabIndex = 26;
@@ -1279,6 +1301,8 @@
             this.editCuCR.MenuManager = this.ribbonControl1;
             this.editCuCR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuCR.Name = "editCuCR";
+            this.editCuCR.Properties.Mask.EditMask = "d";
+            this.editCuCR.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editCuCR.Size = new System.Drawing.Size(80, 30);
             this.editCuCR.StyleController = this.layoutControl4;
             this.editCuCR.TabIndex = 25;
@@ -1290,6 +1314,8 @@
             this.editSubSCuAR.MenuManager = this.ribbonControl1;
             this.editSubSCuAR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuAR.Name = "editSubSCuAR";
+            this.editSubSCuAR.Properties.Mask.EditMask = "d";
+            this.editSubSCuAR.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubSCuAR.Size = new System.Drawing.Size(69, 30);
             this.editSubSCuAR.StyleController = this.layoutControl4;
             this.editSubSCuAR.TabIndex = 23;
@@ -1301,6 +1327,8 @@
             this.editSubCuAR.MenuManager = this.ribbonControl1;
             this.editSubCuAR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuAR.Name = "editSubCuAR";
+            this.editSubCuAR.Properties.Mask.EditMask = "d";
+            this.editSubCuAR.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubCuAR.Size = new System.Drawing.Size(67, 30);
             this.editSubCuAR.StyleController = this.layoutControl4;
             this.editSubCuAR.TabIndex = 22;
@@ -1312,6 +1340,8 @@
             this.editCuAR.MenuManager = this.ribbonControl1;
             this.editCuAR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuAR.Name = "editCuAR";
+            this.editCuAR.Properties.Mask.EditMask = "d";
+            this.editCuAR.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editCuAR.Size = new System.Drawing.Size(80, 30);
             this.editCuAR.StyleController = this.layoutControl4;
             this.editCuAR.TabIndex = 21;
@@ -1323,6 +1353,8 @@
             this.editSubSCuFR.MenuManager = this.ribbonControl1;
             this.editSubSCuFR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuFR.Name = "editSubSCuFR";
+            this.editSubSCuFR.Properties.Mask.EditMask = "d";
+            this.editSubSCuFR.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubSCuFR.Size = new System.Drawing.Size(70, 30);
             this.editSubSCuFR.StyleController = this.layoutControl4;
             this.editSubSCuFR.TabIndex = 35;
@@ -1334,6 +1366,8 @@
             this.editSubCuFR.MenuManager = this.ribbonControl1;
             this.editSubCuFR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuFR.Name = "editSubCuFR";
+            this.editSubCuFR.Properties.Mask.EditMask = "d";
+            this.editSubCuFR.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubCuFR.Size = new System.Drawing.Size(68, 30);
             this.editSubCuFR.StyleController = this.layoutControl4;
             this.editSubCuFR.TabIndex = 34;
@@ -1345,6 +1379,8 @@
             this.editCuFR.MenuManager = this.ribbonControl1;
             this.editCuFR.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuFR.Name = "editCuFR";
+            this.editCuFR.Properties.Mask.EditMask = "d";
+            this.editCuFR.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editCuFR.Size = new System.Drawing.Size(81, 30);
             this.editCuFR.StyleController = this.layoutControl4;
             this.editCuFR.TabIndex = 33;
@@ -1356,6 +1392,8 @@
             this.editSubSCuDZ.MenuManager = this.ribbonControl1;
             this.editSubSCuDZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuDZ.Name = "editSubSCuDZ";
+            this.editSubSCuDZ.Properties.Mask.EditMask = "d";
+            this.editSubSCuDZ.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubSCuDZ.Size = new System.Drawing.Size(71, 30);
             this.editSubSCuDZ.StyleController = this.layoutControl4;
             this.editSubSCuDZ.TabIndex = 19;
@@ -1367,6 +1405,8 @@
             this.editSubCuDZ.MenuManager = this.ribbonControl1;
             this.editSubCuDZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuDZ.Name = "editSubCuDZ";
+            this.editSubCuDZ.Properties.Mask.EditMask = "d";
+            this.editSubCuDZ.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubCuDZ.Size = new System.Drawing.Size(67, 30);
             this.editSubCuDZ.StyleController = this.layoutControl4;
             this.editSubCuDZ.TabIndex = 18;
@@ -1378,6 +1418,8 @@
             this.editCuDZ.MenuManager = this.ribbonControl1;
             this.editCuDZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuDZ.Name = "editCuDZ";
+            this.editCuDZ.Properties.Mask.EditMask = "d";
+            this.editCuDZ.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editCuDZ.Size = new System.Drawing.Size(82, 30);
             this.editCuDZ.StyleController = this.layoutControl4;
             this.editCuDZ.TabIndex = 17;
@@ -1389,6 +1431,8 @@
             this.editSubCuCZ.MenuManager = this.ribbonControl1;
             this.editSubCuCZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuCZ.Name = "editSubCuCZ";
+            this.editSubCuCZ.Properties.Mask.EditMask = "d";
+            this.editSubCuCZ.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubCuCZ.Size = new System.Drawing.Size(67, 30);
             this.editSubCuCZ.StyleController = this.layoutControl4;
             this.editSubCuCZ.TabIndex = 10;
@@ -1400,6 +1444,8 @@
             this.editSubSCuCZ.MenuManager = this.ribbonControl1;
             this.editSubSCuCZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuCZ.Name = "editSubSCuCZ";
+            this.editSubSCuCZ.Properties.Mask.EditMask = "d";
+            this.editSubSCuCZ.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubSCuCZ.Size = new System.Drawing.Size(71, 30);
             this.editSubSCuCZ.StyleController = this.layoutControl4;
             this.editSubSCuCZ.TabIndex = 11;
@@ -1411,6 +1457,8 @@
             this.editCuCZ.MenuManager = this.ribbonControl1;
             this.editCuCZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuCZ.Name = "editCuCZ";
+            this.editCuCZ.Properties.Mask.EditMask = "d";
+            this.editCuCZ.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editCuCZ.Size = new System.Drawing.Size(82, 30);
             this.editCuCZ.StyleController = this.layoutControl4;
             this.editCuCZ.TabIndex = 9;
@@ -1422,6 +1470,8 @@
             this.editSubSCuAZ.MenuManager = this.ribbonControl1;
             this.editSubSCuAZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuAZ.Name = "editSubSCuAZ";
+            this.editSubSCuAZ.Properties.Mask.EditMask = "d";
+            this.editSubSCuAZ.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubSCuAZ.Size = new System.Drawing.Size(71, 30);
             this.editSubSCuAZ.StyleController = this.layoutControl4;
             this.editSubSCuAZ.TabIndex = 7;
@@ -1433,6 +1483,8 @@
             this.editSubCuAZ.MenuManager = this.ribbonControl1;
             this.editSubCuAZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuAZ.Name = "editSubCuAZ";
+            this.editSubCuAZ.Properties.Mask.EditMask = "d";
+            this.editSubCuAZ.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubCuAZ.Size = new System.Drawing.Size(67, 30);
             this.editSubCuAZ.StyleController = this.layoutControl4;
             this.editSubCuAZ.TabIndex = 6;
@@ -1444,6 +1496,8 @@
             this.editCuAZ.MenuManager = this.ribbonControl1;
             this.editCuAZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuAZ.Name = "editCuAZ";
+            this.editCuAZ.Properties.Mask.EditMask = "d";
+            this.editCuAZ.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editCuAZ.Size = new System.Drawing.Size(82, 30);
             this.editCuAZ.StyleController = this.layoutControl4;
             this.editCuAZ.TabIndex = 5;
@@ -1456,6 +1510,7 @@
             this.editDescripcion.MinimumSize = new System.Drawing.Size(0, 40);
             this.editDescripcion.Name = "editDescripcion";
             this.editDescripcion.Properties.LinesCount = 2;
+            this.editDescripcion.Properties.MaxLength = 60;
             this.editDescripcion.Size = new System.Drawing.Size(538, 40);
             this.editDescripcion.StyleController = this.layoutControl4;
             this.editDescripcion.TabIndex = 0;
@@ -1572,6 +1627,8 @@
             this.editCuFZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editCuFZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editCuFZ.Name = "editCuFZ";
+            this.editCuFZ.Properties.Mask.EditMask = "d";
+            this.editCuFZ.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editCuFZ.Size = new System.Drawing.Size(83, 30);
             this.editCuFZ.StyleController = this.layoutControl4;
             this.editCuFZ.TabIndex = 13;
@@ -1582,6 +1639,8 @@
             this.editSubCuFZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubCuFZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubCuFZ.Name = "editSubCuFZ";
+            this.editSubCuFZ.Properties.Mask.EditMask = "d";
+            this.editSubCuFZ.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubCuFZ.Size = new System.Drawing.Size(68, 30);
             this.editSubCuFZ.StyleController = this.layoutControl4;
             this.editSubCuFZ.TabIndex = 14;
@@ -1592,6 +1651,8 @@
             this.editSubSCuFZ.MaximumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuFZ.MinimumSize = new System.Drawing.Size(0, 30);
             this.editSubSCuFZ.Name = "editSubSCuFZ";
+            this.editSubSCuFZ.Properties.Mask.EditMask = "d";
+            this.editSubSCuFZ.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSubSCuFZ.Size = new System.Drawing.Size(72, 30);
             this.editSubSCuFZ.StyleController = this.layoutControl4;
             this.editSubSCuFZ.TabIndex = 15;
@@ -3036,5 +3097,6 @@
         private System.Windows.Forms.ToolStripTextBox editBusquedaDesc;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private DevExpress.XtraBars.BarStaticItem textConexion;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }
