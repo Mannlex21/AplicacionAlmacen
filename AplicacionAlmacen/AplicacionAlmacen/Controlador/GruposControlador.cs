@@ -23,7 +23,25 @@ namespace AplicacionAlmacen.Controlador
                 var error = odbcEx;
                 return null;
             }
-}
+        }
+        public List<GrupoLite> GetAllGruposLigero()
+        {
+            try
+            {
+                using (var bd = new AlmacenEntities())
+                {
+                    var query = bd.GpoMateriales.Select(store => new GrupoLite { numGpo = store.numGpo, descripcion = store.descripcion });
+
+                    //var list = bd.GpoMateriales.Select(store => new GpoMateriales { numGpo = store.numGpo, descripcion= store.descripcion});
+                    return query.ToList();
+                }
+            }
+            catch (SqlException odbcEx)
+            {
+                var error = odbcEx;
+                return null;
+            }
+        }
         public List<GpoMateriales> GetGrupos(int page, int pageSize)
         {
             try { 
@@ -323,6 +341,12 @@ namespace AplicacionAlmacen.Controlador
                 return result;
             }
 
+        }
+        public class GrupoLite
+        {
+            public int numGpo { get; set; }
+            public string descripcion { get; set; }
+            // Other field you may need from the Product entity
         }
     }
 }
