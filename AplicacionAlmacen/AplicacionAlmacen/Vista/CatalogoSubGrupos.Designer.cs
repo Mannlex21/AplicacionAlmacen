@@ -669,6 +669,7 @@
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CatalogoSubGrupos";
             this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.ribbonStatusBar1;

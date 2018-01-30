@@ -75,6 +75,7 @@
     <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraWizard.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -205,6 +206,18 @@
     <Compile Include="Vista\DetalleMaterialAdj.Designer.cs">
       <DependentUpon>DetalleMaterialAdj.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\DetalleMaterialGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\DetalleMaterialGrupo.Designer.cs">
+      <DependentUpon>DetalleMaterialGrupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\DetalleMaterialSubGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\DetalleMaterialSubGrupo.Designer.cs">
+      <DependentUpon>DetalleMaterialSubGrupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\DetalleSolicitud.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +253,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\DetalleMaterialAdj.resx">
       <DependentUpon>DetalleMaterialAdj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\DetalleMaterialGrupo.resx">
+      <DependentUpon>DetalleMaterialGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\DetalleMaterialSubGrupo.resx">
+      <DependentUpon>DetalleMaterialSubGrupo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\DetalleSolicitud.resx">
       <DependentUpon>DetalleSolicitud.cs</DependentUpon>

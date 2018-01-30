@@ -23,10 +23,21 @@ namespace AplicacionAlmacen.Vista
     {
         static Controlador.MaterialesControlador s= new Controlador.MaterialesControlador();
         public static string imgNombre;
+        public string textGrupo;
+        public string textSubGrupo;
         static int totalRecords = 1;
         static private int pageSize = 30;
         string  carpetaImagen = Controlador.RutasGenerales.carpetaImagen;
         string carpetaAdjunto = Controlador.RutasGenerales.carpetaAdjunto;
+
+        internal void setTextGrupo()
+        {
+            editGrupo.Text = textGrupo;
+        }
+        internal void setTextSubGrupo()
+        {
+            editSubGrupo.Text = textSubGrupo;
+        }
         public static string directorio ="";
         
         static List<Materiales> records = new List<Materiales>();
@@ -636,5 +647,25 @@ namespace AplicacionAlmacen.Vista
                 textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
             }
         }
+
+        private void editGrupo_Click(object sender, EventArgs e)
+        {
+            getGrupo();
+        }
+
+        private void editSubGrupo_Click(object sender, EventArgs e)
+        {
+            getSubGrupo();
+        }
+        private void getGrupo()
+        {
+            new DetalleMaterialGrupo(this).Show();
+        }
+
+        private void getSubGrupo()
+        {
+            new DetalleMaterialSubGrupo(this).Show();
+        }
+       
     }
 }
