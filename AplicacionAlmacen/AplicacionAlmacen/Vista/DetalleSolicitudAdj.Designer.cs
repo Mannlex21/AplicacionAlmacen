@@ -1,6 +1,6 @@
 ﻿namespace AplicacionAlmacen.Vista
 {
-    partial class DetalleMaterialAdj
+    partial class DetalleSolicitudAdj
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetalleMaterialAdj));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetalleSolicitudAdj));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.GridControl = new DevExpress.XtraGrid.GridControl();
             this.Tabla = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.archivo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.dir = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridControl)).BeginInit();
@@ -68,10 +69,12 @@
             // Tabla
             // 
             this.Tabla.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.archivo});
+            this.archivo,
+            this.dir});
             this.Tabla.GridControl = this.GridControl;
             this.Tabla.Name = "Tabla";
             this.Tabla.OptionsBehavior.Editable = false;
+            this.Tabla.OptionsBehavior.ReadOnly = true;
             this.Tabla.OptionsView.ShowGroupPanel = false;
             // 
             // archivo
@@ -81,6 +84,7 @@
             this.archivo.Name = "archivo";
             this.archivo.Visible = true;
             this.archivo.VisibleIndex = 0;
+            this.archivo.Width = 359;
             // 
             // layoutControlGroup1
             // 
@@ -102,17 +106,22 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // DetalleMaterialAdj
+            // dir
+            // 
+            this.dir.Caption = "dir";
+            this.dir.FieldName = "dir";
+            this.dir.Name = "dir";
+            // 
+            // DetalleSolicitudAdj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 311);
             this.Controls.Add(this.layoutControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "DetalleMaterialAdj";
+            this.Name = "DetalleSolicitudAdj";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adjuntos";
-            this.Load += new System.EventHandler(this.DetalleMaterialAdj_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridControl)).EndInit();
@@ -131,5 +140,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView Tabla;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraGrid.Columns.GridColumn archivo;
+        private DevExpress.XtraGrid.Columns.GridColumn dir;
     }
 }

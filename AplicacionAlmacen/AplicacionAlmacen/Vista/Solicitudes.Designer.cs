@@ -41,6 +41,7 @@
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             this.textConexion = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -66,6 +67,7 @@
             this.fechaRequisicion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.fechaRecepcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.fechaNecesitar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.anexo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -107,9 +109,10 @@
             this.barButtonItem8,
             this.barButtonItem12,
             this.barButtonItem13,
-            this.textConexion});
+            this.textConexion,
+            this.barButtonItem9});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 15;
+            this.ribbon.MaxItemId = 16;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -201,6 +204,16 @@
             this.textConexion.Id = 14;
             this.textConexion.Name = "textConexion";
             // 
+            // barButtonItem9
+            // 
+            this.barButtonItem9.Caption = "Adjuntos";
+            this.barButtonItem9.Id = 15;
+            this.barButtonItem9.ImageOptions.Image = global::AplicacionAlmacen.Properties.Resources.attachment;
+            this.barButtonItem9.Name = "barButtonItem9";
+            this.barButtonItem9.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barButtonItem9.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -213,6 +226,7 @@
             this.ribbonPageGroup1.AllowTextClipping = false;
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem12);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem13);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem9);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
@@ -343,7 +357,8 @@
             this.solicitante,
             this.fechaRequisicion,
             this.fechaRecepcion,
-            this.fechaNecesitar});
+            this.fechaNecesitar,
+            this.anexo});
             this.Tabla.GridControl = this.GridControl;
             this.Tabla.Name = "Tabla";
             this.Tabla.OptionsBehavior.Editable = false;
@@ -440,7 +455,7 @@
             this.fechaRecepcion.FieldName = "fechaRecepcion";
             this.fechaRecepcion.Name = "fechaRecepcion";
             this.fechaRecepcion.Visible = true;
-            this.fechaRecepcion.VisibleIndex = 11;
+            this.fechaRecepcion.VisibleIndex = 12;
             this.fechaRecepcion.Width = 108;
             // 
             // fechaNecesitar
@@ -451,6 +466,14 @@
             this.fechaNecesitar.Visible = true;
             this.fechaNecesitar.VisibleIndex = 10;
             this.fechaNecesitar.Width = 105;
+            // 
+            // anexo
+            // 
+            this.anexo.Caption = "Anexo";
+            this.anexo.FieldName = "anexo";
+            this.anexo.Name = "anexo";
+            this.anexo.Visible = true;
+            this.anexo.VisibleIndex = 11;
             // 
             // gridView1
             // 
@@ -527,6 +550,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Solicitudes";
             this.Ribbon = this.ribbon;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Solicitudes";
             this.Load += new System.EventHandler(this.Solicitudes_Load);
@@ -599,5 +623,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private DevExpress.XtraBars.BarStaticItem textConexion;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
+        private DevExpress.XtraGrid.Columns.GridColumn anexo;
     }
 }

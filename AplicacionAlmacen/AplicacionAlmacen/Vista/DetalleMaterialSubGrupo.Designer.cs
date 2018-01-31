@@ -77,7 +77,6 @@
             this.Tabla.Name = "Tabla";
             this.Tabla.OptionsBehavior.Editable = false;
             this.Tabla.OptionsBehavior.ReadOnly = true;
-            this.Tabla.OptionsView.ColumnAutoWidth = false;
             this.Tabla.OptionsView.ShowGroupPanel = false;
             // 
             // grupo
@@ -136,7 +135,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DetalleMaterialSubGrupo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DetalleMaterialSubGrupo";
+            this.Text = "SubGrupo";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridControl)).EndInit();

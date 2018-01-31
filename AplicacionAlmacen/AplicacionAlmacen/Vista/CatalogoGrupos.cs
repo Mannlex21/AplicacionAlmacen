@@ -146,6 +146,7 @@ namespace AplicacionAlmacen.Vista
                 CheckControls(tabPage3);
                 if (contT == 0)
                 {
+                    vaciarCamposBusq();
                     GpoMateriales s = new GpoMateriales();
                     s.numGpo =Int16.Parse(editNumeroG.Text);
                     s.descripcion = editDescripcion.Text;
@@ -216,6 +217,7 @@ namespace AplicacionAlmacen.Vista
                 CheckControls(tabPage3);
                 if (contT == 0)
                 {
+                    vaciarCamposBusq();
                     GpoMateriales s = new GpoMateriales();
                     s.numGpo = Int16.Parse(editNumeroG.Text);
                     s.descripcion = editDescripcion.Text;
@@ -400,6 +402,7 @@ namespace AplicacionAlmacen.Vista
         }
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
             Cursor.Current = Cursors.WaitCursor;
+            
             int r = Tabla.GetSelectedRows()[0];
             GpoMateriales s = new GpoMateriales();
             s.numGpo = Int16.Parse(Tabla.GetRowCellValue(r, "numGpo").ToString());
@@ -413,6 +416,7 @@ namespace AplicacionAlmacen.Vista
 
             if (code == 1)
             {
+                vaciarCamposBusq();
                 Recargar();
                 MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
 
@@ -430,13 +434,6 @@ namespace AplicacionAlmacen.Vista
         {
 
         }
-        /*
-        private void editBusqued_Press(object sender, KeyPressEventArgs e){
-            if (e.KeyChar == '\r')
-            {
-                e.Handled = true;
-            }
-        }
         private void editBusquedaNumG_KeyUp(object sender, KeyEventArgs e){
             if (e.KeyCode == Keys.Enter)
             {
@@ -448,7 +445,7 @@ namespace AplicacionAlmacen.Vista
             {
                 buscarFiltro();
             }
-        }*/
+        }
         private void buscarFiltro(){
             Cursor.Current = Cursors.WaitCursor;
             if (editBusquedaNumG.Text!= "" || editBusquedaDesc.Text != "" )
@@ -503,10 +500,21 @@ namespace AplicacionAlmacen.Vista
                 textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
             }
         }
-
+        public void vaciarCamposBusq()
+        {
+            editBusquedaDesc.Text = "";
+            editBusquedaNumG.Text = "";
+        }
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             buscarFiltro();
+        }
+        private void sonidoEnter_Press(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

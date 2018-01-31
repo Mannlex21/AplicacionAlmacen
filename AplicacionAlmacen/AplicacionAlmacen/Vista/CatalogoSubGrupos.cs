@@ -90,6 +90,7 @@ namespace AplicacionAlmacen.Vista
                 CheckControls(tabPage2);
                 if (contT == 0)
                 {
+                    vaciarCamposBusq();
                     SubGrupos s = new SubGrupos();
                     s.descripcion = editDescripcion.Text;
                     s.grupo = Int16.Parse(editGrupo.Text);
@@ -126,6 +127,7 @@ namespace AplicacionAlmacen.Vista
                 CheckControls(tabPage2);
                 if (contT == 0)
                 {
+                    vaciarCamposBusq();
                     SubGrupos s = new SubGrupos();
                     s.descripcion = editDescripcion.Text;
                     s.grupo = Int16.Parse(editGrupo.Text);
@@ -179,6 +181,7 @@ namespace AplicacionAlmacen.Vista
 
             if (code == 1)
             {
+                vaciarCamposBusq();
                 Recargar();
                 MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
 
@@ -258,7 +261,7 @@ namespace AplicacionAlmacen.Vista
                 }
             }
         }
-        /*
+        
         private void editBusquedaGpo_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -280,13 +283,13 @@ namespace AplicacionAlmacen.Vista
                 buscarFiltro();
             }
         }
-        private void editBusqued_Press(object sender, KeyPressEventArgs e)
+        private void sonidoEnter_Press(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '\r')
             {
                 e.Handled = true;
             }
-        }*/
+        }
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -331,10 +334,20 @@ namespace AplicacionAlmacen.Vista
                 Recargar();
             }
         }
-
+        public void vaciarCamposBusq()
+        {
+            editBusquedaDesc.Text = "";
+            editBusquedaGpo.Text = "";
+            editBusquedaSub.Text = "";
+        }
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             buscarFiltro();
+        }
+
+        private void editBusquedaGpo_Click(object sender, EventArgs e)
+        {
+
         }
 
         public void Red()

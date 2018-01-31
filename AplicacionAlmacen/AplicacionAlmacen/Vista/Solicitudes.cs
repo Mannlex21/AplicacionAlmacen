@@ -17,6 +17,8 @@ namespace AplicacionAlmacen.Vista
 {
     public partial class Solicitudes : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        string carpetaAdjunto = Controlador.RutasGenerales.carpetaAdjuntoSoli;
+        public static string directorio = "";
         public static int preReq;
         public static int dep;
         public static int ejer;
@@ -179,6 +181,36 @@ namespace AplicacionAlmacen.Vista
         private void Solicitudes_Load(object sender, EventArgs e)
         {
             Red();
+        }
+
+        private void barButtonItem9_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (Tabla.GetSelectedRows().Length == 0)
+                {
+                    MessageBox.Show("Se debe seleccionar al menos una solicitud", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+                    foreach (int i in Tabla.GetSelectedRows())
+                    {
+                        int r = i;
+                        preReq = Int32.Parse(Tabla.GetRowCellValue(r, "preRequisicion").ToString());
+                        dep = Int32.Parse(Tabla.GetRowCellValue(r, "departamento").ToString());
+                        ejer = Int32.Parse(Tabla.GetRowCellValue(r, "ejercicio").ToString());
+                        string dir = carpetaAdjunto + Tabla.GetRowCellValue(r, "anexo").ToString();
+                        directorio = (dir == null || dir == "") ? "" : dir;
+                        new DetalleSolicitudAdj().Show();
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("The process failed: {0}", ex.ToString());
+            }
         }
     }
 }

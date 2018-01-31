@@ -50,6 +50,7 @@
             this.editBusquedaDesc = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.editBusquedaMarca = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.GridControl = new DevExpress.XtraGrid.GridControl();
             this.Tabla = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -217,7 +218,6 @@
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem54 = new DevExpress.XtraLayout.LayoutControlItem();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -520,6 +520,8 @@
             this.editBusquedaId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaId.Name = "editBusquedaId";
             this.editBusquedaId.Size = new System.Drawing.Size(100, 30);
+            this.editBusquedaId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sonidoEnter_Press);
+            this.editBusquedaId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaId_KeyUp);
             // 
             // toolStripLabel2
             // 
@@ -532,6 +534,8 @@
             this.editBusquedaDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaDesc.Name = "editBusquedaDesc";
             this.editBusquedaDesc.Size = new System.Drawing.Size(100, 30);
+            this.editBusquedaDesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sonidoEnter_Press);
+            this.editBusquedaDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaDesc_KeyUp);
             // 
             // toolStripLabel3
             // 
@@ -544,6 +548,18 @@
             this.editBusquedaMarca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaMarca.Name = "editBusquedaMarca";
             this.editBusquedaMarca.Size = new System.Drawing.Size(100, 30);
+            this.editBusquedaMarca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sonidoEnter_Press);
+            this.editBusquedaMarca.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaMarca_KeyUp);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::AplicacionAlmacen.Properties.Resources.if_search_143825;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 27);
+            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton1
             // 
@@ -2533,16 +2549,6 @@
             this.barButtonItem9.Name = "barButtonItem9";
             this.barButtonItem9.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::AplicacionAlmacen.Properties.Resources.lupa;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 27);
-            this.toolStripButton2.Text = "toolStripButton2";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // CatalogoMateriales
             // 

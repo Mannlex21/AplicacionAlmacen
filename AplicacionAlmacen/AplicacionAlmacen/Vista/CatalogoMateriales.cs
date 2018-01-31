@@ -204,14 +204,7 @@ namespace AplicacionAlmacen.Vista
             DisableControls(tabPage2);
             Red();
         }
-       /* private void editBusqued_Press(object sender, KeyPressEventArgs e)
-        {
-            
-            if (e.KeyChar=='\r')
-            {
-                e.Handled = true;
-            }
-        }
+       
         private void editBusquedaId_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -234,7 +227,7 @@ namespace AplicacionAlmacen.Vista
                 
                 buscarFiltro();
             }
-        }*/
+        }
         private void buscarFiltro()
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -285,6 +278,7 @@ namespace AplicacionAlmacen.Vista
                 {
                     if (Int32.Parse(editGrupo.Text)!=0 && Int32.Parse(editSubGrupo.Text) != 0)
                     {
+                        vaciarCamposBusq();
                         Materiales m = new Materiales();
                         MaterialesContable mc = new MaterialesContable();
                         var idMaterial = s.getDig(editGrupo.Text, editSubGrupo.Text);
@@ -393,6 +387,7 @@ namespace AplicacionAlmacen.Vista
                 {
                     if (Int32.Parse(editGrupo.Text) != 0 && Int32.Parse(editSubGrupo.Text) != 0)
                     {
+                        vaciarCamposBusq();
                         Materiales m = new Materiales();
                         MaterialesContable mc = new MaterialesContable();
                         m.idMaterial = materialA;
@@ -571,6 +566,7 @@ namespace AplicacionAlmacen.Vista
         }
         private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            
             Cursor.Current = Cursors.WaitCursor;
             int r = Tabla.GetSelectedRows()[0];
             int idMaterial= Int32.Parse(Tabla.GetRowCellValue(r, "idMaterial").ToString());
@@ -584,6 +580,7 @@ namespace AplicacionAlmacen.Vista
 
             if (code == 1)
             {
+                vaciarCamposBusq();
                 s.eliminarImagen(Tabla.GetRowCellValue(r, "imagen").ToString());
                 string d = (Tabla.GetRowCellValue(r, "adjunto") == null) ? "" : Tabla.GetRowCellValue(r, "adjunto").ToString();
                 s.eliminarAdjuntos(d);
@@ -665,12 +662,23 @@ namespace AplicacionAlmacen.Vista
                 textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
             }
         }
-
+        public void vaciarCamposBusq()
+        {
+            editBusquedaDesc.Text = "";
+            editBusquedaId.Text = "";
+            editBusquedaMarca.Text = "";
+        }
         private void editGrupo_Click(object sender, EventArgs e)
         {
             getGrupo();
         }
-
+        private void sonidoEnter_Press(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                e.Handled = true;
+            }
+        }
         private void editSubGrupo_Click(object sender, EventArgs e)
         {
             getSubGrupo();

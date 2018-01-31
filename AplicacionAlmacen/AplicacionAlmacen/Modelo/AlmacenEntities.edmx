@@ -214,6 +214,7 @@
           <Property Name="liberaCapitalHumano" Type="bit" />
           <Property Name="liberaElectrico" Type="bit" />
           <Property Name="liberaAlmacen" Type="bit" />
+          <Property Name="anexo" Type="nchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="SubGrupos">
           <Key>
@@ -619,6 +620,7 @@
           <NavigationProperty Name="Departamentos" Relationship="bdAdquisicionMaterialModel.FK_SolicitudRequisiciones_Departamento" FromRole="Solicitud_Requisiciones" ToRole="Departamentos" />
           <NavigationProperty Name="DetalleRequisicion2" Relationship="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Solicitud" FromRole="Solicitud_Requisiciones" ToRole="DetalleRequisicion2" />
           <NavigationProperty Name="DetalleRequisicion" Relationship="bdAdquisicionMaterialModel.FK_DetalleRequisicion_Solicitud2" FromRole="Solicitud_Requisiciones" ToRole="DetalleRequisicion" />
+          <Property Name="anexo" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="SubGrupos">
           <Key>
@@ -948,6 +950,7 @@
           <EntitySetMapping Name="Solicitud_Requisiciones">
             <EntityTypeMapping TypeName="bdAdquisicionMaterialModel.Solicitud_Requisiciones">
               <MappingFragment StoreEntitySet="Solicitud_Requisiciones">
+                <ScalarProperty Name="anexo" ColumnName="anexo" />
                 <ScalarProperty Name="liberaAlmacen" ColumnName="liberaAlmacen" />
                 <ScalarProperty Name="liberaElectrico" ColumnName="liberaElectrico" />
                 <ScalarProperty Name="liberaCapitalHumano" ColumnName="liberaCapitalHumano" />

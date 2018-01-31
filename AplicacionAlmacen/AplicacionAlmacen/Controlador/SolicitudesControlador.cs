@@ -90,16 +90,16 @@ namespace AplicacionAlmacen.Controlador
                 {
                     var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
                         && s.liberaElectrico == true && s.liberaSeguridad == true && s.liberaAlmacen == false && s.requisicion == "n/a")
-                        .OrderBy(s => s.preRequisicion);
-                    return Results.ToList();
+                        .OrderBy(s => s.preRequisicion).ToList();
+                    return Results;
                 }
                 else
                 {
                     var dep = DB.Departamentos.Where(s => s.descripcion == depa).FirstOrDefault();
                     var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
                         && s.liberaElectrico == true && s.liberaSeguridad == true && s.liberaAlmacen == false && s.requisicion == "n/a" && s.departamento == dep.idDepartamento)
-                        .OrderBy(s => s.preRequisicion);
-                    return Results.ToList();
+                        .OrderBy(s => s.preRequisicion).ToList();
+                    return Results;
                 }
             }
             catch (SqlException odbcEx)

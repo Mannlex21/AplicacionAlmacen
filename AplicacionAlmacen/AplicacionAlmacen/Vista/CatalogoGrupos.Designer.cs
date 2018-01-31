@@ -691,6 +691,8 @@
             this.editBusquedaNumG.Name = "editBusquedaNumG";
             this.editBusquedaNumG.Size = new System.Drawing.Size(100, 30);
             this.editBusquedaNumG.ToolTipText = "RTASD";
+            this.editBusquedaNumG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sonidoEnter_Press);
+            this.editBusquedaNumG.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaNumG_KeyUp);
             // 
             // toolStripLabel2
             // 
@@ -703,11 +705,13 @@
             this.editBusquedaDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editBusquedaDesc.Name = "editBusquedaDesc";
             this.editBusquedaDesc.Size = new System.Drawing.Size(100, 30);
+            this.editBusquedaDesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sonidoEnter_Press);
+            this.editBusquedaDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editBusquedaDesc_KeyUp);
             // 
             // toolStripButton2
             // 
             this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::AplicacionAlmacen.Properties.Resources.lupa;
+            this.toolStripButton2.Image = global::AplicacionAlmacen.Properties.Resources.if_search_143825;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(23, 27);

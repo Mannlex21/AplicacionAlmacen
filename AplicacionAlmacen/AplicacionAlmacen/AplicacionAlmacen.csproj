@@ -39,6 +39,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <IntermediateOutputPath>C:\Users\MANNLE~1\AppData\Local\Temp\vs5C02.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,6 +49,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <IntermediateOutputPath>C:\Users\MANNLE~1\AppData\Local\Temp\vs5C02.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>almacen.ico</ApplicationIcon>
@@ -226,6 +228,12 @@
     <Compile Include="Vista\DetalleSolicitud.Designer.cs">
       <DependentUpon>DetalleSolicitud.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\DetalleSolicitudAdj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\DetalleSolicitudAdj.Designer.cs">
+      <DependentUpon>DetalleSolicitudAdj.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\DetalleSolicitud.resx">
       <DependentUpon>DetalleSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\DetalleSolicitudAdj.resx">
+      <DependentUpon>DetalleSolicitudAdj.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -316,6 +327,7 @@
     <None Include="Files\botones\lupa.png" />
     <None Include="Files\botones\img.png" />
     <None Include="Files\botones\attachment.png" />
+    <None Include="Files\botones\if_search_143825.png" />
     <Content Include="Modelo\AlmacenEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AlmacenEntities.edmx</DependentUpon>
