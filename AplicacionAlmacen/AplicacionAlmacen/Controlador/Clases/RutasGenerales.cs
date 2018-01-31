@@ -15,6 +15,6 @@ namespace AplicacionAlmacen.Controlador
         //public static string carpetaImagen = @"E:\Documentos\Programacion\MatImg\Material\";
         //public static string carpetaAdjunto = @"E:\Documentos\Programacion\MatImg\Adjuntos\";
         //public static string carpetaAdjuntoSoli = @"E:\Documentos\SolicitudesAnexos\";
-        //public static string ipServidor = "192.168.0.2";
+        //public static string ipServidor = "192.168.0.6";
     }
 }
