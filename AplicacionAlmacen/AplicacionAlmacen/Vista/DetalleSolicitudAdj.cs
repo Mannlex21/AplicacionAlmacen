@@ -90,7 +90,8 @@ namespace AplicacionAlmacen.Vista
         }
         public void Red()
         {
-            if (Controlador.Clases.ConexionServidor.verificarConexion())
+            Controlador.Clases.ConexionServidor conexion = new Controlador.Clases.ConexionServidor();
+            if (conexion.verificarConexion())
             {
                 GridControl.Enabled = true;
             }

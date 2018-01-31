@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -9,7 +10,13 @@ namespace AplicacionAlmacen.Controlador.Clases
 {
     class ConexionServidor
     {
-        public static bool verificarConexion()
+        public string msgDesconectado = "Desconectado";
+        public string msgConectado = "Conectado";
+        public Color colorDesconectado = Color.FromArgb(255, 58, 58);
+        public Color colorConectado = Color.FromArgb(86, 255, 92);
+        public Color colorBackConectado = Color.FromArgb(157, 157, 157);
+        public Color colorBackDesconectado = Color.FromArgb(203, 203, 203);
+        public bool verificarConexion()
         {
             try
             {

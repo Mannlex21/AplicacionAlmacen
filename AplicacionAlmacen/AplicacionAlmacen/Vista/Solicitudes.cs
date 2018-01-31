@@ -162,19 +162,20 @@ namespace AplicacionAlmacen.Vista
         }
         public void Red()
         {
-            if (Controlador.Clases.ConexionServidor.verificarConexion())
+            Controlador.Clases.ConexionServidor conexion = new Controlador.Clases.ConexionServidor();
+            if (conexion.verificarConexion())
             {
                 tabControl1.Enabled = true;
                 ribbon.Enabled = true;
-                textConexion.Caption = "Conectado";
-                textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Green;
+                textConexion.Caption = conexion.msgConectado;
+                textConexion.ItemAppearance.Normal.ForeColor = conexion.colorConectado;
             }
             else
             {
                 tabControl1.Enabled = false;
                 ribbon.Enabled = false;
-                textConexion.Caption = "No hay conexión";
-                textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
+                textConexion.Caption = conexion.msgDesconectado;
+                textConexion.ItemAppearance.Normal.ForeColor = conexion.colorDesconectado;
             }
         }
 

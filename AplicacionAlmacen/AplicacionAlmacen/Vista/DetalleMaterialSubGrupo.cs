@@ -23,7 +23,6 @@ namespace AplicacionAlmacen.Vista
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             GridControl.DataSource = sg.GetAllSubGrupos();
         }
-
         void GridControl_DoubleClick(object sender, EventArgs e)
         {
             int r = Tabla.GetSelectedRows()[0];

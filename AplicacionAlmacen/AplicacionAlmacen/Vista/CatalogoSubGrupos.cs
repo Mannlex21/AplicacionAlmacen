@@ -344,27 +344,26 @@ namespace AplicacionAlmacen.Vista
         {
             buscarFiltro();
         }
-
         private void editBusquedaGpo_Click(object sender, EventArgs e)
         {
 
         }
-
         public void Red()
         {
-            if (Controlador.Clases.ConexionServidor.verificarConexion())
+            Controlador.Clases.ConexionServidor conexion = new Controlador.Clases.ConexionServidor();
+            if (conexion.verificarConexion())
             {
                 ribbonControl1.Enabled = true;
                 tabControl1.Enabled = true;
-                textConexion.Caption = "Conectado";
-                textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Green;
+                textConexion.Caption = conexion.msgConectado;
+                textConexion.ItemAppearance.Normal.ForeColor = conexion.colorConectado;
             }
             else
             {
                 ribbonControl1.Enabled = false;
                 tabControl1.Enabled = false;
-                textConexion.Caption = "No hay conexión";
-                textConexion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
+                textConexion.Caption = conexion.msgConectado;
+                textConexion.ItemAppearance.Normal.ForeColor = conexion.colorDesconectado;
             }
         }
     }

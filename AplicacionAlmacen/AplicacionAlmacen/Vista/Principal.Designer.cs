@@ -193,11 +193,12 @@
             // lblConexion
             // 
             this.lblConexion.AutoSize = true;
-            this.lblConexion.BackColor = System.Drawing.Color.Transparent;
-            this.lblConexion.Location = new System.Drawing.Point(-3, 308);
+            this.lblConexion.BackColor = System.Drawing.Color.Azure;
+            this.lblConexion.Location = new System.Drawing.Point(2, 307);
             this.lblConexion.Name = "lblConexion";
-            this.lblConexion.Size = new System.Drawing.Size(0, 13);
+            this.lblConexion.Size = new System.Drawing.Size(52, 13);
             this.lblConexion.TabIndex = 1;
+            this.lblConexion.Text = "Conexion";
             // 
             // Principal
             // 
@@ -206,9 +207,13 @@
             this.ClientSize = new System.Drawing.Size(380, 321);
             this.Controls.Add(this.lblConexion);
             this.Controls.Add(this.panel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.LookAndFeel.SkinName = "The Bezier";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(396, 360);
+            this.MinimumSize = new System.Drawing.Size(396, 360);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Principal_Load);
