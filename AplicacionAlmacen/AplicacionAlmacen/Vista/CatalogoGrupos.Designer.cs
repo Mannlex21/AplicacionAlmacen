@@ -433,8 +433,13 @@
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbonControl1.Size = new System.Drawing.Size(670, 143);
+            this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl1.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.ShowOnMultiplePages;
+            this.ribbonControl1.ShowToolbarCustomizeItem = false;
+            this.ribbonControl1.Size = new System.Drawing.Size(670, 122);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
+            this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // barButtonItem1
             // 
@@ -517,6 +522,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem6);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Herramientas";
             // 
             // ribbonStatusBar1
@@ -536,10 +542,10 @@
             // 
             this.layoutControl1.Controls.Add(this.tabControl1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 143);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 122);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(670, 293);
+            this.layoutControl1.Size = new System.Drawing.Size(670, 314);
             this.layoutControl1.TabIndex = 2;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -550,7 +556,7 @@
             this.tabControl1.Location = new System.Drawing.Point(2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(666, 289);
+            this.tabControl1.Size = new System.Drawing.Size(666, 310);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -559,7 +565,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(658, 263);
+            this.tabPage1.Size = new System.Drawing.Size(658, 284);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Grupos";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -573,7 +579,7 @@
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(477, 136, 650, 400);
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(652, 257);
+            this.layoutControl2.Size = new System.Drawing.Size(652, 278);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -734,7 +740,7 @@
             this.GridControl.MainView = this.Tabla;
             this.GridControl.MenuManager = this.ribbonControl1;
             this.GridControl.Name = "GridControl";
-            this.GridControl.Size = new System.Drawing.Size(648, 219);
+            this.GridControl.Size = new System.Drawing.Size(648, 240);
             this.GridControl.TabIndex = 2;
             this.GridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Tabla});
@@ -1118,7 +1124,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(652, 257);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(652, 278);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem2
@@ -1126,7 +1132,7 @@
             this.layoutControlItem2.Control = this.GridControl;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(652, 223);
+            this.layoutControlItem2.Size = new System.Drawing.Size(652, 244);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -2167,7 +2173,7 @@
             this.layoutControlItem4});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(670, 293);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(670, 314);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem4
@@ -2175,7 +2181,7 @@
             this.layoutControlItem4.Control = this.tabControl1;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(670, 293);
+            this.layoutControlItem4.Size = new System.Drawing.Size(670, 314);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 

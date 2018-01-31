@@ -14,6 +14,7 @@ namespace AplicacionAlmacen.Controlador.Clases
         public string msgConectado = "Conectado";
         public Color colorDesconectado = Color.FromArgb(255, 58, 58);
         public Color colorConectado = Color.FromArgb(86, 255, 92);
+        
         public Color colorBackConectado = Color.FromArgb(157, 157, 157);
         public Color colorBackDesconectado = Color.FromArgb(203, 203, 203);
         public bool verificarConexion()

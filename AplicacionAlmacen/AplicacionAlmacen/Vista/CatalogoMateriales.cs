@@ -523,7 +523,7 @@ namespace AplicacionAlmacen.Vista
             editFechaU.Text= Tabla.GetRowCellValue(r, "fechaUltimoMov").ToString();
             editHerramienta.Checked = (Tabla.GetRowCellValue(r, "herramienta").ToString().Equals("True")) ? true : false;
             editSeguridad.Checked = (Tabla.GetRowCellValue(r, "seguridadInd").ToString().Equals("True")) ? true : false;
-            editImagen.Text = carpetaImagen+ Tabla.GetRowCellValue(r, "imagen").ToString();
+            editImagen.Text =(Tabla.GetRowCellValue(r, "imagen")!=null)? carpetaImagen+ Tabla.GetRowCellValue(r, "imagen").ToString():"";
 
             var objM=s.GetMaterialContable(materialA);
             cuenta_A_Z.Text= objM.cuenta_A_Z.ToString();
