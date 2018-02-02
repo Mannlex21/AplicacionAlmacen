@@ -43,7 +43,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\MANNLE~1\AppData\Local\Temp\vs879B.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Mannlex\AppData\Local\Temp\vs9157.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,7 +53,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\MANNLE~1\AppData\Local\Temp\vs879B.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Mannlex\AppData\Local\Temp\vs9157.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>almacen.ico</ApplicationIcon>
