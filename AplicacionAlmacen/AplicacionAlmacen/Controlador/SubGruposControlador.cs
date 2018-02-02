@@ -101,41 +101,24 @@ namespace AplicacionAlmacen.Controlador
         {
             try
             {
-                string s;
-                var context = new AlmacenEntities();
-                var connection = context.Database.Connection;
-
-                Object result="";
-                AlmacenEntities db = new AlmacenEntities();
-                var us = from u in db.GpoMateriales select u;
-                us = us.Where(u => u.numGpo == sub.grupo);
-                var x = us.FirstOrDefault();
-                if (us.FirstOrDefault() != null)
+                Object result = "";
+                using (var db = new AlmacenEntities())
                 {
-                    using (SqlConnection con = new SqlConnection(connection.ConnectionString))
+                    var us = db.GpoMateriales.Where(u => u.numGpo == sub.grupo).FirstOrDefault();
+                    if (us != null)
                     {
 
-                        string query = "INSERT INTO SubGrupos (grupo,subGrupo,descripcion) VALUES (@grupo,@subGrupo,@descripcion)";
-                        query += " SELECT SCOPE_IDENTITY()";
-                        using (SqlCommand cmd = new SqlCommand(query))
-                        {
-                            cmd.Connection = con;
-                            con.Open();
-                            cmd.Parameters.AddWithValue("@descripcion", sub.descripcion);
-                            cmd.Parameters.AddWithValue("@grupo", sub.grupo);
-                            cmd.Parameters.AddWithValue("@subGrupo", sub.subGrupo);
-                            s = cmd.ExecuteScalar().ToString();
-                            con.Close();
-                        }
+                        db.SubGrupos.Add(sub);
+                        db.SaveChanges();
+                        result = new { message = "Se guardo correctamente", code = 1 };
                     }
-                    result = new { message = "Se guardo correctamente", code = 1 };
-                }
-                else
-                {
-                    result = new { message = "No se encontro el grupo", code = 2 };
-                }
+                    else
+                    {
+                        result = new { message = "Ya existe este sub-grupo: " + sub.subGrupo, code = 2 };
+                    }
 
-                return result;
+                    return result;
+                }
             }
             catch (SqlException odbcEx)
             {

@@ -19,19 +19,33 @@ namespace AplicacionAlmacen.Vista
         public DetalleMaterialGrupo(CatalogoMateriales formExterno)
         {
             InitializeComponent();
-            formLocal = formExterno;
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
-            GridControl.DataSource = g.GetAllGruposLigero();
+            try
+            {
+                formLocal = formExterno;
+                GridControl.DataSource = g.GetAllGruposLigero();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void GridControl_DoubleClick(object sender, EventArgs e)
         {
-            int r = Tabla.GetSelectedRows()[0];
-            string grupo = Tabla.GetRowCellValue(r, "numGpo").ToString();
-            formLocal.textGrupo = grupo;
-            formLocal.textSubGrupo = "";
-            formLocal.setTextSubGrupo();
-            formLocal.setTextGrupo();
-            this.Close();
+            try
+            {
+                int r = Tabla.GetSelectedRows()[0];
+                string grupo = Tabla.GetRowCellValue(r, "numGpo").ToString();
+                formLocal.textGrupo = grupo;
+                formLocal.textSubGrupo = "";
+                formLocal.setTextSubGrupo();
+                formLocal.setTextGrupo();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

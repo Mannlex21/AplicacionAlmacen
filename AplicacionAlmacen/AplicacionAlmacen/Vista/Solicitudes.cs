@@ -31,17 +31,30 @@ namespace AplicacionAlmacen.Vista
             CheckForIllegalCrossThreadCalls = false;
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             WindowState = FormWindowState.Maximized;
-            GridControl.DataSource = s.GetSolicitudesAll(depaCombo.Text);
-            NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
-            foreach (var t in d.GetDepartamentos())
+            try
             {
-                depaCombo.Items.Add(t.descripcion);
+                GridControl.DataSource = s.GetSolicitudesAll(depaCombo.Text);
+                NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
+                foreach (var t in d.GetDepartamentos())
+                {
+                    depaCombo.Items.Add(t.descripcion);
+                }
             }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void Recargar()
         {
-            GridControl.DataSource = s.GetSolicitudesAll(depaCombo.Text);
+            try
+            {
+                GridControl.DataSource = s.GetSolicitudesAll(depaCombo.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
         {
@@ -60,46 +73,24 @@ namespace AplicacionAlmacen.Vista
             GridControl.DataSource = s.GetSolicitudesAll(depaCombo.Text);
         }
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e){
-            Cursor.Current = Cursors.WaitCursor;
-            Recargar();
+            try { 
+                Cursor.Current = Cursors.WaitCursor;
+                Recargar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void barButtonItem13_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (Tabla.GetSelectedRows().Length == 0)
+            try
             {
-                MessageBox.Show("Se debe seleccionar al menos una solicitud", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                Cursor.Current = Cursors.WaitCursor;
-                int contS = 0;
-                foreach (int i in Tabla.GetSelectedRows())
+                if (Tabla.GetSelectedRows().Length == 0)
                 {
-                    contS++;
-                    int r = i;
-                    preReq = Int32.Parse(Tabla.GetRowCellValue(r, "preRequisicion").ToString());
-                    dep = Int32.Parse(Tabla.GetRowCellValue(r, "departamento").ToString());
-                    ejer = Int32.Parse(Tabla.GetRowCellValue(r, "ejercicio").ToString());
-                    new DetalleMaterialImg().Show();
+                    MessageBox.Show("Se debe seleccionar al menos una solicitud", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-                
-        }
-        private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            if (Tabla.GetSelectedRows().Length==0)
-            {
-                MessageBox.Show("Se debe seleccionar al menos una solicitud", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                int contE = 0;
-                const string msg = "La requisición debe contener materiales existentes.";
-                const string caption = "Asignación";
-                var res = MessageBox.Show(msg, caption,
-                                 MessageBoxButtons.OK,
-                                 MessageBoxIcon.Information);
-                if (res == DialogResult.OK)
+                else
                 {
                     Cursor.Current = Cursors.WaitCursor;
                     int contS = 0;
@@ -107,58 +98,104 @@ namespace AplicacionAlmacen.Vista
                     {
                         contS++;
                         int r = i;
-                        string ciclo = Tabla.GetRowCellValue(r, "ciclo").ToString();
-                        string departamento = Tabla.GetRowCellValue(r, "departamento").ToString();
-                        int ejercicio = Int32.Parse(Tabla.GetRowCellValue(r, "ejercicio").ToString());
-                        int preRequisicion = Int32.Parse(Tabla.GetRowCellValue(r, "preRequisicion").ToString());
-
-                        Object item = s.claveSolicitud(ciclo, departamento, ejercicio);
-
-                        System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
-                        System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
-                        System.Reflection.PropertyInfo re = item.GetType().GetProperty("result");
-                        String message = (String)(m.GetValue(item, null));
-                        String result = (String)(re.GetValue(item, null));
-                        int code = (int)(c.GetValue(item, null));
-
-                        if (code == 1)
+                        preReq = Int32.Parse(Tabla.GetRowCellValue(r, "preRequisicion").ToString());
+                        dep = Int32.Parse(Tabla.GetRowCellValue(r, "departamento").ToString());
+                        ejer = Int32.Parse(Tabla.GetRowCellValue(r, "ejercicio").ToString());
+                        new DetalleMaterialImg().Show();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (Tabla.GetSelectedRows().Length == 0)
+                {
+                    MessageBox.Show("Se debe seleccionar al menos una solicitud", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    int contE = 0;
+                    const string msg = "La requisición debe contener materiales existentes.";
+                    const string caption = "Asignación";
+                    var res = MessageBox.Show(msg, caption,
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Information);
+                    if (res == DialogResult.OK)
+                    {
+                        Cursor.Current = Cursors.WaitCursor;
+                        int contS = 0;
+                        foreach (int i in Tabla.GetSelectedRows())
                         {
-                            string clave = result;
-                            Object item2 = s.asignarClave(clave, preRequisicion, ejercicio, Int32.Parse(departamento));
-                            System.Reflection.PropertyInfo m2 = item2.GetType().GetProperty("message");
-                            System.Reflection.PropertyInfo c2 = item2.GetType().GetProperty("code");
-                            String message2 = (String)(m2.GetValue(item2, null));
-                            int code2 = (int)(c2.GetValue(item2, null));
-                            if (code2 != 1)
+                            contS++;
+                            int r = i;
+                            string ciclo = Tabla.GetRowCellValue(r, "ciclo").ToString();
+                            string departamento = Tabla.GetRowCellValue(r, "departamento").ToString();
+                            int ejercicio = Int32.Parse(Tabla.GetRowCellValue(r, "ejercicio").ToString());
+                            int preRequisicion = Int32.Parse(Tabla.GetRowCellValue(r, "preRequisicion").ToString());
+
+                            Object item = s.claveSolicitud(ciclo, departamento, ejercicio);
+
+                            System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                            System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+                            System.Reflection.PropertyInfo re = item.GetType().GetProperty("result");
+                            String message = (String)(m.GetValue(item, null));
+                            String result = (String)(re.GetValue(item, null));
+                            int code = (int)(c.GetValue(item, null));
+
+                            if (code == 1)
+                            {
+                                string clave = result;
+                                Object item2 = s.asignarClave(clave, preRequisicion, ejercicio, Int32.Parse(departamento));
+                                System.Reflection.PropertyInfo m2 = item2.GetType().GetProperty("message");
+                                System.Reflection.PropertyInfo c2 = item2.GetType().GetProperty("code");
+                                String message2 = (String)(m2.GetValue(item2, null));
+                                int code2 = (int)(c2.GetValue(item2, null));
+                                if (code2 != 1)
+                                {
+                                    contE++;
+                                }
+                            }
+                            else
                             {
                                 contE++;
                             }
                         }
+                        if (contE == 0)
+                        {
+                            Recargar();
+                            MessageBox.Show("Se asigno la clave a los elementos seleccionados", "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        }
                         else
                         {
-                            contE++;
+                            Recargar();
+                            MessageBox.Show("No se asigno la clave a uno o mas elementos\n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
+
                     }
-                    if (contE == 0)
-                    {
-                        Recargar();
-                        MessageBox.Show("Se asigno la clave a los elementos seleccionados", "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    }
-                    else
-                    {
-                        Recargar();
-                        MessageBox.Show("No se asigno la clave a uno o mas elementos\n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    
                 }
             }
-            
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            depaCombo.SelectedItem = null;
-            Recargar();
+            try { 
+                depaCombo.SelectedItem = null;
+                Recargar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public void Red()
         {
@@ -178,12 +215,10 @@ namespace AplicacionAlmacen.Vista
                 textConexion.ItemAppearance.Normal.ForeColor = conexion.colorDesconectado;
             }
         }
-
         private void Solicitudes_Load(object sender, EventArgs e)
         {
             Red();
         }
-
         private void barButtonItem9_ItemClick(object sender, ItemClickEventArgs e)
         {
             try

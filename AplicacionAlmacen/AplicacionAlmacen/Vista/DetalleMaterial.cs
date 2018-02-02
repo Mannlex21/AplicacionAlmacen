@@ -20,10 +20,17 @@ namespace AplicacionAlmacen.Vista
         {
             InitializeComponent();
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
-            CatalogoMateriales m = new CatalogoMateriales();
-            boxImg.Image= s.imagen(CatalogoMateriales.imgNombre);
-            boxImg.SizeMode = PictureBoxSizeMode.Zoom;
-            NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
+            try
+            {
+                CatalogoMateriales m = new CatalogoMateriales();
+                boxImg.Image = s.imagen(CatalogoMateriales.imgNombre);
+                boxImg.SizeMode = PictureBoxSizeMode.Zoom;
+                NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
         {

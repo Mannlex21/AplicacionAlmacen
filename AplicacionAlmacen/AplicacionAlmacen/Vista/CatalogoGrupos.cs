@@ -35,20 +35,34 @@ namespace AplicacionAlmacen.Vista
             InitializeComponent();
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             WindowState = FormWindowState.Maximized;
-            bindingNavigator.BindingSource = bindingSource;
-            bindingSource.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
-            bindingSource.DataSource = new PageOffsetList();
-            NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
+            try
+            {
+                bindingNavigator.BindingSource = bindingSource;
+                bindingSource.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
+                bindingSource.DataSource = new PageOffsetList();
+                NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e){
-            if (bindingSource.Current is null)
+            try
             {
-                GridControl.DataSource = null;
+                if (bindingSource.Current is null)
+                {
+                    GridControl.DataSource = null;
+                }
+                else
+                {
+                    GridControl.DataSource = g.GetGrupos(((int)bindingSource.Current / pageSize), pageSize);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                GridControl.DataSource = g.GetGrupos(((int)bindingSource.Current / pageSize), pageSize);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         class PageOffsetList : System.ComponentModel.IListSource{
@@ -63,24 +77,44 @@ namespace AplicacionAlmacen.Vista
             }
         }
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
-            Cursor.Current = Cursors.WaitCursor;
-            Recargar();
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                Recargar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: "+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void Recargar(){
-            bindingNavigator.BindingSource = bindingSource;
-            bindingSource.CurrentChanged += new EventHandler(bindingSource1_CurrentChanged);
-            bindingSource.DataSource = new PageOffsetList();
+            try
+            {
+                bindingNavigator.BindingSource = bindingSource;
+                bindingSource.CurrentChanged += new EventHandler(bindingSource1_CurrentChanged);
+                bindingSource.DataSource = new PageOffsetList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
         {
             Red();
         }
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
-            Cursor.Current = Cursors.WaitCursor;
-            tipo = 'N';
-            this.tabControl1.SelectTab(1);
-            EnableControls(tabPage3);
-            ResetControls(tabPage3);
+            try { 
+                Cursor.Current = Cursors.WaitCursor;
+                tipo = 'N';
+                this.tabControl1.SelectTab(1);
+                EnableControls(tabPage3);
+                ResetControls(tabPage3);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void CatalogoGrupos_Load(object sender, EventArgs e){
             DisableControls(tabPage3);
@@ -135,157 +169,173 @@ namespace AplicacionAlmacen.Vista
             }
         }
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
-            Cursor.Current = Cursors.WaitCursor;
-            ResetControls(tabPage3);
-            DisableControls(tabPage3);
-            tipo = 's';
-        }
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                this.tabControl1.SelectTab(0);
+                ResetControls(tabPage3);
+                DisableControls(tabPage3);
+                tipo = 's';
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: "+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+}
         private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
-            Cursor.Current = Cursors.WaitCursor;
-            if (tipo.Equals('N'))
-            {
-                CheckControls(tabPage3);
-                if (contT == 0)
+            try { 
+                Cursor.Current = Cursors.WaitCursor;
+                if (tipo.Equals('N'))
                 {
-                    vaciarCamposBusq();
-                    GpoMateriales s = new GpoMateriales();
-                    s.numGpo =Int16.Parse(editNumeroG.Text);
-                    s.descripcion = editDescripcion.Text;
-                    s.cuenta_F_Z = Int32.Parse(editCuFZ.Text);
-                    s.aplicaCentCost_F_Z = editApliCeFZ.Checked;
-                    s.subCuenta_F_Z = Int32.Parse(editSubCuFZ.Text);
-                    s.subSubCuenta_F_Z = Int32.Parse(editSubSCuFZ.Text);
-                    s.cuenta_A_Z = Int32.Parse(editCuAZ.Text);
-                    s.aplicaCentCost_A_Z = editApliCeAZ.Checked;
-                    s.subCuenta_A_Z = Int32.Parse(editSubCuAZ.Text);
-                    s.subSubCuenta_A_Z = Int32.Parse(editSubSCuAZ.Text);
-                    s.cuenta_C_Z= Int32.Parse(editCuCZ.Text);
-                    s.aplicaCentCost_C_Z = editApliCeCZ.Checked;
-                    s.subCuenta_C_Z = Int32.Parse(editSubCuCZ.Text);
-                    s.subSubCuenta_C_Z = Int32.Parse(editSubCuCZ.Text);
-                    s.cuenta_D_Z = Int32.Parse(editCuDZ.Text);
-                    s.aplicaCentCost_D_Z = editApliCeDZ.Checked;
-                    s.subCuenta_D_Z = Int32.Parse(editSubCuDZ.Text);
-                    s.subSubCuenta_D_Z = Int32.Parse(editSubSCuDZ.Text);
-                    s.cuenta_F_R = Int32.Parse(editCuFR.Text);
-                    s.aplicaCentCost_F_R = editApliCeFR.Checked;
-                    s.subCuenta_F_R = Int32.Parse(editSubCuFR.Text);
-                    s.subSubCuenta_F_R = Int32.Parse(editSubSCuFR.Text);
-                    s.cuenta_A_R = Int32.Parse(editCuAR.Text);
-                    s.aplicaCentCost_A_R = editApliCeAR.Checked;
-                    s.subCuenta_A_R = Int32.Parse(editSubCuAR.Text);
-                    s.subSubCuenta_A_R = Int32.Parse(editSubSCuAR.Text);
-                    s.cuenta_C_R = Int32.Parse(editCuCR.Text);
-                    s.aplicaCentCost_C_R = editApliCeCR.Checked;
-                    s.subCuenta_C_R = Int32.Parse(editSubCuCR.Text);
-                    s.subSubCuenta_C_R = Int32.Parse(editSubSCuCR.Text);
-                    s.cuenta_D_R = Int32.Parse(editCuDR.Text);
-                    s.aplicaCentCost_D_R = editApliCeDR.Checked;
-                    s.subCuenta_D_R = Int32.Parse(editSubCuDR.Text);
-                    s.subSubCuenta_D_R = Int32.Parse(editSubSCuDR.Text);
-                    s.cantidad = decimal.Parse(editCantidad.Text);
-                    s.importe = decimal.Parse(editImporte.Text);
-
-                    Object item = g.guardarGrupo(s);
-
-                    System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
-                    System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
-                    String message = (String)(m.GetValue(item, null));
-                    int code = (int)(c.GetValue(item, null));
-
-                    if (code == 1)
+                    CheckControls(tabPage3);
+                    if (contT == 0)
                     {
-                        ResetControls(tabPage3);
-                        DisableControls(tabPage3);
-                        tipo = 's';
-                        Recargar();
-                        MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        vaciarCamposBusq();
+                        GpoMateriales s = new GpoMateriales();
+                        s.numGpo =Int16.Parse(editNumeroG.Text);
+                        s.descripcion = editDescripcion.Text;
+                        s.cuenta_F_Z = Int32.Parse(editCuFZ.Text);
+                        s.aplicaCentCost_F_Z = editApliCeFZ.Checked;
+                        s.subCuenta_F_Z = Int32.Parse(editSubCuFZ.Text);
+                        s.subSubCuenta_F_Z = Int32.Parse(editSubSCuFZ.Text);
+                        s.cuenta_A_Z = Int32.Parse(editCuAZ.Text);
+                        s.aplicaCentCost_A_Z = editApliCeAZ.Checked;
+                        s.subCuenta_A_Z = Int32.Parse(editSubCuAZ.Text);
+                        s.subSubCuenta_A_Z = Int32.Parse(editSubSCuAZ.Text);
+                        s.cuenta_C_Z= Int32.Parse(editCuCZ.Text);
+                        s.aplicaCentCost_C_Z = editApliCeCZ.Checked;
+                        s.subCuenta_C_Z = Int32.Parse(editSubCuCZ.Text);
+                        s.subSubCuenta_C_Z = Int32.Parse(editSubCuCZ.Text);
+                        s.cuenta_D_Z = Int32.Parse(editCuDZ.Text);
+                        s.aplicaCentCost_D_Z = editApliCeDZ.Checked;
+                        s.subCuenta_D_Z = Int32.Parse(editSubCuDZ.Text);
+                        s.subSubCuenta_D_Z = Int32.Parse(editSubSCuDZ.Text);
+                        s.cuenta_F_R = Int32.Parse(editCuFR.Text);
+                        s.aplicaCentCost_F_R = editApliCeFR.Checked;
+                        s.subCuenta_F_R = Int32.Parse(editSubCuFR.Text);
+                        s.subSubCuenta_F_R = Int32.Parse(editSubSCuFR.Text);
+                        s.cuenta_A_R = Int32.Parse(editCuAR.Text);
+                        s.aplicaCentCost_A_R = editApliCeAR.Checked;
+                        s.subCuenta_A_R = Int32.Parse(editSubCuAR.Text);
+                        s.subSubCuenta_A_R = Int32.Parse(editSubSCuAR.Text);
+                        s.cuenta_C_R = Int32.Parse(editCuCR.Text);
+                        s.aplicaCentCost_C_R = editApliCeCR.Checked;
+                        s.subCuenta_C_R = Int32.Parse(editSubCuCR.Text);
+                        s.subSubCuenta_C_R = Int32.Parse(editSubSCuCR.Text);
+                        s.cuenta_D_R = Int32.Parse(editCuDR.Text);
+                        s.aplicaCentCost_D_R = editApliCeDR.Checked;
+                        s.subCuenta_D_R = Int32.Parse(editSubCuDR.Text);
+                        s.subSubCuenta_D_R = Int32.Parse(editSubSCuDR.Text);
+                        s.cantidad = decimal.Parse(editCantidad.Text);
+                        s.importe = decimal.Parse(editImporte.Text);
+
+                        Object item = g.guardarGrupo(s);
+
+                        System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                        System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+                        String message = (String)(m.GetValue(item, null));
+                        int code = (int)(c.GetValue(item, null));
+
+                        if (code == 1)
+                        {
+                            ResetControls(tabPage3);
+                            DisableControls(tabPage3);
+                            tipo = 's';
+                            Recargar();
+                            this.tabControl1.SelectTab(0);
+                            MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        }
+                        else if (code == 2)
+                        {
+                            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else if (code == 2)
+                    else
                     {
-                        MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    contT = 0;
+
                 }
-                else
+                else if (tipo.Equals('E'))
                 {
-                    MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                contT = 0;
+                    CheckControls(tabPage3);
+                    if (contT == 0)
+                    {
+                        vaciarCamposBusq();
+                        GpoMateriales s = new GpoMateriales();
+                        s.numGpo = Int16.Parse(editNumeroG.Text);
+                        s.descripcion = editDescripcion.Text;
+                        s.cuenta_F_Z = Int32.Parse(editCuFZ.Text);
+                        s.aplicaCentCost_F_Z = editApliCeFZ.Checked;
+                        s.subCuenta_F_Z = Int32.Parse(editSubCuFZ.Text);
+                        s.subSubCuenta_F_Z = Int32.Parse(editSubSCuFZ.Text);
+                        s.cuenta_A_Z = Int32.Parse(editCuAZ.Text);
+                        s.aplicaCentCost_A_Z = editApliCeAZ.Checked;
+                        s.subCuenta_A_Z = Int32.Parse(editSubCuAZ.Text);
+                        s.subSubCuenta_A_Z = Int32.Parse(editSubSCuAZ.Text);
+                        s.cuenta_C_Z = Int32.Parse(editCuCZ.Text);
+                        s.aplicaCentCost_C_Z = editApliCeCZ.Checked;
+                        s.subCuenta_C_Z = Int32.Parse(editSubCuCZ.Text);
+                        s.subSubCuenta_C_Z = Int32.Parse(editSubCuCZ.Text);
+                        s.cuenta_D_Z = Int32.Parse(editCuDZ.Text);
+                        s.aplicaCentCost_D_Z = editApliCeDZ.Checked;
+                        s.subCuenta_D_Z = Int32.Parse(editSubCuDZ.Text);
+                        s.subSubCuenta_D_Z = Int32.Parse(editSubSCuDZ.Text);
+                        s.cuenta_F_R = Int32.Parse(editCuFR.Text);
+                        s.aplicaCentCost_F_R = editApliCeFR.Checked;
+                        s.subCuenta_F_R = Int32.Parse(editSubCuFR.Text);
+                        s.subSubCuenta_F_R = Int32.Parse(editSubSCuFR.Text);
+                        s.cuenta_A_R = Int32.Parse(editCuAR.Text);
+                        s.aplicaCentCost_A_R = editApliCeAR.Checked;
+                        s.subCuenta_A_R = Int32.Parse(editSubCuAR.Text);
+                        s.subSubCuenta_A_R = Int32.Parse(editSubSCuAR.Text);
+                        s.cuenta_C_R = Int32.Parse(editCuCR.Text);
+                        s.aplicaCentCost_C_R = editApliCeCR.Checked;
+                        s.subCuenta_C_R = Int32.Parse(editSubCuCR.Text);
+                        s.subSubCuenta_C_R = Int32.Parse(editSubSCuCR.Text);
+                        s.cuenta_D_R = Int32.Parse(editCuDR.Text);
+                        s.aplicaCentCost_D_R = editApliCeDR.Checked;
+                        s.subCuenta_D_R = Int32.Parse(editSubCuDR.Text);
+                        s.subSubCuenta_D_R = Int32.Parse(editSubSCuDR.Text);
+                        s.cantidad = decimal.Parse(editCantidad.Text);
+                        s.importe = decimal.Parse(editImporte.Text);
 
+                        Object item = g.editarGrupo(s, numGpoA);
+
+                        System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                        System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+                        String message = (String)(m.GetValue(item, null));
+                        int code = (int)(c.GetValue(item, null));
+
+                        if (code == 1)
+                        {
+                            ResetControls(tabPage3);
+                            DisableControls(tabPage3);
+                            tipo = 's';
+                            Recargar();
+                            this.tabControl1.SelectTab(0);
+                            MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        }
+                        else if (code == 2)
+                        {
+                            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    contT = 0;
+                }
+                else if (tipo.Equals('s'))
+                {
+
+                }
             }
-            else if (tipo.Equals('E'))
+            catch (Exception ex)
             {
-                CheckControls(tabPage3);
-                if (contT == 0)
-                {
-                    vaciarCamposBusq();
-                    GpoMateriales s = new GpoMateriales();
-                    s.numGpo = Int16.Parse(editNumeroG.Text);
-                    s.descripcion = editDescripcion.Text;
-                    s.cuenta_F_Z = Int32.Parse(editCuFZ.Text);
-                    s.aplicaCentCost_F_Z = editApliCeFZ.Checked;
-                    s.subCuenta_F_Z = Int32.Parse(editSubCuFZ.Text);
-                    s.subSubCuenta_F_Z = Int32.Parse(editSubSCuFZ.Text);
-                    s.cuenta_A_Z = Int32.Parse(editCuAZ.Text);
-                    s.aplicaCentCost_A_Z = editApliCeAZ.Checked;
-                    s.subCuenta_A_Z = Int32.Parse(editSubCuAZ.Text);
-                    s.subSubCuenta_A_Z = Int32.Parse(editSubSCuAZ.Text);
-                    s.cuenta_C_Z = Int32.Parse(editCuCZ.Text);
-                    s.aplicaCentCost_C_Z = editApliCeCZ.Checked;
-                    s.subCuenta_C_Z = Int32.Parse(editSubCuCZ.Text);
-                    s.subSubCuenta_C_Z = Int32.Parse(editSubCuCZ.Text);
-                    s.cuenta_D_Z = Int32.Parse(editCuDZ.Text);
-                    s.aplicaCentCost_D_Z = editApliCeDZ.Checked;
-                    s.subCuenta_D_Z = Int32.Parse(editSubCuDZ.Text);
-                    s.subSubCuenta_D_Z = Int32.Parse(editSubSCuDZ.Text);
-                    s.cuenta_F_R = Int32.Parse(editCuFR.Text);
-                    s.aplicaCentCost_F_R = editApliCeFR.Checked;
-                    s.subCuenta_F_R = Int32.Parse(editSubCuFR.Text);
-                    s.subSubCuenta_F_R = Int32.Parse(editSubSCuFR.Text);
-                    s.cuenta_A_R = Int32.Parse(editCuAR.Text);
-                    s.aplicaCentCost_A_R = editApliCeAR.Checked;
-                    s.subCuenta_A_R = Int32.Parse(editSubCuAR.Text);
-                    s.subSubCuenta_A_R = Int32.Parse(editSubSCuAR.Text);
-                    s.cuenta_C_R = Int32.Parse(editCuCR.Text);
-                    s.aplicaCentCost_C_R = editApliCeCR.Checked;
-                    s.subCuenta_C_R = Int32.Parse(editSubCuCR.Text);
-                    s.subSubCuenta_C_R = Int32.Parse(editSubSCuCR.Text);
-                    s.cuenta_D_R = Int32.Parse(editCuDR.Text);
-                    s.aplicaCentCost_D_R = editApliCeDR.Checked;
-                    s.subCuenta_D_R = Int32.Parse(editSubCuDR.Text);
-                    s.subSubCuenta_D_R = Int32.Parse(editSubSCuDR.Text);
-                    s.cantidad = decimal.Parse(editCantidad.Text);
-                    s.importe = decimal.Parse(editImporte.Text);
-
-                    Object item = g.editarGrupo(s, numGpoA);
-
-                    System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
-                    System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
-                    String message = (String)(m.GetValue(item, null));
-                    int code = (int)(c.GetValue(item, null));
-
-                    if (code == 1)
-                    {
-                        ResetControls(tabPage3);
-                        DisableControls(tabPage3);
-                        tipo = 's';
-                        Recargar();
-                        MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    }
-                    else if (code == 2)
-                    {
-                        MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                contT = 0;
-            }
-            else if (tipo.Equals('s'))
-            {
-
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void textEdit23_EditValueChanged(object sender, EventArgs e)
@@ -293,138 +343,150 @@ namespace AplicacionAlmacen.Vista
 
         }
         private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
-            Cursor.Current = Cursors.WaitCursor;
-            numGpoA = 0;
-            ResetControls(tabPage3);
-            tipo = 'E';
-            int r = Tabla.GetSelectedRows()[0];
-            //editGrupo.Text = Tabla.GetRowCellValue(r, "grupo").ToString();
-            //editSubGrupo.Text = Tabla.GetRowCellValue(r, "subGrupo").ToString();
+            try { 
+                Cursor.Current = Cursors.WaitCursor;
+                numGpoA = 0;
+                ResetControls(tabPage3);
+                tipo = 'E';
+                int r = Tabla.GetSelectedRows()[0];
+                //editGrupo.Text = Tabla.GetRowCellValue(r, "grupo").ToString();
+                //editSubGrupo.Text = Tabla.GetRowCellValue(r, "subGrupo").ToString();
 
 
-            editNumeroG.Text = Tabla.GetRowCellValue(r, "numGpo").ToString();
-            editDescripcion.Text = Tabla.GetRowCellValue(r, "descripcion").ToString();
-            editCuFZ.Text = Tabla.GetRowCellValue(r, "cuenta_F_Z").ToString();
-            if(Tabla.GetRowCellValue(r, "aplicaCentCost_F_Z").ToString().Equals("True"))
-            {
-                editApliCeFZ.Checked = true;
-            }
-            else
-            {
-                editApliCeFZ.Checked = false;
-            }
+                editNumeroG.Text = Tabla.GetRowCellValue(r, "numGpo").ToString();
+                editDescripcion.Text = Tabla.GetRowCellValue(r, "descripcion").ToString();
+                editCuFZ.Text = Tabla.GetRowCellValue(r, "cuenta_F_Z").ToString();
+                if(Tabla.GetRowCellValue(r, "aplicaCentCost_F_Z").ToString().Equals("True"))
+                {
+                    editApliCeFZ.Checked = true;
+                }
+                else
+                {
+                    editApliCeFZ.Checked = false;
+                }
 
-            editSubCuFZ.Text = Tabla.GetRowCellValue(r, "subCuenta_F_Z").ToString();
-            editSubSCuFZ.Text = Tabla.GetRowCellValue(r, "subSubCuenta_F_Z").ToString();
-            editCuAZ.Text = Tabla.GetRowCellValue(r, "cuenta_A_Z").ToString();
-            if (Tabla.GetRowCellValue(r, "aplicaCentCost_A_Z").ToString().ToString().Equals("True"))
-            {
-                editApliCeAZ.Checked = true;
-            }
-            else
-            {
-                editApliCeAZ.Checked = false;
-            }
-            editSubCuAZ.Text= Tabla.GetRowCellValue(r, "subCuenta_A_Z").ToString();
-            editSubSCuAZ.Text = Tabla.GetRowCellValue(r, "subSubCuenta_A_Z").ToString();
-            editCuCZ.Text = Tabla.GetRowCellValue(r, "cuenta_C_Z").ToString();
-            if (Tabla.GetRowCellValue(r, "aplicaCentCost_C_Z").ToString().ToString().Equals("True"))
-            {
-                editApliCeCZ.Checked = true;
-            }
-            else
-            {
-                editApliCeCZ.Checked = false;
-            }
+                editSubCuFZ.Text = Tabla.GetRowCellValue(r, "subCuenta_F_Z").ToString();
+                editSubSCuFZ.Text = Tabla.GetRowCellValue(r, "subSubCuenta_F_Z").ToString();
+                editCuAZ.Text = Tabla.GetRowCellValue(r, "cuenta_A_Z").ToString();
+                if (Tabla.GetRowCellValue(r, "aplicaCentCost_A_Z").ToString().ToString().Equals("True"))
+                {
+                    editApliCeAZ.Checked = true;
+                }
+                else
+                {
+                    editApliCeAZ.Checked = false;
+                }
+                editSubCuAZ.Text= Tabla.GetRowCellValue(r, "subCuenta_A_Z").ToString();
+                editSubSCuAZ.Text = Tabla.GetRowCellValue(r, "subSubCuenta_A_Z").ToString();
+                editCuCZ.Text = Tabla.GetRowCellValue(r, "cuenta_C_Z").ToString();
+                if (Tabla.GetRowCellValue(r, "aplicaCentCost_C_Z").ToString().ToString().Equals("True"))
+                {
+                    editApliCeCZ.Checked = true;
+                }
+                else
+                {
+                    editApliCeCZ.Checked = false;
+                }
 
-            editSubCuCZ.Text = Tabla.GetRowCellValue(r, "subCuenta_C_Z").ToString();
-            editSubSCuCZ.Text = Tabla.GetRowCellValue(r, "subSubCuenta_C_Z").ToString();
-            editCuDZ.Text = Tabla.GetRowCellValue(r, "cuenta_D_Z").ToString();
-            if (Tabla.GetRowCellValue(r, "aplicaCentCost_D_Z").ToString().ToString().Equals("True"))
-            {
-                editApliCeDZ.Checked = true;
-            }
-            else
-            {
-                editApliCeDZ.Checked = false;
-            }
-            editSubCuDZ.Text = Tabla.GetRowCellValue(r, "subCuenta_D_Z").ToString();
-            editSubSCuDZ.Text = Tabla.GetRowCellValue(r, "subSubCuenta_D_Z").ToString();
-            editCuFR.Text = Tabla.GetRowCellValue(r, "cuenta_F_R").ToString();
-            if (Tabla.GetRowCellValue(r, "aplicaCentCost_F_R").ToString().ToString().Equals("True"))
-            {
-                editApliCeFR.Checked = true;
-            }
-            else
-            {
-                editApliCeFR.Checked = false;
-            }
-            editSubCuFR.Text = Tabla.GetRowCellValue(r, "subCuenta_F_R").ToString();
-            editSubSCuFR.Text = Tabla.GetRowCellValue(r, "subSubCuenta_F_R").ToString();
-            editCuAR.Text = Tabla.GetRowCellValue(r, "cuenta_A_R").ToString();
-            if (Tabla.GetRowCellValue(r, "aplicaCentCost_A_R").ToString().ToString().Equals("True"))
-            {
-                editApliCeAR.Checked = true;
-            }
-            else
-            {
-                editApliCeAR.Checked = false;
-            }
-            editSubCuAR.Text = Tabla.GetRowCellValue(r, "subCuenta_A_R").ToString();
-            editSubSCuAR.Text = Tabla.GetRowCellValue(r, "subSubCuenta_A_R").ToString();
-            editCuCR.Text = Tabla.GetRowCellValue(r, "cuenta_C_R").ToString();
-            if (Tabla.GetRowCellValue(r, "aplicaCentCost_C_R").ToString().ToString().Equals("True"))
-            {
-                editApliCeCR.Checked = true;
-            }
-            else
-            {
-                editApliCeCR.Checked = false;
-            }
-            editSubCuCR.Text = Tabla.GetRowCellValue(r, "subCuenta_C_R").ToString();
-            editSubSCuCR.Text = Tabla.GetRowCellValue(r, "subSubCuenta_C_R").ToString();
-            editCuDR.Text = Tabla.GetRowCellValue(r, "cuenta_D_R").ToString();
-            if (Tabla.GetRowCellValue(r, "aplicaCentCost_D_R").ToString().ToString().Equals("True"))
-            {
-                editApliCeDR.Checked = true;
-            }
-            else
-            {
-                editApliCeDR.Checked = false;
-            }
-            editSubCuDR.Text = Tabla.GetRowCellValue(r, "subCuenta_D_R").ToString();
-            editSubSCuDR.Text = Tabla.GetRowCellValue(r, "subSubCuenta_D_R").ToString();
-            editCantidad.Text = Tabla.GetRowCellValue(r, "cantidad").ToString();
-            editImporte.Text = Tabla.GetRowCellValue(r, "importe").ToString();
-            numGpoA = Int32.Parse(Tabla.GetRowCellValue(r, "numGpo").ToString());
+                editSubCuCZ.Text = Tabla.GetRowCellValue(r, "subCuenta_C_Z").ToString();
+                editSubSCuCZ.Text = Tabla.GetRowCellValue(r, "subSubCuenta_C_Z").ToString();
+                editCuDZ.Text = Tabla.GetRowCellValue(r, "cuenta_D_Z").ToString();
+                if (Tabla.GetRowCellValue(r, "aplicaCentCost_D_Z").ToString().ToString().Equals("True"))
+                {
+                    editApliCeDZ.Checked = true;
+                }
+                else
+                {
+                    editApliCeDZ.Checked = false;
+                }
+                editSubCuDZ.Text = Tabla.GetRowCellValue(r, "subCuenta_D_Z").ToString();
+                editSubSCuDZ.Text = Tabla.GetRowCellValue(r, "subSubCuenta_D_Z").ToString();
+                editCuFR.Text = Tabla.GetRowCellValue(r, "cuenta_F_R").ToString();
+                if (Tabla.GetRowCellValue(r, "aplicaCentCost_F_R").ToString().ToString().Equals("True"))
+                {
+                    editApliCeFR.Checked = true;
+                }
+                else
+                {
+                    editApliCeFR.Checked = false;
+                }
+                editSubCuFR.Text = Tabla.GetRowCellValue(r, "subCuenta_F_R").ToString();
+                editSubSCuFR.Text = Tabla.GetRowCellValue(r, "subSubCuenta_F_R").ToString();
+                editCuAR.Text = Tabla.GetRowCellValue(r, "cuenta_A_R").ToString();
+                if (Tabla.GetRowCellValue(r, "aplicaCentCost_A_R").ToString().ToString().Equals("True"))
+                {
+                    editApliCeAR.Checked = true;
+                }
+                else
+                {
+                    editApliCeAR.Checked = false;
+                }
+                editSubCuAR.Text = Tabla.GetRowCellValue(r, "subCuenta_A_R").ToString();
+                editSubSCuAR.Text = Tabla.GetRowCellValue(r, "subSubCuenta_A_R").ToString();
+                editCuCR.Text = Tabla.GetRowCellValue(r, "cuenta_C_R").ToString();
+                if (Tabla.GetRowCellValue(r, "aplicaCentCost_C_R").ToString().ToString().Equals("True"))
+                {
+                    editApliCeCR.Checked = true;
+                }
+                else
+                {
+                    editApliCeCR.Checked = false;
+                }
+                editSubCuCR.Text = Tabla.GetRowCellValue(r, "subCuenta_C_R").ToString();
+                editSubSCuCR.Text = Tabla.GetRowCellValue(r, "subSubCuenta_C_R").ToString();
+                editCuDR.Text = Tabla.GetRowCellValue(r, "cuenta_D_R").ToString();
+                if (Tabla.GetRowCellValue(r, "aplicaCentCost_D_R").ToString().ToString().Equals("True"))
+                {
+                    editApliCeDR.Checked = true;
+                }
+                else
+                {
+                    editApliCeDR.Checked = false;
+                }
+                editSubCuDR.Text = Tabla.GetRowCellValue(r, "subCuenta_D_R").ToString();
+                editSubSCuDR.Text = Tabla.GetRowCellValue(r, "subSubCuenta_D_R").ToString();
+                editCantidad.Text = Tabla.GetRowCellValue(r, "cantidad").ToString();
+                editImporte.Text = Tabla.GetRowCellValue(r, "importe").ToString();
+                numGpoA = Int32.Parse(Tabla.GetRowCellValue(r, "numGpo").ToString());
 
-            this.tabControl1.SelectTab(1);
-            EnableControls(tabPage3);
+                this.tabControl1.SelectTab(1);
+                EnableControls(tabPage3);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
-            Cursor.Current = Cursors.WaitCursor;
+            try { 
+                Cursor.Current = Cursors.WaitCursor;
             
-            int r = Tabla.GetSelectedRows()[0];
-            GpoMateriales s = new GpoMateriales();
-            s.numGpo = Int16.Parse(Tabla.GetRowCellValue(r, "numGpo").ToString());
+                int r = Tabla.GetSelectedRows()[0];
+                GpoMateriales s = new GpoMateriales();
+                s.numGpo = Int16.Parse(Tabla.GetRowCellValue(r, "numGpo").ToString());
 
-            Object item = g.borrarGrupo(s);
+                Object item = g.borrarGrupo(s);
 
-            System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
-            System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
-            String message = (String)(m.GetValue(item, null));
-            int code = (int)(c.GetValue(item, null));
+                System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+                String message = (String)(m.GetValue(item, null));
+                int code = (int)(c.GetValue(item, null));
 
-            if (code == 1)
-            {
-                vaciarCamposBusq();
-                Recargar();
-                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                if (code == 1)
+                {
+                    vaciarCamposBusq();
+                    Recargar();
+                    MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
 
+                }
+                else if (code == 2)
+                {
+                    MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else if (code == 2)
+            catch (Exception ex)
             {
-                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void editApliCeFZ_CheckedChanged(object sender, EventArgs e)
@@ -448,41 +510,53 @@ namespace AplicacionAlmacen.Vista
             }
         }
         private void buscarFiltro(){
-            Cursor.Current = Cursors.WaitCursor;
-            if (editBusquedaNumG.Text!= "" || editBusquedaDesc.Text != "" )
-            {
-                var e = int.TryParse(editBusquedaNumG.Text, out int n);
-                if (editBusquedaNumG.Text==""){
-                    var x = g.GetGruposFiltros(editBusquedaNumG.Text.Equals("") ? -1 : Int32.Parse(editBusquedaNumG.Text), editBusquedaDesc.Text);
-                    bindingSource.DataSource = x.Count;
-                    GridControl.DataSource = x;
-                }
-                else
+            try { 
+                Cursor.Current = Cursors.WaitCursor;
+                if (editBusquedaNumG.Text!= "" || editBusquedaDesc.Text != "" )
                 {
-                    if (e)
-                    {
+                    var e = int.TryParse(editBusquedaNumG.Text, out int n);
+                    if (editBusquedaNumG.Text==""){
                         var x = g.GetGruposFiltros(editBusquedaNumG.Text.Equals("") ? -1 : Int32.Parse(editBusquedaNumG.Text), editBusquedaDesc.Text);
                         bindingSource.DataSource = x.Count;
                         GridControl.DataSource = x;
                     }
                     else
                     {
-                        MessageBox.Show("Id debe ser un numero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (e)
+                        {
+                            var x = g.GetGruposFiltros(editBusquedaNumG.Text.Equals("") ? -1 : Int32.Parse(editBusquedaNumG.Text), editBusquedaDesc.Text);
+                            bindingSource.DataSource = x.Count;
+                            GridControl.DataSource = x;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Id debe ser un numero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
+                
+                
                 }
-                
-                
+                else
+                {
+                    Recargar();
+                }
             }
-            else
+            catch (Exception ex)
             {
+                MessageBox.Show("Error: "+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+}
+        private void toolStripButton1_Click(object sender, EventArgs e){
+            try { 
+                Cursor.Current = Cursors.WaitCursor;
+                editBusquedaDesc.Text = "";
+                editBusquedaNumG.Text = "";
                 Recargar();
             }
-        }
-        private void toolStripButton1_Click(object sender, EventArgs e){
-            Cursor.Current = Cursors.WaitCursor;
-            editBusquedaDesc.Text = "";
-            editBusquedaNumG.Text = "";
-            Recargar();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public void Red()
         {
