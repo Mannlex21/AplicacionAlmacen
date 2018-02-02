@@ -25,7 +25,7 @@ namespace AplicacionAlmacen.Vista
 
         static Controlador.GruposControlador g =new Controlador.GruposControlador();
         static int totalRecords = 1;
-        static private int pageSize = 30;
+        static private int pageSize = 40;
         static List<GpoMateriales> records = new List<GpoMateriales>();
         int contT = 0;
         //E=editar,N=nuevo,s=sin seleccionar

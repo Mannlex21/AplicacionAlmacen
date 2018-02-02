@@ -26,7 +26,7 @@ namespace AplicacionAlmacen.Vista
         public string textGrupo;
         public string textSubGrupo;
         static int totalRecords = 1;
-        static private int pageSize = 30;
+        static private int pageSize = 40;
         string  carpetaImagen = Controlador.RutasGenerales.carpetaImagen;
         string carpetaAdjunto = Controlador.RutasGenerales.carpetaAdjunto;
 

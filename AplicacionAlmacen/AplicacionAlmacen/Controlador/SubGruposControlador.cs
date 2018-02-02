@@ -50,11 +50,11 @@ namespace AplicacionAlmacen.Controlador
                     IEnumerable<SubGrupos> query = bd.SubGrupos;
                     if (numGpo > -1)
                     {
-                        query = query.Where(s => s.grupo == numGpo);
+                        query = query.Where(s => s.grupo.ToString().Contains(numGpo.ToString()));
                     }
                     if (numSubGpo > -1)
                     {
-                        query = query.Where(s => s.subGrupo == numSubGpo);
+                        query = query.Where(s => s.subGrupo.ToString().Contains(numSubGpo.ToString()));
                     }
                     if (desc != "")
                     {
@@ -96,7 +96,6 @@ namespace AplicacionAlmacen.Controlador
                 return 0;
             }
         }
-
         public Object guardarSubGrupo(SubGrupos sub)
         {
             try

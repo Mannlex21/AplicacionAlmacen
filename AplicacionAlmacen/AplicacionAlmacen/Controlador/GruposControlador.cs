@@ -73,7 +73,7 @@ namespace AplicacionAlmacen.Controlador
                     }
                     if (noGpo > -1)
                     {
-                        query = query.Where(s => s.numGpo == noGpo);
+                        query = query.Where(s => s.numGpo.ToString().Contains(noGpo.ToString()));
                     }
                     var Results = query.OrderBy(s => s.numGpo).ToList();
                     return Results;

@@ -160,7 +160,7 @@ namespace AplicacionAlmacen.Controlador
                     IEnumerable<Materiales> query = bd.Materiales;
                     if (id > -1)
                     {
-                        query = query.Where(s => s.idMaterial==id);
+                        query = query.Where(s => s.idMaterial.ToString().Contains(id.ToString()));
                     }
                     if (desc != "")
                     {

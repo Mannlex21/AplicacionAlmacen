@@ -19,7 +19,7 @@ namespace AplicacionAlmacen.Vista
         static Controlador.SubGruposControlador sg = new Controlador.SubGruposControlador();
         public string textGrupo;
         static int totalRecords = 1;
-        static private int pageSize = 30;
+        static private int pageSize = 40;
         static List<SubGrupos> records = new List<SubGrupos>();
         int contT=0;
         //E=editar,N=nuevo,s=sin seleccionar
