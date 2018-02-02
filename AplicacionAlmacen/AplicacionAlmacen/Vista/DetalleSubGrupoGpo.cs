@@ -12,34 +12,30 @@ using DevExpress.LookAndFeel;
 
 namespace AplicacionAlmacen.Vista
 {
-    public partial class DetalleMaterialSubGrupo : DevExpress.XtraEditors.XtraForm
+    public partial class DetalleSubGrupoGpo : DevExpress.XtraEditors.XtraForm
     {
-        static Controlador.SubGruposControlador sg = new Controlador.SubGruposControlador();
-        CatalogoMateriales formLocal;
-        public DetalleMaterialSubGrupo(CatalogoMateriales formExterno)
+        static Controlador.GruposControlador g = new Controlador.GruposControlador();
+        CatalogoSubGrupos formLocal;
+        public DetalleSubGrupoGpo(CatalogoSubGrupos formExterno)
         {
             InitializeComponent();
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
-            try
-            {
+            try { 
                 formLocal = formExterno;
-                GridControl.DataSource = sg.GetAllSubGrupos();
+                GridControl.DataSource = g.GetAllGruposLigero();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        void GridControl_DoubleClick(object sender, EventArgs e)
+
+        private void GridControl_DoubleClick(object sender, EventArgs e)
         {
-            try
-            {
+            try { 
                 int r = Tabla.GetSelectedRows()[0];
-                string grupo = Tabla.GetRowCellValue(r, "grupo").ToString();
-                string subGrupo = Tabla.GetRowCellValue(r, "subGrupo").ToString();
-                formLocal.textSubGrupo = subGrupo;
+                string grupo = Tabla.GetRowCellValue(r, "numGpo").ToString();
                 formLocal.textGrupo = grupo;
-                formLocal.setTextSubGrupo();
                 formLocal.setTextGrupo();
                 this.Close();
             }

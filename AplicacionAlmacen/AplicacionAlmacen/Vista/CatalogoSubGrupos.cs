@@ -17,7 +17,7 @@ namespace AplicacionAlmacen.Vista
     public partial class CatalogoSubGrupos : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         static Controlador.SubGruposControlador sg = new Controlador.SubGruposControlador();
-
+        public string textGrupo;
         static int totalRecords = 1;
         static private int pageSize = 30;
         static List<SubGrupos> records = new List<SubGrupos>();
@@ -29,19 +29,37 @@ namespace AplicacionAlmacen.Vista
             InitializeComponent();
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             WindowState = FormWindowState.Maximized;
-            bindingNavigator.BindingSource = bindingSource;
-            bindingSource.CurrentChanged += new System.EventHandler(bindingSource_CurrentChanged);
-            bindingSource.DataSource = new PageOffsetList();
-            NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
+            try
+            {
+                bindingNavigator.BindingSource = bindingSource;
+                bindingSource.CurrentChanged += new System.EventHandler(bindingSource_CurrentChanged);
+                bindingSource.DataSource = new PageOffsetList();
+                NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        internal void setTextGrupo()
+        {
+            editGrupo.Text = textGrupo;
         }
         private void bindingSource_CurrentChanged(object sender, EventArgs e){
-            if (bindingSource.Current is null)
+            try
             {
-                GridControlSub.DataSource = null;
+                if (bindingSource.Current is null)
+                {
+                    GridControlSub.DataSource = null;
+                }
+                else
+                {
+                    GridControlSub.DataSource = sg.GetSubGrupos(((int)bindingSource.Current / pageSize), pageSize);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                GridControlSub.DataSource = sg.GetSubGrupos(((int)bindingSource.Current / pageSize), pageSize);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         class PageOffsetList : System.ComponentModel.IListSource{
@@ -58,154 +76,201 @@ namespace AplicacionAlmacen.Vista
             }
         }
         private void Recargar(){
-            bindingNavigator.BindingSource = bindingSource;
-            bindingSource.CurrentChanged += new EventHandler(bindingSource_CurrentChanged);
-            bindingSource.DataSource = new PageOffsetList();
+            try
+            {
+                bindingNavigator.BindingSource = bindingSource;
+                bindingSource.CurrentChanged += new EventHandler(bindingSource_CurrentChanged);
+                bindingSource.DataSource = new PageOffsetList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void AvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
         {
             Red();
         }
         private void btnActualizar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
-            Cursor.Current = Cursors.WaitCursor;
-            Recargar();
+            try { 
+                Cursor.Current = Cursors.WaitCursor;
+                Recargar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void btnNuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
-            Cursor.Current = Cursors.WaitCursor;
-            tipo = 'N';
-            this.tabControl1.SelectTab(1);
-            ResetControls(tabPage2);
-            EnableControls(tabPage2);
+            try { 
+                Cursor.Current = Cursors.WaitCursor;
+                tipo = 'N';
+                this.tabControl1.SelectTab(1);
+                ResetControls(tabPage2);
+                EnableControls(tabPage2);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void btnCancelar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
-            Cursor.Current = Cursors.WaitCursor;
-            ResetControls(tabPage2);
-            DisableControls(tabPage2);
-            tipo = 's';
+            try { 
+                Cursor.Current = Cursors.WaitCursor;
+                this.tabControl1.SelectTab(0);
+                ResetControls(tabPage2);
+                DisableControls(tabPage2);
+                tipo = 's';
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void btnGuardar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
-            Cursor.Current = Cursors.WaitCursor;
-            if (tipo.Equals('N'))
-            {
-                CheckControls(tabPage2);
-                if (contT == 0)
+            try { 
+                Cursor.Current = Cursors.WaitCursor;
+                if (tipo.Equals('N'))
                 {
-                    vaciarCamposBusq();
-                    SubGrupos s = new SubGrupos();
-                    s.descripcion = editDescripcion.Text;
-                    s.grupo = Int16.Parse(editGrupo.Text);
-                    s.subGrupo = Int16.Parse(editSubGrupo.Text);
-
-                    Object item = sg.guardarSubGrupo(s);
-
-                    System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
-                    System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
-                    String message = (String)(m.GetValue(item, null));
-                    int code = (int)(c.GetValue(item, null));
-
-                    if (code == 1)
+                    CheckControls(tabPage2);
+                    if (contT == 0)
                     {
-                        ResetControls(tabPage2);
-                        DisableControls(tabPage2);
-                        tipo = 's';
-                        Recargar();
-                        MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        vaciarCamposBusq();
+                        SubGrupos s = new SubGrupos();
+                        s.descripcion = editDescripcion.Text;
+                        s.grupo = Int16.Parse(editGrupo.Text);
+                        s.subGrupo = Int16.Parse(editSubGrupo.Text);
+
+                        Object item = sg.guardarSubGrupo(s);
+
+                        System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                        System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+                        String message = (String)(m.GetValue(item, null));
+                        int code = (int)(c.GetValue(item, null));
+
+                        if (code == 1)
+                        {
+                            ResetControls(tabPage2);
+                            DisableControls(tabPage2);
+                            tipo = 's';
+                            Recargar();
+                            this.tabControl1.SelectTab(0);
+                            MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        }
+                        else if (code == 2)
+                        {
+                            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else if (code == 2)
+                    else
                     {
-                        MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    contT = 0;
+
                 }
-                else
+                else if(tipo.Equals('E')){
+                    CheckControls(tabPage2);
+                    if (contT == 0)
+                    {
+                        vaciarCamposBusq();
+                        SubGrupos s = new SubGrupos();
+                        s.descripcion = editDescripcion.Text;
+                        s.grupo = Int16.Parse(editGrupo.Text);
+                        s.subGrupo = Int16.Parse(editSubGrupo.Text);
+
+                        Object item = sg.editarSubGrupo(s,grupoA,subGrupoA);
+
+                        System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                        System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+                        String message = (String)(m.GetValue(item, null));
+                        int code = (int)(c.GetValue(item, null));
+
+                        if (code == 1)
+                        {
+                            ResetControls(tabPage2);
+                            DisableControls(tabPage2);
+                            tipo = 's';
+                            Recargar();
+                            this.tabControl1.SelectTab(0);
+                            MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        }
+                        else if (code == 2)
+                        {
+                            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    contT = 0;
+                }
+                else if (tipo.Equals('s'))
                 {
-                    MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                contT = 0;
 
+                }
             }
-            else if(tipo.Equals('E')){
-                CheckControls(tabPage2);
-                if (contT == 0)
-                {
-                    vaciarCamposBusq();
-                    SubGrupos s = new SubGrupos();
-                    s.descripcion = editDescripcion.Text;
-                    s.grupo = Int16.Parse(editGrupo.Text);
-                    s.subGrupo = Int16.Parse(editSubGrupo.Text);
-
-                    Object item = sg.editarSubGrupo(s,grupoA,subGrupoA);
-
-                    System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
-                    System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
-                    String message = (String)(m.GetValue(item, null));
-                    int code = (int)(c.GetValue(item, null));
-
-                    if (code == 1)
-                    {
-                        ResetControls(tabPage2);
-                        DisableControls(tabPage2);
-                        tipo = 's';
-                        Recargar();
-                        MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    }
-                    else if (code == 2)
-                    {
-                        MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Se deben de llenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                contT = 0;
-            }
-            else if (tipo.Equals('s'))
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnBorrar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
-            Cursor.Current = Cursors.WaitCursor;
-            int r=TablaSub.GetSelectedRows()[0];
-            SubGrupos s = new SubGrupos();
-            s.descripcion = TablaSub.GetRowCellValue(r, "descripcion").ToString();
-            s.grupo = Int16.Parse(TablaSub.GetRowCellValue(r, "grupo").ToString());
-            s.subGrupo = Int16.Parse(TablaSub.GetRowCellValue(r, "subGrupo").ToString());
-
-            Object item = sg.borrarSubGrupo(s);
-
-            System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
-            System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
-            String message = (String)(m.GetValue(item, null));
-            int code = (int)(c.GetValue(item, null));
-
-            if (code == 1)
+            try
             {
-                vaciarCamposBusq();
-                Recargar();
-                MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+                Cursor.Current = Cursors.WaitCursor;
+                int r = TablaSub.GetSelectedRows()[0];
+                SubGrupos s = new SubGrupos();
+                s.descripcion = TablaSub.GetRowCellValue(r, "descripcion").ToString();
+                s.grupo = Int16.Parse(TablaSub.GetRowCellValue(r, "grupo").ToString());
+                s.subGrupo = Int16.Parse(TablaSub.GetRowCellValue(r, "subGrupo").ToString());
 
+                Object item = sg.borrarSubGrupo(s);
+
+                System.Reflection.PropertyInfo m = item.GetType().GetProperty("message");
+                System.Reflection.PropertyInfo c = item.GetType().GetProperty("code");
+                String message = (String)(m.GetValue(item, null));
+                int code = (int)(c.GetValue(item, null));
+
+                if (code == 1)
+                {
+                    vaciarCamposBusq();
+                    Recargar();
+                    MessageBox.Show(message, "OK", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                }
+                else if (code == 2)
+                {
+                    MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else if (code == 2)
+            catch (Exception ex)
             {
-                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnEditar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e){
-            Cursor.Current = Cursors.WaitCursor;
-            grupoA = 0;
-            subGrupoA = 0;
-            ResetControls(tabPage2);
-            tipo = 'E';
-            int r = TablaSub.GetSelectedRows()[0];
-            editDescripcion.Text = TablaSub.GetRowCellValue(r, "descripcion").ToString();
-            editGrupo.Text = TablaSub.GetRowCellValue(r, "grupo").ToString();
-            editSubGrupo.Text = TablaSub.GetRowCellValue(r, "subGrupo").ToString();
-            grupoA = Int16.Parse(TablaSub.GetRowCellValue(r, "grupo").ToString());
-            subGrupoA = Int16.Parse(TablaSub.GetRowCellValue(r, "subGrupo").ToString());
+            try { 
+                Cursor.Current = Cursors.WaitCursor;
+                grupoA = 0;
+                subGrupoA = 0;
+                ResetControls(tabPage2);
+                tipo = 'E';
+                int r = TablaSub.GetSelectedRows()[0];
+                editDescripcion.Text = TablaSub.GetRowCellValue(r, "descripcion").ToString();
+                editGrupo.Text = TablaSub.GetRowCellValue(r, "grupo").ToString();
+                editSubGrupo.Text = TablaSub.GetRowCellValue(r, "subGrupo").ToString();
+                grupoA = Int16.Parse(TablaSub.GetRowCellValue(r, "grupo").ToString());
+                subGrupoA = Int16.Parse(TablaSub.GetRowCellValue(r, "subGrupo").ToString());
 
-            this.tabControl1.SelectTab(1);
-            EnableControls(tabPage2);
+                this.tabControl1.SelectTab(1);
+                EnableControls(tabPage2);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void CatalogoSubGrupos_Load(object sender, EventArgs e){
             DisableControls(tabPage2);
@@ -292,46 +357,60 @@ namespace AplicacionAlmacen.Vista
         }
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
-            editBusquedaDesc.Text = "";
-            editBusquedaGpo.Text = "";
-            editBusquedaSub.Text = "";
-            Recargar();
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                editBusquedaDesc.Text = "";
+                editBusquedaGpo.Text = "";
+                editBusquedaSub.Text = "";
+                Recargar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void buscarFiltro(){
-            Cursor.Current = Cursors.WaitCursor;
-            if (editBusquedaDesc.Text!= "" || editBusquedaGpo.Text != "" || editBusquedaSub.Text != "")
+            try
             {
-                //var e = int.TryParse(editBusquedaGpo.Text, out int n);
-                //var e2 = int.TryParse(editBusquedaSub.Text, out int y);
-                if (editBusquedaGpo.Text == "" && editBusquedaSub.Text == "")
+                Cursor.Current = Cursors.WaitCursor;
+                if (editBusquedaDesc.Text != "" || editBusquedaGpo.Text != "" || editBusquedaSub.Text != "")
                 {
-                    var x = sg.GetSubGruposFiltros(editBusquedaGpo.Text.Equals("") ? -1 : Int32.Parse(editBusquedaGpo.Text), editBusquedaSub.Text.Equals("") ? -1 : Int32.Parse(editBusquedaSub.Text), editBusquedaDesc.Text);
-                    bindingSource.DataSource = x.Count;
-                    GridControlSub.DataSource = x;
-                }
-                else
-                {
-                    var e = editBusquedaGpo.Text.Equals("") ? -1 : int.TryParse(editBusquedaGpo.Text, out int n)? Int32.Parse(editBusquedaGpo.Text):-2;
-                    var e2 = editBusquedaSub.Text.Equals("") ? -1 : int.TryParse(editBusquedaSub.Text, out int y) ? Int32.Parse(editBusquedaSub.Text) : -2;
-                    if(e2==-2 || e == -2)
-                    {
-                        MessageBox.Show("Grupo y SubGrupo deben ser un numero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
+                    //var e = int.TryParse(editBusquedaGpo.Text, out int n);
+                    //var e2 = int.TryParse(editBusquedaSub.Text, out int y);
+                    if (editBusquedaGpo.Text == "" && editBusquedaSub.Text == "")
                     {
                         var x = sg.GetSubGruposFiltros(editBusquedaGpo.Text.Equals("") ? -1 : Int32.Parse(editBusquedaGpo.Text), editBusquedaSub.Text.Equals("") ? -1 : Int32.Parse(editBusquedaSub.Text), editBusquedaDesc.Text);
                         bindingSource.DataSource = x.Count;
                         GridControlSub.DataSource = x;
                     }
-                    
+                    else
+                    {
+                        var e = editBusquedaGpo.Text.Equals("") ? -1 : int.TryParse(editBusquedaGpo.Text, out int n) ? Int32.Parse(editBusquedaGpo.Text) : -2;
+                        var e2 = editBusquedaSub.Text.Equals("") ? -1 : int.TryParse(editBusquedaSub.Text, out int y) ? Int32.Parse(editBusquedaSub.Text) : -2;
+                        if (e2 == -2 || e == -2)
+                        {
+                            MessageBox.Show("Grupo y SubGrupo deben ser un numero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            var x = sg.GetSubGruposFiltros(editBusquedaGpo.Text.Equals("") ? -1 : Int32.Parse(editBusquedaGpo.Text), editBusquedaSub.Text.Equals("") ? -1 : Int32.Parse(editBusquedaSub.Text), editBusquedaDesc.Text);
+                            bindingSource.DataSource = x.Count;
+                            GridControlSub.DataSource = x;
+                        }
+
+                    }
+
+
                 }
-                
-                
+                else
+                {
+                    Recargar();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Recargar();
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void vaciarCamposBusq()
@@ -347,6 +426,15 @@ namespace AplicacionAlmacen.Vista
         private void editBusquedaGpo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void editGrupo_Click(object sender, EventArgs e)
+        {
+            getGrupo();
+        }
+        private void getGrupo()
+        {
+            new DetalleSubGrupoGpo(this).Show();
         }
         public void Red()
         {

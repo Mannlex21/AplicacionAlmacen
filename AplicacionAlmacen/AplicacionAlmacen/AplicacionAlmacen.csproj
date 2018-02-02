@@ -239,6 +239,12 @@
     <Compile Include="Vista\DetalleSolicitudAdj.Designer.cs">
       <DependentUpon>DetalleSolicitudAdj.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\DetalleSubGrupoGpo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\DetalleSubGrupoGpo.Designer.cs">
+      <DependentUpon>DetalleSubGrupoGpo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\DetalleSolicitudAdj.resx">
       <DependentUpon>DetalleSolicitudAdj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\DetalleSubGrupoGpo.resx">
+      <DependentUpon>DetalleSubGrupoGpo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

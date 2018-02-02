@@ -221,8 +221,8 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnActualizar);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnNuevo);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnGuardar);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnCancelar);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnEditar);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnCancelar);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnBorrar);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
@@ -537,7 +537,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(768, 336);
+            this.tabPage2.Size = new System.Drawing.Size(768, 335);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Formulario";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -551,7 +551,7 @@
             this.layoutControl2.Location = new System.Drawing.Point(3, 3);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(762, 330);
+            this.layoutControl2.Size = new System.Drawing.Size(762, 329);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -577,9 +577,12 @@
             this.editGrupo.Properties.Mask.EditMask = "\\d+";
             this.editGrupo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.editGrupo.Properties.MaxLength = 4;
+            this.editGrupo.Properties.ReadOnly = true;
+            this.editGrupo.Properties.UseReadOnlyAppearance = false;
             this.editGrupo.Size = new System.Drawing.Size(297, 30);
             this.editGrupo.StyleController = this.layoutControl2;
             this.editGrupo.TabIndex = 0;
+            this.editGrupo.Click += new System.EventHandler(this.editGrupo_Click);
             // 
             // editSubGrupo
             // 
@@ -602,7 +605,7 @@
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup5});
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(762, 330);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(762, 329);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlGroup5
@@ -615,7 +618,7 @@
             this.layoutControlItem6});
             this.layoutControlGroup5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup5.Name = "layoutControlGroup5";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(742, 310);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(742, 309);
             this.layoutControlGroup5.Text = "Informacion";
             // 
             // emptySpaceItem1
@@ -624,7 +627,7 @@
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 98);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(718, 170);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(718, 169);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2

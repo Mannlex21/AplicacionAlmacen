@@ -238,10 +238,8 @@ namespace AplicacionAlmacen.Controlador
                 {
                     Object result = "";
                     AlmacenEntities db = new AlmacenEntities();
-                    var us = from u in db.Materiales select u;
-                    us = us.Where(u => u.idMaterial == material.idMaterial);
-                    var x = us.FirstOrDefault();
-                    if (us.FirstOrDefault() == null)
+                    var us = db.Materiales.Where(u => u.idMaterial == material.idMaterial).FirstOrDefault();
+                    if (us == null)
                     {
                         bd.Materiales.Add(material);
                         bd.SaveChanges();
@@ -251,7 +249,7 @@ namespace AplicacionAlmacen.Controlador
                     }
                     else
                     {
-                        result = new { message = "Ya existe este grupo: " + material.idMaterial, code = 2 };
+                        result = new { message = "Ya existe este material: " + material.idMaterial, code = 2 };
                     }
 
                     return result;

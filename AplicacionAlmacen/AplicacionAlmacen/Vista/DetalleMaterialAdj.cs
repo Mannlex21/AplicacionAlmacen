@@ -22,46 +22,54 @@ namespace AplicacionAlmacen.Vista
         {
             InitializeComponent();
             UserLookAndFeel.Default.SetSkinStyle("The Bezier");
-            List<Archivo> a = new List<Archivo>();
-            NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
-            if (Directory.Exists(CatalogoMateriales.directorio))
+            try
             {
-                String[] files = Directory.GetFiles(CatalogoMateriales.directorio);
-                
-                for (int i = 0; i < files.Length; i++)
+                List<Archivo> a = new List<Archivo>();
+                NetworkChange.NetworkAvailabilityChanged += AvailabilityChanged;
+                if (Directory.Exists(CatalogoMateriales.directorio))
                 {
-                    FileInfo file = new FileInfo(files[i]);
-                    a.Add(new Archivo
+                    String[] files = Directory.GetFiles(CatalogoMateriales.directorio);
+
+                    for (int i = 0; i < files.Length; i++)
                     {
-                        archivo = file.Name
-                    });
+                        FileInfo file = new FileInfo(files[i]);
+                        a.Add(new Archivo
+                        {
+                            archivo = file.Name
+                        });
+                    }
+
+                    if (a.Count == 0)
+                    {
+                        Shown += (s, e1) =>
+                        {
+                            Thread t = new Thread(() => Thread.Sleep(1000));
+                            t.Start();
+                            t.Join();
+                            MessageBox.Show("No hay datos adjuntos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        };
+                    }
+                    else
+                    {
+                        GridControl.DataSource = a;
+                    }
+
                 }
-                
-                if (a.Count == 0)
+                else
                 {
-                    Shown += (s, e1) => {
+                    Shown += (s, e1) =>
+                    {
                         Thread t = new Thread(() => Thread.Sleep(1000));
                         t.Start();
                         t.Join();
                         MessageBox.Show("No hay datos adjuntos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     };
                 }
-                else
-                {
-                    GridControl.DataSource = a;
-                }
-                
             }
-            else
+            catch (Exception ex)
             {
-                Shown += (s, e1) => {
-                    Thread t = new Thread(() => Thread.Sleep(1000));
-                    t.Start();
-                    t.Join();
-                    MessageBox.Show("No hay datos adjuntos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                };
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
 
         }
         class Archivo
