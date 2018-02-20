@@ -17,8 +17,8 @@ namespace AplicacionAlmacen.Modelo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Solicitud_Requisiciones()
         {
-            this.DetalleRequisicion2 = new HashSet<DetalleRequisicion2>();
             this.DetalleRequisicion = new HashSet<DetalleRequisicion>();
+            this.DetalleRequisicion2 = new HashSet<DetalleRequisicion2>();
         }
     
         public int preRequisicion { get; set; }
@@ -34,17 +34,20 @@ namespace AplicacionAlmacen.Modelo
         public int ejercicio { get; set; }
         public Nullable<int> solicitante { get; set; }
         public string observaciones { get; set; }
-        public Nullable<bool> liberaLocal { get; set; }
-        public Nullable<bool> liberaSeguridad { get; set; }
-        public Nullable<bool> liberaCapitalHumano { get; set; }
-        public Nullable<bool> liberaElectrico { get; set; }
-        public Nullable<bool> liberaAlmacen { get; set; }
+        public string liberaLocal { get; set; }
+        public string liberaSeguridad { get; set; }
+        public string liberaCapitalHumano { get; set; }
+        public string liberaElectrico { get; set; }
+        public string liberaAlmacen { get; set; }
         public string anexo { get; set; }
+        public Nullable<short> departamentoSolicitante { get; set; }
+        public string estatus { get; set; }
+        public string partidaPresupuestal { get; set; }
     
         public virtual Departamentos Departamentos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetalleRequisicion2> DetalleRequisicion2 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleRequisicion> DetalleRequisicion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DetalleRequisicion2> DetalleRequisicion2 { get; set; }
     }
 }

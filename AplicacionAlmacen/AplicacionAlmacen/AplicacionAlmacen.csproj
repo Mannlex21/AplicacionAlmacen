@@ -159,6 +159,9 @@
     <Compile Include="Modelo\DetallesUsuarios.cs">
       <DependentUpon>AlmacenEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\DetallesUsuarios2.cs">
+      <DependentUpon>AlmacenEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\GpoMateriales.cs">
       <DependentUpon>AlmacenEntities.tt</DependentUpon>
     </Compile>
@@ -175,6 +178,9 @@
       <DependentUpon>AlmacenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\sysdiagrams.cs">
+      <DependentUpon>AlmacenEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\UsuarioDepartamento.cs">
       <DependentUpon>AlmacenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Usuarios.cs">

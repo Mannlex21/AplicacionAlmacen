@@ -17,8 +17,8 @@ namespace AplicacionAlmacen.Modelo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Materiales()
         {
-            this.MaterialesContable = new HashSet<MaterialesContable>();
             this.AdjuntoMateriales = new HashSet<AdjuntoMateriales>();
+            this.MaterialesContable = new HashSet<MaterialesContable>();
         }
     
         public int idMaterial { get; set; }
@@ -44,8 +44,8 @@ namespace AplicacionAlmacen.Modelo
         public string adjunto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MaterialesContable> MaterialesContable { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AdjuntoMateriales> AdjuntoMateriales { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MaterialesContable> MaterialesContable { get; set; }
     }
 }

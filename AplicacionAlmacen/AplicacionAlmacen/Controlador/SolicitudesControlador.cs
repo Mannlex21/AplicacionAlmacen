@@ -16,8 +16,8 @@ namespace AplicacionAlmacen.Controlador
             try { 
                 using (var bd = new AlmacenEntities())
                 {
-                    var list = bd.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano==true
-                    && s.liberaElectrico == true && s.liberaSeguridad == true && s.requisicion=="n/a" && s.liberaAlmacen == false);
+                    var list = bd.Solicitud_Requisiciones.Where(s => s.liberaLocal == "A" && s.liberaCapitalHumano == "A"
+                    && s.liberaElectrico == "A" && s.liberaSeguridad == "A" && s.requisicion=="n/a" && s.liberaAlmacen == "P");
                     return  list.ToList();
                 }
             }
@@ -35,8 +35,8 @@ namespace AplicacionAlmacen.Controlador
                 int cont = 0;
                 using (SqlConnection con = new SqlConnection(connection.ConnectionString))
                 {
-                    string query = "SELECT COUNT(*) FROM Solicitud_Requisiciones WHERE liberaLocal=1 AND liberaCapitalHumano=1 " +
-                        "AND liberaElectrico=1 AND liberaSeguridad=1 AND liberaAlmacen=0 AND requisicion='n/a'";
+                    string query = "SELECT COUNT(*) FROM Solicitud_Requisiciones WHERE liberaLocal='A' AND liberaCapitalHumano='A' " +
+                        "AND liberaElectrico='A' AND liberaSeguridad='A' AND liberaAlmacen='P' AND requisicion='n/a'";
                     using (SqlCommand cmd = new SqlCommand(query))
                     {
                         cmd.Connection = con;
@@ -60,16 +60,16 @@ namespace AplicacionAlmacen.Controlador
                 int pageIndex = Convert.ToInt32(page);
                 if (depa == "")
                 {
-                    var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
-                        && s.liberaElectrico == true && s.liberaSeguridad == true && s.liberaAlmacen == false && s.requisicion == "n/a")
+                    var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == "A" && s.liberaCapitalHumano == "A"
+                        && s.liberaElectrico == "A" && s.liberaSeguridad == "A" && s.liberaAlmacen == "P" && s.requisicion == "n/a")
                         .OrderBy(s => s.preRequisicion).Skip(pageIndex * pageSize).Take(pageSize);
                     return Results.ToList();
                 }
                 else
                 {
                     var dep = DB.Departamentos.Where(s => s.descripcion == depa).FirstOrDefault();
-                    var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
-                        && s.liberaElectrico == true && s.liberaSeguridad == true && s.liberaAlmacen == false && s.requisicion == "n/a" && s.departamento == dep.idDepartamento)
+                    var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == "A" && s.liberaCapitalHumano == "A"
+                        && s.liberaElectrico == "A" && s.liberaSeguridad == "A" && s.liberaAlmacen == "P" && s.requisicion == "n/a" && s.departamento == dep.idDepartamento)
                         .OrderBy(s => s.preRequisicion).Skip(pageIndex * pageSize).Take(pageSize);
                     return Results.ToList();
                 }
@@ -88,16 +88,16 @@ namespace AplicacionAlmacen.Controlador
                 AlmacenEntities DB = new AlmacenEntities();
                 if (depa == "")
                 {
-                    var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
-                        && s.liberaElectrico == true && s.liberaSeguridad == true && s.liberaAlmacen == false && s.requisicion == "n/a")
+                    var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == "A" && s.liberaCapitalHumano == "A"
+                        && s.liberaElectrico == "A" && s.liberaSeguridad == "A" && s.liberaAlmacen == "P" && s.requisicion == "n/a")
                         .OrderBy(s => s.preRequisicion).ToList();
                     return Results;
                 }
                 else
                 {
                     var dep = DB.Departamentos.Where(s => s.descripcion == depa).FirstOrDefault();
-                    var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == true && s.liberaCapitalHumano == true
-                        && s.liberaElectrico == true && s.liberaSeguridad == true && s.liberaAlmacen == false && s.requisicion == "n/a" && s.departamento == dep.idDepartamento)
+                    var Results = DB.Solicitud_Requisiciones.Where(s => s.liberaLocal == "A" && s.liberaCapitalHumano == "A"
+                        && s.liberaElectrico == "A" && s.liberaSeguridad == "A" && s.liberaAlmacen == "P" && s.requisicion == "n/a" && s.departamento == dep.idDepartamento)
                         .OrderBy(s => s.preRequisicion).ToList();
                     return Results;
                 }
@@ -245,7 +245,7 @@ namespace AplicacionAlmacen.Controlador
                     var connection = context.Database.Connection;
                     using (SqlConnection con = new SqlConnection(connection.ConnectionString))
                     {
-                        string query = "UPDATE Solicitud_Requisiciones SET requisicion='" + clave + "' WHERE preRequisicion=" + id;
+                        string query = "UPDATE Solicitud_Requisiciones SET requisicion='" + clave + "', liberaAlmacen='A' WHERE preRequisicion=" + id+" and departamento="+departamento+" and ejercicio="+ejercicio;
                         using (SqlCommand cmd = new SqlCommand(query))
                         {
                             cmd.Connection = con;
@@ -259,7 +259,7 @@ namespace AplicacionAlmacen.Controlador
                 }
                 else
                 {
-                    result = new { message = "Actualmente hay existencia de los materiales" + clave, code = 2 };
+                    result = new { message = "Actualmente hay existencia de los materiales " + clave, code = 2 };
                     return result;
                 }
                 
